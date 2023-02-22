@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.header-yllw{
+  padding-bottom: 0.5rem!important;
+  background-color: #ffc107;
+}
+
+.header-ble{
+  padding-bottom: 2rem!important;
+  background-color: #144a9a;
+}
