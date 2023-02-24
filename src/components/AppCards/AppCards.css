@@ -1,0 +1,36 @@
+
+/* middle section of the page */
+
+.container-values {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    
+  }
+  /* Styles for the left section */
+  .left-section {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid blue;
+  }
+  /* Styles for the middle section */
+  .middle-section {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid green;
+  }
+  /* Styles for the right section */
+  .right-section {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid red;
+  }
+  /* Styles for the separator */
+  .separator {
+    width: 2px;
+    background-color: black;
+    margin: 0 20px;
+  }
