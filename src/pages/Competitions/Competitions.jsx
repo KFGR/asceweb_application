@@ -1,11 +1,11 @@
-<link ref="Competitions" href="Competitions.css"/>
 import "./Competitions.css";
 import React from "react";
 
 function template() {
   return (
-    <div className="competitions">
-      <h1 classHeaderOne="title">Competitions</h1> //css class for page title is classHeaderOne and has the name "title"
+    <div className="Competitions">
+      <section>
+      <h1 className = 'classHeaderOne'>Competitions</h1> {/*css class for page title is classHeaderOne and has the name "title"*/}
       <h2>There are several ASCE competitions.</h2>
       <h3>All of the following regional competitions will be held from March 23, 2023 to March 25, 2023.</h3>
  
@@ -33,6 +33,7 @@ function template() {
       <li>8. T-Shirt Contest</li>
       <li>9. Mystery Competition</li>
       </ol>
+      </section>
     </div>
   );
 };
