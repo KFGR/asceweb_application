@@ -1,8 +1,12 @@
 import "./Home.css";
 import React from "react";
 import AppHeader from "../../components/AppHeader";
+import {AppCards} from "../../components/AppCards";
+import contents from "./contents";
 // import AppHeader from "../../Components/AppHeader";
 // import Cards from "../../Components/Cards/Cards";
+
+
 function template() {
   return (
     <div className="home">
@@ -32,11 +36,16 @@ function template() {
       {/* Section divider */}
       <div className="container-fluid py-2 header-yllw"/> 
 
-      {/* <section id='cards'>
-        <Cards></Cards>
-      </section> */}
-
-
+      <section id='AppCards'>
+        {contents.map(contents=>(
+          <AppCards
+              key={contents.id}
+              mission={contents.mission}
+              vision={contents.vision}
+              value={contents.value}
+              />
+        ))}
+      </section>
 </div>
   );
 };
