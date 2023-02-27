@@ -36,6 +36,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes,  Route } from 'react-router-dom';
 import Home from './pages/Home';
+import Sponsors from './pages/Sponsors';
 // import NavegationBar from './Components/NavegationBar';
 // import AppHeader from './Components/AppHeader';
 // import About from './views/About';
@@ -52,7 +53,8 @@ const App = () => {
         {/* </nav> */}
         <Routes>
           <Route  path='/' element={<Home/>}/>
-          <Route  path='/home' element={<Home/>}/> 
+          <Route  path='/home' element={<Home/>}/>
+          <Route  path='/Sponsors' element={<Sponsors/>}/> 
           {/* <Route exact path='/team' element={<Team/>}/>  */}
           {/* <Route path='/about' component={About} /> */}
           {/* <Route path='/contact' component={Contact} /> */}

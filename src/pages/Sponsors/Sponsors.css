@@ -1,0 +1,39 @@
+.section-rewards{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid black;
+    padding: 50px;
+}
+
+table{
+    width: 70%;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+th,td {
+    border: 5px solid rgb(255, 255, 255);
+    padding: 5px;
+    background-color: rgb(243, 239, 239);
+    border-radius: 15px;
+
+}
+
+td{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+th {
+    padding-left: 10px;
+    width: 200px;
+    background-color: #144a9a;
+    color: white;
+}
+
+p{
+    margin: 0px;
+
+}
