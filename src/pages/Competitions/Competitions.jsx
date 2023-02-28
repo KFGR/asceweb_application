@@ -7,13 +7,14 @@ function template() {
       <section>
       <h1 className = 'classHeaderOne'>Competitions</h1> {/*css class for page title is classHeaderOne and has the name "title"*/}
       <h2>There are several ASCE competitions.</h2>
+      </section>
       <h3>All of the following regional competitions will be held from March 23, 2023 to March 25, 2023.</h3>
- 
       
-
-      <h4>Of these competitions, the most important are:</h4>
-      <div>     
+      
+      <section>
+      <div>
       <ol className = 'firstCompetitionsList'>
+      <h4>Of these competitions, the most important are:</h4>
       <li>Concrete Canoe</li>
       <li>Steel Bridge</li>
       <li>Timber Strong</li>
@@ -27,8 +28,8 @@ function template() {
 
       <section>
       <div>
-      <h5>The rest are:</h5>
       <ol className="secondCompetitionList">
+      <h5>The rest are:</h5>
       <li>Concrete Bridge</li>
       <li>Traffic Control</li>
       <li>Geo-Wall</li>

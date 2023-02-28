@@ -1,5 +1,6 @@
 .Competitions{
     background-color:midnightblue; /*RGB(25 25 112)*/
+    width: 100%;
 }
 
 .classHeaderOne{
@@ -11,13 +12,17 @@
 }
 
 .firstCompetitionsList{
+    background-color: midnightblue;
     float:left;
-    width: 49.9%;
+    width: 45%;
+    margin-top: -20px;
 }
 
 .secondCompetitionList{
+    background-color: midnightblue;
     float: right;
-    width: 30%;
+    width: 49%;
+    margin-top: -20px;
 }
 
 /*ol{
