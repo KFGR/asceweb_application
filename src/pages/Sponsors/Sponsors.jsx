@@ -93,6 +93,62 @@ function template() {
             <td><img src={checkmark} alt="Checkmark"/></td>
           </tr>
         </table>
+      </div>
+
+      <div className="section-contact">
+        <h2>Connect With Us</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, 
+          doloribus nisi? Tenetur ut a officia repudiandae eius, explicabo reprehenderit eos delectus.</p>
+        <div className="contact-box">
+          <div className="contact-left">
+            <h3>Send us a message</h3>
+            <form action="https://formsubmit.co/johnrodricres@gmail.com" method="POST">
+              <div className="input-row">
+                <div className="input-group">
+                  <label>Name</label>
+                  <input type="text" placeholder="John Rodriguez" name="name"/>
+                </div>
+                <div className="input-group">
+                  <label>Subject</label>
+                  <input type="text" placeholder="What" name="subject"/>
+                </div>
+              </div>
+              <div className="input-row">
+                <div className="input-group">
+                  <label>Email</label>
+                  <input type="text" placeholder="example132@gmail.com" name="email"/>
+                </div>
+                <div className="input-group">
+                  <label>Phone</label>
+                  <input type="text" placeholder="787 345 2341" name="phone" />
+                </div>
+              </div>
+
+              <label>Message</label>
+              <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+
+              <button type="submit">Send</button>
+            </form>
+          </div>
+
+          <div className="contact-right">
+            <h3>Reach Us</h3>
+                
+          </div>
+
+
+        </div>
+        
+
+        
+
+
+
+
+
+
+
+
 
       </div>
     </>
