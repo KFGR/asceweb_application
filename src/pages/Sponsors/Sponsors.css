@@ -8,16 +8,17 @@
 
 table{
     width: 70%;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
+    border: 1px solid #ccc;
 
 }
 
 th,td {
-    border: 5px solid rgb(255, 255, 255);
+    /*border: 5px solid rgb(255, 255, 255);*/
     padding: 5px;
-    background-color: rgb(243, 239, 239);
-    border-radius: 15px;
+    /*background-color: rgb(243, 239, 239); */
+    /*border-radius: 15px;*/
 
 }
 
