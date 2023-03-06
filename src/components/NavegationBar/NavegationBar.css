@@ -100,7 +100,15 @@ ul {
   }
 
 
+  .navbar{
+    padding: 0.5rem 8rem;
+  }
 
+  @media (max-width: 991px){
+    .navbar{
+      padding: 0.5rem 1rem;
+    }
+  }
   /* .navbar-collapse ul:after{
    margin-left:30%;
    margin-right: 30%;
