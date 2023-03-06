@@ -24,9 +24,6 @@ function template() {
       <li>Construction Institute</li>
       </ol>
       </div>
-      </section>
-
-      <section>
       <div>
       <ol className="secondCompetitionList">
       <h5>The rest are:</h5>
@@ -41,6 +38,10 @@ function template() {
       <li>Mystery Competition</li>
       </ol>
       </div>
+      </section>
+
+      <section>
+      
       </section>
 
     </div>
