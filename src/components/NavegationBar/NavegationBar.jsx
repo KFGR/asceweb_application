@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function template() {
   return (
     <div className="navegation-bar navegation-bar-menu">
-      <Navbar className='navbar navbar-expand-lg bg-white' expand='lg'>
+      <Navbar className='navbar navbar-expand-lg' expand='lg'>
         <Navbar.Toggle aria-controls='basic-navbar' style={{color:'#fbb71a', backgroundColor:'#144a9a'}}/>
           <Navbar.Collapse  id='basic-navbar'>
             <ul className='navbar-nav nav-masthead margin-left-auto mb-2 mb-lg-0'>
