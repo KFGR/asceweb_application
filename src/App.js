@@ -1,28 +1,37 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes,  Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import Home from './pages/Home';
-import AppHeader from './components/AppHeader';
+// import AppHeader from './components/AppHeader';
+
+import HeaderHero from './pages/Home/HeaderHero';
 import AppFooter from './components/AppFooter';
-// import NavegationBar from './Components/NavegationBar';
-// import AppHeader from './Components/AppHeader';
-// import About from './views/About';
-// import Contact from './views/Contact';
+
+
 
 const App = () => {
+  function CurrentPage({Component1, Component2}){
+    return(
+      <>
+        <Component1/>
+        <Component2/>
+      </>
+    );}
+
   return (
     <Router>
-      <AppHeader></AppHeader>
+      {/* <AppHeader/>     */}
       <div>
         <Routes>
-          <Route  path='/' element={<Home/>}/>
-          <Route  path='/home' element={<Home/>}/> 
+          <Route  path='/' element={<CurrentPage Component1={HeaderHero} Component2={Home}/>}/>
+          <Route  path='/home' element={<CurrentPage Component1={HeaderHero} Component2={Home}/>}/>
+
+
         </Routes>
       </div>
-      <AppFooter></AppFooter>
+      <AppFooter/>
     </Router>
   );
 };
 
 export default App;
-
-
