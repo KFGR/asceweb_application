@@ -15,7 +15,7 @@ function template() {
            <div className="row" style={{borderTop:'solid #144a9a'}}>
               <div className="col-12">
                 <div className="row">
-                  <div className="col-lg-4">
+                  <div className="col-lg-6"> {/* was on col-lg-4 */}
                       <div className="grid-item">
                         <div className="ht-box-icon">
                           <div className="icon-box-wrap">
@@ -70,11 +70,11 @@ function template() {
                           </div>
                           <div className="footer-content">
                           <ul style={{fontSize:'75%', padding:'0%', textAlign:'center'}}>
-                            <Nav.Link as={Link} to="#" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%'}}>Concrete Canoe</li></Nav.Link>
-                            <Nav.Link as={Link} to="#" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%'}}>Steel Bridge</li></Nav.Link>
-                            <Nav.Link as={Link} to="#" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%'}}>Timber-Strong</li></Nav.Link>
-                            <Nav.Link as={Link} to="#" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%'}}>Sustainable Solutions</li></Nav.Link>
-                            <Nav.Link as={Link} to="#" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%'}}>Innovation Contest</li></Nav.Link>
+                            <Nav.Link as={Link} to="Concrete_Canoe" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%'}}>Concrete Canoe</li></Nav.Link>
+                            <Nav.Link as={Link} to="Steel_Bridge" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%'}}>Steel Bridge</li></Nav.Link>
+                            <Nav.Link as={Link} to="Timber_Strong" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%'}}>Timber-Strong</li></Nav.Link>
+                            <Nav.Link as={Link} to="Sustainable_Solutions" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%'}}>Sustainable Solutions</li></Nav.Link>
+                            <Nav.Link as={Link} to="Innovation_Contest" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%'}}>Innovation Contest</li></Nav.Link>
                           </ul>
                           </div>
                         </div>
