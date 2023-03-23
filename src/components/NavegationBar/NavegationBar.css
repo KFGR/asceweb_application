@@ -99,10 +99,12 @@ ul {
     padding-bottom: 1.5rem;
   }
 
-
-  .navbar{
+/*  .navbar{
     padding: 0.5rem 8rem;
-  }
+  } */
+  /* .navbar{
+    padding: 0.5rem 8rem;
+  } */
 
   @media (max-width: 991px){
     .navbar{
