@@ -78,6 +78,7 @@
     /* margin-left: 5%; */
     /* seguir experimentando con los margenes individuales
     Tratar de que el contenido inicial quede en el medio de la pagina y a 5% del navegation-bar */
+    background-image: url(../../assets/Brand/members.png);
 }
 
 .intro-content::after{
@@ -223,9 +224,23 @@
     flex-wrap: wrap;
     /* margin-right: -15px;
     margin-left: -15px; */
+    /* margin-right: -125px;
+    margin-left: -67px; */
+  }
+
+.row-values{
     margin-right: -125px;
     margin-left: -67px;
-  }
+ }
+
+ .col-values{
+  display: flex;
+ }
+
+ .col-values Image{
+  width: 100%;
+  height: auto;
+ }
 
   @media (max-width: 994px){
     .row{
@@ -300,89 +315,76 @@
   
 
 
-  /* -----------------------------------------------Modal */
-  #myImg {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+  /* Who are we */
+
+  .about-us{
+    background-color: #144a9a;
+    /* background-color: white; */
   }
-  
-  #myImg:hover {opacity: 0.7;}
-  
-  /* The Modal (background) */
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  .about-us .container{
+    margin: 0 auto;
+    max-width: 1288px;
+    min-width: 375px;
+    padding: 0 24px;
+    width: 100%;
+    /* display: flex;
+    justify-content: space-between; */
   }
-  
-  /* Modal Content (image) */
-  .modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
+.about-us h1{
+  color: white;
+  /* text-shadow: 1px 0px 1px white; */
+  /* color: black; */
+  text-shadow: 1px 0px 1px  black;
+}
+
+
+.about-us .lead{
+  color: white;
+  /* color: black; */
+  font-size: 1.5rem;
+  /* text-shadow: 1px 0px 1px white; */
+  text-shadow: 1px 0px 1px  black;
+  font-weight: 500;
+}
+
+.about-us .image-fluid{
+  padding-bottom: 2%;
+}
+.about-us .shadow-box-right-sm{
+  padding: 1rem!important;
+  margin-bottom: 3rem!important;
+  border-radius: 0.25rem!important;
+  /* box-shadow:0 .125rem .25rem rgba(0,0,0,.075)!important */
+  /* box-shadow:0 .125rem .25rem white!important; */
+  box-shadow: black 5px 5px 0px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.about-us .shadow-box-left-sm{
+  padding: 1rem!important;
+  margin-bottom: 3rem!important;
+  border-radius: 0.25rem!important;
+  /* box-shadow:0 .125rem .25rem rgba(0,0,0,.075)!important */
+  /* box-shadow:0 .125rem .25rem white!important; */
+  box-shadow: black -5px 5px 0px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+/* .drop-shadow{
+  filter: drop-shadow(5px 5px 10px white);
+} */
+
+
+.about-us span{
+  color: #ffc107;
+  text-shadow: 1px 0px 1px  #ffc107;
+  text-decoration: solid red;
+
+}
+@media (max-width: 991px){
+  .about-us .row{
+    justify-content: center;
   }
-  
-  /* Caption of Modal Image */
-  #caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    height: 150px;
-  }
-  
-  /* Add Animation */
-  .modal-content, #caption {  
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-  }
-  
-  @-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)} 
-    to {-webkit-transform:scale(1)}
-  }
-  
-  @keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-  }
-  
-  /* The Close Button */
-  .close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  /* 100% Image Width on Smaller Screens */
-  @media only screen and (max-width: 700px){
-    .modal-content {
-      width: 100%;
-    }
-  }
+}
+
+
+
+/* Hero intro content ----------------------------*/
