@@ -12,7 +12,8 @@ function template (){
   console.log(typeof Award);
   return (
     <div className="home">
-      <ContentCard
+      <ContentCard 
+        id = "second"
         className = "d-block mx-lg-auto img-fluid shadow-box-right-sm"
         imageSrc = {Award}
         imageAlt = "notabout"
