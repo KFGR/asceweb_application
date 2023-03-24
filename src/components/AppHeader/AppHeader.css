@@ -29,7 +29,7 @@
     text-align: center;
     width: 100%;
     height: auto;
-    background-image: url("../../pages//Home//HeaderHero/buildings.png");
+    background-image: url(../../assets/Brand/buildings.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -41,7 +41,7 @@
     margin-left: auto!important;
     margin-bottom: 1.5rem!important;
     display: flex;
-    background-image: url("../../pages//Home//HeaderHero/buildings.png");
+    background-image: url(../../assets/Brand/buildings.png);
   }
   
   .hero-containerr h1{
