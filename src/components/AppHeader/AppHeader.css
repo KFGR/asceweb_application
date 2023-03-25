@@ -83,7 +83,7 @@
     align-items: center;
   }
 
-  @media(max-width: 1040px){
+  @media(max-width: 1385px){
     .hero-header-menu{
         display: block;
     }
