@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 import Home from './pages/Home';
 import Team from './pages/Team';
 // import AppHeader from './components/AppHeader';
@@ -9,32 +8,29 @@ import Team from './pages/Team';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 
+const LazyHome = React.lazy(() => import('./pages/Home'));
+const LazyTeam = React.lazy(() => import('./pages/Team'));
+
+
 
 
 const App = () => {
-  // function CurrentPage({ Component1, Component2 }) {
-  //   const id = Component1.props.id;
-  //   return (
-  //     <>
-  //       <Component1 id={Component1.props.id}/>
-  //       <Component2/>
-
-  //       {/* <Component2 /> */}
-  //     </>
-  //   );
-  // }
-  
-
   return (
     <Router>
       {/* <AppHeader/>     */}
       <div>
         <Routes>
         {/* <Route path="/" element={<CurrentPage Component1={<AppHeader id="Home_header" />} Component2={<Home />} />} /> */}
-        <Route path='/' element={<><AppHeader id="Home_header"/> <Home/></>}/>
+        {/* <Route path='/' element={<><AppHeader id="Home_header"/> <Home/></>}/>
         <Route path='/home' element={<><AppHeader id="Home_header"/> <Home/></>}/>
 
-        <Route path='/team' element={<><AppHeader id="Normal_header"/> <Team/></>}/>
+        <Route path='/team' element={<><AppHeader id="Normal_header"/> <Team/></>}/> */}
+        <Route path='/' element={<React.Suspense fallback='loading...'><><AppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
+        <Route path='/home' element={<React.Suspense fallback='loading...'><><AppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
+        <Route path='/team' element={<React.Suspense fallback='loading...'><><AppHeader id="Normal_header"/><LazyTeam/></></React.Suspense>}/>
+
+
+
 
           {/* <Route  path='/home' element={<CurrentPage Component1={<AppHeader id="Home_header"/>} Component2={Home}/>}/>
           <Route path='/team' element={<CurrentPage Component1={<AppHeader id="Normal_header"/>} Component2={Team}/>}/> */}
