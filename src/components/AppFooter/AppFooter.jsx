@@ -6,6 +6,7 @@ import { Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 
 function template() {
   const currentYear = new Date().getFullYear();
@@ -15,28 +16,29 @@ function template() {
            <div className="row" style={{borderTop:'solid #144a9a'}}>
               <div className="col-12">
                 <div className="row">
-                  <div className="col-lg-6"> {/* was on col-lg-4 */}
+                  <div className="col"> {/* was on col-lg-4 */}
                       <div className="grid-item">
-                        <div className="ht-box-icon">
-                          <div className="icon-box-wrap">
+                        <div className="ht-box-icon icon-image">
+                          <div className="icon-box-wrap" style={{paddingLeft:'0%', paddingTop:'0%'}}>
                             <div className="footer-content-header">
                               <div className="footer-icon">
                                 {/* <FontAwesomeIcon icon={faHandshake} /> */}
-                                <AppLogo style={{padding:'0%'}}/>
+                                <AppLogo id="Footer_logo" style={{padding:'0%'}}/>
                               </div>
                             </div>
-                            <div className="footer-content">
-                              <p style={{color:'black'}}>
+                            <div className="footer-content text-center" style={{paddingTop:'0%'}}>
+                              {/* <p style={{color:'black'}}>
                                 To expose your brand will be presented in front of hundreds of people in the regional spectrum, 
                                 and in the national spectrum will be in the thousands.
-                              </p>
+                              </p> */}
+                              <a href="/home"><button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Join today</button></a>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                  <div className="col-lg-3">
+                  <div className="col">
                     <div className="grid-item">
                       <div className="ht-box-icon">
                         <div className="icon-box-wrap">
@@ -59,7 +61,7 @@ function template() {
                     </div>
                   </div>
 
-                  <div className="col-lg-3">
+                  <div className="col">
                     <div className="grid-item">
                       <div className="ht-box-icon">
                         <div className="icon-box-wrap">
@@ -81,6 +83,7 @@ function template() {
                       </div>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
@@ -105,7 +108,7 @@ function template() {
                 <li className="footer-li" style={{color:'black', fontSize:'150%', textAlign:'center'}}>
                   <div className="media-content-header">
                     <div className="media-icon">
-                      <a href="/Instagram">
+                      <a href="https://www.instagram.com/pupr_asce/?igshid=YmMyMTA2M2Y%3D" target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faInstagram}/>
                       </a>
                     </div>
