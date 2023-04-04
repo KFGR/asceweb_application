@@ -3,7 +3,7 @@ import template from "./AppLogo.jsx";
 
 class AppLogo extends React.Component {
   render() {
-    return template.call(this);
+    return template(this.props);
   }
 }
 
