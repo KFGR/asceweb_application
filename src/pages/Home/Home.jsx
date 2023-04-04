@@ -87,9 +87,9 @@ function template (){
        <div className="container-fluid py-2 header-yllw"/> 
 
 
-        <div className="container container-values">
-          <div>
-            <h1 className='h1-text-content' id='mission_txt' style={{color:'black', textAlign:'center'}}><strong>Our Mission</strong></h1>
+        <div className="container-fluid container-values">
+          <div className="container">
+            <h1 className='h1-text-content' id='mission_txt' style={{color:'white', textAlign:'center'}}><strong>Mission and Values </strong></h1>
             <div className="row ">
               <div className="col-12">
                 <div className="row row-values">
@@ -99,9 +99,9 @@ function template (){
                           <div className="icon-box-wrap">
                             <div className="content-header">
                               <div className="icon">
-                                <FontAwesomeIcon icon={faHandshake} />
+                                <FontAwesomeIcon icon={faHandshake}  />
                               </div>
-                              <h5 className="heading">To our Partnets</h5>
+                              <h5 className="heading" style={{color:'black'}}>Mission</h5>
                             </div>
                             <div className="content">
                               <h4 style={{color:'black'}}>
@@ -121,7 +121,7 @@ function template (){
                             <div className="icon">
                               <FontAwesomeIcon icon={faUsers} />
                             </div>
-                            <h5 className="heading">To our Students</h5>
+                            <h5 className="heading" style={{color:'black'}}>Values</h5>
                           </div>
                           <div className="content">
                             <h4 style={{color:'black'}}>
