@@ -89,3 +89,40 @@
     }
   }
 
+
+  @media (max-width: 1000px){
+    .header-image img{
+      width: 100%!important;
+      height: auto!important;
+      display: none;
+    }
+  }
+
+  .container-fluid  .btn{
+    padding-left: 3rem!important;
+    padding-right: 3rem!important;
+    font-weight: bolder;
+    font-size: 2.5rem!important;
+    color: white;
+    /* background-color: #144a9a; */
+    border: 2px solid #ffc107;
+  }
+
+ @media (min-width: 1000px){
+  .container-fluid .header-image{
+    box-shadow: 0 1rem 3rem black!important;
+  }
+ }
+
+  .container-fluid .header-image::before{
+    content: "";
+    position: absolute;
+    top: -72px;
+    width: 226px;
+    height: 80px;
+    /* background-image: url(../../assets/Brand/gray-dots.svg); */
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 226px 186px;
+    z-index: 2;
+  }

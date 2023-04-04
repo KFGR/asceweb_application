@@ -2,7 +2,7 @@ import "./AppHeader.css";
 import React from "react";
 import NavegationBar from '../NavegationBar';
 import AppLogo from "../AppLogo/AppLogo";
-
+import image from "../../assets/Brand/buildings.png";
 
 function template(props) {
   const {id} = props;
@@ -14,7 +14,7 @@ function template(props) {
         <div className="container-fluid py-2 header-finite-ble"/> 
         <div className=" container-fluid hero-containerr hero-background-image">
           <div className='hero-header-menu'>
-            <AppLogo/> 
+            <AppLogo id="Header_logo"/> 
              <NavegationBar color="white"/>
             {/* <AppHeader/> */}
           </div>
@@ -52,7 +52,7 @@ function template(props) {
                  <div className='header position-relative'>
                    <div className='header-right'>
                      <div className='container-fluid header-containerr'>
-                       <AppLogo/>
+                     <AppLogo id="Header_logo"/>
                        <NavegationBar color="black"/>
                      </div>
                    </div>
@@ -62,6 +62,52 @@ function template(props) {
            </div>
          </div>
        </div>
+     </div>
+    )}
+
+{id === "another_home_header" && (
+       <div className="header-area header-area--absolute">
+       <div className="header-top-bar-info d-lg-block">
+         <div className="container-fluid py-2 header-yllw"/> 
+         <div className="container-fluid py-3 header-ble"/>        
+       </div>
+       <div className='header-bottom-wrap header-sticky'>
+         <div className='container-fluid' style={{boxShadow:'none'}}>
+           <div className='row'>
+             <div className='col-lg-12'>
+               <div className='header position-relative'>
+                 <div className='header-right'>
+                   <div className='container-fluid header-containerr'>
+                   <AppLogo id="Header_logo"/>
+                     <NavegationBar color="black"/>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+
+       <div className="container-fluid">
+          <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
+            <div className="col-lg-4 p-3 p-lg-5 pt-lg-3">
+              <h1 className="h1-text-content"><strong>The future starts with civil engineers</strong></h1>
+              <p className="lead">
+                Tough problems require innovative solutions.
+                Now is the time to be bold. ASCE members engineers 
+                tomorrow and reimagine infrastructure. Move forward faster with ASCEPUPR.
+              </p>
+              <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                <a href="/home"><button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Join today</button></a>
+                {/* <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Default</button> */}
+              </div>
+            </div>
+            <div className="header-image col-lg-4 offset-lg-1 p-0  shadow-lg">
+                <img className="rounded-lg-3" src={image} alt="" width="800"/>
+            </div>
+        </div>
+
+    </div>
      </div>
     )}
 
