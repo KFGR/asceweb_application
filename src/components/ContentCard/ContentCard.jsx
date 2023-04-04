@@ -6,7 +6,7 @@ function template(props) {
   const {id,className, imageSrc, imageAlt, title, paragraph} = props;
   // console.log(typeof imageSrc);
   // console.log(imageSrc);
-  console.log(title.substring(2,4));
+  // console.log(title.substring(2,4));
  
   
   return (
