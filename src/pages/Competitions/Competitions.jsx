@@ -3,6 +3,7 @@ import React from "react";
 
 
 function Template() { 
+  return(
 
   <div className="Competitions">
       <section>
@@ -46,7 +47,8 @@ function Template() {
       </section>
 
     </div>
-  }
+  );
+  };
 export default Template; //changed Template to App
 
 /*<div className="Competitions">
