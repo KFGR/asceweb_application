@@ -7,3 +7,122 @@
     background: #ffc107;
 }
 
+.header-containerr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 1208px){
+    .header-containerr{
+        display: block;
+    }
+}
+
+.hero-containerr{
+    padding-top: 3rem!important;
+    padding-bottom: 3rem!important;
+    padding-right: 1.5rem!important;
+    padding-left: 1.5rem!important;
+    /* margin-top: 3rem!important; */
+    /* margin-bottom: 3rem!important; */
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-image: url(../../assets/Brand/buildings.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .hero-backgrond-image{
+    margin-bottom: 1.5rem!important;
+    margin-right: auto!important;
+    margin-left: auto!important;
+    margin-bottom: 1.5rem!important;
+    display: flex;
+    background-image: url(../../assets/Brand/buildings.png);
+  }
+  
+  .hero-containerr h1{
+    font-weight: 700!important;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+  }
+  .hero-containerr .h3{
+    font-weight: 700!important;
+    font-size: 2rem;
+    color: white;
+  }
+
+  /* @media (max-width: 1017px){
+    .hero-containerr .h3{
+      font-size: 1rem;
+    }
+  } */
+
+
+  .hero-containerr p{
+    font-weight: 700!important;
+    font-size: 3rem;
+    color: white;
+    /* text-shadow: 1px 1px 2px black; */
+    text-shadow: -6px 1px 2px black;
+  }
+
+  .hero-containerr .hero-content{
+    margin-left: auto!important;
+    margin-right: auto!important;
+  }
+
+
+   .hero-header-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media(max-width: 1385px){
+    .hero-header-menu{
+        display: block;
+    }
+  }
+
+
+  @media (max-width: 1000px){
+    .header-image img{
+      width: 100%!important;
+      height: auto!important;
+      display: none;
+    }
+  }
+
+  .container-fluid  .btn{
+    padding-left: 3rem!important;
+    padding-right: 3rem!important;
+    font-weight: bolder;
+    font-size: 2.5rem!important;
+    color: white;
+    /* background-color: #144a9a; */
+    border: 2px solid #ffc107;
+  }
+
+ @media (min-width: 1000px){
+  .container-fluid .header-image{
+    box-shadow: 0 1rem 3rem black!important;
+  }
+ }
+
+  .container-fluid .header-image::before{
+    content: "";
+    position: absolute;
+    top: -72px;
+    width: 226px;
+    height: 80px;
+    /* background-image: url(../../assets/Brand/gray-dots.svg); */
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 226px 186px;
+    z-index: 2;
+  }
