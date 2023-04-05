@@ -3,7 +3,7 @@ import template from "./AppHeader.jsx";
 
 class AppHeader extends React.Component {
   render() {
-    return template.call(this);
+    return template(this.props);
   }
 }
 
