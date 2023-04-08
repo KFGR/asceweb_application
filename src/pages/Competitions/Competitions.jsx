@@ -18,7 +18,7 @@ function template() {
           {/*Concrete Canoe */}
           <div class = "col-12 col-lg-3">
             <div class ="card text-center h-100 mb-2">
-              <img src ="..." alt="..." class="card-img-top"/>
+              <img src ="Concrete Canoe.png" alt="..." class="card-img-top"/>
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
@@ -34,7 +34,7 @@ function template() {
           {/*Steele Bridge */}
           <div class = "col-12 col-lg-3">
             <div class ="card text-center h-100 mb-2">
-              <img src ="..." alt="..." class="card-img-top"/>
+              <img src ="Steele Bridge.png" alt="..." class="card-img-top"/>
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
@@ -66,7 +66,7 @@ function template() {
           {/*Sustainable Solution */}
           <div class = "col-12 col-lg-3">
             <div class ="card text-center p-3 mb-2 h-100 mb-3">
-              <img src ="..." alt="..." class="card-img-top"/>
+              <img src ="Sustainable Solutions.png" alt="..." class="card-img-top"/>
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
@@ -98,7 +98,7 @@ function template() {
           {/*Surveying */}
           <div class = "col-12 col-md-5 col-lg-4">
             <div class ="card text-center  mt-2">
-              <img src ="..." alt="..." class="card-img-top"/>
+              <img src ="Surveying.png" alt="..." class="card-img-top"/>
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
@@ -114,7 +114,7 @@ function template() {
           {/*Construction Institure */}
           <div class = "col-12 col-md-5 col-lg-4">
             <div class ="card text-center p-2 mt-2">
-              <img src ="..." alt="..." class="card-img-top"/>
+              <img src ="Construction Institute.png" alt="..." class="card-img-top"/>
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
