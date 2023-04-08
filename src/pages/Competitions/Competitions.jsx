@@ -23,6 +23,7 @@ function template() {
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
                     <h2>Concrete Canoe</h2>
+                    <a href="#" class="btn btn-primary">Details</a>
                   </div>
                 </div>
               </div>
@@ -38,6 +39,7 @@ function template() {
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
                     <h3>Steele Bridge</h3>
+                    <a href="#" class="btn btn-primary">Details</a>
                   </div>
                 </div>
               </div>
@@ -53,6 +55,7 @@ function template() {
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
                     <h4>Timber Strong</h4>
+                    <a href="#" class="btn btn-primary">Details</a>
                   </div>
                 </div>
               </div>
@@ -68,6 +71,7 @@ function template() {
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
                     <h5>Sustainable Solutions</h5>
+                    <a href="#" class="btn btn-primary">Details</a>
                   </div>
                 </div>
               </div>
@@ -83,6 +87,7 @@ function template() {
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
                     <h6>Innovation Contest</h6>
+                    <a href="#" class="btn btn-primary">Details</a>
                   </div>
                 </div>
               </div>
@@ -98,6 +103,7 @@ function template() {
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
                     <h7>Surveying</h7>
+                    <a href="#" class="btn btn-primary">Details</a>
                   </div>
                 </div>
               </div>
@@ -113,6 +119,7 @@ function template() {
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
                     <h8>Construction Institute</h8>
+                    <a href="#" class="btn btn-primary">Details</a>
                   </div>
                 </div>
               </div>
