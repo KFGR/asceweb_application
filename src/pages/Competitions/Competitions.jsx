@@ -1,10 +1,65 @@
 import "./Competitions.css";
 import React from "react";
-
+import { Image } from "react-bootstrap"; //Calling the Image object, this object is already responsive
+import imagename from '../../assets/Brand/Award.png'; //anothe method to call images, but you initialize the viewport
 
 /*Important Competitions: *Concrete Canoe, Steele Bridge, Timber Strong, Sustainable Solutions, Innovation Contest, Surveying, Construction Institute*/
 
 /*Other competitions: Concrete Bridge, Traffic Control, Geo-Wall, Plans Reading, Muddy Waters, Concrete Cornhole, Professional Paper, T-shirt Contest, Mystery Competition */
+
+// At the end of the document, I am writing a new section to illustrate the two different ways to display images with react -Kelvin
+/*Couple of errors noticed:
+1. the tag <h8> is not a valid tag for modern browsers. You can use from h1 to h6, and create CSS classes to style them individually or style the tag directly, example:
+Class creation:
+ .h4-text{
+  font-size: 8px;
+  margin:0;
+  padding:0;
+    } 
+    
+Modifying the tag style (note this will modify every text with the tag <h4>
+  h4{
+    font-size: 8px;
+    margin:0;
+    padding:0;
+
+
+2. Another thing to be aware of, In straight HTML CSS JS or VanillaJS, we use the term class, but in JSX format we use className.
+    -You can do control+F to change the words from class to className.
+
+3. These cards are all the same structure, focus on making a component card that has everything (image, button and information) and then reuse the component into different competitions.
+    -Take a look to the ContentCard component that is under the folder of components.
+    - The homepage has the component at the begining of the code.
+
+
+4. For the buttons, make use of the component <button> because they are responsive and are easier to style.
+      Example if you want to re-direct to another page: <a href="/home"><button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Join today</button></a>
+      If the button performs an action on the same page, then the code has to be in javascript using {useState} inside the JSX document but before the return() statment of the function.
+      Example:
+
+      import React, { useState } from 'react';
+      function button_open_modal() {
+        const [showModal, setShowModal] = useState(false); -->do not show modal until an action
+
+        const handleOpenModal = () => {
+          setShowModal(true);
+        };
+
+        const handleCloseModal = () => {
+          setShowModal(false);
+        };
+
+        return (
+          <div>
+            <button onClick={handleOpenModal}>Open Modal</button>
+            {showModal && <Modal onClose={handleCloseModal} />}
+          </div>
+        );
+      }
+
+      export default ButtonWithModal;
+
+  }*/
 
 function template() { 
   return(
@@ -18,7 +73,7 @@ function template() {
           {/*Concrete Canoe */}
           <div class = "col-12 col-lg-3">
             <div class ="card text-center h-100 mb-2">
-              <img src ="Concrete Canoe.png" alt="..." class="card-img-top"/>
+              <img src ="" alt="..." class="card-img-top"/>
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
@@ -129,6 +184,24 @@ function template() {
 
         </div>
       </div>
+
+      <section>
+        <div className="container-fluid">
+          <div className="col-12">
+          <div className="container" style={{display:'flex!important'}}>
+            <div className="row">
+              
+                <div className="col-lg-6">
+                  <Image src={require("../../assets/Brand/Award.png")} alt="" width={500} height={500} style={{width:'100%', height:'auto'}}/>
+                </div>
+                <div className="col-lg-6">
+                  <img className="rounded-lg-3" src={imagename} alt="" width="800"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </div>
 
