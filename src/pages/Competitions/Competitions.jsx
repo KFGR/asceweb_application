@@ -152,15 +152,7 @@ function template() {
               title = "Construction Institute"
               paragraph = "Details"
               />
-          <div>
-              {/* hidden card for aesthetics */}
-              <ContentCard id="competition_card"
-              imageSrc={imagename}
-              imageAlt="none"
-              title = "HIDE THIS"
-              paragraph = "Details"
-              />
-            </div>
+          
             </div>
             </div>
           </div>
@@ -194,7 +186,12 @@ function template() {
 };
 export default template;
 
-       /* { </div>
+       /* 
+       
+        THIS IS ALL THE CODE DONE BETWEEN THE NIGHTS OF FRIDAY 7 AND SATURDAY 8. THIS WAS REWORKED ABOVE
+        WITH CONTAINERS TO MAKE THE CODE REUSABLE AND LESS RESOURCE INTENSIVE.(MODAY APRIL 10)
+
+          { </div>
           <div class = "col-12 col-lg-3">
         <ContentCard id="competition_card"
           imageSrc={imagename}
