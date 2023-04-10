@@ -1,5 +1,6 @@
 import "./Competitions.css";
 import React from "react";
+import ContentCard from "../../components/ContentCard";
 import { Image } from "react-bootstrap"; //Calling the Image object, this object is already responsive
 import imagename from '../../assets/Brand/Award.png'; //anothe method to call images, but you initialize the viewport
 
@@ -66,14 +67,145 @@ function template() {
     <div className="Competitions">
       <h1>Competitions</h1>
       <p>These are the top ASCE Competitions, celebrated annually.</p>
-      
+
       <div class="container">
         <div class = "row">
+            <div class = "col-12 col-lg-3">
+        
+            {/* Concrete Canoe */}
+            <ContentCard id="competition_card"
+              imageSrc={imagename}
+              imageAlt="none"
+              title = "Concrete Canoe"
+              paragraph = "Details"
+            />
+          </div>
 
-          {/*Concrete Canoe */}
+          <div class = "col-12 col-lg-3">
+            {/* Steele Bridge */}
+            <ContentCard id="competition_card"
+              imageSrc={imagename}
+              imageAlt="none"
+              title = "Steele Bridge"
+              paragraph = "Details"
+            />
+          </div>
+        
+
+            
+          <div class = "col-12 col-lg-3">
+            {/* Timber Strong */}
+            <ContentCard id="competition_card"
+              imageSrc={imagename}
+              imageAlt="none"
+              title = "Timber Strong"
+              paragraph = "Details"
+            />
+            </div>
+          
+
+          <div class = "col-12 col-lg-3">
+            {/* Sustaible Solutions */}
+            <ContentCard id="competition_card"
+              imageSrc={imagename}
+              imageAlt="none"
+              title = "Sustainable Solutions"
+              paragraph = "Details"
+            />
+          </div>
+          <div class ="col-12 col-lg-3">
+            {/* hidden card for aesthetics */}
+            <ContentCard id="competition_card"
+              imageSrc={imagename}
+              imageAlt="none"
+              title = "HIDE THIS"
+              paragraph = "Details"
+            />
+
+          </div>
+
+          <div class = "col-12 col-lg-3">
+            {/* Innovation Contest */}
+            <ContentCard id="competition_card"
+              imageSrc={imagename}
+              imageAlt="none"
+              title = "Innovation Contest"
+              paragraph = "Details"
+            />
+          </div>
+
+          <div class = "col-12 col-lg-3">
+            {/* Surveying */}
+            <ContentCard id="competition_card"
+              imageSrc={imagename}
+              imageAlt="none"
+              title = "Surveying"
+              paragraph = "Details"
+            />
+          </div>
+
+          <div class = "col-12 col-lg-3">
+              {/* Construction Institute */}
+              <ContentCard id="competition_card"
+              imageSrc={imagename}
+              imageAlt="none"
+              title = "Construction Institute"
+              paragraph = "Details"
+              />
+          <div>
+              {/* hidden card for aesthetics */}
+              <ContentCard id="competition_card"
+              imageSrc={imagename}
+              imageAlt="none"
+              title = "HIDE THIS"
+              paragraph = "Details"
+              />
+            </div>
+            </div>
+            </div>
+          </div>
+
+   
+      
+      
+      
+
+        <section>
+          <div className="container-fluid">
+           <div className="col-12">
+           <div className="container" style={{display:'flex!important'}}>
+              <div className="row">
+              
+                <div className="col-lg-6">
+                  <Image src={require("../../assets/Brand/Award.png")} alt="" width={500} height={500} style={{width:'100%', height:'auto'}}/>
+                </div>
+                <div className="col-lg-6">
+                  <img className="rounded-lg-3" src={imagename} alt="" width="800"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          
+        </section>
+        </div>
+    
+  );
+};
+export default template;
+
+       /* { </div>
+          <div class = "col-12 col-lg-3">
+        <ContentCard id="competition_card"
+          imageSrc={imagename}
+          imageAlt="none"
+        />
+         
+          
           <div class = "col-12 col-lg-3">
             <div class ="card text-center h-100 mb-2">
-              <img src ="" alt="..." class="card-img-top"/>
+              <Image  src={require("../../assets/Brand/ConcreteCanoe.png")} alt="" style={{width:'100', height:'auto'}}/>
+              
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
@@ -86,10 +218,11 @@ function template() {
             </div>
           </div>
 
-          {/*Steele Bridge */}
+          
           <div class = "col-12 col-lg-3">
             <div class ="card text-center h-100 mb-2">
-              <img src ="Steele Bridge.png" alt="..." class="card-img-top"/>
+            <Image  src={require("../../assets/Brand/SteeleBridge.png")} alt="" style={{width:'100', height:'auto'}}/>
+             
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
@@ -102,9 +235,10 @@ function template() {
             </div>
           </div>
 
-          {/*Timber Strong */}
+          
           <div class = "col-12 col-lg-3">
             <div class ="card text-center p-3 mb-2 h-100 mb-3">
+              
               <img src ="..." alt="..." class="card-img-top"/>
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
@@ -118,10 +252,11 @@ function template() {
             </div>
           </div>
 
-          {/*Sustainable Solution */}
+          
           <div class = "col-12 col-lg-3">
             <div class ="card text-center p-3 mb-2 h-100 mb-3">
-              <img src ="Sustainable Solutions.png" alt="..." class="card-img-top"/>
+            <Image  src={require("../../assets/Brand/SustainableSolutions.png")} alt="" style={{width:'100', height:'auto'}}/>
+              
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
@@ -134,8 +269,7 @@ function template() {
             </div>
           </div>
 
-          {/*Innovation Contest */}
-          <div class = "col-12 col-md-5 col-lg-4">
+          <div class = "col-12 col-lg-4">
             <div class ="card text-center  mt-2">
               <img src ="..." alt="..." class="card-img-top"/>
               <div class="d-flex justify-content-between">
@@ -150,9 +284,10 @@ function template() {
             </div>
           </div>
 
-          {/*Surveying */}
-          <div class = "col-12 col-md-5 col-lg-4">
+          
+          <div class = "col-12 col-lg-4">
             <div class ="card text-center  mt-2">
+            <Image  src={require("../../assets/Brand/Surveying.png")} alt="" style={{width:'100', height:'auto'}}/>
               <img src ="Surveying.png" alt="..." class="card-img-top"/>
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
@@ -166,10 +301,11 @@ function template() {
             </div>
           </div>
 
-          {/*Construction Institure */}
-          <div class = "col-12 col-md-5 col-lg-4">
+          
+          <div class = "col-12 col-lg-4">
             <div class ="card text-center p-2 mt-2">
-              <img src ="Construction Institute.png" alt="..." class="card-img-top"/>
+            <Image  src={require("../../assets/Brand/ConstructionInstitute.png")} alt="" style={{width:'100', height:'auto'}}/>
+               <img src ="Construction Institute.png" alt="..." class="card-img-top"/>
               <div class="d-flex justify-content-between">
                 <div class="d-flex flex-row align-items-center">
                   <div class = "card-body">
@@ -183,28 +319,6 @@ function template() {
           </div>
 
         </div>
-      </div>
-
-      <section>
-        <div className="container-fluid">
-          <div className="col-12">
-          <div className="container" style={{display:'flex!important'}}>
-            <div className="row">
-              
-                <div className="col-lg-6">
-                  <Image src={require("../../assets/Brand/Award.png")} alt="" width={500} height={500} style={{width:'100%', height:'auto'}}/>
-                </div>
-                <div className="col-lg-6">
-                  <img className="rounded-lg-3" src={imagename} alt="" width="800"/>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-  );
-};
-export default template;     
+        
+  </div> }*/
+     

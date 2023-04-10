@@ -52,6 +52,25 @@ function template(props) {
             </div>
           </div>
       )}
+
+{id === "competition_card" && (
+       
+        <div class ="card text-center  mt-2">
+        {/* <Image  src={require("../../assets/Brand/Surveying.png")} alt="" style={{width:'100', height:'auto'}}/> */}
+          <Image src={imageSrc} alt={imageAlt} />
+          {/* <img src ="Surveying.png" alt="..." class="card-img-top"/> */}
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+              <div class = "card-body">
+                <h7>{title}</h7>
+                <a href="#" class="btn btn-primary">{paragraph}</a>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+    
+      )}
     </div>
   );
 }
