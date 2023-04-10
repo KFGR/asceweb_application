@@ -113,7 +113,7 @@ function template() {
               paragraph = "Details"
             />
           </div>
-          <div class ="col-12 col-lg-3">
+          <div class ="col-12 col-md-2">
             {/* hidden card for aesthetics */}
             <ContentCard id="competition_card"
               imageSrc={imagename}
@@ -124,7 +124,7 @@ function template() {
 
           </div>
 
-          <div class = "col-12 col-lg-3">
+          <div class = "col-12 col-md-2">
             {/* Innovation Contest */}
             <ContentCard id="competition_card"
               imageSrc={imagename}
@@ -134,7 +134,7 @@ function template() {
             />
           </div>
 
-          <div class = "col-12 col-lg-3">
+          <div class = "col-12 col-md-2">
             {/* Surveying */}
             <ContentCard id="competition_card"
               imageSrc={imagename}
@@ -144,7 +144,7 @@ function template() {
             />
           </div>
 
-          <div class = "col-12 col-lg-3">
+          <div class = "col-12 col-md-2">
               {/* Construction Institute */}
               <ContentCard id="competition_card"
               imageSrc={imagename}
