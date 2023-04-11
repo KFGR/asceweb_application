@@ -3,7 +3,7 @@ import React from "react";
 import { Image } from "react-bootstrap";
 
 function template(props) {
-  const {id,className, imageSrc, imageAlt, title, paragraph} = props;
+  const {id,className, imageSrc, imageAlt, title, paragraph, competitionDescription, modalImage, modalTitle} = props; //added competitionDescription and modalImage
   // console.log(typeof imageSrc);
   // console.log(imageSrc);
   // console.log(title.substring(2,4));
@@ -51,27 +51,56 @@ function template(props) {
               </div>
             </div>
           </div>
-      )}
+        )}
 
-{id === "competition_card" && (
+        {id === "competition_card" && (
        
-        <div class ="card text-center  mt-2">
-        {/* <Image  src={require("../../assets/Brand/Surveying.png")} alt="" style={{width:'100', height:'auto'}}/> */}
-          <Image src={imageSrc} alt={imageAlt} />
-          {/* <img src ="Surveying.png" alt="..." class="card-img-top"/> */}
-          <div class="d-flex justify-content-between">
-            <div class="d-flex flex-row align-items-center">
-              <div class = "card-body">
-                <h7>{title}</h7>
-                <a href="#" class="btn btn-primary">{paragraph}</a>
+          <div class ="card text-center  mt-2">
+           {/* <Image  src={require("../../assets/Brand/Surveying.png")} alt="" style={{width:'100', height:'auto'}}/> */}
+            <Image src={imageSrc} alt={imageAlt} />
+            {/* <img src ="Surveying.png" alt="..." class="card-img-top"/> */}
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-row align-items-center">
+                <div class = "card-body">
+                  <h7>{title}</h7>
+                {/* < a href="#" class="btn btn-primary">{paragraph}</a> */}
+                </div>
               </div>
             </div>
+
+            {/* modal goes here */}
+            <section>
+              {/* <!-- Button trigger modal --> */}
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Details
+              </button>
+
+              {/* <!-- Modal --> */}
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">{modalTitle}</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                  <div class="modal-body">
+                    <p>{competitionDescription}</p>
+                    <Image src={modalImage} alt={imageAlt} />
+                  </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">Join!</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           </div>
+
         
-        </div>
-    
       )}
     </div>
+    
   );
 }
 
