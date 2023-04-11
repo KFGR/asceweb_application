@@ -4,6 +4,13 @@ import ContentCard from "../../components/ContentCard";
 import { Image } from "react-bootstrap"; //Calling the Image object, this object is already responsive
 import imagename from '../../assets/Brand/Award.png'; //anothe method to call images, but you initialize the viewport
 
+// images for competition cards
+import canoeImage from '../../assets/Brand/ConcreteCanoe.png'
+import steeleBridgeImage from '../../assets/Brand/SteeleBridge.png'
+import sustainableImage from '../../assets/Brand/SustainableSolutions.png'
+import surveyingImage from '../../assets/Brand/Surveying.png'
+import constructionInstiImage from '../../assets/Brand/ConstructionInstitute.png'
+
 /*Important Competitions: *Concrete Canoe, Steele Bridge, Timber Strong, Sustainable Solutions, Innovation Contest, Surveying, Construction Institute*/
 
 /*Other competitions: Concrete Bridge, Traffic Control, Geo-Wall, Plans Reading, Muddy Waters, Concrete Cornhole, Professional Paper, T-shirt Contest, Mystery Competition */
@@ -74,7 +81,7 @@ function template() {
         
             {/* Concrete Canoe */}
             <ContentCard id="competition_card"
-              imageSrc={imagename}
+              imageSrc={canoeImage}
               imageAlt="none"
               title = "Concrete Canoe"
               paragraph = "Details"
@@ -84,7 +91,7 @@ function template() {
           <div class = "col-12 col-lg-3">
             {/* Steele Bridge */}
             <ContentCard id="competition_card"
-              imageSrc={imagename}
+              imageSrc={steeleBridgeImage}
               imageAlt="none"
               title = "Steele Bridge"
               paragraph = "Details"
@@ -107,7 +114,7 @@ function template() {
           <div class = "col-12 col-lg-3">
             {/* Sustaible Solutions */}
             <ContentCard id="competition_card"
-              imageSrc={imagename}
+              imageSrc={sustainableImage}
               imageAlt="none"
               title = "Sustainable Solutions"
               paragraph = "Details"
@@ -116,8 +123,8 @@ function template() {
           <div class ="col-12 col-md-2">
             {/* hidden card for aesthetics */}
             <ContentCard id="competition_card"
-              imageSrc={imagename}
-              imageAlt="none"
+              // imageSrc={imagename}
+              // imageAlt="none"
               title = "HIDE THIS"
               paragraph = "Details"
             />
@@ -137,7 +144,7 @@ function template() {
           <div class = "col-12 col-md-2">
             {/* Surveying */}
             <ContentCard id="competition_card"
-              imageSrc={imagename}
+              imageSrc={surveyingImage}
               imageAlt="none"
               title = "Surveying"
               paragraph = "Details"
@@ -147,7 +154,7 @@ function template() {
           <div class = "col-12 col-md-2">
               {/* Construction Institute */}
               <ContentCard id="competition_card"
-              imageSrc={imagename}
+              imageSrc={constructionInstiImage}
               imageAlt="none"
               title = "Construction Institute"
               paragraph = "Details"
