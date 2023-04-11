@@ -5,7 +5,7 @@ function template() {
   return (
     <div className="student-sign-up">
       <h1 className = "classHeaderOne" > PUPR ASCE Chapter Sign Up</h1>
-      <h2> Welcome! To be a part of the PUPR ASCE, you must complet the following information below:</h2>
+      <h2> Welcome! To be a part of the PUPR ASCE, you must complete the information below!:</h2>
 
     <section>
       <div>
