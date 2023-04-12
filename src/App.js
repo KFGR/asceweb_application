@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+//Default one of the App
+
 // function App() {
 //   return (
 //     <div className="App">
@@ -24,10 +26,12 @@ import './App.css';
 
 // export default App;
 
+//From FECompetitions (VS version) - Nor werked
+
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
-import Home from './pages/Home';
+//import Home from './pages/Home';
 import StudentSignUp from './pages/StudentSignUp';
 
 const App = () => {
