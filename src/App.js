@@ -1,49 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
 
-//Default one of the App
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
-
-//From FECompetitions (VS version) - Nor werked
 
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import Home from './pages/Home';
+// import Team from './pages/Team';
+// import AppHeader from './components/AppHeader';
 
-//import Home from './pages/Home';
-import StudentSignUp from './pages/StudentSignUp';
+// import HeaderHero from './pages/Home/HeaderHero';
+import AppHeader from './components/AppHeader';
+import AppFooter from './components/AppFooter';
+
+const LazyHome = React.lazy(() => import('./pages/Home'));
+const LazyTeam = React.lazy(() => import('./pages/Team'));
 
 const App = () => {
   return (
     <Router>
+
+      {/* <AppHeader/>     */}
       <div>
         <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/home' element={<Home/>}/>
-          <Route path='/StudentSignUp' element={<StudentSignUp/>}/>
+        {/* <Route path="/" element={<CurrentPage Component1={<AppHeader id="Home_header" />} Component2={<Home />} />} /> */}
+        {/* <Route path='/' element={<><AppHeader id="Home_header"/> <Home/></>}/>
+        <Route path='/home' element={<><AppHeader id="Home_header"/> <Home/></>}/>
+
+        <Route path='/team' element={<><AppHeader id="Normal_header"/> <Team/></>}/> */}
+        <Route path='/' element={<React.Suspense fallback='loading...'><><AppHeader id="another_home_header"/><LazyHome/></></React.Suspense>}/>
+        <Route path='/Home' element={<React.Suspense fallback='loading...'><><AppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
+        <Route path='/team' element={<React.Suspense fallback='loading...'><><AppHeader id="Normal_header"/><LazyTeam/></></React.Suspense>}/>
+
+
+
+
+          {/* <Route  path='/home' element={<CurrentPage Component1={<AppHeader id="Home_header"/>} Component2={Home}/>}/>
+          <Route path='/team' element={<CurrentPage Component1={<AppHeader id="Normal_header"/>} Component2={Team}/>}/> */}
+
+
         </Routes>
       </div>
+      <AppFooter/>
     </Router>
   );
-}; export default App;
+};
+
+export default App;
+

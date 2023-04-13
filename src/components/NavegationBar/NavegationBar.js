@@ -3,7 +3,7 @@ import template from "./NavegationBar.jsx";
 
 class NavegationBar extends React.Component {
   render() {
-    return template.call(this);
+    return template(this.props);
   }
 }
 
