@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import Home from './pages/Home';
@@ -12,12 +13,10 @@ import AppFooter from './components/AppFooter';
 const LazyHome = React.lazy(() => import('./pages/Home'));
 const LazyTeam = React.lazy(() => import('./pages/Team'));
 
-
-
-
 const App = () => {
   return (
     <Router>
+
       {/* <AppHeader/>     */}
       <div>
         <Routes>
