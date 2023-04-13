@@ -10,7 +10,7 @@ import Members from '../../assets/Brand/members.png';
 
 function template (){
   // console.log(Award);
-  // console.log(typeof Award);
+  // console.log(typeof Award); nada algo
   return (
     <div className="home">
       {/* Section divider */}
