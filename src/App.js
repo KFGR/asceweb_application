@@ -10,7 +10,6 @@ import AppFooter from './components/AppFooter';
 
 const LazyHome = React.lazy(() => import('./pages/Home'));
 const LazyTeam = React.lazy(() => import('./pages/Team'));
-const LazyStudentSignUp = React.lazy(() => import('./pages/StudentSignUp'));
 
 
 
@@ -27,10 +26,8 @@ const App = () => {
 
         <Route path='/team' element={<><AppHeader id="Normal_header"/> <Team/></>}/> */}
         <Route path='/' element={<React.Suspense fallback='loading...'><><AppHeader id="another_home_header"/><LazyHome/></></React.Suspense>}/>
-        <Route path='/Home' element={<React.Suspense fallback='loading...'><><AppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
-        <Route path='/team' element={<React.Suspense fallback='loading...'><><AppHeader id="Normal_header"/><LazyTeam/></></React.Suspense>}/>
-        <Route path='/studentSignUp' element={<React.Suspense fallback='loading...'><><AppHeader id="Normal_header"/><LazyStudentSignUp/></></React.Suspense>}/>
-
+        <Route path='/Home' element={<React.Suspense fallback='loading...'><><AppHeader id="another_home_header"/><LazyHome/></></React.Suspense>}/>
+        <Route path='/Team' element={<React.Suspense fallback='loading...'><><AppHeader id="Normal_header"/><LazyTeam/></></React.Suspense>}/>
 
 
 
