@@ -76,15 +76,16 @@ function template() {
       <h1>Competitions</h1>
       <p>These are the top ASCE Competitions, celebrated annually.</p>
 
-      <div class="container">
-        <div class = "row">
-            <div class = "col-12 col-lg-3">
+      <div className="container">
+        <div className = "row">
+            <div className = "col-12 col-lg-3">
         
             {/* Concrete Canoe */}
             <ContentCard id="competition_card"
               imageSrc={canoeImage}
               imageAlt="none"
               title = "Concrete Canoe"
+              // Above this line is the card. Below this line is the card's modal.
               // paragraph = "Details"
               modalTitle = "Concrete Canoe"
               competitionDescription = "The ASCE Concrete Canoe Competition provides students a unique opportunity to gain hands-on practical experience while testing their skills with concrete mix designs and project management challenges. This elite competition combining engineering excellence, hydrodynamic design, and racing technique is known as the ''America's Cup of Civil Engineering.''"
@@ -133,18 +134,11 @@ function template() {
               modalImage = {sustainableImage}
             />
           </div>
-          <div class ="col-12 col-md-2">
-            {/* hidden card for aesthetics */}
-            <ContentCard id="competition_card"
-              // imageSrc={imagename}
-              // imageAlt="none"
-              title = "HIDE THIS"
-              paragraph = "Details"
-            />
+          
 
-          </div>
+          
 
-          <div class = "col-12 col-md-2">
+          <div class = "col-12 col-md-3">
             {/* Innovation Contest */}
             <ContentCard id="competition_card"
               imageSrc={innovationImage}
@@ -157,7 +151,7 @@ function template() {
             />
           </div>
 
-          <div class = "col-12 col-md-2">
+          <div class = "col-12 col-md-3">
             {/* Surveying */}
             <ContentCard id="competition_card"
               imageSrc={surveyingImage}
@@ -170,7 +164,7 @@ function template() {
             />
           </div>
 
-          <div class = "col-12 col-md-2">
+          <div class = "col-12 col-md-3">
               {/* Construction Institute */}
               <ContentCard id="competition_card"
               imageSrc={constructionInstiImage}
