@@ -1,7 +1,7 @@
 import "./Competitions.css";
 import React from "react";
 import ContentCard from "../../components/ContentCard";
-import { Image } from "react-bootstrap"; //Calling the Image object, this object is already responsive
+// import { Image } from "react-bootstrap"; //Calling the Image object, this object is already responsive
 import imagename from '../../assets/Brand/Award.png'; //anothe method to call images, but you initialize the viewport
 
 // images for competition cards
@@ -73,8 +73,11 @@ Modifying the tag style (note this will modify every text with the tag <h4>
 function template() { 
   return(
     <div className="Competitions">
+      
       <h1>Competitions</h1>
       <p>These are the top ASCE Competitions, celebrated annually.</p>
+      
+      
 
       <div className="container">
         <div className = "row">
@@ -90,6 +93,7 @@ function template() {
               modalTitle = "Concrete Canoe"
               competitionDescription = "The ASCE Concrete Canoe Competition provides students a unique opportunity to gain hands-on practical experience while testing their skills with concrete mix designs and project management challenges. This elite competition combining engineering excellence, hydrodynamic design, and racing technique is known as the ''America's Cup of Civil Engineering.''"
               modalImage = {canoeImage}
+              
             />
           </div>
 
@@ -103,6 +107,7 @@ function template() {
               modalTitle = "Steele Bridge"
               competitionDescription = "The Student Steel Bridge Competition challenges students to extend their classroom knowledge to a practical and hands-on steel-design project that grows their interpersonal and professional skills, encourages innovation, and fosters impactful relationships between students and industry professionals.  Each student team develops a concept for a scale-model steel bridge to span approximately 20 feet and to carry 2,500 pounds according to the competition rules. The team must determine how to fabricate their bridge and then plan for an efficient assembly under timed construction conditions at the competition. Bridges are also load-tested, weighed, and judged on aesthetics."
               modalImage = {steeleBridgeImage}
+              
             />
           </div>
         
@@ -180,165 +185,11 @@ function template() {
             </div>
           </div>
 
-   
-      
-      
-      
-
-        <section>
-          <div className="container-fluid">
-           <div className="col-12">
-           <div className="container" style={{display:'flex!important'}}>
-              <div className="row">
-              
-                <div className="col-lg-6">
-                  <Image src={require("../../assets/Brand/Award.png")} alt="" width={500} height={500} style={{width:'100%', height:'auto'}}/>
-                </div>
-                <div className="col-lg-6">
-                  <img className="rounded-lg-3" src={imagename} alt="" width="800"/>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-          
-        </section>
-        </div>
+        </div> 
     
   );
 };
 export default template;
 
-       /* 
-       
-        THIS IS ALL THE CODE DONE BETWEEN THE NIGHTS OF FRIDAY 7 AND SATURDAY 8. THIS WAS REWORKED ABOVE
-        WITH CONTAINERS TO MAKE THE CODE REUSABLE AND LESS RESOURCE INTENSIVE.(MODAY APRIL 10)
 
-          { </div>
-          <div class = "col-12 col-lg-3">
-        <ContentCard id="competition_card"
-          imageSrc={imagename}
-          imageAlt="none"
-        />
-         
-          
-          <div class = "col-12 col-lg-3">
-            <div class ="card text-center h-100 mb-2">
-              <Image  src={require("../../assets/Brand/ConcreteCanoe.png")} alt="" style={{width:'100', height:'auto'}}/>
-              
-              <div class="d-flex justify-content-between">
-                <div class="d-flex flex-row align-items-center">
-                  <div class = "card-body">
-                    <h2>Concrete Canoe</h2>
-                    <a href="#" class="btn btn-primary">Details</a>
-                  </div>
-                </div>
-              </div>
-            
-            </div>
-          </div>
-
-          
-          <div class = "col-12 col-lg-3">
-            <div class ="card text-center h-100 mb-2">
-            <Image  src={require("../../assets/Brand/SteeleBridge.png")} alt="" style={{width:'100', height:'auto'}}/>
-             
-              <div class="d-flex justify-content-between">
-                <div class="d-flex flex-row align-items-center">
-                  <div class = "card-body">
-                    <h3>Steele Bridge</h3>
-                    <a href="#" class="btn btn-primary">Details</a>
-                  </div>
-                </div>
-              </div>
-            
-            </div>
-          </div>
-
-          
-          <div class = "col-12 col-lg-3">
-            <div class ="card text-center p-3 mb-2 h-100 mb-3">
-              
-              <img src ="..." alt="..." class="card-img-top"/>
-              <div class="d-flex justify-content-between">
-                <div class="d-flex flex-row align-items-center">
-                  <div class = "card-body">
-                    <h4>Timber Strong</h4>
-                    <a href="#" class="btn btn-primary">Details</a>
-                  </div>
-                </div>
-              </div>
-            
-            </div>
-          </div>
-
-          
-          <div class = "col-12 col-lg-3">
-            <div class ="card text-center p-3 mb-2 h-100 mb-3">
-            <Image  src={require("../../assets/Brand/SustainableSolutions.png")} alt="" style={{width:'100', height:'auto'}}/>
-              
-              <div class="d-flex justify-content-between">
-                <div class="d-flex flex-row align-items-center">
-                  <div class = "card-body">
-                    <h5>Sustainable Solutions</h5>
-                    <a href="#" class="btn btn-primary">Details</a>
-                  </div>
-                </div>
-              </div>
-            
-            </div>
-          </div>
-
-          <div class = "col-12 col-lg-4">
-            <div class ="card text-center  mt-2">
-              <img src ="..." alt="..." class="card-img-top"/>
-              <div class="d-flex justify-content-between">
-                <div class="d-flex flex-row align-items-center">
-                  <div class = "card-body">
-                    <h6>Innovation Contest</h6>
-                    <a href="#" class="btn btn-primary">Details</a>
-                  </div>
-                </div>
-              </div>
-            
-            </div>
-          </div>
-
-          
-          <div class = "col-12 col-lg-4">
-            <div class ="card text-center  mt-2">
-            <Image  src={require("../../assets/Brand/Surveying.png")} alt="" style={{width:'100', height:'auto'}}/>
-              <img src ="Surveying.png" alt="..." class="card-img-top"/>
-              <div class="d-flex justify-content-between">
-                <div class="d-flex flex-row align-items-center">
-                  <div class = "card-body">
-                    <h7>Surveying</h7>
-                    <a href="#" class="btn btn-primary">Details</a>
-                  </div>
-                </div>
-              </div>
-            
-            </div>
-          </div>
-
-          
-          <div class = "col-12 col-lg-4">
-            <div class ="card text-center p-2 mt-2">
-            <Image  src={require("../../assets/Brand/ConstructionInstitute.png")} alt="" style={{width:'100', height:'auto'}}/>
-               <img src ="Construction Institute.png" alt="..." class="card-img-top"/>
-              <div class="d-flex justify-content-between">
-                <div class="d-flex flex-row align-items-center">
-                  <div class = "card-body">
-                    <h8>Construction Institute</h8>
-                    <a href="#" class="btn btn-primary">Details</a>
-                  </div>
-                </div>
-              </div>
-            
-            </div>
-          </div>
-
-        </div>
-        
-  </div> }*/
      

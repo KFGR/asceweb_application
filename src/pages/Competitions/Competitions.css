@@ -1,6 +1,11 @@
 .Competitions{
     background-color:rgb(20, 74, 154); /*RGB(25 25 112)*/
     width: 100%;
+    text-align: center;
+    color:white;
+    font-size: large;
+    font-family: Arial;
+    font-weight: 300;        
 }
 
 
