@@ -1,10 +1,12 @@
 import "./ContentCard.css";
 //import React, { useState } from "react";
 import {Image} from "react-bootstrap";
+//import { Dropdown, DropdownButton } from "react-bootstrap";
+//import React, { useState } from "react";
 import CardWithModal from "./Modal.jsx";
 
 
- function template(props){
+ function Template(props){
   //const CardWithModal = ({
     // id,
     // className,
@@ -23,6 +25,17 @@ import CardWithModal from "./Modal.jsx";
 
     const {id,className, imageSrc, imageAlt, title, paragraph, modalImage, modalTitle, competitionDescription} = props;
 
+    // lines 29 to 36 are for selecting multiple items in Competition Form Dropdown menu
+    // const [selectedItems, setSelectedItems]= useState([]);
+    
+    // function handleSelect(eventKey, event){
+    //   setSelectedItems([selectedItems, eventKey]);
+    // }
+    // function handleDeselect(eventKey, event){
+    //   setSelectedItems(selectedItems.filter((item) => !eventKey));
+    // }
+
+      //ContenCard begins beyond this line
       return (
         <div className="content-card">
           {id === "first" && (
@@ -69,17 +82,17 @@ import CardWithModal from "./Modal.jsx";
               )
             }
 
-{id === "competition_card" && (
-        <div className = "card">
-           <Image src={modalImage} alr={imageAlt} className="card-img-top"/>
-             <div className="card-body">
-               <h5 className="card-title">{modalTitle}</h5>
-               {/* <p className = "card-text">{competitionDescription}</p> */}
-             </div>  
-             <CardWithModal  modalTitle={modalTitle} modalImageSrc={modalImage} modalImageAlt={imageAlt} modalDetails={competitionDescription}/>
-       </div>
+            {id === "competition_card" && (
+              <div className = "card">
+                <Image src={modalImage} alr={imageAlt} className="card-img-top"/>
+                  <div className="card-body">
+                  <h5 className="card-title">{modalTitle}</h5>
+                  {/* <p className = "card-text">{competitionDescription}</p> */}
+                </div>  
+                <CardWithModal  modalTitle={modalTitle} modalImageSrc={modalImage} modalImageAlt={imageAlt} modalDetails={competitionDescription}/>
+              </div>
 // <modalcard modalTitle={title} modalImageSrc={imageSrc} modalDetails={competitionDescription} modalImageAlt={imageAlt}/>
-     )}
+            )}
           
           {/* This is a second attempt at the modal
           {/* Below is the new card */}
@@ -102,16 +115,131 @@ import CardWithModal from "./Modal.jsx";
             </div>
 
           )}  */}
+
+
+          {/* Below this  line is the component for the competition form. id is competitionForm_Component */}
+          {/* {id === "competitionForm_Component" && (
+            
+            <div class = "conatiner-lg">
+              <div class="row justify-content-center my-5">
+                <div class="col-lg-6">
+                  <form>
+                    {/* First question Below */}
+                    {/* <div>
+                      <label for="ASCEMemberRadioQuestion" class="form=label">Are you an ASCE Member?</label>
+                      <div class="form-check">
+                        <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion">
+                          <label htmlFor="ASCEMemberRadioQuestion" className="form-label">Yes</label>
+                        </input>
+                      </div>
+                      <div class="form-check">
+                        <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion">
+                          <label htmlFor="ASCEMemberRadioQuestion" className="form-label">No</label>
+                        </input>
+                      </div>
+                    </div>
+                     */}
+                    {/* second quesiton below */}
+                    {/* <div class="mb-3">
+                      <label htmlFor="ASCEMemberNumber" className="form-label">ASCE Member Number</label>
+                      <input type="text" className="form-control" id="ASCEMemberNumber" aria-describedby="memberNumberHelp"></input>
+                      <div id="memberNumberHelp" class="form-text">
+                        If you do not have an ASCE Member Number, then please become an official ASCE Member at https://www.asce.org/membership
+                      </div>
+                    </div> */}
+
+                    {/* Third question Below  */}
+                    {/* <div class="mb-3">
+                      <label htmlFor="competitionsDropdown" className="form">Select the competitions you are interested in participating.</label>
+                      
+
+                      <DropdownButton id="competitionsDropdown" title="Competitions">
+
+                          <Dropdown.Item href="#Concrete Canoe" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            1. Concrete Canoe
+                          </Dropdown.Item>
+
+                          <Dropdown.Item href="#Steel Bridge" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            2. Steel Bridge
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Timber Strong" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            3. Timber Strong
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Sustainable Solutions" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            4. Sustainable Solutions
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Innovation Contest" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            5. Innovation Contest
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Construction Institute" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            6. Construction Institute
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Surveying" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            7. Surveying
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="Concrete Bridge" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            8. Concrete Bridge
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Traffic Control" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            9. Traffic Conctrol
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Geo-Wall" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            10. Geo-Wall
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Muddy Waters" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            11. Muddy Waters
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Concrete Cornhole" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            12. Concrete Cornhole
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Plans Reading" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            13. Plans Reading
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Proffessional Paper" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            14. Proffessional Paper
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#T-Shirt Contest" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            15. T-Shirt Contest
+                          </Dropdown.Item>
+                          
+                          <Dropdown.Item href="#Mystery Competition" onSelect={handleSelect} onDeselect={handleDeselect}>
+                            16. Mystery Competition
+                          </Dropdown.Item>
+                      
+                      </DropdownButton>
+                    </div>
+                  
+                    
+                    
+                  </form>
+                </div>
+              </div>
+            </div> */} 
+
+          {/* )} */}
             
         </div>
       );
  }
-export default template;    
+export default Template;    
       
 
 
 
-    //added competitionDescription and modalImage
+    //added competitionDescription and modalImage to the modal
   // console.log(typeof imageSrc);
   // console.log(imageSrc);
   // console.log(title.substring(2,4));

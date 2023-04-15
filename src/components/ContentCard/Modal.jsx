@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {Modal, Button} from "react-bootstrap";
 import Image from "react-bootstrap/Image";
+//import ContentCard from "./ContentCard"; //trying to make the form show
 
 const CardWithModal = ({
   
@@ -8,7 +9,8 @@ const CardWithModal = ({
  
   modalTitle,
   modalDetails,
-  modalImageSrc
+  modalImageSrc,
+  handleModalOpen
 }) => {
   const [showModal, setShowModal] = useState(false);
 
@@ -32,10 +34,15 @@ const CardWithModal = ({
             style={{ width: "100%", height: "auto" }}
           />
           <p>{modalDetails}</p>
+          {/* line below here was added to try to make this modal's button open the form component */}
+          {/* <div>id = "modal-body"</div> */}
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>Close</Button>
-            <Button variant="primary">Join!</Button>
+            <Button variant="primary" onClick={handleClose}>Close</Button>
+            {/* <Button variant="primary" onClick={handleModalOpen}>
+              Join!
+            </Button> 
+            THIS WAS COMMENTED OUT BECAUSE I COULDN'T GET THIS BUTTON TO OPEN THE FORM. DECIDED TO PLACE FORM UNDER CARDS - Alejandro*/}
         </Modal.Footer>
       </Modal>
     </div>
