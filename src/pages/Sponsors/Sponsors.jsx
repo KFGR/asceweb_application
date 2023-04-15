@@ -6,8 +6,25 @@ import checkmark from '../../assets/img/checkmark.svg';
 function template() {
   return (
     <>
+      <div className="section-hero">
+        <h1>Help Us Reach Our Goals!</h1>
+      </div>
+      <div className="section-information">
+        <h2>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit
+        </h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque magni eos fugiat maxime eum, 
+          porro nostrum deserunt ab! Error alias eum reprehenderit doloremque nam aliquid blanditiis fugit qui eveniet.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque magni eos fugiat maxime eum, 
+          porro nostrum deserunt ab! Error alias eum reprehenderit doloremque nam aliquid blanditiis fugit qui eveniet.
+        </p>
+      </div>
+
       <div className="section-rewards">
+      <h2>Reward Tiers</h2>
         <table>
+        <tfoot><tr><td colspan="5">*Note: We sincerely appreciate all donations below $500, although they do not qualify for our rewards program.</td></tr></tfoot>
           <tr>
             <th>Brand Logo Representation</th>
             <th><p>Bronze Tier</p>$500 - $1499</th>
@@ -135,21 +152,7 @@ function template() {
             <h3>Reach Us</h3>
                 
           </div>
-
-
         </div>
-        
-
-        
-
-
-
-
-
-
-
-
-
       </div>
     </>
   );

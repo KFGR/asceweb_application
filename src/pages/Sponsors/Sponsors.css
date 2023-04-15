@@ -1,9 +1,52 @@
+body{
+    
+}
+
 .section-rewards{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 50px;
+}
+
+.section-rewards > table{
+    align-self: center;
+}
+
+.section-rewards > h2{
+    margin-bottom: 25px;
+}
+
+.section-hero{
+    background-color: #144a9a;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-hero > h1{
+    color: white;
+    font-size: 4rem;
+}
+
+.section-information{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-information > h2, .section-information > p{
+    color: black;
+    width: 80%;
+}
+
+.section-information > p{
+    margin-top: 20px;
+    font-size: 20px;
 }
 
 table{
@@ -34,13 +77,18 @@ th {
     color: white;
 }
 
+tfoot > tr >td{
+    font-weight: 100;
+    font-size: 13px;
+}
+
 p{
     margin: 0px;
 
 }
 
 .section-contact{
-    height: 100vh;
+    height: auto;
     width: 80%;
     margin: 50px auto;
 }
@@ -72,7 +120,7 @@ h2{
 }
 
 .section-contact p{
- margin-bottom: 40px;
+    margin-bottom: 40px;
 }
 
 .input-row{
@@ -108,7 +156,7 @@ label{
     font-weight: bold;
 }
 
-button{
+form > button{
     background-color: #fbb71a;
     width: 100px;
     color: white;
@@ -119,5 +167,65 @@ button{
     border-radius: 30px;
     margin-top: 20px;
     box-shadow: 0px 5px 15px 0px;
+
+}
+
+@media screen and (max-width: 600px){
+
+    .section-hero > h1{
+        font-size: 2rem;
+    }
+
+    .section-information > h2{
+        font-size: 24px;
+    }
+    
+    .section-information > p{
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .section-rewards > h2{
+        font-size: 24px;
+    }
+
+    table{
+        width: auto;
+    }
+
+    table > tr > td, table > tr > th{
+        font-size: 14px;
+    }
+
+    tfoot > tr >td{
+        font-size: 11px;
+    }
+
+    td{
+        border-bottom: 1px solid #ccc;
+    }
+
+    .section-contact > h2 {
+        font-size: 24px;
+    }
+
+    .section-contact > p {
+        font-size: 14px;
+    }
+
+    .contact-box{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ccc;
+    }
+
+    .contact-left > h3{
+        font-size: 25px;
+    }
+
+    .contact-left{
+        padding: 20px;
+    }
 
 }
