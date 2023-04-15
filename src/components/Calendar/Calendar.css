@@ -1,0 +1,22 @@
+.calendarsize{
+    width: 60%;
+    margin: auto;
+    border: 1px solid #ccc;
+    margin-top: 200px;
+    margin-bottom: 200px
+}
+
+
+@media screen and (max-width: 1400px){
+
+    .calendarsize{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 700px){
+
+    .calendarsize{
+        width: auto;
+    }
+}

@@ -1,7 +1,7 @@
 import "./Sponsors.css";
 import React from "react";
 import checkmark from '../../assets/img/checkmark.svg';
-
+//import Calendar from  '../../components/Calendar';
 
 function template() {
   return (
@@ -154,6 +154,7 @@ function template() {
           </div>
         </div>
       </div>
+      {/*<Calendar/>*/}
     </>
   );
 };

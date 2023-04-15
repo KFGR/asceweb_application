@@ -70,7 +70,7 @@ td{
     font-weight: bold;
 }
 
-th {
+.section-rewards th {
     padding-left: 10px;
     width: 200px;
     background-color: #144a9a;
