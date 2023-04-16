@@ -182,31 +182,53 @@ function template() {
               </div>
           </div>
         </div>
-        <section>
-        
+        <div className="competitionForm"> {/* </div> This div should close the one that was opened in line 76. that div closes in line 365 */}
+          {/* <section> The <section> might have to be deleted closing section tag is on line 364*/}
+          <h2>Fill out this form if you'd like to joing a competition!</h2>
             
-            <div className = "conatiner-lg">
-              <div className="row justify-content-center my-5">
+        
+          <div className="row justify-content-left my-5">
                 <div className="col-lg-6">
                   <form>
-                    {/* First question Below */}
-                    <div>
-                      <label htmlFor="ASCEMemberRadioQuestion" className="form=label">Are you an ASCE Member?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion"/>
-                          <label htmlFor="ASCEMemberRadioQuestion" className="form-label">Yes</label>
-                        {/* </input> */}
-                      </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion"/>
-                          <label htmlFor="ASCEMemberRadioQuestion" className="form-label">No</label>
-                        {/* </input> */}
+                    {/* First Question  WHAT IS YOUR FIRST AND LAST NAME?*/}
+                    
+                    <div class="mb-3">
+                      <label for="exampleFormControlTextarea1" class="form-label">1. Please enter your first and last name.</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+
+
+                    {/* Second Question WHAT US YOUR STUDENT EMAIL? */}
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">2. Please enter your PUPR student email address.</label>
+                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="lastname_studentnumber@students.pupr.edu"/>
+                    </div>
+
+                    {/* Third question Below */}
+                    <div className="row">
+                        <div className="col-12">
+                          <label htmlFor="ASCEMemberRadioQuestion" className="form=label">3. Are you an ASCE Member?</label>
+                        </div>
+                        <div className="col-6">
+                          <div className="form-check">
+                            <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion"/>
+                            <label htmlFor="ASCEMemberRadioQuestion" className="form-label">Yes</label>
+                            {/* </input> */}
+                          </div>
+                        </div>
+                        <div className="col-6">
+                          <div className="form-check">
+                            <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion"/>
+                            <label htmlFor="ASCEMemberRadioQuestion" className="form-label">No</label>
+                            {/* </input> */}
+                        
+                        </div>
                       </div>
                     </div>
                     
-                    {/* second quesiton below */}
+                    {/* Fourth quesiton below */}
                     <div className="mb-3">
-                      <label htmlFor="ASCEMemberNumber" className="form-label">ASCE Member Number</label>
+                      <label htmlFor="ASCEMemberNumber" className="form-label">4. ASCE Member Number</label>
                       {/* <textarea class="form-control" id="ASCEMemberNumber" rows="1"></textarea>  THIS MIGHT BE THE CORRECT CODE FOR THIS QUESTION IN THE FORM INSTEAD OF LINES 214 TO 217*/}
                       <input type="text" className="form-control" id="ASCEMemberNumber" aria-describedby="memberNumberHelp"></input>
                       <div id="memberNumberHelp" className="form-text">
@@ -214,9 +236,9 @@ function template() {
                       </div>
                     </div>
 
-                    {/* Third question Below  */}
+                    {/* Fifth question Below  */}
                     <div className="mb-3">
-                      <label htmlFor="competitionsDropdown" className="form">Select the competitions you are interested in participating.</label>
+                      <label htmlFor="competitionsDropdown" className="form">5. Select the competitions you are interested in participating.</label>
                       <select>
                         <option value="1">Concrete Canoe</option>
                         <option value="2">Steel Bridge</option>
@@ -238,21 +260,22 @@ function template() {
                     </div>
 
 
-                    {/* Fourth Question */}
+                    {/* Sixth Question */}
                     <div className="mb-3">
-                      <label htmlFor="recentClassesQuesiton" className="form-label">Please write 3 or more of the most recent courses you have taken. Current Courses count.</label>
+                      <label htmlFor="recentClassesQuesiton" className="form-label">6. Please write 3 or more of the most recent courses you have taken. Current Courses count.</label>
                       <textarea className="form-control" id="recentClassesQuestion" rows="3"></textarea>
                     </div>
 
-                    {/* Fifth Question */}
+                    {/* Seventh Question */}
                     <div className="mb-3">
-                      <label htmlFor="experienceQuesiton" className="form-label">"Please write any experience current or past that you have aquired such as Jobs, Internships, Consturction Knowledge, etc."</label>
+                      <label htmlFor="experienceQuesiton" className="form-label">7. Please write any experience current or past that you have aquired such as Jobs, Internships, Consturction Knowledge, etc.</label>
                       <textarea className="form-control" id="experienceQuestion" rows="3"></textarea>
                     </div>
 
                     
 
-                    {/* Sixth Question */}
+                    {/* Eighth Question */}
+                    <p>8. Please give your availability.</p>
                     <label htmlFor="availability" className="form-label">Monday</label>
                       <input type="time" id="availability"></input>
 
@@ -272,93 +295,125 @@ function template() {
                     <input type="time" id="availability"></input>
 
 
-                    {/* Seventh Question */}
-                    <div>
-                      <label htmlFor="travelGeneralQuestion" className="form=label">Are you willing to travel?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="SecondRadio" id="tavelGeneralQuestion"/>
+                    {/* Ninth Question */}
+                    <div className="row">
+                      <div className="col-12">
+                      <label htmlFor="travelGeneralQuestion" className="form=label">9. Are you willing to travel?</label>
+                      </div>
+                      <div className="col-6">
+                        <div className="form-check">
+                          <input className = "form-radio-input" type="radio" name="SecondRadio" id="tavelGeneralQuestion"/>
                           <label htmlFor="travelGeneralQuestion" className="form-label">Yes</label>
                         {/* </input> */}
+                        </div>
                       </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="SecondRadio" id="travelGeneralQuestion"/>
+                      <div className="col-6">
+                        <div className="form-check">
+                          <input className = "form-radio-input" type="radio" name="SecondRadio" id="travelGeneralQuestion"/>
                           <label htmlFor="travelGeneralQuestion" className="form-label">No</label>
-                        {/* </input> */}
-                      </div>
-                    </div>
-
-
-                    {/* Eighth Question */}
-                    <div>
-                      <label htmlFor="juneTravelQuestion" className="form=label">Are you willing to travel in June?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
-                          <label htmlFor="juneTravelQuestion" className="form-label">Yes</label>
-                        {/* </input> */}
-                      </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
-                          <label htmlFor="juneTravelQuestion" className="form-label">No</label>
-                        {/* </input> */}
-                      </div>
-                    </div>
-
-
-                    {/* Ninth Question */}
-                    <div>
-                      <label htmlFor="ageTwentyFiveQuestion" className="form=label">Are you 25 yeard old or older?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
-                          <label htmlFor="ageTwentyFiveQuestion" className="form-label">Yes</label>
-                        {/* </input> */}
-                      </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
-                          <label htmlFor="ageTwentyFiveQuestion" className="form-label">No</label>
-                        {/* </input> */}
+                          {/* </input> */}
+                        </div>
                       </div>
                     </div>
 
 
                     {/* Tenth Question */}
-                    <div>
-                      <label htmlFor="heavyVehicleLicenseQuestion" className="form=label">Do you have a heavy vehicle license?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
-                          <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">Yes</label>
-                        {/* </input> */}
+                    <div className="row">
+                      <div className="col-12">
+                      <label htmlFor="juneTravelQuestion" className="form=label">10. Are you willing to travel in June?</label>
                       </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
-                          <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">No</label>
+                      <div className="col-6">
+                        <div className="form-check">
+                          <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
+                          <label htmlFor="juneTravelQuestion" className="form-label">Yes</label>
                         {/* </input> */}
+                        </div>
+                      </div>
+                      <div className="col-6">
+                        <div className="form-check">
+                          <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
+                          <label htmlFor="juneTravelQuestion" className="form-label">No</label>
+                        {/* </input> */}
+                        </div>
                       </div>
                     </div>
 
 
                     {/* Eleventh Question */}
-                    <div>
-                      <label htmlFor="officialDriverQuestion" className="form=label">Would you like to be the official driver of the PUPR ASCE Student Chapter?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="SixthRadio" id="officialDriverQuestion"/>
+                    <div className="row">
+                      <div className="col-12">
+                        <label htmlFor="ageTwentyFiveQuestion" className="form=label">11. Are you 25 yeard old or older?</label>
+                      </div>
+                      <div className="col-6">
+                        <div className="form-check">
+                          <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
+                          <label htmlFor="ageTwentyFiveQuestion" className="form-label">Yes</label>
+                        {/* </input> */}
+                        </div>
+                      </div>
+                      <div className="col-6">
+                        <div className="form-check">
+                          <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
+                          <label htmlFor="ageTwentyFiveQuestion" className="form-label">No</label>
+                        {/* </input> */}
+                        </div>
+                      </div>
+                    </div>
+
+
+                    {/* Twelfth Question */}
+                    <div className="row">
+                      <div className="col-12">
+                        <label htmlFor="heavyVehicleLicenseQuestion" className="form=label">12. Do you have a heavy vehicle license?</label>
+                      </div>
+                      <div class="col-6">
+                        <div className="form-check">
+                          <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
+                          <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">Yes</label>
+                        {/* </input> */}
+                        </div>
+                      </div>
+                      <div className="col-6">
+                        <div className="form-check">
+                          <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
+                          <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">No</label>
+                        {/* </input> */}
+                        </div>
+                      </div>
+                    </div>
+
+
+                    {/* Thirdteenth Question */}
+                    <div className="row">
+                      <div className="col-12">
+                        <label htmlFor="officialDriverQuestion" className="form=label">13. Would you like to be the official driver of the PUPR ASCE Student Chapter?</label>
+                      </div>
+                      <div className="col-6">
+                        <div className="form-check">
+                          <input className = "form-radio-input" type="radio" name="SixthRadio" id="officialDriverQuestion"/>
                           <label htmlFor="officialDriverQuestion" className="form-label">Yes</label>
                         {/* </input> */}
+                        </div>
                       </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="SixthRadio" id="officialDriverQuestion"/>
+                      <div className="col-6">
+                        <div className="form-check">
+                          <input className = "form-radio-input" type="radio" name="SixthRadio" id="officialDriverQuestion"/>
                           <label htmlFor="officialDriverQuestion" className="form-label">No</label>
                         {/* </input> */}
+                        </div>
                       </div>
                     </div>
 
                   </form>
                 </div>
-              </div>
-            </div>
+          </div>
+        
+        </div>
 
-        </section>
-
-        </div> 
+          {/* </section> */}
+        {/* </div> this </div> closes the <div> for the form which opens in line 185  */}
+      </div>
+       
     
   );
 };
