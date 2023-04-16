@@ -1,0 +1,231 @@
+body{
+    
+}
+
+.section-rewards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    /* border: 1px solid black; */
+    padding: 50px;
+}
+
+.section-rewards > table{
+    align-self: center;
+}
+
+.section-rewards > h2{
+    margin-bottom: 25px;
+}
+
+.section-hero{
+    background-color: #144a9a;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-hero > h1{
+    color: white;
+    font-size: 4rem;
+}
+
+.section-information{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-information > h2, .section-information > p{
+    color: black;
+    width: 80%;
+}
+
+.section-information > p{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+table{
+    width: 70%;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #ccc;
+
+}
+
+th,td {
+    /*border: 5px solid rgb(255, 255, 255);*/
+    padding: 5px;
+    /*background-color: rgb(243, 239, 239); */
+    /*border-radius: 15px;*/
+
+}
+
+td{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.section-rewards th {
+    padding-left: 10px;
+    width: 200px;
+    background-color: #144a9a;
+    color: white;
+}
+
+tfoot > tr >td{
+    font-weight: 100;
+    font-size: 13px;
+}
+
+p{
+    margin: 0px;
+
+}
+
+.section-contact{
+    height: auto;
+    width: 80%;
+    margin: 50px auto;
+}
+
+div h2, div p{
+    text-align: center;
+}
+
+.contact-box{
+    background-color: white;
+    display: flex;
+    border: 1px solid #ccc;
+}
+
+.contact-left{
+    flex-basis: 60%;
+    padding: 40px 60px;
+}
+
+.contact-right{
+    flex-basis: 40%;
+    padding: 40px;
+    background-color: #144a9a;
+    color: white;
+}
+
+h2{
+    margin-bottom: 10px;
+}
+
+.section-contact p{
+    margin-bottom: 40px;
+}
+
+.input-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-group{
+    flex-basis: 45%;
+}
+
+input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    padding-bottom: 5px;
+}
+
+textarea{
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+label{
+    margin-bottom: 5px;
+    display: block;
+    color: #fbb71a;
+    font-weight: bold;
+}
+
+form > button{
+    background-color: #fbb71a;
+    width: 100px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    height: 35px;
+    border-radius: 30px;
+    margin-top: 20px;
+    box-shadow: 0px 5px 15px 0px;
+
+}
+
+@media screen and (max-width: 600px){
+
+    .section-hero > h1{
+        font-size: 2rem;
+    }
+
+    .section-information > h2{
+        font-size: 24px;
+    }
+    
+    .section-information > p{
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .section-rewards > h2{
+        font-size: 24px;
+    }
+
+    table{
+        width: auto;
+    }
+
+    table > tr > td, table > tr > th{
+        font-size: 14px;
+    }
+
+    tfoot > tr >td{
+        font-size: 11px;
+    }
+
+    td{
+        border-bottom: 1px solid #ccc;
+    }
+
+    .section-contact > h2 {
+        font-size: 24px;
+    }
+
+    .section-contact > p {
+        font-size: 14px;
+    }
+
+    .contact-box{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ccc;
+    }
+
+    .contact-left > h3{
+        font-size: 25px;
+    }
+
+    .contact-left{
+        padding: 20px;
+    }
+
+}
