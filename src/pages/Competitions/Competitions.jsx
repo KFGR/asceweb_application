@@ -117,13 +117,13 @@ function template() {
           <div class = "col-12 col-lg-3">
             {/* Timber Strong */}
             <ContentCard id="competition_card"
-              imageSrc={imagename}
+              imageSrc={constructionInstiImage}
               imageAlt="none"
               title = "Timber Strong"
               // paragraph = "Details"
               modalTitle ="Timber Strong"
               competitionDescription = "The competition seeks student teams to design and build an artistically creative 2-story wood light-framed building that is sustainable, aesthetically pleasing and structurally durable. The competition enables students to gain experience in performing aspects of common structural engineering design and practice as well as gain exposure to the management and building practices used in construction environments."
-              modalImage = {imagename}
+              modalImage = {constructionInstiImage}
             />
             </div>
           
@@ -168,15 +168,15 @@ function template() {
             </div>
 
               <div class = "col-12 col-md-3">
-                {/* Construction Institute */}
+                {/* Construction Institute - PLACE THE CONSTRUCTION INSTITUTE IMAGE IN THE TIMBER STRONG IMAGE */}
                 <ContentCard id="competition_card"
-                imageSrc={constructionInstiImage}
+                imageSrc={imagename}
                 imageAlt="none"
                 title = "Construction Institute"
                 // paragraph = "Details"
                 modalTitle = "Construction Institute"
                 competitionDescription = "Each student team shall act as a construction engineering firm, and these responses shall be directed and delivered professionally, similarly to how a real company would address an owner requesting additional information from a firm during the pre-construction phase of a job. Sample projects will entertain all sectors of civil engineering, while the individual challenges will be related to: Traffic Control / Site Logistics, QA/QC, Safety, Public Outreach, Environment, Risk Management, and other concerns that project managers and engineers plan for."
-                modalImage = {constructionInstiImage}
+                modalImage = {imagename}
                 />
           
               </div>
@@ -188,13 +188,13 @@ function template() {
             
         
           <div className="row justify-content-left my-5">
-                <div className="col-lg-6">
+                <div className="col-lg-6 ms-lg-5">
                   <form>
                     {/* First Question  WHAT IS YOUR FIRST AND LAST NAME?*/}
                     
-                    <div class="mb-3">
+                    <div class="ms-lg-5 mb-3">
                       <label for="exampleFormControlTextarea1" class="form-label">1. Please enter your first and last name.</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                     </div>
 
 
@@ -417,7 +417,4 @@ function template() {
     
   );
 };
-export default template;
-
-
-     
+export default template;     
