@@ -111,10 +111,8 @@ function template() {
         <span></span>
 
         </div>      
-      </section>    
-        
-     
-
+      </section>       
+      
       <section>
         <div className="sign-up_button">
         <span></span>
