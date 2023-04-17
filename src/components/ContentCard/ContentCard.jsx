@@ -83,8 +83,10 @@ import CardWithModal from "./Modal.jsx";
             }
 
             {id === "competition_card" && (
-              <div className = "card">
-                <Image src={modalImage} alr={imageAlt} className="card-img-top"/>
+              <div className = "card h-100">
+                
+                <Image src={modalImage} alr={imageAlt} className="card-img-top img-fluid"/>
+                
                   <div className="card-body">
                   <h5 className="card-title">{modalTitle}</h5>
                   {/* <p className = "card-text">{competitionDescription}</p> */}
