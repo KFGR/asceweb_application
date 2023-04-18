@@ -39,7 +39,7 @@ function template() {
 
         <div className="col-6">
           3. Academic Year: <span></span> 
-        <input type="text" placeholder="Academic Year" id="a-year" name="a-year" required/>
+        <input type="text" placeholder="Academic Year" id="year" name="a-year" required/>
         </div>
         
         <span></span>
@@ -47,7 +47,7 @@ function template() {
 
         <div className="a-dept">
           4. Academic Department: <span></span>
-        <input type="text" placeholder="Academic Depaerment" id="a-dept" name="a-dept" required/>
+        <input type="text" placeholder="Academic Depaerment" id="department" name="a-dept" required/>
         </div>
 
         <span></span>
@@ -63,7 +63,7 @@ function template() {
 
         <div className="email">
           6. Institutional Email: <span></span>
-          <input type="email" placeholder="@students.pupr.edu" id="@students.pupr.edu" name="@students.pupr.edu" required/>
+          <input type="email" placeholder="@students.pupr.edu" id="email" name="@students.pupr.edu" required/>
         </div>
         
         <span></span>
@@ -71,7 +71,7 @@ function template() {
 
         <div className="col-6">
           7. Shirt Size: <span></span>       
-            <select id="shirt-size" name="shirt-size" required>
+            <select id="shirt-size" name="size" required>
               {sizeOptions.map((option => (
                 <option value={option.value}>{option.label}</option>)))}
             </select>
@@ -82,7 +82,7 @@ function template() {
 
         <div className="cellphone">
           8. Phone Number: <span></span>
-          <input type="text" placeholder="Phone Number" id="phone" name="phone" required/>
+          <input type="text" placeholder="Phone Number" id="cellphone" name="phone" required/>
         </div>
 
         <span></span>
