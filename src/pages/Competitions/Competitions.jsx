@@ -204,7 +204,7 @@ function template() {
           {/* <h2>Fill out this form if you'd like to joing a competition!</h2> */}
             
           <div class="container my-5">
-            <div class="row justigy-content-center">
+            <div class="row justify-content-center">
               <div class="col-lg-9">
                 <h1 class="mb-3">Fill out this form to join a Competition</h1>
 
@@ -212,30 +212,30 @@ function template() {
                   <div class="row g-3"> 
                     <div class="col-md-6"> {/*First question */}
                       <label htmlFor="firstAndLastNameQuestion" className="form-label">First and Last Name</label>
-                      <input type="text" class="form-control" id="firstAndLastNameQuestion" name="firstAndLastNameQuestion" required/>
+                      <input type="text" class="form-control mb-3" id="firstAndLastNameQuestion" name="firstAndLastNameQuestion" required/>
                     </div>
                     <div class="col-md-6"> {/*Second Question */}
                       <label for="emailQuestion" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="emailQuestion" name="emailQuestion" required/>
+                      <input type="email" class="form-control mb-3" id="emailQuestion" name="emailQuestion" required/>
                     </div>
                     {/* Below question added from old code */}
                       {/*Third question */}
-                    <div className="col-6"> {/*row ; deleted mb-6 mx-5 g-3 */}
-                        <div className="col-6">
-                          <label htmlFor="ASCEMemberRadioQuestion" className="form=label">Are you an ASCE Member?</label>
+                    <div className="col-md-6"> {/*row ; deleted mb-6 mx-5 g-3 */}
+                        <div className="col-md-12">
+                          <label htmlFor="ASCEMemberRadioQuestion" className="form=label" required>Are you an ASCE Member?</label>
                         </div>
-                        <div class="col-6">
-                          <div class="row g-3">
+                        <div class="col-md-6">
+                          <div class="row g-3 md-6">
                             <div className="col-12 col-md-6">
                               <div className="form-check">
-                                <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion"/>
+                                <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion" required/>
                                 <label htmlFor="ASCEMemberRadioQuestion" className="form-label">Yes</label>
                                 {/* </input> */}
                               </div>
                             </div>
                             <div className="col-12 col-md-6">
                               <div className="form-check">
-                                <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion"/>
+                                <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion" required/>
                                 <label htmlFor="ASCEMemberRadioQuestion" className="form-label">No</label>
                                 {/* </input> */}
                               </div>
@@ -247,14 +247,17 @@ function template() {
                     {/* Above question added from old code */}
                     <div class="col-md-6"> {/*Fourth question */}
                       <label htmlFor="asceMemberNumberQuestion" className="form-label">Do you have your ASCE Member Number?</label>
-                      <input type="text" class="form-control" id="asceMemberNumberQuestion" name="asceMemberNumberQuestion"/>
+                      <input type="text" class="form-control mb-3" id="asceMemberNumberQuestion" name="asceMemberNumberQuestion"/>
                     </div>
 
                   </div>
-                  <div class="col-md-6"> {/*Fifth Question */}
-                    <label htmlFor="competitionsDropDownQuestion" className="form">Select competition you are interested in. Can be more than one</label>
+                  
+                  <div className='row'>
+                  <div class="col-md-6 mb-3"> {/*Fifth Question */}
+                    <label htmlFor="competitionsDropDownQuestion" className="form" required>Select competition you are interested in. Can be more than one</label>
                     <div>
-                      <select>{/*<select class="selectpicker" data-show-subtext="false" data-live-search="true" style="width:100%; height:2rem">*/}
+                      <select class="form-control mb-3" required>{/*<select class="selectpicker" data-show-subtext="false" data-live-search="true" style="width:100%; height:2rem">*/}
+                        <option value="">-----</option>
                         <option value="1">Concret Canoe</option>
                         <option value="2">Steel Bridge</option>
                         <option value="3">Timber Strong</option>
@@ -263,26 +266,27 @@ function template() {
                         <option value="6">Construction Institute</option>
                         <option value="7">Surveying</option>
                         <option Value="8">Concrete Bridge</option>
-                        <optino Value="9">Traffic Control</optino>
-                        <optino Value="10">Geo-Wall</optino>
-                        <optino Value="11">Muddy Waters</optino>
-                        <optino Value="12">Concrete Cornhole</optino>
-                        <optino Value="13">Plans Reading</optino>
-                        <optino Value="14">Professional Paper</optino>
-                        <optino Value="15">T-shirt Contest</optino>
-                        <optino Value="16">Mystery Competition</optino>
+                        <option Value="9">Traffic Control</option>
+                        <option Value="10">Geo-Wall</option>
+                        <option Value="11">Muddy Waters</option>
+                        <option Value="12">Concrete Cornhole</option>
+                        <option Value="13">Plans Reading</option>
+                        <option Value="14">Professional Paper</option>
+                        <option Value="15">T-shirt Contest</option>
+                        <option Value="16">Mystery Competition</option>
                       </select>
                     </div>
                   </div>
-
-                  <div className="col-6 mb-3"> {/*Sixth Question */}
+                  
+                  <div className="col-md-6"> {/*Sixth Question */}
                       <label htmlFor="recentClassesQuesiton" className="form-label">Please write 3 or more of the most recent courses you have taken. Current Courses count.</label>
-                      <textarea className="form-control" id="recentClassesQuestion" rows="3"></textarea>
+                      <textarea className="form-control mb-3" id="recentClassesQuestion" rows="3" required></textarea>
+                  </div>
                   </div>
 
                   <div class="col-12 text-center"> {/*Seventh Question */}
-                    <label for="your-message" class="form-label">Write recent experiences</label>
-                    <textarea class="form-control" id="your-message" name="your-message" rows="5" required></textarea>
+                    <label for="your-message" class="form-label">Please add any current or past experience. Example Jobs, Internships, etc.</label>
+                    <textarea class="form-control mb-3" id="your-message" name="your-message" rows="5" required></textarea>
                   </div>
 
                   <div class='row mb-3'> {/*Eight Question */}
@@ -293,33 +297,33 @@ function template() {
                     {/* <div class="col-12"> */}
                       <div class='col-6'>
                         <label htmlFor="availability" className="form-label">Monday </label>
+                        <input type="time" id="availability" required></input>
+                      </div>
+
+                      <div class='col-6'>
+                        <label htmlFor="availability" className="form-label" required>Thursday</label>
                         <input type="time" id="availability"></input>
                       </div>
 
                       <div class='col-6'>
-                        <label htmlFor="availability" className="form-label">Thursday</label>
-                        <input type="time" id="availability"></input>
-                      </div>
-
-                      <div class='col-6'>
-                        <label htmlFor="availability" className="form-label">Tuesday </label>
+                        <label htmlFor="availability" className="form-label" required>Tuesday </label>
                         <input type="time" id="availability"></input>
                       </div>
                     {/* </div> */}
 
                     {/* <div class='col-12'> */}
                       <div class='col-6'>
-                        <label htmlFor="availability" className="form-label">Friday</label>
+                        <label htmlFor="availability" className="form-label" required>Friday</label>
                         <input type="time" id="availability"></input>
                       </div>
 
                       <div class='col-6'>
-                        <label htmlFor="availability" className="form-label">Wednesday </label>
+                        <label htmlFor="availability" className="form-label" required>Wednesday </label>
                         <input type="time" id="availability"></input>
                       </div>
 
                       <div class='col-6'>
-                        <label htmlFor="availability" className="form-label">Saturday</label>
+                        <label htmlFor="availability" className="form-label" required>Saturday</label>
                         <input type="time" id="availability"></input>
                       </div>
                       
@@ -327,7 +331,7 @@ function template() {
 
                     <div class="row col-12">
                         <div class='col-6'>
-                          <div class='col-6'> {/*Div for the label */}
+                          <div class='col-md-6'> {/*Div for the label */}
                             <label htmlFor="travelGeneralQuestion" className="form=label">Are you willing to travel?</label>                   
                           </div>
                           
@@ -465,7 +469,7 @@ function template() {
                             
                     
                     <div>
-                    <Button>Submit</Button>
+                    <button data-res="<?php echo $sum; ?>" type="submit" class="btn btn-primary w-50 fw-bold mb-3" >Submit</button>
                     </div>
                     
                     
