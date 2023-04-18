@@ -10,6 +10,7 @@ import AppFooter from './components/AppFooter';
 
 const LazyHome = React.lazy(() => import('./pages/Home'));
 const LazyTeam = React.lazy(() => import('./pages/Team'));
+const LazyAboutUs = React.lazy(() => import('./pages/AboutUs'))
 
 
 
@@ -29,9 +30,7 @@ const App = () => {
         <Route path='/Home' element={<React.Suspense fallback='loading...'><><AppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
         <Route path='/team' element={<React.Suspense fallback='loading...'><><AppHeader id="Normal_header"/><LazyTeam/></></React.Suspense>}/>
 
-
-
-
+        <Route path='/aboutus' element={<React.Suspense fallback='loading...'><><AppHeader id="Normal_header"/><LazyAboutUs/></></React.Suspense>}/>
           {/* <Route  path='/home' element={<CurrentPage Component1={<AppHeader id="Home_header"/>} Component2={Home}/>}/>
           <Route path='/team' element={<CurrentPage Component1={<AppHeader id="Normal_header"/>} Component2={Team}/>}/> */}
 

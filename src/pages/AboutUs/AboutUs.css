@@ -1,0 +1,180 @@
+.AboutUs{
+    height: 100%;
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: inherit;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.auTitleContainer{
+    background-image: url('./img/AU_Title.jpg');
+    height: 50%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.auTitleText{
+    text-align: center;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
+
+.auTitleTextFontSize1{
+    font-size: 39px;
+}
+
+.auTitleTextFontSize2{
+    font-size:49.5px;
+}
+
+.auContentContainer{
+    width: calc(100% - 128px);
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    display:block;
+}
+
+.auContentText{
+    font-family: Helvetica,Arial,sans-serif;
+    color:#5e5e5e;
+}
+
+.auContentTextFont1{
+    font-size: 28px;
+    line-height: 1.35;
+    text-align: left;
+    text-justify: left;
+}
+
+.auContentTextFont2{
+    font-size: 18px;
+    line-height: 1.25;
+    text-align: justify;
+    text-justify: justify;
+}
+
+.auContentImagesBox{
+    border-color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0,0,0,.2);
+    background-color: #ffffffff;
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: break-word;
+    padding: 0 4px;
+
+    box-sizing: border-box;
+    position:relative;
+}
+
+.auContentImagesRow{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+
+    box-sizing: border-box;
+    position:relative;
+}
+
+.auContentImagesColumn{
+    flex: 100%;
+    max-width: 49%;
+    padding: 0 4px;
+    padding-bottom: 8px;
+}
+
+.auContentImagesColumn img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+}
+  
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+.auContentImagesColumn {
+        flex: 100%;
+        max-width: 99%;
+    }
+}
+
+.auContentImageBox{
+    position: relative;
+    margin: 0 auto;
+}
+
+.auContentImageTextV1{
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffffff;
+
+    position: absolute;
+    bottom: -16px;
+    padding: 20px;
+}
+
+.auContentImageTextV2{
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    margin-top: 8px;
+    padding: 20px;
+}
+
+/* Three columns side by side */
+.column {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+    display: flex;
+}
+  
+  /* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+}
+  
+  /* Add some shadows to create a card effect */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+  
+  /* Some left and right padding inside the container */
+.container {
+    padding: 0 16px;
+}
+  
+  /* Clear floats */
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+  
+.title {
+    color: grey;
+}
+  
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+  
+.button:hover {
+    background-color: #555;
+}
