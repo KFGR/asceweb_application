@@ -45,7 +45,6 @@
 
 .auContentText{
     font-family: Helvetica,Arial,sans-serif;
-    color:#5e5e5e;
 }
 
 .auContentTextFont1{
@@ -53,6 +52,7 @@
     line-height: 1.35;
     text-align: left;
     text-justify: left;
+    color:#5e5e5e;
 }
 
 .auContentTextFont2{
@@ -60,6 +60,7 @@
     line-height: 1.25;
     text-align: justify;
     text-justify: justify;
+    color:#5e5e5e;
 }
 
 .auContentImagesBox{
@@ -128,7 +129,7 @@
 
 .row{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     margin-right: -15px;
     margin-left: -15px;
     box-sizing: border-box;
@@ -152,9 +153,19 @@
   
   /* Display the columns below each other instead of side by side on small screens */
 @media screen and (max-width: 650px) {
-    .column {
-      width: 100%;
-      display: table-column
+    .column{
+        position: relative;
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-left: auto;
+        margin-right: auto;
+
+        box-sizing: border-box;
+        display: block;
     }
 }
   
