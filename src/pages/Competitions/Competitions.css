@@ -23,6 +23,9 @@
     font-size: xx-large; These commented lines were trying to change the font to Arial. It was not successfull.*/
 }
 
+.help-block{
+    font-size: x-small;
+}
 
 
 

@@ -200,295 +200,11 @@ function template() {
             
           </div>
         </div>
-        <section id="competitions_form">
-        <div className="competitionForm"> {/* </div> This div should close the one that was opened in line 76. that div closes in line 365 */}
-          {/* <section> The <section> might have to be deleted closing section tag is on line 364*/}
-          {/* <h2>Fill out this form if you'd like to joing a competition!</h2> */}
-            
-          <div className="container my-5">
-            <div className="row justify-content-center">
-              <div className="col-lg-9">
-                <h1 className="mb-3">Fill out this form to join a Competition</h1>
-
-                <form>
-                  <div className="row g-3"> 
-                    <div className="col-md-6"> {/*First question */}
-                      <label htmlFor="firstAndLastNameQuestion" className="form-label">First and Last Name</label>
-                      <input type="text" className="form-control mb-3" id="firstAndLastNameQuestion" name="firstAndLastNameQuestion" required/>
-                    </div>
-                    <div className="col-md-6"> {/*Second Question */}
-                      <label for="emailQuestion" className="form-label">Email</label>
-                      <input type="email" className="form-control mb-3" id="emailQuestion" name="emailQuestion" required/>
-                    </div>
-                    {/* Below question added from old code */}
-                      {/*Third question */}
-                    <div className="col-md-6"> {/*row ; deleted mb-6 mx-5 g-3 */}
-                        <div className="col-md-12">
-                          <label htmlFor="ASCEMemberRadioQuestion" className="form=label" required>Are you an ASCE Member?</label>
-                        </div>
-                        <div className="col-md-6">
-                          <div className="row g-3 md-6">
-                            <div className="col-12 col-md-6">
-                              <div className="form-check">
-                                <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion" required/>
-                                <label htmlFor="ASCEMemberRadioQuestion" className="form-label">Yes</label>
-                                {/* </input> */}
-                              </div>
-                            </div>
-                            <div className="col-12 col-md-6">
-                              <div className="form-check">
-                                <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion" required/>
-                                <label htmlFor="ASCEMemberRadioQuestion" className="form-label">No</label>
-                                {/* </input> */}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    {/* Above question added from old code */}
-                    <div className="col-md-6"> {/*Fourth question */}
-                      <label htmlFor="asceMemberNumberQuestion" className="form-label">Do you have your ASCE Member Number?</label>
-                      <input type="text" className="form-control mb-3" id="asceMemberNumberQuestion" name="asceMemberNumberQuestion"/>
-                    </div>
-
-                  </div>
-                  
-                  <div className='row'>
-                  <div className="col-md-6 mb-3"> {/*Fifth Question */}
-                    <label htmlFor="competitionsDropDownQuestion" className="form" required>Select competition you are interested in. Can be more than one</label>
-                    <div>
-                      <select className="form-control mb-3" required>{/*<select className="selectpicker" data-show-subtext="false" data-live-search="true" style="width:100%; height:2rem">*/}
-                        <option value="">-----</option>
-                        <option value="1">Concret Canoe</option>
-                        <option value="2">Steel Bridge</option>
-                        <option value="3">Timber Strong</option>
-                        <option value="4">Sustainable Solutions</option>
-                        <option value="5">Innovation Contest</option>
-                        <option value="6">Construction Institute</option>
-                        <option value="7">Surveying</option>
-                        <option Value="8">Concrete Bridge</option>
-                        <option Value="9">Traffic Control</option>
-                        <option Value="10">Geo-Wall</option>
-                        <option Value="11">Muddy Waters</option>
-                        <option Value="12">Concrete Cornhole</option>
-                        <option Value="13">Plans Reading</option>
-                        <option Value="14">Professional Paper</option>
-                        <option Value="15">T-shirt Contest</option>
-                        <option Value="16">Mystery Competition</option>
-                      </select>
-                    </div>
-                  </div>
-                  
-                  <div className="col-md-6"> {/*Sixth Question */}
-                      <label htmlFor="recentClassesQuesiton" className="form-label">Please write 3 or more of the most recent courses you have taken. Current Courses count.</label>
-                      <textarea className="form-control mb-3" id="recentClassesQuestion" rows="3" required></textarea>
-                  </div>
-                  </div>
-
-                  <div className="col-12 text-center"> {/*Seventh Question */}
-                    <label for="your-message" className="form-label">Please add any current or past experience. Example Jobs, Internships, etc.</label>
-                    <textarea className="form-control mb-3" id="your-message" name="your-message" rows="5" required></textarea>
-                  </div>
-
-                  <div className='row mb-3'> {/*Eight Question */}
-                      <div className='col-12'>
-                        <p>Please give your availability.</p>
-                      </div>
-
-                    {/* <div className="col-12"> */}
-                      <div className='col-6'>
-                        <label htmlFor="availability" className="form-label">Monday </label>
-                        <input type="time" id="availability" required></input>
-                      </div>
-
-                      <div className='col-6'>
-                        <label htmlFor="availability" className="form-label" required>Thursday</label>
-                        <input type="time" id="availability"></input>
-                      </div>
-
-                      <div className='col-6'>
-                        <label htmlFor="availability" className="form-label" required>Tuesday </label>
-                        <input type="time" id="availability"></input>
-                      </div>
-                    {/* </div> */}
-
-                    {/* <div className='col-12'> */}
-                      <div className='col-6'>
-                        <label htmlFor="availability" className="form-label" required>Friday</label>
-                        <input type="time" id="availability"></input>
-                      </div>
-
-                      <div className='col-6'>
-                        <label htmlFor="availability" className="form-label" required>Wednesday </label>
-                        <input type="time" id="availability"></input>
-                      </div>
-
-                      <div className='col-6'>
-                        <label htmlFor="availability" className="form-label" required>Saturday</label>
-                        <input type="time" id="availability"></input>
-                      </div>
-                      
-                    </div>
-
-                    <div className="row col-12">
-                        <div className='col-6'>
-                          <div className='col-md-6'> {/*Div for the label */}
-                            <label htmlFor="travelGeneralQuestion" className="form=label">Are you willing to travel?</label>                   
-                          </div>
-                          
-                          <div className='row col-6'> {/*div that houses both radio buttons for this question */}
-                            <div className='col-6'>
-                              <div className='col-3'>
-                                <div className="form-check">
-                                  <input className = "form-radio-input" type="radio" name="SecondRadio" id="tavelGeneralQuestion"/>
-                                  <label htmlFor="travelGeneralQuestion" className="form-label">Yes</label>
-                                </div>
-                              </div>
-                            </div>
-                           
-                            <div className='col-6'>  
-                              <div className='col-3'>
-                                <div className="form-check">
-                                  <input className = "form-radio-input" type="radio" name="SecondRadio" id="travelGeneralQuestion"/>
-                                  <label htmlFor="travelGeneralQuestion" className="form-label">No</label>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
-
-
-                        {/* Tenth Question */}
-                          
-                        <div className="col-6">
-                          <div className='col-6'>
-                            <label htmlFor="juneTravelQuestion" className="form=label">Are you willing to travel in June?</label>
-                          </div>
-                            
-                          <div className="row col-6">
-                            <div className='col-6'>
-                              <div className='col-3'>
-                                <div className="form-check">
-                                  <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
-                                  <label htmlFor="juneTravelQuestion" className="form-label">Yes</label>
-                                  {/* </input> */}
-                                </div>
-                              </div>
-                            </div>
-                              
-                            <div className="col-6">
-                              <div className='col-3'>
-                                <div className="form-check">
-                                  <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
-                                  <label htmlFor="juneTravelQuestion" className="form-label">No</label>
-                                  {/* </input> */}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          
-                        </div>
-                      </div>
-
-                      {/* Eleventh Question */}
-                    <div className='row col-12'>
-                      <div className='col-6'>
-                        <div className="col-6">
-                        <label htmlFor="ageTwentyFiveQuestion" className="form=label">Are you 25 yeard old or older?</label>
-                        </div>
-                        
-                        <div className="row col-6">
-                          <div className='col-6'>
-                            <div className='col-3'>
-                              <div className="form-check">
-                                <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
-                                <label htmlFor="ageTwentyFiveQuestion" className="form-label">Yes</label>
-                              </div>
-                            </div>
-                          </div>
-                       
-                          <div className="col-6">
-                            <div className='col-3'>
-                              <div className="form-check">
-                                <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
-                                <label htmlFor="ageTwentyFiveQuestion" className="form-label">No</label>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    
-
-
-                      {/* Twelfth Question */}
-                      <div className="col-6">
-                        <div className="col-6">
-                          <label htmlFor="heavyVehicleLicenseQuestion" className="form=label">Do you have a heavy vehicle license?</label>
-                        </div>
-                        
-                        <div className="row col-6">
-                          <div className='col-6'>
-                            <div className='col-3'>
-                              <div className="form-check">
-                                <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
-                                <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">Yes</label>
-                              </div>
-                            </div>
-                          </div>
-                        
-
-                          <div className="col-6">
-                            <div className='col-3'>
-                              <div className="form-check">
-                                <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
-                                <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">No</label>
-                                {/* </input> */}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Thirdteenth Question */}
-                    <div className="col-md-12 text-center">
-                      <label for="ascemember" className="form-label">13. Would you like to be the official driver of the PUPR ASCE Student Chapter?</label>
-                        <div className="row">
-                          <div className="col-sm-6">
-                            <input type="radio" id="html" name="fav_language" value="HTML"/>
-                            <label for="yes">Yes</label>
-                          </div>
-                          
-                              
-                          <div className="col-sm-6">
-                            <input type="radio" id="html" name="fav_language" value="HTML"/>
-                            <label for="no">No</label><br></br>
-                          </div>
-                        </div>
-                    </div>
-                            
-                    
-                    <div>
-                    <button data-res="<?php echo $sum; ?>" type="submit" className="btn btn-primary w-50 fw-bold mb-3" >Submit</button>
-                    </div>
-                    
-                    
-
-                    {/* </div> */}
-                </form>
-                </div>
-                
-              </div>
-            </div>
-
-            </div>
-          </section>
+        
 
 
 
-         <section style={{paddingBottom:"3%"}}>
+         <section style={{paddingBottom:"3%", backgroundColor:"#FFC107", color:"black"}}>
             <div className="container my-5">
               <div className="row justify-content-center">
                 <div className="col-lg-9">
@@ -519,19 +235,22 @@ function template() {
                       </div>
                       <div className="col-md-6 text-left py-2">
                         <label for="your-phone" className="form-label">Phone</label>
-                        <input type="phone" placeholder="7877877887" className="form-control" id="your-phone" name="your-phone" required/>
+                        <input type="phone" placeholder="(787 or 939)-###-####" className="form-control" id="your-phone" name="your-phone" required/>
                       </div>
 
                       <div className="col-md-6 text-left py-2">
-                        <label for="your-phone" className="form-label">ASCE Membership</label>
-                        <input type="text" placeholder="##########" className="form-control" id="your-number" name="your-number" required/>
+                        <label for="your-phone" className="form-label">ASCE Membership Number</label>
+                        <input type="text" placeholder="##########" className="form-control" id="your-number" name="your-number" aria-labelledby="ASCEMembershipNumberHelp"/>
+                          <div id='ASCEMembershipNumberHelp' class='form-text' className='help-block'>
+                          Become a member of the Official ASCE at: https://www.asce.org/membership
+                          </div>
                       </div>
 
-                      <div className="col-md-6 text-left py-2">
+                      {/* <div className="col-md-6 text-left py-2">----->THIS CODE WAS COMMENTED OUT BECAUSE IT WAS UNECESSARY
                         <label for="your-subject" className="form-label">Select Courses</label>
                         <div>
-                        <select className="selectpicker" data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}}>
-                          <option>-</option>
+                        <select className="selectpicker" data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}} required>
+                          <option value="">-</option>
                           <option>first</option>
                           <option>second</option>
                           <option>third</option>
@@ -541,20 +260,29 @@ function template() {
                           <option>seventh</option>
                         </select>
                         </div>
-                      </div>
+                      </div> */}
 
-                      <div className="col-md-6 text-left py-2">
+                      <div className="col-md-12 text-center py-2">
                         <label for="your-subject" className="form-label">Select Competition of interest</label>
                         <div>
-                        <select className="selectpicker" data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}}>
-                          <option>-</option>
-                          <option>first</option>
-                          <option>second</option>
-                          <option>third</option>
-                          <option>fourth</option>
-                          <option>fifth</option>
-                          <option>sixth</option>
-                          <option>seventh</option>
+                        <select className="selectpicker" data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}} required>
+                        <option value="">Select</option>
+                        <option value="1">Concret Canoe</option>
+                        <option value="2">Steel Bridge</option>
+                        <option value="3">Timber Strong</option>
+                        <option value="4">Sustainable Solutions</option>
+                        <option value="5">Innovation Contest</option>
+                        <option value="6">Construction Institute</option>
+                        <option value="7">Surveying</option>
+                        <option Value="8">Concrete Bridge</option>
+                        <option Value="9">Traffic Control</option>
+                        <option Value="10">Geo-Wall</option>
+                        <option Value="11">Muddy Waters</option>
+                        <option Value="12">Concrete Cornhole</option>
+                        <option Value="13">Plans Reading</option>
+                        <option Value="14">Professional Paper</option>
+                        <option Value="15">T-shirt Contest</option>
+                        <option Value="16">Mystery Competition</option>
                         </select>
                         </div>
                       </div>
@@ -567,6 +295,11 @@ function template() {
                       <div className="col-12 text-center py-3">
                         <label for="your-message" className="form-label">Write recent experiences</label>
                         <textarea placeholder="At least 3 of the top recent experiences, can be projects or work or intern experiences"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
+                      </div>
+
+                      <div className="col-12 text-center py-3">
+                        <label for="your-message" className="form-label">Please add your hourly availability</label>
+                        <textarea placeholder="Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
                       </div>
 
 
