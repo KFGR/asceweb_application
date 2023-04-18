@@ -7,6 +7,7 @@ import imagename from '../../assets/Brand/Award.png'; //anothe method to call im
 import { Button } from "react-bootstrap";
 
 
+
 // images for Competitions in Modals
 import canoeImage from '../../assets/Brand/ConcreteCanoe.png'
 import steeleBridgeImage from '../../assets/Brand/SteeleBridge.png'
@@ -30,7 +31,7 @@ import smallInnovationContestImage from '../../assets/Brand/SmallInnovationConte
 // At the end of the document, I am writing a new section to illustrate the two different ways to display images with react -Kelvin
 /*Couple of errors noticed:
 1. the tag <h8> is not a valid tag for modern browsers. You can use from h1 to h6, and create CSS classes to style them individually or style the tag directly, example:
-Class creation:
+className creation:
  .h4-text{
   font-size: 8px;
   margin:0;
@@ -44,8 +45,8 @@ Modifying the tag style (note this will modify every text with the tag <h4>
     padding:0;
 
 
-2. Another thing to be aware of, In straight HTML CSS JS or VanillaJS, we use the term class, but in JSX format we use className.
-    -You can do control+F to change the words from class to className.
+2. Another thing to be aware of, In straight HTML CSS JS or VanillaJS, we use the term className, but in JSX format we use className.
+    -You can do control+F to change the words from className to className.
 
 3. These cards are all the same structure, focus on making a component card that has everything (image, button and information) and then reuse the component into different competitions.
     -Take a look to the ContentCard component that is under the folder of components.
@@ -110,7 +111,7 @@ function template() {
             </div>
           </div>
 
-          <div class = "col-12 col-lg-3">
+          <div className = "col-12 col-lg-3">
             <div className="container">
             {/* Steele Bridge */}
             <ContentCard id="competition_card"
@@ -127,7 +128,7 @@ function template() {
           </div>
 
 
-          <div class = "col-12 col-md-3">
+          <div className = "col-12 col-md-3">
               {/* Surveying */}
               <ContentCard id="competition_card"
               imageSrc={smallSurveyingImage}
@@ -140,7 +141,7 @@ function template() {
               />
             </div>
 
-              <div class = "col-12 col-md-3">
+              <div className = "col-12 col-md-3">
                 {/* Construction Institute - PLACE THE CONSTRUCTION INSTITUTE IMAGE IN THE TIMBER STRONG IMAGE */}
                 <ContentCard id="competition_card"
                 imageSrc={imagename}
@@ -156,7 +157,7 @@ function template() {
         
 
             
-          <div class = "col-12 col-lg-3">
+          <div className = "col-12 col-lg-3">
             {/* Timber Strong */}
             <ContentCard id="competition_card"
               imageSrc={smallTimberStrongImage}
@@ -170,7 +171,7 @@ function template() {
             </div>
           
 
-          <div class = "col-12 col-lg-3">
+          <div className = "col-12 col-lg-3">
             {/* Sustaible Solutions */}
             <ContentCard id="competition_card"
               imageSrc={smallSustainableSolutionsImage}
@@ -183,7 +184,7 @@ function template() {
             />
           </div>
           
-          <div class = "col-12 col-md-3">
+          <div className = "col-12 col-md-3">
             {/* Innovation Contest */}
             <ContentCard id="competition_card"
               imageSrc={smallInnovationContestImage}
@@ -199,24 +200,25 @@ function template() {
             
           </div>
         </div>
+        <section id="competitions_form">
         <div className="competitionForm"> {/* </div> This div should close the one that was opened in line 76. that div closes in line 365 */}
           {/* <section> The <section> might have to be deleted closing section tag is on line 364*/}
           {/* <h2>Fill out this form if you'd like to joing a competition!</h2> */}
             
-          <div class="container my-5">
-            <div class="row justify-content-center">
-              <div class="col-lg-9">
-                <h1 class="mb-3">Fill out this form to join a Competition</h1>
+          <div className="container my-5">
+            <div className="row justify-content-center">
+              <div className="col-lg-9">
+                <h1 className="mb-3">Fill out this form to join a Competition</h1>
 
                 <form>
-                  <div class="row g-3"> 
-                    <div class="col-md-6"> {/*First question */}
+                  <div className="row g-3"> 
+                    <div className="col-md-6"> {/*First question */}
                       <label htmlFor="firstAndLastNameQuestion" className="form-label">First and Last Name</label>
-                      <input type="text" class="form-control mb-3" id="firstAndLastNameQuestion" name="firstAndLastNameQuestion" required/>
+                      <input type="text" className="form-control mb-3" id="firstAndLastNameQuestion" name="firstAndLastNameQuestion" required/>
                     </div>
-                    <div class="col-md-6"> {/*Second Question */}
-                      <label for="emailQuestion" class="form-label">Email</label>
-                      <input type="email" class="form-control mb-3" id="emailQuestion" name="emailQuestion" required/>
+                    <div className="col-md-6"> {/*Second Question */}
+                      <label for="emailQuestion" className="form-label">Email</label>
+                      <input type="email" className="form-control mb-3" id="emailQuestion" name="emailQuestion" required/>
                     </div>
                     {/* Below question added from old code */}
                       {/*Third question */}
@@ -224,8 +226,8 @@ function template() {
                         <div className="col-md-12">
                           <label htmlFor="ASCEMemberRadioQuestion" className="form=label" required>Are you an ASCE Member?</label>
                         </div>
-                        <div class="col-md-6">
-                          <div class="row g-3 md-6">
+                        <div className="col-md-6">
+                          <div className="row g-3 md-6">
                             <div className="col-12 col-md-6">
                               <div className="form-check">
                                 <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion" required/>
@@ -245,18 +247,18 @@ function template() {
                       </div>
 
                     {/* Above question added from old code */}
-                    <div class="col-md-6"> {/*Fourth question */}
+                    <div className="col-md-6"> {/*Fourth question */}
                       <label htmlFor="asceMemberNumberQuestion" className="form-label">Do you have your ASCE Member Number?</label>
-                      <input type="text" class="form-control mb-3" id="asceMemberNumberQuestion" name="asceMemberNumberQuestion"/>
+                      <input type="text" className="form-control mb-3" id="asceMemberNumberQuestion" name="asceMemberNumberQuestion"/>
                     </div>
 
                   </div>
                   
                   <div className='row'>
-                  <div class="col-md-6 mb-3"> {/*Fifth Question */}
+                  <div className="col-md-6 mb-3"> {/*Fifth Question */}
                     <label htmlFor="competitionsDropDownQuestion" className="form" required>Select competition you are interested in. Can be more than one</label>
                     <div>
-                      <select class="form-control mb-3" required>{/*<select class="selectpicker" data-show-subtext="false" data-live-search="true" style="width:100%; height:2rem">*/}
+                      <select className="form-control mb-3" required>{/*<select className="selectpicker" data-show-subtext="false" data-live-search="true" style="width:100%; height:2rem">*/}
                         <option value="">-----</option>
                         <option value="1">Concret Canoe</option>
                         <option value="2">Steel Bridge</option>
@@ -284,60 +286,60 @@ function template() {
                   </div>
                   </div>
 
-                  <div class="col-12 text-center"> {/*Seventh Question */}
-                    <label for="your-message" class="form-label">Please add any current or past experience. Example Jobs, Internships, etc.</label>
-                    <textarea class="form-control mb-3" id="your-message" name="your-message" rows="5" required></textarea>
+                  <div className="col-12 text-center"> {/*Seventh Question */}
+                    <label for="your-message" className="form-label">Please add any current or past experience. Example Jobs, Internships, etc.</label>
+                    <textarea className="form-control mb-3" id="your-message" name="your-message" rows="5" required></textarea>
                   </div>
 
-                  <div class='row mb-3'> {/*Eight Question */}
-                      <div class='col-12'>
+                  <div className='row mb-3'> {/*Eight Question */}
+                      <div className='col-12'>
                         <p>Please give your availability.</p>
                       </div>
 
-                    {/* <div class="col-12"> */}
-                      <div class='col-6'>
+                    {/* <div className="col-12"> */}
+                      <div className='col-6'>
                         <label htmlFor="availability" className="form-label">Monday </label>
                         <input type="time" id="availability" required></input>
                       </div>
 
-                      <div class='col-6'>
+                      <div className='col-6'>
                         <label htmlFor="availability" className="form-label" required>Thursday</label>
                         <input type="time" id="availability"></input>
                       </div>
 
-                      <div class='col-6'>
+                      <div className='col-6'>
                         <label htmlFor="availability" className="form-label" required>Tuesday </label>
                         <input type="time" id="availability"></input>
                       </div>
                     {/* </div> */}
 
-                    {/* <div class='col-12'> */}
-                      <div class='col-6'>
+                    {/* <div className='col-12'> */}
+                      <div className='col-6'>
                         <label htmlFor="availability" className="form-label" required>Friday</label>
                         <input type="time" id="availability"></input>
                       </div>
 
-                      <div class='col-6'>
+                      <div className='col-6'>
                         <label htmlFor="availability" className="form-label" required>Wednesday </label>
                         <input type="time" id="availability"></input>
                       </div>
 
-                      <div class='col-6'>
+                      <div className='col-6'>
                         <label htmlFor="availability" className="form-label" required>Saturday</label>
                         <input type="time" id="availability"></input>
                       </div>
                       
                     </div>
 
-                    <div class="row col-12">
-                        <div class='col-6'>
-                          <div class='col-md-6'> {/*Div for the label */}
+                    <div className="row col-12">
+                        <div className='col-6'>
+                          <div className='col-md-6'> {/*Div for the label */}
                             <label htmlFor="travelGeneralQuestion" className="form=label">Are you willing to travel?</label>                   
                           </div>
                           
-                          <div class='row col-6'> {/*div that houses both radio buttons for this question */}
-                            <div class='col-6'>
-                              <div class='col-3'>
+                          <div className='row col-6'> {/*div that houses both radio buttons for this question */}
+                            <div className='col-6'>
+                              <div className='col-3'>
                                 <div className="form-check">
                                   <input className = "form-radio-input" type="radio" name="SecondRadio" id="tavelGeneralQuestion"/>
                                   <label htmlFor="travelGeneralQuestion" className="form-label">Yes</label>
@@ -345,8 +347,8 @@ function template() {
                               </div>
                             </div>
                            
-                            <div class='col-6'>  
-                              <div class='col-3'>
+                            <div className='col-6'>  
+                              <div className='col-3'>
                                 <div className="form-check">
                                   <input className = "form-radio-input" type="radio" name="SecondRadio" id="travelGeneralQuestion"/>
                                   <label htmlFor="travelGeneralQuestion" className="form-label">No</label>
@@ -361,13 +363,13 @@ function template() {
                         {/* Tenth Question */}
                           
                         <div className="col-6">
-                          <div class='col-6'>
+                          <div className='col-6'>
                             <label htmlFor="juneTravelQuestion" className="form=label">Are you willing to travel in June?</label>
                           </div>
                             
                           <div className="row col-6">
-                            <div class='col-6'>
-                              <div class='col-3'>
+                            <div className='col-6'>
+                              <div className='col-3'>
                                 <div className="form-check">
                                   <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
                                   <label htmlFor="juneTravelQuestion" className="form-label">Yes</label>
@@ -377,7 +379,7 @@ function template() {
                             </div>
                               
                             <div className="col-6">
-                              <div class='col-3'>
+                              <div className='col-3'>
                                 <div className="form-check">
                                   <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
                                   <label htmlFor="juneTravelQuestion" className="form-label">No</label>
@@ -391,15 +393,15 @@ function template() {
                       </div>
 
                       {/* Eleventh Question */}
-                    <div class='row col-12'>
-                      <div class='col-6'>
+                    <div className='row col-12'>
+                      <div className='col-6'>
                         <div className="col-6">
                         <label htmlFor="ageTwentyFiveQuestion" className="form=label">Are you 25 yeard old or older?</label>
                         </div>
                         
                         <div className="row col-6">
-                          <div class='col-6'>
-                            <div class='col-3'>
+                          <div className='col-6'>
+                            <div className='col-3'>
                               <div className="form-check">
                                 <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
                                 <label htmlFor="ageTwentyFiveQuestion" className="form-label">Yes</label>
@@ -408,7 +410,7 @@ function template() {
                           </div>
                        
                           <div className="col-6">
-                            <div class='col-3'>
+                            <div className='col-3'>
                               <div className="form-check">
                                 <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
                                 <label htmlFor="ageTwentyFiveQuestion" className="form-label">No</label>
@@ -426,9 +428,9 @@ function template() {
                           <label htmlFor="heavyVehicleLicenseQuestion" className="form=label">Do you have a heavy vehicle license?</label>
                         </div>
                         
-                        <div class="row col-6">
-                          <div class='col-6'>
-                            <div class='col-3'>
+                        <div className="row col-6">
+                          <div className='col-6'>
+                            <div className='col-3'>
                               <div className="form-check">
                                 <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
                                 <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">Yes</label>
@@ -438,7 +440,7 @@ function template() {
                         
 
                           <div className="col-6">
-                            <div class='col-3'>
+                            <div className='col-3'>
                               <div className="form-check">
                                 <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
                                 <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">No</label>
@@ -451,16 +453,16 @@ function template() {
                     </div>
 
                     {/* Thirdteenth Question */}
-                    <div class="col-md-12 text-center">
-                      <label for="ascemember" class="form-label">13. Would you like to be the official driver of the PUPR ASCE Student Chapter?</label>
-                        <div class="row">
-                          <div class="col-sm-6">
+                    <div className="col-md-12 text-center">
+                      <label for="ascemember" className="form-label">13. Would you like to be the official driver of the PUPR ASCE Student Chapter?</label>
+                        <div className="row">
+                          <div className="col-sm-6">
                             <input type="radio" id="html" name="fav_language" value="HTML"/>
                             <label for="yes">Yes</label>
                           </div>
                           
                               
-                          <div class="col-sm-6">
+                          <div className="col-sm-6">
                             <input type="radio" id="html" name="fav_language" value="HTML"/>
                             <label for="no">No</label><br></br>
                           </div>
@@ -469,7 +471,7 @@ function template() {
                             
                     
                     <div>
-                    <button data-res="<?php echo $sum; ?>" type="submit" class="btn btn-primary w-50 fw-bold mb-3" >Submit</button>
+                    <button data-res="<?php echo $sum; ?>" type="submit" className="btn btn-primary w-50 fw-bold mb-3" >Submit</button>
                     </div>
                     
                     
@@ -482,6 +484,160 @@ function template() {
             </div>
 
             </div>
+          </section>
+
+
+
+         <section style={{paddingBottom:"3%"}}>
+            <div className="container my-5">
+              <div className="row justify-content-center">
+                <div className="col-lg-9">
+                  <h1 className="mb-3">Sign Up for competitions</h1>
+                  <form>
+                    <div className="row g-3">
+                      <div className="col-md-12 text-center py-5">
+                      <label for="ascemember" className="form-label">Are you member of the official ASCE organization?</label>
+                      <div className="row">
+                        <div className="col-sm-6">
+                        <label>Yes</label>
+                          <input type="radio"/>
+                        </div>
+                        <div className="col-sm-6">
+                          <input type="radio" id="html" name="fav_language" value="HTML"/>
+                          <label for="no">No</label>
+                        </div>
+                      </div>
+                      </div>
+
+                      <div className="col-md-6 text-left py-2">
+                        <label for="your-name" className="form-label">Name</label>
+                        <input type="text" placeholder="Name Lastname" className="form-control" id="your-name" name="your-name" required/>
+                      </div>
+                      <div className="col-md-6 text-left py-2">
+                        <label for="your-email" className="form-label">Email</label>
+                        <input type="email" placeholder="name@students.pupr.edu or name@pupr.edu" className="form-control" id="your-email" name="your-email" required/>
+                      </div>
+                      <div className="col-md-6 text-left py-2">
+                        <label for="your-phone" className="form-label">Phone</label>
+                        <input type="phone" placeholder="7877877887" className="form-control" id="your-phone" name="your-phone" required/>
+                      </div>
+
+                      <div className="col-md-6 text-left py-2">
+                        <label for="your-phone" className="form-label">ASCE Membership</label>
+                        <input type="text" placeholder="##########" className="form-control" id="your-number" name="your-number" required/>
+                      </div>
+
+                      <div className="col-md-6 text-left py-2">
+                        <label for="your-subject" className="form-label">Select Courses</label>
+                        <div>
+                        <select className="selectpicker" data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}}>
+                          <option>-</option>
+                          <option>first</option>
+                          <option>second</option>
+                          <option>third</option>
+                          <option>fourth</option>
+                          <option>fifth</option>
+                          <option>sixth</option>
+                          <option>seventh</option>
+                        </select>
+                        </div>
+                      </div>
+
+                      <div className="col-md-6 text-left py-2">
+                        <label for="your-subject" className="form-label">Select Competition of interest</label>
+                        <div>
+                        <select className="selectpicker" data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}}>
+                          <option>-</option>
+                          <option>first</option>
+                          <option>second</option>
+                          <option>third</option>
+                          <option>fourth</option>
+                          <option>fifth</option>
+                          <option>sixth</option>
+                          <option>seventh</option>
+                        </select>
+                        </div>
+                      </div>
+
+                     
+                      <div className="col-12 text-center py-3">
+                        <label for="your-message" className="form-label">Write 3 recent courses taken</label>
+                        <textarea placeholder="At least 3 of the most recent courses taken in the University"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
+                      </div>
+                      <div className="col-12 text-center py-3">
+                        <label for="your-message" className="form-label">Write recent experiences</label>
+                        <textarea placeholder="At least 3 of the top recent experiences, can be projects or work or intern experiences"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
+                      </div>
+
+
+                      <div className="col-md-12 text-center py-5">
+                      <label for="ascemember" className="form-label">Are you willing to travel?</label>
+                      <div className="row">
+                        <div className="col-sm-6">
+                        <label>Yes</label>
+                          <input type="radio"/>
+                        </div>
+                        <div className="col-sm-6">
+                          <input type="radio" id="html" name="fav_language" value="HTML"/>
+                          <label for="no">No</label>
+                        </div>
+                      </div>
+                      </div>
+                      
+                      <div className="col-md-12 text-center py-5">
+                      <label for="ascemember" className="form-label">Are you willing to travel in June?</label>
+                      <div className="row">
+                        <div className="col-sm-6">
+                        <label>Yes</label>
+                          <input type="radio"/>
+                        </div>
+                        <div className="col-sm-6">
+                          <input type="radio" id="html" name="fav_language" value="HTML"/>
+                          <label for="no">No</label>
+                        </div>
+                      </div>
+                      </div>
+
+                      <div className="col-md-12 text-center py-5">
+                      <label for="ascemember" className="form-label">Are you older than 25?</label>
+                      <div className="row">
+                        <div className="col-sm-6">
+                        <label>Yes</label>
+                          <input type="radio"/>
+                        </div>
+                        <div className="col-sm-6">
+                          <input type="radio" id="html" name="fav_language" value="HTML"/>
+                          <label for="no">No</label>
+                        </div>
+                      </div>
+                      </div>
+
+                      <div className="col-md-12 text-center py-5">
+                      <label for="ascemember" className="form-label">Do you have a heavy vehicle license?</label>
+                      <div className="row">
+                        <div className="col-sm-6">
+                        <label>Yes</label>
+                          <input type="radio"/>
+                        </div>
+                        <div className="col-sm-6">
+                          <input type="radio" id="html" name="fav_language" value="HTML"/>
+                          <label for="no">No</label>
+                        </div>
+                      </div>
+                      </div>
+
+                      <div className="col-lg-12 py-2">
+                        <Button>Submit</Button>
+                      </div>
+                    
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            </section>
+
+        
         
         </div>
 
@@ -515,33 +671,33 @@ export default template;
 
           {/* <div className="row justify-content-center my-5">
                 <div className="col-lg-8 ms-lg-4">
-                  <form class="row g-4 needs-validation" noValidate> */}
+                  <form className="row g-4 needs-validation" noValidate> */}
                     {/* First Question  WHAT IS YOUR FIRST AND LAST NAME?*/}
                     
-                    {/* <div class="mb-3 mx-5 row g-3"> {/*row g-3 */}
-                      {/* <div class="col-md-12">
-                      <label for="exampleFormControlTextarea1" class="form-label">1. Please enter your first and last name.</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                    {/* <div className="mb-3 mx-5 row g-3"> {/*row g-3 */}
+                      {/* <div className="col-md-12">
+                      <label for="exampleFormControlTextarea1" className="form-label">1. Please enter your first and last name.</label>
+                      <textarea className="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
                       </div>  */}
-                      {/* <div class="valid-feedback">Perfect</div> */}
+                      {/* <div className="valid-feedback">Perfect</div> */}
                     {/* </div> */}
 
 
                     {/* Second Question WHAT US YOUR STUDENT EMAIL? */}
-                    {/* <div class="col-md-6"> {/*col-md-6 added */}
-                      {/* <label for="emailQuestion" class="form-label">2. Please enter your PUPR student email address.</label>
-                      <input type="email" class="form-control" id="emailQuestion" placeholder="lastname_studentnumber@students.pupr.edu" required/>
+                    {/* <div className="col-md-6"> {/*col-md-6 added */}
+                      {/* <label for="emailQuestion" className="form-label">2. Please enter your PUPR student email address.</label>
+                      <input type="email" className="form-control" id="emailQuestion" placeholder="lastname_studentnumber@students.pupr.edu" required/>
                     </div>
 
 
-                    <div class="row"> */}
+                    <div className="row"> */}
                     {/* Third question Below */}
                     {/* <div className="col-6"> row ; deleted mb-6 mx-5 g-3 */}
                         {/* <div className="col-6">
                           <label htmlFor="ASCEMemberRadioQuestion" className="form=label">3. Are you an ASCE Member?</label>
                         </div>
-                        <div class="col-6">
-                          <div class="row g-3">
+                        <div className="col-6">
+                          <div className="row g-3">
                             <div className="col-12 col-md-6">
                               <div className="form-check">
                                 <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion"/>
@@ -564,7 +720,7 @@ export default template;
                     {/* <div className="col-6 col-md-6"> mb-3 was only here */}
                     
                       {/* <label htmlFor="ASCEMemberNumber" className="form-label">4. ASCE Member Number</label> */}
-                      {/* <textarea class="form-control" id="ASCEMemberNumber" rows="1"></textarea>  THIS MIGHT BE THE CORRECT CODE FOR THIS QUESTION IN THE FORM INSTEAD OF LINES 214 TO 217*/}
+                      {/* <textarea className="form-control" id="ASCEMemberNumber" rows="1"></textarea>  THIS MIGHT BE THE CORRECT CODE FOR THIS QUESTION IN THE FORM INSTEAD OF LINES 214 TO 217*/}
                       {/* <input type="text" className="form-control" id="ASCEMemberNumber" aria-describedby="memberNumberHelp"></input>
                       <div id="memberNumberHelp" className="form-text">
                         If you do not have an ASCE Member Number, then please become an official ASCE Member at https://www.asce.org/membership
@@ -574,7 +730,7 @@ export default template;
                     </div> */}
 
                     {/* Fifth question Below  */}
-                    {/* <div class="row">
+                    {/* <div className="row">
                     <div className="col-6 mb-3">
                       <label htmlFor="competitionsDropdown" className="form">5. Select the competitions you are interested in participating.</label>
                       <select>
@@ -614,40 +770,40 @@ export default template;
                     
 
                     {/* Eighth Question */}
-                    {/* <div class='row mb-3'>
-                      <div class='col-12'>
+                    {/* <div className='row mb-3'>
+                      <div className='col-12'>
                         <p>8. Please give your availability.</p>
                       </div> */}
 
-                    {/* <div class="col-12"> */}
-                      {/* <div class='col-6'>
+                    {/* <div className="col-12"> */}
+                      {/* <div className='col-6'>
                         <label htmlFor="availability" className="form-label">Monday </label>
                         <input type="time" id="availability"></input>
                       </div> */}
 
-                      {/* <div class='col-6'>
+                      {/* <div className='col-6'>
                         <label htmlFor="availability" className="form-label">Thursday</label>
                         <input type="time" id="availability"></input>
                       </div> */}
 
-                      {/* <div class='col-6'>
+                      {/* <div className='col-6'>
                         <label htmlFor="availability" className="form-label">Tuesday </label>
                         <input type="time" id="availability"></input>
                       </div> */}
                     {/* </div> */}
 
-                    {/* <div class='col-12'> */}
-                      {/* <div class='col-6'>
+                    {/* <div className='col-12'> */}
+                      {/* <div className='col-6'>
                         <label htmlFor="availability" className="form-label">Friday</label>
                         <input type="time" id="availability"></input>
                       </div>
 
-                      <div class='col-6'>
+                      <div className='col-6'>
                         <label htmlFor="availability" className="form-label">Wednesday </label>
                         <input type="time" id="availability"></input>
                       </div>
 
-                      <div class='col-6'>
+                      <div className='col-6'>
                         <label htmlFor="availability" className="form-label">Saturday</label>
                         <input type="time" id="availability"></input>
                       </div>
@@ -658,15 +814,15 @@ export default template;
                     {/* Ninth Question */}
                     
 
-                      {/* <div class="row col-12">
-                        <div class='col-6'> */}
-                          {/* <div class='col-6'> Div for the label */}
+                      {/* <div className="row col-12">
+                        <div className='col-6'> */}
+                          {/* <div className='col-6'> Div for the label */}
                             {/* <label htmlFor="travelGeneralQuestion" className="form=label">9. Are you willing to travel?</label>                   
                           </div> */}
                           
-                          {/* <div class='row col-6'> div that houses both radio buttons for this question */}
-                            {/* <div class='col-6'>
-                              <div class='col-3'>
+                          {/* <div className='row col-6'> div that houses both radio buttons for this question */}
+                            {/* <div className='col-6'>
+                              <div className='col-3'>
                                 <div className="form-check">
                                   <input className = "form-radio-input" type="radio" name="SecondRadio" id="tavelGeneralQuestion"/>
                                   <label htmlFor="travelGeneralQuestion" className="form-label">Yes</label>
@@ -674,8 +830,8 @@ export default template;
                               </div>
                             </div>
                            
-                            <div class='col-6'>  
-                              <div class='col-3'>
+                            <div className='col-6'>  
+                              <div className='col-3'>
                                 <div className="form-check">
                                   <input className = "form-radio-input" type="radio" name="SecondRadio" id="travelGeneralQuestion"/>
                                   <label htmlFor="travelGeneralQuestion" className="form-label">No</label>
@@ -690,13 +846,13 @@ export default template;
                           {/* Tenth Question */}
                           
                             {/* <div className="col-6">
-                              <div class='col-6'>
+                              <div className='col-6'>
                                 <label htmlFor="juneTravelQuestion" className="form=label">10. Are you willing to travel in June?</label>
                               </div>
                             
                               <div className="row col-6">
-                                <div class='col-6'>
-                                  <div class='col-3'>
+                                <div className='col-6'>
+                                  <div className='col-3'>
                                     <div className="form-check">
                                       <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
                                       <label htmlFor="juneTravelQuestion" className="form-label">Yes</label>
@@ -706,7 +862,7 @@ export default template;
                                 </div>
                               
                                 <div className="col-6">
-                                  <div class='col-3'>
+                                  <div className='col-3'>
                                     <div className="form-check">
                                       <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
                                       <label htmlFor="juneTravelQuestion" className="form-label">No</label>
@@ -721,15 +877,15 @@ export default template;
 
 
                     {/* Eleventh Question */}
-                    {/* <div class='row col-12'>
-                      <div class='col-6'>
+                    {/* <div className='row col-12'>
+                      <div className='col-6'>
                         <div className="col-6">
                         <label htmlFor="ageTwentyFiveQuestion" className="form=label">11. Are you 25 yeard old or older?</label>
                         </div>
                         
                         <div className="row col-6">
-                          <div class='col-6'>
-                            <div class='col-3'>
+                          <div className='col-6'>
+                            <div className='col-3'>
                               <div className="form-check">
                                 <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
                                 <label htmlFor="ageTwentyFiveQuestion" className="form-label">Yes</label>
@@ -738,7 +894,7 @@ export default template;
                           </div>
                        
                           <div className="col-6">
-                            <div class='col-3'>
+                            <div className='col-3'>
                               <div className="form-check">
                                 <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
                                 <label htmlFor="ageTwentyFiveQuestion" className="form-label">No</label>
@@ -756,9 +912,9 @@ export default template;
                           <label htmlFor="heavyVehicleLicenseQuestion" className="form=label">12. Do you have a heavy vehicle license?</label>
                         </div>
                         
-                        <div class="row col-6">
-                          <div class='col-6'>
-                            <div class='col-3'>
+                        <div className="row col-6">
+                          <div className='col-6'>
+                            <div className='col-3'>
                               <div className="form-check">
                                 <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
                                 <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">Yes</label>
@@ -768,7 +924,7 @@ export default template;
                         
 
                           <div className="col-6">
-                            <div class='col-3'>
+                            <div className='col-3'>
                               <div className="form-check">
                                 <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
                                 <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">No</label>
@@ -785,23 +941,23 @@ export default template;
 
 
                     {/* Thirdteenth Question */}
-                    {/* <div class="col-md-12 text-center">
-                      <label for="ascemember" class="form-label">13. Would you like to be the official driver of the PUPR ASCE Student Chapter?</label>
-                        <div class="row">
-                          <div class="col-sm-6">
+                    {/* <div className="col-md-12 text-center">
+                      <label for="ascemember" className="form-label">13. Would you like to be the official driver of the PUPR ASCE Student Chapter?</label>
+                        <div className="row">
+                          <div className="col-sm-6">
                             <input type="radio" id="html" name="fav_language" value="HTML"/>
                             <label for="yes">Yes</label>
                           </div>
                           
-                          <div class="col-md-12 text-center">
-                            <label for="ascemember" class="form-label">Are you member of the official ASCE organization?</label>
-                              <div class="row">
-                              <div class="col-sm-6">
+                          <div className="col-md-12 text-center">
+                            <label for="ascemember" className="form-label">Are you member of the official ASCE organization?</label>
+                              <div className="row">
+                              <div className="col-sm-6">
                               <input type="radio" id="html" name="fav_language" value="HTML"/>
                               <label for="yes">Yes</label> 
                               </div>
                               
-                              <div class="col-sm-6">
+                              <div className="col-sm-6">
                               <input type="radio" id="html" name="fav_language" value="HTML"/>
                               <label for="no">No</label><br></br>
                               </div>
