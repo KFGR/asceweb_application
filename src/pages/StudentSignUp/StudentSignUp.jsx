@@ -63,7 +63,7 @@ function template() {
 
         <div className="email">
           6. Institutional Email: <span></span>
-          <input type="text" placeholder="@students.pupr.edu" id="@students.pupr.edu" name="@students.pupr.edu" required/>
+          <input type="email" placeholder="@students.pupr.edu" id="@students.pupr.edu" name="@students.pupr.edu" required/>
         </div>
         
         <span></span>
