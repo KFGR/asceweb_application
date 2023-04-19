@@ -48,6 +48,7 @@
 }
 
 .auContentTextFont1{
+    padding-top: 10px;
     font-size: 28px;
     line-height: 1.35;
     text-align: left;
@@ -122,9 +123,8 @@
 }
 
 .auContentImageTextV2{
-    border: 1px solid rgba(0, 0, 0, 0.125);
     margin-top: 8px;
-    padding: 20px;
+    padding: 35px;
 }
 
 .row{

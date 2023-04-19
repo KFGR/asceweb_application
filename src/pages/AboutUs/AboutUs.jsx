@@ -24,7 +24,7 @@ export default function template() {
             <hr style={{marginTop:"-0.5%"}}/>
           
             <p className = "auContentTextFont2">
-              The Polytechnic University of Puerto Rico's (PUPR) American Society of Civil Engineers (ASCE) Student Chapter
+              Founded in 2013, the Polytechnic University of Puerto Rico's (PUPR) American Society of Civil Engineers (ASCE) Student Chapter
               is a branch of the American Society of Civil Engineers (ASCE). We believe in the power of new experiences to
               awaken our senses, ignite our passions, and expand our horizons. Our goal is to create an enviroment where our
               members can grow, learn, and succeed in a culture of support, collaboration and sound competition. We also believe
@@ -52,16 +52,20 @@ export default function template() {
               <div className="auContentImagesRow">
                 <div className="auContentImagesColumn">
                   <div className ="auContentImageBox auContentImageTextV2">
-                    <p>
-                      1<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                    <p className="auContentTextFont2">
+                      As one of the student chapters of the American Society of Civil Engineers (ASCE), we have participated in various
+                      professional events and competitions. By being part of our organization, our memebers are able to gain insight and
+                      proficiency in the skills necesary of the civil engineering field, such as: surveying, developing handmade and
+                      computer generated projects' blueprint solutions, managing budgets and other project resources or contraints; as well as
+                      working on-site under all weather conditions, with the support of both professional events and student competitions. 
                     </p>
                   </div>
                   <div className="auContentImageBox">
                     <img src={require("./img/AU_P3.jpg")} alt="Test"/>
                   </div>
                   <div className ="auContentImageBox auContentImageTextV2">
-                    <p>
-                      2<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                    <p className="auContentTextFont2">
+                      2
                     </p>
                   </div>
                 </div>
@@ -70,8 +74,8 @@ export default function template() {
                     <img src={require("./img/AU_P1.jpg")} alt="Test"/>
                   </div>
                   <div className ="auContentImageBox auContentImageTextV2">
-                    <p>
-                      3<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                  <p className="auContentTextFont2">
+                      As part of the professional events our organization participates, our memebers are able to participate in:
                     </p>
                   </div>
                   <div className="auContentImageBox">
@@ -99,7 +103,7 @@ export default function template() {
               members in 177 countries through various sections, branches, groups, student chapters, younger member groups and institues.
               Moreover, the ASCE supports each of its memebers by:
             </p>
-            <ul style={{position: "relative"}}>
+            <ul>
               <li className="auContentTextFont2" >Advancing civil engineering technology,</li>
               <li className="auContentTextFont2" >Providing the tools for lifelong learning and career growth,</li>
               <li className="auContentTextFont2" >Developing and supporting civil engineering leaders, and</li>
