@@ -48,7 +48,7 @@
 }
 
 .auContentTextFont1{
-    padding-top: 10px;
+    margin-top: 20px;
     font-size: 28px;
     line-height: 1.35;
     text-align: left;
@@ -124,7 +124,17 @@
 
 .auContentImageTextV2{
     margin-top: 8px;
-    padding: 35px;
+    padding-top: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 45px;
+}
+
+@media screen and (max-width: 800px) {
+    .auContentImageTextV2{
+        margin-top: 8px;
+        padding: 20px;
+    }
 }
 
 .row{
@@ -152,7 +162,7 @@
 }
   
   /* Display the columns below each other instead of side by side on small screens */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 800px) {
     .column{
         position: relative;
         width: 100%;

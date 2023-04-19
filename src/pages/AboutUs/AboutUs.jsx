@@ -61,22 +61,45 @@ export default function template() {
                     </p>
                   </div>
                   <div className="auContentImageBox">
-                    <img src={require("./img/AU_P3.jpg")} alt="Test"/>
+                    <img src={require("./img/AU_P1.jpg")} alt="Test"/>
                   </div>
                   <div className ="auContentImageBox auContentImageTextV2">
+                    <h2 className = "auContentTextFont1" style={{marginTop: "-20px"}}>
+                      PUPR ASCE Events
+                    </h2>
                     <p className="auContentTextFont2">
-                      2
+                      As part of the professional events our organization takes part in, our mamembers are able to participate in:
+                    </p>
+                    <ul>
+                      <li className="auContentTextFont2">Educational Seminars and Webcasts</li>
+                      <li className="auContentTextFont2">Professional Conferences</li>
+                      <li className="auContentTextFont2">Sponsorships</li>
+                      <li className="auContentTextFont2">Engagement Opportunities</li>
+                    </ul>
+                    <p className="auContentTextFont2" style={{marginBottom: "-10px"}}>
+                      For further information regarding competitions and events, please follow this <a href="/Competitions">URL link</a>.
                     </p>
                   </div>
                 </div>
                 <div className="auContentImagesColumn">
                   <div className="auContentImageBox">
-                    <img src={require("./img/AU_P1.jpg")} alt="Test"/>
+                    <img src={require("./img/AU_P3.jpg")} alt="Test"/>
                   </div>
                   <div className ="auContentImageBox auContentImageTextV2">
-                  <p className="auContentTextFont2">
-                      As part of the professional events our organization participates, our memebers are able to participate in:
+                    <h2 className = "auContentTextFont1" style={{textAlign: "right", marginTop: "-20px"}}>
+                      PUPR ASCE Competitions
+                    </h2>
+                    <p className="auContentTextFont2">
+                      With ASCE Competions, memebers of our student chapter organization are able to identify areas of interest related to
+                      the civil engineering profession. Examples of the competitions that our members participate in, include:  
                     </p>
+                    <ul>
+                      <li className="auContentTextFont2">Concrete Canoe</li>
+                      <li className="auContentTextFont2">Steel Bridge</li>
+                      <li className="auContentTextFont2">Sustainable Solutions</li>
+                      <li className="auContentTextFont2">Sonstruction Institute</li>
+                      <li className="auContentTextFont2" style={{marginBottom: "-15px"}}>Surveying</li>
+                    </ul>
                   </div>
                   <div className="auContentImageBox">
                     <img src={require("./img/AU_P5.jpg")} alt="Test"/>
@@ -122,7 +145,7 @@ export default function template() {
                   <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
                   <div className="container">
                     <h2>Jane Doe</h2>
-                    <p className="title">CEO &amp; Founder</p>
+                    <p className="title">Chapter President</p>
                     <p>Some text that describes me lorem ipsum ipsum lorem.</p>
                     <p>example@example.com</p>
                     <p><button className="button">Contact</button></p>
@@ -134,7 +157,7 @@ export default function template() {
                   <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
                   <div className="container">
                     <h2>Jane Doe</h2>
-                    <p className="title">CEO &amp; Founder</p>
+                    <p className="title">Chapter Vicepresident</p>
                     <p>Some text that describes me lorem ipsum ipsum lorem.</p>
                     <p>example@example.com</p>
                     <p><button className="button">Contact</button></p>
@@ -146,7 +169,7 @@ export default function template() {
                   <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
                   <div className="container">
                     <h2>Jane Doe</h2>
-                    <p className="title">CEO &amp; Founder</p>
+                    <p className="title">Grunt #1</p>
                     <p>Some text that describes me lorem ipsum ipsum lorem.</p>
                     <p>example@example.com</p>
                     <p><button className="button">Contact</button></p>
@@ -158,7 +181,7 @@ export default function template() {
                   <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
                   <div className="container">
                     <h2>Jane Doe</h2>
-                    <p className="title">CEO &amp; Founder</p>
+                    <p className="title">Grunt #2</p>
                     <p>Some text that describes me lorem ipsum ipsum lorem.</p>
                     <p>example@example.com</p>
                     <p><button className="button">Contact</button></p>
@@ -170,7 +193,7 @@ export default function template() {
                   <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
                   <div className="container">
                     <h2>Jane Doe</h2>
-                    <p className="title">CEO &amp; Founder</p>
+                    <p className="title">Grunt #3</p>
                     <p>Some text that describes me lorem ipsum ipsum lorem.</p>
                     <p>example@example.com</p>
                     <p><button className="button">Contact</button></p>
@@ -182,7 +205,7 @@ export default function template() {
                   <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
                   <div className="container">
                     <h2>Jane Doe</h2>
-                    <p className="title">CEO &amp; Founder</p>
+                    <p className="title">Chapter Mentor</p>
                     <p>Some text that describes me lorem ipsum ipsum lorem.</p>
                     <p>example@example.com</p>
                     <p><button className="button">Contact</button></p>
