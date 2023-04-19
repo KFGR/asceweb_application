@@ -246,7 +246,7 @@ function template() {
 
                       <div className="col-md-6 text-left py-2">
                         <label for="your-phone" className="form-label">ASCE Membership Number</label>
-                        <input type="text" placeholder="##########" className="form-control" id="your-number" name="your-number" aria-labelledby="ASCEMembershipNumberHelp"/>
+                        <input type="text" placeholder="##########" className="form-control" id="your-number" name="your-number" aria-labelledby="ASCEMembershipNumberHelp" required/>
                           <div id='ASCEMembershipNumberHelp' class='form-text' className='help-block'>
                           Become a member of the Official ASCE at: https://www.asce.org/membership
                           </div>
