@@ -3,7 +3,7 @@ import React from "react";
 import ContentCard from "../../components/ContentCard";
 // import { Image } from "react-bootstrap"; //Calling the Image object, this object is already responsive
 import imagename from '../../assets/Brand/Award.png'; //anothe method to call images, but you initialize the viewport
-
+import Calendar from "../../components/Calendar";
 import { Button } from "react-bootstrap";
 
 
@@ -84,6 +84,9 @@ Modifying the tag style (note this will modify every text with the tag <h4>
 
 function template() { 
   return(
+    <>
+    
+    
     <div className="Competitions">
       
       <h1>Competitions</h1>
@@ -377,8 +380,8 @@ function template() {
         
         </div>
 
-       
-     
+    <Calendar/>
+  </> 
      
       
    
