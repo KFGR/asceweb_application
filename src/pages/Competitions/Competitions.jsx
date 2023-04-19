@@ -196,7 +196,10 @@ function template() {
               modalImage = {innovationImage}
             />
           </div>
-
+          
+          <div class='mt-5' style={{fontSize:"small"}}>
+            <p>Other competitions aren't celebrated annually, rather the official ASCE decides which of these take place in a given year. These competitions are: Concrete Bridge, Traffic Control, Geo-Wall, Muddy Waters, Concrete Cornhole, Plans Reading, Professional Paper, T-shirt Contest, and Mystery Competiton.</p>
+          </div>
             
           </div>
         </div>
@@ -265,7 +268,7 @@ function template() {
                       <div className="col-md-12 text-center py-2">
                         <label for="your-subject" className="form-label">Select Competition of interest</label>
                         <div>
-                        <select className="selectpicker" data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}} required>
+                        <select className="selectPicker" data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}} required>
                         <option value="">Select</option>
                         <option value="1">Concret Canoe</option>
                         <option value="2">Steel Bridge</option>
