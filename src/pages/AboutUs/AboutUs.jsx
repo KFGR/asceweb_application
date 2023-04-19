@@ -54,8 +54,8 @@ export default function template() {
                   <div className ="auContentImageBox auContentImageTextV2">
                     <p className="auContentTextFont2">
                       As one of the student chapters of the American Society of Civil Engineers (ASCE), we have participated in various
-                      professional events and competitions. By being part of our organization, our memebers are able to gain insight and
-                      proficiency in the skills necesary of the civil engineering field, such as: surveying, developing handmade and
+                      professional events and competitions. By being part of the organization, our memebers are able to gain insight and
+                      proficiency in the necesary skills of the civil engineering field, such as: surveying, developing handmade and
                       computer generated projects' blueprint solutions, managing budgets and other project resources or contraints; as well as
                       working on-site under all weather conditions, with the support of both professional events and student competitions. 
                     </p>
@@ -68,7 +68,7 @@ export default function template() {
                       PUPR ASCE Events
                     </h2>
                     <p className="auContentTextFont2">
-                      As part of the professional events our organization takes part in, our mamembers are able to participate in:
+                      As part of the professional events the organization takes part in, our mamembers are able to participate in:
                     </p>
                     <ul>
                       <li className="auContentTextFont2">Educational Seminars and Webcasts</li>
