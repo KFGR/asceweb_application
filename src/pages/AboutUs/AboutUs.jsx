@@ -62,6 +62,7 @@ export default function template() {
                   </div>
                   <div className="auContentImageBox">
                     <img src={require("./img/AU_P1.jpg")} alt="Test"/>
+                    <p className="auContentImageTextV1">Concrete Bridge Team (2022)</p>
                   </div>
                   <div className ="auContentImageBox auContentImageTextV2">
                     <h2 className = "auContentTextFont1" style={{marginTop: "-20px"}}>
@@ -84,6 +85,7 @@ export default function template() {
                 <div className="auContentImagesColumn">
                   <div className="auContentImageBox">
                     <img src={require("./img/AU_P3.jpg")} alt="Test"/>
+                    <p className="auContentImageTextV1">ASCE Competitions at UNF (2023)</p>
                   </div>
                   <div className ="auContentImageBox auContentImageTextV2">
                     <h2 className = "auContentTextFont1" style={{textAlign: "right", marginTop: "-20px"}}>
@@ -98,11 +100,12 @@ export default function template() {
                       <li className="auContentTextFont2">Steel Bridge</li>
                       <li className="auContentTextFont2">Sustainable Solutions</li>
                       <li className="auContentTextFont2">Sonstruction Institute</li>
-                      <li className="auContentTextFont2" style={{marginBottom: "-15px"}}>Surveying</li>
+                      <li className="auContentTextFont2" style={{marginBottom: "-40px"}}>Surveying</li>
                     </ul>
                   </div>
                   <div className="auContentImageBox">
                     <img src={require("./img/AU_P5.jpg")} alt="Test"/>
+                    <p className="auContentImageTextV1"></p>
                   </div>
                 </div>
               </div>
