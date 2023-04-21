@@ -1,0 +1,399 @@
+.container-content{
+    width: 100%;
+    height: auto;
+    /* background: grey; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+    margin-bottom: 0%;
+}
+
+
+
+
+
+.box{
+    width: 100%;
+    height: 370px;
+    /* background: yellow; */
+    display: block;
+    text-align: center;
+    
+}
+
+
+.inside{
+    width: 50%;
+    height: 50%;
+    background: green;
+}
+
+/* Page intro content */
+.h3-text-content{
+    padding-left: 10%;
+    padding-right: 10%;
+    font-weight: 200;
+    margin-bottom: 3%;
+    font-weight: bold;
+    text-shadow: 1px 0px black;
+    /* font-size: 167%; */
+    font-size: 1.6rem;
+
+}
+
+@media (max-width: 399px){
+    .h3-text-content{
+        font-size: 1.3rem;
+        font-weight: 350;
+    }
+}
+
+
+
+
+.h1-text-content{
+    font-weight: 550;
+    margin-bottom: 3%;
+    font-size: 2.5rem;
+}
+
+/* Media to change the size from 2.5rem to 1.6rem */
+@media (max-width: 399px) {
+    .h1-text-content{
+        font-size: 1.6rem;
+    }
+    
+}
+
+
+.intro-content{
+    /* margin: 5%; */
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
+    width: 71%;
+    /* margin-right: 5%; */
+    /* margin-left: 5%; */
+    /* seguir experimentando con los margenes individuales
+    Tratar de que el contenido inicial quede en el medio de la pagina y a 5% del navegation-bar */
+    background-image: url(../../assets/Brand/members.png);
+}
+
+.intro-content::after{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
+    display: none;
+}
+
+@media (min-width: 399px) { /* Only apply this style when the screen width is at least 768px */
+    .intro-content::after {
+        width: 100%;
+        display: block; /* Show the text */
+    }
+  }
+
+
+
+
+.main-content{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 5%;
+    /* text-align: center;
+    justify-content: center; */
+}
+
+/* Grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+  
+  .grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+  }
+
+
+
+
+.visions{
+    position: absolute;
+    width: 1512px;
+    height: 359px;
+    left: 0px;
+    top: 503px;
+}
+
+
+
+/* middle section of the page */
+
+.container-values {
+    display: flex;
+    align-items: center;
+    padding-top:5%;
+    padding-bottom: 5%;
+    width: 100%;
+    height: auto;
+    /* background-image: url(../../assets/Brand/buildingstwo.jpg); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    /* border: 1px solid black; */
+    
+  }
+ 
+  /* Styles for the separator */
+  .separator {
+    width: 2px;
+    background-color: black;
+    margin: 0 20px;
+  }
+
+ 
+  .globe-icon{
+    color: #F4511F ;
+    width: 75%;
+    height: 75%;
+  }
+ 
+ 
+
+  h2, h4{
+    color:white;
+  }
+
+  h2{
+    text-align: center;
+  }
+
+
+.values-content{
+    padding-bottom: 5%;
+    background-color: #144a9a;
+    color: #144a9a;
+}
+
+.ht-box-icon .icon-box-wrap{
+    padding: 30px;
+    border-radius: 5px;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.ht-box-icon .icon-box-wrap .content-header{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items:center;
+    align-items: center;
+
+}
+
+
+
+@media (max-width: 399px) { /* Only apply this style when the screen width is at least 768px */
+    
+    .values-content{
+        display: flex;
+    }
+    .values-content .row{
+        padding-left: 0%!important;
+        padding-right: 0%!important;
+    }
+  }
+
+  @media (max-width: 576px){
+    .globe-icon{
+        display: none;
+    }
+  }
+
+
+
+ .row{
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-right: -15px;
+    margin-left: -15px; */
+    /* margin-right: -125px;
+    margin-left: -67px; */
+  }
+
+.row-values{
+    margin-right: -125px;
+    margin-left: -67px;
+ }
+
+ .col-values{
+  display: flex;
+ }
+
+ .col-values Image{
+  width: 100%;
+  height: auto;
+ }
+
+  @media (max-width: 994px){
+    .row{
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+  }
+
+
+  .icon{
+    flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    font-size: 48px;
+    font-weight: 48px;
+    min-width: 60px;
+    margin-right: 10px;
+    color:#144a9a;
+    /* background-color: b; */
+    /* text-shadow: 3px 6px white; */
+    
+  }
+  .content-header{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+
+  .content .h4, h4{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: black;
+    text-shadow: 1px 0px 1px black;
+
+  }
+
+  .heading .h5, h5{
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: black;
+    
+  }
+
+
+
+
+
+
+
+
+
+  /* --------------------------------------Motion CSS */
+.container-shadow{
+    transition: all 0.4s;
+    /* transform: translateY(-22px); */
+}
+.container-shadow:hover{
+    /* box-shadow: 0 0.1rem 1rem #ffc107; */
+    box-shadow: 0px 3px 12px 0px #ffc107;
+    transform: translateY(-22px)
+}
+
+.move-up{
+    transition: all 0.4s;
+}
+
+.move-up:hover {
+    -webkit-transform: translateY(-12px);
+    -ms-transform: translateY(-12px);
+    transform: translateY(-12px);
+    box-shadow: 0px 3px 12px 0px #144a9a;
+  }
+  
+
+
+  /* Who are we */
+
+  .about-us{
+    background-color: #144a9a;
+    /* background-color: white; */
+  }
+  .about-us .container{
+    margin: 0 auto;
+    max-width: 1288px;
+    min-width: 375px;
+    padding: 0 24px;
+    width: 100%;
+    /* display: flex;
+    justify-content: space-between; */
+  }
+.about-us h1{
+  color: white;
+  /* text-shadow: 1px 0px 1px white; */
+  /* color: black; */
+  text-shadow: 1px 0px 1px  black;
+}
+
+
+.about-us .lead{
+  color: white;
+  /* color: black; */
+  font-size: 1.5rem;
+  /* text-shadow: 1px 0px 1px white; */
+  text-shadow: 1px 0px 1px  black;
+  font-weight: 500;
+}
+
+.about-us .image-fluid{
+  padding-bottom: 2%;
+}
+.about-us .shadow-box-right-sm{
+  padding: 1rem!important;
+  margin-bottom: 3rem!important;
+  border-radius: 0.25rem!important;
+  /* box-shadow:0 .125rem .25rem rgba(0,0,0,.075)!important */
+  /* box-shadow:0 .125rem .25rem white!important; */
+  box-shadow: black 5px 5px 0px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.about-us .shadow-box-left-sm{
+  padding: 1rem!important;
+  margin-bottom: 3rem!important;
+  border-radius: 0.25rem!important;
+  /* box-shadow:0 .125rem .25rem rgba(0,0,0,.075)!important */
+  /* box-shadow:0 .125rem .25rem white!important; */
+  box-shadow: black -5px 5px 0px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+/* .drop-shadow{
+  filter: drop-shadow(5px 5px 10px white);
+} */
+
+
+.about-us span{
+  color: #ffc107;
+  text-shadow: 1px 0px 1px  #ffc107;
+  text-decoration: solid red;
+
+}
+@media (max-width: 991px){
+  .about-us .row{
+    justify-content: center;
+  }
+}
+
+
+
+/* Hero intro content ----------------------------*/
