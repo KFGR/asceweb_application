@@ -9,10 +9,10 @@ import Award from '../../assets/Brand/Award.png';
 import Members from '../../assets/Brand/members.png';
 
 function template (){
-  // console.log(Award);
-  // console.log(typeof Award); nada algo
   return (
     <div className="home">
+      <section id="About">
+      {/* About US section */}
       {/* Section divider */}
       <div className="container-fluid py-2 header-yllw"/>
       {/* About us */}
@@ -46,47 +46,13 @@ function template (){
         paragraph = "Quickly design and customize responsive mobile-first sites with Bootstrap, the worlds most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins."
       
       />
-
-      {/* About US section */}
-      {/* <div className="about-us">
-          <div className="container col-xxl-8 px-4 py-5">
-            <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-              <div className="col-10 col-sm-8 col-lg-6">
-                <Image src={require("../../assets/Brand/members.png")} className="d-block mx-lg-auto img-fluid shadow-box-right-sm" alt=""  />
-              </div>
-              <div className="col-lg-6">
-                <h1 className="display-5 fw-bold lh-1 mb-3 h1-text-content"><span>A</span>bout <span>U</span>s</h1>
-                <h4 className="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the worlds most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</h4>
-              </div>
-            </div>
-            <div className="row flex-lg-row align-items-center g-5 py-5">
-              <div className="col-10 col-sm-8 col-lg-6">
-                <Image src={require("../../assets/Brand/Award.png")} className="d-block mx-lg-auto img-fluid shadow-box-left-sm" alt=""  />
-              </div>
-              <div className="col-lg-6">
-                <h1 className="display-5 fw-bold lh-1 mb-3 h1-text-content"><span>A</span>ctiviti<span>e</span>s</h1>
-                <h4 className="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the worlds most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</h4>
-              </div>
-            </div>
-            <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-              <div className="col-10 col-sm-8 col-lg-6">
-                <Image src={require("../../assets/Brand/Award.png")} className="d-block mx-lg-auto img-fluid shadow-box-right-sm" alt=""  />
-              </div>
-              <div className="col-lg-6">
-                <h1 className="display-5 fw-bold lh-1 mb-3 h1-text-content"><span>A</span>war<span>d</span>s</h1>
-                <h4 className="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the worlds most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</h4>
-              </div>
-            </div>
-          </div>
-      </div> */}
-
-  
+    </section>
 
 
        {/* Section divider */}
        <div className="container-fluid py-2 header-yllw"/> 
 
-
+      
         <div className="container-fluid container-values">
           <div className="container">
             <h1 className='h1-text-content' id='mission_txt' style={{color:'white', textAlign:'center'}}><strong>Mission and Values </strong></h1>
