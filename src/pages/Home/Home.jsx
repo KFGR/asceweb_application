@@ -11,10 +11,10 @@ import Members from '../../assets/Brand/members.png';
 function template (){
   return (
     <div className="home">
-      <section id="About">
-      {/* About US section */}
       {/* Section divider */}
       <div className="container-fluid py-2 header-yllw"/>
+
+      <section id="About">
       {/* About us */}
       <ContentCard 
         id = "first"
@@ -99,44 +99,7 @@ function template (){
                       </div>
                     </div>
                   </div>
-                  {/* <div className="col-lg-6">
-                    <div className="grid-item move-up">
-                      <div className="ht-box-icon">
-                        <div className="icon-box-wrap">
-                          <div className="content-header">
-                            <div className="icon">
-                            <FontAwesomeIcon icon={faEarth} />
-                            </div>
-                            <h5 className="heading">To our Comunity</h5>
-                          </div>
-                          <div className="content">
-                            <h4 style={{color:'black'}}>
-                              Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                            </h4>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-6">
-                    <div className="grid-item move-up">
-                      <div className="ht-box-icon">
-                        <div className="icon-box-wrap">
-                          <div className="content-header">
-                            <div className="icon">
-                              <FontAwesomeIcon icon={faHandshake} />
-                            </div>
-                            <h5 className="heading">hola</h5>
-                          </div>
-                          <div className="content">
-                            <h4 style={{color:'black'}}>
-                              Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-                            </h4>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> */}
+                  
                 </div>
               </div>
             </div>
