@@ -3,15 +3,32 @@ import React from "react";
 import ContentCard from "../../components/ContentCard";
 // import { Image } from "react-bootstrap"; //Calling the Image object, this object is already responsive
 import imagename from '../../assets/Brand/Award.png'; //anothe method to call images, but you initialize the viewport
+import Calendar from "../../components/Calendar";
+  // import Select from  'react-select';
+  // import 'react-select/dist/react-select.css';
+
+import { Form } from 'react-bootstrap';
+import { useState } from "react";
+
+import { Button } from "react-bootstrap";
 
 
-// images for competition cards
+
+// images for Competitions in Modals
 import canoeImage from '../../assets/Brand/ConcreteCanoe.png'
 import steeleBridgeImage from '../../assets/Brand/SteeleBridge.png'
 import sustainableImage from '../../assets/Brand/SustainableSolutions.png'
 import surveyingImage from '../../assets/Brand/Surveying.png'
 import constructionInstiImage from '../../assets/Brand/ConstructionInstitute.png'
 import innovationImage from '../../assets/Brand/InnovationContest.jpg'
+
+//Images for Competitions in cards
+import smallConcreteImage from '../../assets/Brand/SmallConcreteCanoe.jpg'
+import smallSteelImage from '../../assets/Brand/SmallSteelBridge.jpg'
+import smallSurveyingImage from '../../assets/Brand/SmallSurveying.jpg'
+import smallTimberStrongImage from '../../assets/Brand/SmallTimberStrong.jpg'
+import smallSustainableSolutionsImage from '../../assets/Brand/SmallSustainableSolutions.jpg'
+import smallInnovationContestImage from '../../assets/Brand/SmallInnovationContest.jpg'
 
 /*Important Competitions: *Concrete Canoe, Steele Bridge, Timber Strong, Sustainable Solutions, Innovation Contest, Surveying, Construction Institute*/
 
@@ -20,7 +37,7 @@ import innovationImage from '../../assets/Brand/InnovationContest.jpg'
 // At the end of the document, I am writing a new section to illustrate the two different ways to display images with react -Kelvin
 /*Couple of errors noticed:
 1. the tag <h8> is not a valid tag for modern browsers. You can use from h1 to h6, and create CSS classes to style them individually or style the tag directly, example:
-Class creation:
+className creation:
  .h4-text{
   font-size: 8px;
   margin:0;
@@ -34,8 +51,8 @@ Modifying the tag style (note this will modify every text with the tag <h4>
     padding:0;
 
 
-2. Another thing to be aware of, In straight HTML CSS JS or VanillaJS, we use the term class, but in JSX format we use className.
-    -You can do control+F to change the words from class to className.
+2. Another thing to be aware of, In straight HTML CSS JS or VanillaJS, we use the term className, but in JSX format we use className.
+    -You can do control+F to change the words from className to className.
 
 3. These cards are all the same structure, focus on making a component card that has everything (image, button and information) and then reuse the component into different competitions.
     -Take a look to the ContentCard component that is under the folder of components.
@@ -71,8 +88,107 @@ Modifying the tag style (note this will modify every text with the tag <h4>
 
   }*/
 
-function template() { 
+
+
+
+
+
+
+
+  
+function Template() { 
+
+  {/*Email validation for @pupr.edu OR @students.pupr.edu */}
+
+  // const emailValidate = document.getElementById('your-email');
+  // emailValidate.addEventListner('input', () => {
+
+  //   const [email, setEmail] = useState("");
+
+  //   const handleChange = (event) =>{
+  //     setEmail(event.target.value);
+  //   };
+
+  //   const handleSubmit = (event) => {
+  //     event.preventDefault();
+
+  //     const regex = /^[\w-\.]+@(pupr.edu|students.pupr.edu)$/;
+
+  //     if(RegExp.text(email)){
+  //       console.log("Valid email.");
+  //     }else{
+  //       console.log("Invalid email.");
+
+  //     }
+
+  // }
+//});
+
+// This here was for trying to perform email validation for specific email regex @pupr OR @students.pupr
+// window.onload = function() {
+//   const emailInput = document.getElementById("your-email");
+//   const form = document.getElementById("form-control");
+  
+//   form.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     const emailValue = emailInput.value.trim();
+//     const puprEmailRegex = /^[a-zA-Z0-9._%+-]+@(students\.)?pupr\.edu$/i;
+//     if (puprEmailRegex.test(emailValue)) {
+//       // Valid email, submit the form or do something elses
+//       console.log("email valid");
+//     } else {
+//       alert("Please enter a valid PUPR email address.");
+//     }
+//     console.log(emailInput);
+//   });
+
+    
+// }
+
+//trying to mix select with checkbox
+  // var expanded = false;
+  // function showCompetitionCheckBoxes(){
+  //   var competitionCheckboxes = document.getElementById("competitionCheckboxes");
+  //   if(!expanded){
+  //     competitionCheckboxes.style.display = 'block';
+  //     expanded = true;
+  //   }else{
+  //     competitionCheckboxes.style.display = 'none';
+  //     expanded = false;
+  //   }
+  // }
+
+// another possible solution to the multiple checkbox issue
+
+// const [selectedCompetitionOptions, setSelectedCompetitionOptions] = useState([]);
+// const competitionOptions = [
+//   { value: 'ConcreteCanoe', label: 'Concrete Canoe' },
+//   { value: 'SteelBridge', label: 'Steel Bridge' },
+//   { value: 'TimberStrong', label: 'Timber Strong' },
+// ];
+
+
+
+//Below are JS functions for button sending radio button selection to back end with Submit button
+
+const [radioButtons, setRadioButtons] = useState(null)
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  console.log({
+    radioButtons
+  });
+}
+
+const handleRadioChange = (event) => { 
+  setRadioButtons(event.target.value);
+};
+
+
+
   return(
+    <>
+    
     <div className="Competitions">
       
       <h1>Competitions</h1>
@@ -85,8 +201,9 @@ function template() {
           <div className = "col-12 col-lg-3">
         
             {/* Concrete Canoe */}
+            <div className="container">
             <ContentCard id="competition_card"
-              imageSrc={canoeImage}
+              imageSrc={smallConcreteImage}
               imageAlt="none"
               title = "Concrete Canoe"
               // Above this line is the card. Below this line is the card's modal.
@@ -94,14 +211,16 @@ function template() {
               modalTitle = "Concrete Canoe"
               competitionDescription = "The ASCE Concrete Canoe Competition provides students a unique opportunity to gain hands-on practical experience while testing their skills with concrete mix designs and project management challenges. This elite competition combining engineering excellence, hydrodynamic design, and racing technique is known as the ''America's Cup of Civil Engineering.''"
               modalImage = {canoeImage}
-              
+
             />
+            </div>
           </div>
 
-          <div class = "col-12 col-lg-3">
+          <div className = "col-12 col-lg-3">
+            <div className="container">
             {/* Steele Bridge */}
             <ContentCard id="competition_card"
-              imageSrc={steeleBridgeImage}
+              imageSrc={smallSteelImage}
               imageAlt="none"
               title = "Steel Bridge"
               // paragraph = "Details"
@@ -110,54 +229,14 @@ function template() {
               modalImage = {steeleBridgeImage}
               
             />
-          </div>
-        
-
-            
-          <div class = "col-12 col-lg-3">
-            {/* Timber Strong */}
-            <ContentCard id="competition_card"
-              imageSrc={imagename}
-              imageAlt="none"
-              title = "Timber Strong"
-              // paragraph = "Details"
-              modalTitle ="Timber Strong"
-              competitionDescription = "The competition seeks student teams to design and build an artistically creative 2-story wood light-framed building that is sustainable, aesthetically pleasing and structurally durable. The competition enables students to gain experience in performing aspects of common structural engineering design and practice as well as gain exposure to the management and building practices used in construction environments."
-              modalImage = {imagename}
-            />
             </div>
-          
-
-          <div class = "col-12 col-lg-3">
-            {/* Sustaible Solutions */}
-            <ContentCard id="competition_card"
-              imageSrc={sustainableImage}
-              imageAlt="none"
-              title = "Sustainable Solutions"
-              // paragraph = "Details"
-              modalTitle = "Sustainable Solutions"
-              competitionDescription = "The ASCE Sustainable Solutions Competition challenges students to develop a stronger understanding of sustainability and learn to incorporate sustainable solutions into everyday problems that engineers incur. Students are encouraged to be creative in their solutions and use all resources available."
-              modalImage = {sustainableImage}
-            />
-          </div>
-          
-          <div class = "col-12 col-md-3">
-            {/* Innovation Contest */}
-            <ContentCard id="competition_card"
-              imageSrc={innovationImage}
-              imageAlt="none"
-              title = "Innovation Contest"
-              // paragraph = "Details"
-              modalTitle = "Innovation Contest"
-              competitionDescription = "Participating teams will develop and pitch their innovation to the judges and at a minimum provide proof-of-concept for its feasibility and innovative potential. The closer your innovation is to having a proof of concept and a business plan, the more persuasive the result. The mission of the 2023 ASCE Innovation Contest is to develop an innovation that addresses one of the following three ASCE Report Card topics: Drinking Water, Energy, and Roads."
-              modalImage = {innovationImage}
-            />
           </div>
 
-            <div class = "col-12 col-md-3">
+
+          <div className = "col-12 col-md-3">
               {/* Surveying */}
               <ContentCard id="competition_card"
-              imageSrc={surveyingImage}
+              imageSrc={smallSurveyingImage}
               imageAlt="none"
               title = "Surveying"
               // paragraph = "Details"
@@ -167,56 +246,498 @@ function template() {
               />
             </div>
 
-              <div class = "col-12 col-md-3">
-                {/* Construction Institute */}
+              <div className = "col-12 col-md-3">
+                {/* Construction Institute - PLACE THE CONSTRUCTION INSTITUTE IMAGE IN THE TIMBER STRONG IMAGE */}
                 <ContentCard id="competition_card"
-                imageSrc={constructionInstiImage}
+                imageSrc={imagename}
                 imageAlt="none"
                 title = "Construction Institute"
                 // paragraph = "Details"
                 modalTitle = "Construction Institute"
                 competitionDescription = "Each student team shall act as a construction engineering firm, and these responses shall be directed and delivered professionally, similarly to how a real company would address an owner requesting additional information from a firm during the pre-construction phase of a job. Sample projects will entertain all sectors of civil engineering, while the individual challenges will be related to: Traffic Control / Site Logistics, QA/QC, Safety, Public Outreach, Environment, Risk Management, and other concerns that project managers and engineers plan for."
-                modalImage = {constructionInstiImage}
+                modalImage = {imagename}
                 />
           
               </div>
+        
+
+            
+          <div className = "col-12 col-lg-3">
+            {/* Timber Strong */}
+            <ContentCard id="competition_card"
+              imageSrc={smallTimberStrongImage}
+              imageAlt="none"
+              title = "Timber Strong"
+              // paragraph = "Details"
+              modalTitle ="Timber Strong"
+              competitionDescription = "The competition seeks student teams to design and build an artistically creative 2-story wood light-framed building that is sustainable, aesthetically pleasing and structurally durable. The competition enables students to gain experience in performing aspects of common structural engineering design and practice as well as gain exposure to the management and building practices used in construction environments."
+              modalImage = {constructionInstiImage}
+            />
+            </div>
+          
+
+          <div className = "col-12 col-lg-3">
+            {/* Sustaible Solutions */}
+            <ContentCard id="competition_card"
+              imageSrc={smallSustainableSolutionsImage}
+              imageAlt="none"
+              title = "Sustainable Solutions"
+              // paragraph = "Details"
+              modalTitle = "Sustainable Solutions"
+              competitionDescription = "The ASCE Sustainable Solutions Competition challenges students to develop a stronger understanding of sustainability and learn to incorporate sustainable solutions into everyday problems that engineers incur. Students are encouraged to be creative in their solutions and use all resources available."
+              modalImage = {sustainableImage}
+            />
+          </div>
+          
+          <div className = "col-12 col-md-3">
+            {/* Innovation Contest */}
+            <ContentCard id="competition_card"
+              imageSrc={smallInnovationContestImage}
+              imageAlt="none"
+              title = "Innovation Contest"
+              // paragraph = "Details"
+              modalTitle = "Innovation Contest"
+              competitionDescription = "Participating teams will develop and pitch their innovation to the judges and at a minimum provide proof-of-concept for its feasibility and innovative potential. The closer your innovation is to having a proof of concept and a business plan, the more persuasive the result. The mission of the 2023 ASCE Innovation Contest is to develop an innovation that addresses one of the following three ASCE Report Card topics: Drinking Water, Energy, and Roads."
+              modalImage = {innovationImage}
+            />
+          </div>
+          
+          <div class='mt-5' style={{fontSize:"small"}}>
+            <p>Other competitions aren't celebrated annually, rather the official ASCE decides which of these take place in a given year. These competitions are: Concrete Bridge, Traffic Control, Geo-Wall, Muddy Waters, Concrete Cornhole, Plans Reading, Professional Paper, T-shirt Contest, and Mystery Competiton.</p>
+          </div>
+            
           </div>
         </div>
-        <section>
         
-            
-            <div className = "conatiner-lg">
-              <div className="row justify-content-center my-5">
-                <div className="col-lg-6">
-                  <form>
-                    {/* First question Below */}
-                    <div>
-                      <label htmlFor="ASCEMemberRadioQuestion" className="form=label">Are you an ASCE Member?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion"/>
-                          <label htmlFor="ASCEMemberRadioQuestion" className="form-label">Yes</label>
-                        {/* </input> */}
+
+
+
+         <section style={{paddingBottom:"3%", backgroundColor:"#FFC107", color:"black"}}>
+            <div className="container my-5">
+              <div className="row justify-content-center">
+                <div className="col-lg-9">
+                  <h1 className="mb-3">Sign Up for competitions</h1>
+
+                  <form onSubmit={handleSubmit}>
+                    <div className="row g-3">
+                      <div className="col-md-12 text-center py-5"> {/*First question */}
+                        <label for="ascemember" className="form-label">Are you member of the official ASCE organization?</label>
+                          <div className="row">
+                            <div className="col-sm-6">
+                            
+                              <input 
+                                type="radio" 
+                                id="asceMemberYes" 
+                                name="RadioSetOne" 
+                                value="Yes" 
+
+                              checked={radioButtons === 'Yes'}
+
+                              onChange={handleRadioChange}
+
+                              
+
+                              required/>
+                              <label>Yes</label>
+
+                            </div>
+                            <div className="col-sm-6">
+                              <input 
+                                type="radio" 
+                                id="asceMemberNO" 
+                                name="RadioSetOne" 
+                                value="No" 
+
+                                checked={radioButtons === 'No'}
+                                onChange={handleRadioChange}
+                                
+                              required/>
+                              <label>No</label>
+                            </div>
+                          <p>{radioButtons}</p>
+                        </div>
                       </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion"/>
-                          <label htmlFor="ASCEMemberRadioQuestion" className="form-label">No</label>
-                        {/* </input> */}
+
+                      <div className="col-md-6 text-left py-2"> {/*Second Question */}
+                        <label for="your-name" className="form-label">Name</label>
+                        <input type="text" placeholder="Name Lastname" className="form-control" id="your-name" name="your-name" required/>
                       </div>
-                    </div>
+
+                      <div className="col-md-6 text-left py-2"> {/*Third Question */}
+                        <label for="your-email" className="form-label" id="email-label">Email</label>
+                        <input 
+                          type="email" 
+                          placeholder="name@students.pupr.edu or name@pupr.edu" 
+                          className="form-control" 
+                          id="your-email" 
+                          name="your-email" 
+                          // emailValidate={value={email}}
+                                                                             
+                          required/>
+                         
+                          
+                      </div>
+
+                      <div className="col-md-6 text-left py-2"> {/*Fourth Question */}
+                        <label for="your-phone" className="form-label">Phone</label>
+                        <input type="phone" placeholder="(787 or 939)-###-####" className="form-control" id="your-phone" name="your-phone" required/>
+                      </div>
+
+                      <div className="col-md-6 text-left py-2"> {/*Fifth Quesiton */}
+                        <label for="your-phone" className="form-label">ASCE Membership Number</label>
+                        <input type="text" placeholder="##########" className="form-control" id="your-number" name="your-number" aria-labelledby="ASCEMembershipNumberHelp" required/>
+                          <div id='ASCEMembershipNumberHelp' class='form-text' className='help-block'>
+                          Become a member of the Official ASCE at: https://www.asce.org/membership
+                          </div>
+                      </div>
+
+                      {/* <div className="col-md-6 text-left py-2">----->THIS CODE WAS COMMENTED OUT BECAUSE IT WAS UNECESSARY
+                        <label for="your-subject" className="form-label">Select Courses</label>
+                        <div>
+                        <select className="selectpicker" data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}} required>
+                          <option value="">-</option>
+                          <option>first</option>
+                          <option>second</option>
+                          <option>third</option>
+                          <option>fourth</option>
+                          <option>fifth</option>
+                          <option>sixth</option>
+                          <option>seventh</option>
+                        </select>
+                        </div>
+                      </div> */}
+
+                      <div className="col-md-12 text-center py-2"> {/*Sixth Question */}
+                        <label for="your-subject" className="form-label">Select Competition of interest</label>
+                        <div>
+                        <select className="selectPicker" isMulti data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}} required>
+                        <option value="">Select</option>
+                        <option value="1">Concrete Canoe</option>
+                        <option value="2">Steel Bridge</option>
+                        <option value="3">Timber Strong</option>
+                        <option value="4">Sustainable Solutions</option>
+                        <option value="5">Innovation Contest</option>
+                        <option value="6">Construction Institute</option>
+                        <option value="7">Surveying</option>
+                        <option Value="8">Concrete Bridge</option>
+                        <option Value="9">Traffic Control</option>
+                        <option Value="10">Geo-Wall</option>
+                        <option Value="11">Muddy Waters</option>
+                        <option Value="12">Concrete Cornhole</option>
+                        <option Value="13">Plans Reading</option>
+                        <option Value="14">Professional Paper</option>
+                        <option Value="15">T-shirt Contest</option>
+                        <option Value="16">Mystery Competition</option>
+                        </select>
+                        </div>
+                      </div>
+
+                      {/* Trying to make the dropdown checkboxes for muliple selection */}
+                      {/* <select
+                        options={competitionOptions}
+                        value={selectedCompetitionOptions}
+                        onChange={setSelectedCompetitionOptions}
+                        isMulti
+                      />
+                      <label>
+                        Selected Options:{selectedCompetitionOptions.map((competitionOptions) => (
+                          <span key={competitionOptions.value} > {competitionOptions.label},</span>
+                        ))}
+                      </label> */}
+
+                      {/*tyring to mix select with checkboxes */}
+                      {/* <div class="multiselect">
+                        <div class="selectBox" onClick={showCompetitionCheckBoxes()}>
+                          <select>
+                            <option>Select a Competition</option>
+                          </select>
+                          <div class="overSelect"></div>
+                        </div>
+                        <div id='competitionCheckboxes'>
+                          <label htmlFor="ConcreteCanoeID" className="form-control"></label>
+                          <input type="checkbox" id="ConcreteCanoeID">Concrete Canoe</input>
+                          
+                          <label htmlFor="SteelBridgeID" className="form-control"></label>
+                          <input type="checkbox" id="SteelBridgeID">Steel Bridge</input>
+
+                          <label htmlFor="TimberStrongId" className="form-control"></label>
+                          <input type="checkbox" id="TimberStrongID">Timber Strong</input>
+
+                        </div>
+                      </div> */}
+
+                      {/* I decided that it would be best to implement a selection based on multiple checkboxes */}
+                      <div className="col-md-12 text-center py-2">
+                        <label htmlFor="your-subject" className="form-check-label">Select one or more Competitions</label>
+                        <Form.Group FromControlId='competitionsCheckBoxGroup' className="text-center" required>
+                          <div className="row">
+                            <Form.Check label = "Concrete Canoe"  type = "checkbox"  id = "ConcreteCanoeID"/>
+                            <Form.Check label = "Steel Bridge"  type = "checkbox"  id = "SteelBridgeID"/>
+                            <Form.Check label = "Timber Strong"  type = "checkbox"  id = "TimberStrongID"/>
+                            <Form.Check label = "Sustainable Solutions"  type = "checkbox"  id = "SustainableSolutionsID"/>
+                            <Form.Check label = "Innovation Contest"  type = "checkbox"  id = "InnovationContestID"/>
+                            <Form.Check label = "Construction Institute"  type = "checkbox"  id = "ConstructionInstituteID"/>
+                            <Form.Check label = "Surveying"  type = "checkbox"  id = "SurveyingID"/>
+                            <Form.Check label = "Concrete Bridge"  type = "checkbox"  id = "ConcreteBridgeID"/>
+                          </div>
+                          <div className="row">
+                            <Form.Check label = "Traffic Control"  type = "checkbox"  id = "TrafficControlID"/>
+                            <Form.Check label = "Geo-Wall"  type = "checkbox"  id = "Geo-WallID"/>
+                            <Form.Check label = "Muddy Waters"  type = "checkbox"  id = "MuddyWatersID"/>
+                            <Form.Check label = "Concrete Cornhole"  type = "checkbox"  id = "ConcreteCornholeID"/>
+                            <Form.Check label = "Plans Reading"  type = "checkbox"  id = "PlansReadingID"/>
+                            <Form.Check label = "Professional Paper"  type = "checkbox"  id = "ProfessionalPaperID"/>
+                            <Form.Check label = "T-Shirt Contest"  type = "checkbox"  id = "T-ShirtContestID"/>
+                            <Form.Check label = "Mystery Competition"  type = "checkbox"  id = "MysteryCompetitionID"/>
+                          </div>
+                        </Form.Group>
+                      </div>
+
+                     
+                      <div className="col-12 text-center py-3"> {/*Seventh Question */}
+                        <label for="your-message" className="form-label">Write 3 recent courses taken</label>
+                        <textarea placeholder="At least 3 of the most recent courses taken in the University"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
+                      </div>
+                      <div className="col-12 text-center py-3"> {/*Eighth Question */}
+                        <label for="your-message" className="form-label">Write recent experiences</label>
+                        <textarea placeholder="At least 3 of the top recent experiences, can be projects or work or intern experiences"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
+                      </div>
+
+                      <div className="col-12 text-center py-3"> {/*Ninth Question */}
+                        <label for="your-message" className="form-label">Please add your hourly availability</label>
+                        <textarea placeholder="Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
+                      </div>
+
+
+                      <div className="col-md-12 text-center py-5"> {/*Tenth Question */}
+                      <label for="ascemember" className="form-label">Are you willing to travel?</label>
+                      <div className="row">
+                        <div className="col-sm-6">
+                          <input 
+                            type="radio" 
+                            id="TravelQuestion" 
+                            name="RadioSetTwo" 
+                            value="Yes"
+                            
+                            checked={radioButtons === "Yes"}
+                            onChange={handleRadioChange}
+                          />
+                          <label>Yes</label>
+                        </div>
+                        
+                        <div className="col-sm-6">
+                          <input 
+                            type="radio" 
+                            id="TravelQuestion" 
+                            name="RadioSetTwo" 
+                            value="No"
+
+                            checked={radioButtons === 'No'}
+                            onChange={handleRadioChange}
+                          />
+                          <label>No</label>
+                        </div>
+                        <div>
+                        <p>{radioButtons}</p>
+                        </div>
+                      </div>
+                      </div>
+                      
+                      <div className="col-md-12 text-center py-5"> {/*Eleventh Question */}
+                        <label for="ascemember" className="form-label">Are you willing to travel in June?</label>
+                        <div className="row">
+                          <div className="col-sm-6">
+                          <input 
+                            type="radio"
+                            id="JuneTravelQuestion" 
+                            name="RadioSetThree" 
+                            value="Yes"
+
+                            checked={radioButtons === "Yes"}
+                            onChange={handleRadioChange}
+                          />
+                          <label>Yes</label>
+                          </div>
+                          <div className="col-sm-6">
+                            <input type="radio" 
+                              id="JuneTravelQuestion" 
+                              name="RadioSetThree" 
+                              value="No"
+                              
+                              checked={radioButtons === 'No'}
+                              onChange={handleRadioChange}
+                              />
+                            <label>No</label>
+                          </div>
+                        </div>
+                        <p>{radioButtons}</p>
+                      </div>
+
+                      <div className="col-md-12 text-center py-5"> {/*Twelfth Quesiton */}
+                        <label for="ascemember" className="form-label">Are you older than 25?</label>
+                        <div className="row">
+                          <div className="col-sm-6">
+                            <input type="radio" 
+                              id="TwentyFiveYearOldQuestion" 
+                              name="RadioSetFour" 
+                              value="Yes"
+                              
+                              checked={radioButtons === "Yes"}
+                              onChange={handleRadioChange}
+                              />
+                            <label>Yes</label>
+                          </div>
+                          <div className="col-sm-6">
+                            <input type="radio" 
+                            id="TwentyFiveYearOldQuestion" 
+                            name="RadioSetFive" 
+                            value="No"
+                            
+                            checked={radioButtons === 'No'}
+                            onChange={handleRadioChange}
+                            />
+                            <label>No</label>
+                          </div>
+                        </div>
+                        <p>{radioButtons}</p>
+                      </div>
+
+                      <div className="col-md-12 text-center py-5"> {/*Thirdteenth Question */}
+                        <label for="ascemember" className="form-label">Do you have a heavy vehicle license?</label>
+                        <div className="row">
+                          <div className="col-sm-6">
+                            <input type="radio" 
+                            id="html" 
+                            name="RadioSetSix" 
+                            value="Yes"
+                            
+                            checked={radioButtons === "Yes"}
+                            onChange={handleRadioChange}
+                            />
+                            <label>Yes</label>
+                          </div>
+                          <div className="col-sm-6">
+                            <input type="radio" 
+                            id="html" 
+                            name="RadioSetSix" 
+                            value="No"
+                            
+                            checked={radioButtons === 'No'}
+                            onChange={handleRadioChange}
+                            />
+                            <label>No</label>
+                          </div>
+                        </div>
+                        <p>{radioButtons}</p>
+                      </div>
+
+                      <div className="col-lg-12 py-2">
+                      <button data-res="<?php echo $sum; ?>" type="submit" class="btn btn-primary w-50 fw-bold" >Submit</button> {/* <Button>Submit</Button> fw-bold*/}
+                      </div>
                     
-                    {/* second quesiton below */}
-                    <div className="mb-3">
-                      <label htmlFor="ASCEMemberNumber" className="form-label">ASCE Member Number</label>
-                      {/* <textarea class="form-control" id="ASCEMemberNumber" rows="1"></textarea>  THIS MIGHT BE THE CORRECT CODE FOR THIS QUESTION IN THE FORM INSTEAD OF LINES 214 TO 217*/}
-                      <input type="text" className="form-control" id="ASCEMemberNumber" aria-describedby="memberNumberHelp"></input>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            </section>
+
+        
+        
+        </div>
+
+    <Calendar/>
+  </> 
+     
+      
+   
+ );
+};
+export default Template;   
+
+
+
+
+
+
+
+
+
+
+            
+            
+          
+        
+
+
+          {/* IM REBUILDING THE FORM THAT IS BELOW TO THE FORM THAT IS ABOVE. REMBER THE CLOSING DIV FOR <DIV CLASSNAME='CIMPETITIONFORM' */}
+
+
+
+          {/* <div className="row justify-content-center my-5">
+                <div className="col-lg-8 ms-lg-4">
+                  <form className="row g-4 needs-validation" noValidate> */}
+                    {/* First Question  WHAT IS YOUR FIRST AND LAST NAME?*/}
+                    
+                    {/* <div className="mb-3 mx-5 row g-3"> {/*row g-3 */}
+                      {/* <div className="col-md-12">
+                      <label for="exampleFormControlTextarea1" className="form-label">1. Please enter your first and last name.</label>
+                      <textarea className="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                      </div>  */}
+                      {/* <div className="valid-feedback">Perfect</div> */}
+                    {/* </div> */}
+
+
+                    {/* Second Question WHAT US YOUR STUDENT EMAIL? */}
+                    {/* <div className="col-md-6"> {/*col-md-6 added */}
+                      {/* <label for="emailQuestion" className="form-label">2. Please enter your PUPR student email address.</label>
+                      <input type="email" className="form-control" id="emailQuestion" placeholder="lastname_studentnumber@students.pupr.edu" required/>
+                    </div>
+
+
+                    <div className="row"> */}
+                    {/* Third question Below */}
+                    {/* <div className="col-6"> row ; deleted mb-6 mx-5 g-3 */}
+                        {/* <div className="col-6">
+                          <label htmlFor="ASCEMemberRadioQuestion" className="form=label">3. Are you an ASCE Member?</label>
+                        </div>
+                        <div className="col-6">
+                          <div className="row g-3">
+                            <div className="col-12 col-md-6">
+                              <div className="form-check">
+                                <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion"/>
+                                <label htmlFor="ASCEMemberRadioQuestion" className="form-label">Yes</label> */}
+                                {/* </input> */}
+                              {/* </div>
+                            </div>
+                            <div className="col-12 col-md-6">
+                              <div className="form-check">
+                                <input className = "form-radio-input" type="radio" name="FirstRadio" id="ASCEMemberRadioQuestion"/>
+                                <label htmlFor="ASCEMemberRadioQuestion" className="form-label">No</label>
+                                {/* </input> */}
+                              {/* </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>  */}
+                    
+                    {/* Fourth quesiton below */}
+                    {/* <div className="col-6 col-md-6"> mb-3 was only here */}
+                    
+                      {/* <label htmlFor="ASCEMemberNumber" className="form-label">4. ASCE Member Number</label> */}
+                      {/* <textarea className="form-control" id="ASCEMemberNumber" rows="1"></textarea>  THIS MIGHT BE THE CORRECT CODE FOR THIS QUESTION IN THE FORM INSTEAD OF LINES 214 TO 217*/}
+                      {/* <input type="text" className="form-control" id="ASCEMemberNumber" aria-describedby="memberNumberHelp"></input>
                       <div id="memberNumberHelp" className="form-text">
                         If you do not have an ASCE Member Number, then please become an official ASCE Member at https://www.asce.org/membership
                       </div>
+                    
                     </div>
+                    </div> */}
 
-                    {/* Third question Below  */}
-                    <div className="mb-3">
-                      <label htmlFor="competitionsDropdown" className="form">Select the competitions you are interested in participating.</label>
+                    {/* Fifth question Below  */}
+                    {/* <div className="row">
+                    <div className="col-6 mb-3">
+                      <label htmlFor="competitionsDropdown" className="form">5. Select the competitions you are interested in participating.</label>
                       <select>
                         <option value="1">Concrete Canoe</option>
                         <option value="2">Steel Bridge</option>
@@ -235,134 +756,224 @@ function template() {
                         <option value="15">T-Shirt Contest</option>
                         <option value="16">Mystery Competition</option>
                       </select>
-                    </div>
+                    </div> */}
 
 
-                    {/* Fourth Question */}
-                    <div className="mb-3">
-                      <label htmlFor="recentClassesQuesiton" className="form-label">Please write 3 or more of the most recent courses you have taken. Current Courses count.</label>
+                    {/* Sixth Question */}
+                    {/* <div className="col-6 mb-3">
+                      <label htmlFor="recentClassesQuesiton" className="form-label">6. Please write 3 or more of the most recent courses you have taken. Current Courses count.</label>
                       <textarea className="form-control" id="recentClassesQuestion" rows="3"></textarea>
                     </div>
+                    </div> */}
 
-                    {/* Fifth Question */}
-                    <div className="mb-3">
-                      <label htmlFor="experienceQuesiton" className="form-label">"Please write any experience current or past that you have aquired such as Jobs, Internships, Consturction Knowledge, etc."</label>
+                    {/* Seventh Question */}
+                    {/* <div className="mb-3">
+                      <label htmlFor="experienceQuesiton" className="form-label">7. Please write any experience current or past that you have aquired such as Jobs, Internships, Consturction Knowledge, etc.</label>
                       <textarea className="form-control" id="experienceQuestion" rows="3"></textarea>
-                    </div>
+                    </div> */}
 
                     
 
-                    {/* Sixth Question */}
-                    <label htmlFor="availability" className="form-label">Monday</label>
-                      <input type="time" id="availability"></input>
-
-                    <label htmlFor="availability" className="form-label">Tuesday</label>
-                      <input type="time" id="availability"></input>
-
-                    <label htmlFor="availability" className="form-label">Wednesday</label>
-                    <input type="time" id="availability"></input>
-
-                    <label htmlFor="availability" className="form-label">Thursday</label>
-                    <input type="time" id="availability"></input>
-
-                    <label htmlFor="availability" className="form-label">Friday</label>
-                    <input type="time" id="availability"></input>
-
-                    <label htmlFor="availability" className="form-label">Saturday</label>
-                    <input type="time" id="availability"></input>
-
-
-                    {/* Seventh Question */}
-                    <div>
-                      <label htmlFor="travelGeneralQuestion" className="form=label">Are you willing to travel?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="SecondRadio" id="tavelGeneralQuestion"/>
-                          <label htmlFor="travelGeneralQuestion" className="form-label">Yes</label>
-                        {/* </input> */}
-                      </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="SecondRadio" id="travelGeneralQuestion"/>
-                          <label htmlFor="travelGeneralQuestion" className="form-label">No</label>
-                        {/* </input> */}
-                      </div>
-                    </div>
-
-
                     {/* Eighth Question */}
-                    <div>
-                      <label htmlFor="juneTravelQuestion" className="form=label">Are you willing to travel in June?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
-                          <label htmlFor="juneTravelQuestion" className="form-label">Yes</label>
-                        {/* </input> */}
-                      </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
-                          <label htmlFor="juneTravelQuestion" className="form-label">No</label>
-                        {/* </input> */}
-                      </div>
-                    </div>
+                    {/* <div className='row mb-3'>
+                      <div className='col-12'>
+                        <p>8. Please give your availability.</p>
+                      </div> */}
 
+                    {/* <div className="col-12"> */}
+                      {/* <div className='col-6'>
+                        <label htmlFor="availability" className="form-label">Monday </label>
+                        <input type="time" id="availability"></input>
+                      </div> */}
+
+                      {/* <div className='col-6'>
+                        <label htmlFor="availability" className="form-label">Thursday</label>
+                        <input type="time" id="availability"></input>
+                      </div> */}
+
+                      {/* <div className='col-6'>
+                        <label htmlFor="availability" className="form-label">Tuesday </label>
+                        <input type="time" id="availability"></input>
+                      </div> */}
+                    {/* </div> */}
+
+                    {/* <div className='col-12'> */}
+                      {/* <div className='col-6'>
+                        <label htmlFor="availability" className="form-label">Friday</label>
+                        <input type="time" id="availability"></input>
+                      </div>
+
+                      <div className='col-6'>
+                        <label htmlFor="availability" className="form-label">Wednesday </label>
+                        <input type="time" id="availability"></input>
+                      </div>
+
+                      <div className='col-6'>
+                        <label htmlFor="availability" className="form-label">Saturday</label>
+                        <input type="time" id="availability"></input>
+                      </div>
+                      
+                    </div> */}
+                    
 
                     {/* Ninth Question */}
-                    <div>
-                      <label htmlFor="ageTwentyFiveQuestion" className="form=label">Are you 25 yeard old or older?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
-                          <label htmlFor="ageTwentyFiveQuestion" className="form-label">Yes</label>
-                        {/* </input> */}
-                      </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
-                          <label htmlFor="ageTwentyFiveQuestion" className="form-label">No</label>
-                        {/* </input> */}
-                      </div>
-                    </div>
+                    
+
+                      {/* <div className="row col-12">
+                        <div className='col-6'> */}
+                          {/* <div className='col-6'> Div for the label */}
+                            {/* <label htmlFor="travelGeneralQuestion" className="form=label">9. Are you willing to travel?</label>                   
+                          </div> */}
+                          
+                          {/* <div className='row col-6'> div that houses both radio buttons for this question */}
+                            {/* <div className='col-6'>
+                              <div className='col-3'>
+                                <div className="form-check">
+                                  <input className = "form-radio-input" type="radio" name="SecondRadio" id="tavelGeneralQuestion"/>
+                                  <label htmlFor="travelGeneralQuestion" className="form-label">Yes</label>
+                                </div>
+                              </div>
+                            </div>
+                           
+                            <div className='col-6'>  
+                              <div className='col-3'>
+                                <div className="form-check">
+                                  <input className = "form-radio-input" type="radio" name="SecondRadio" id="travelGeneralQuestion"/>
+                                  <label htmlFor="travelGeneralQuestion" className="form-label">No</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div> */}
+                        
 
 
-                    {/* Tenth Question */}
-                    <div>
-                      <label htmlFor="heavyVehicleLicenseQuestion" className="form=label">Do you have a heavy vehicle license?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
-                          <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">Yes</label>
-                        {/* </input> */}
-                      </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
-                          <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">No</label>
-                        {/* </input> */}
-                      </div>
-                    </div>
+                          {/* Tenth Question */}
+                          
+                            {/* <div className="col-6">
+                              <div className='col-6'>
+                                <label htmlFor="juneTravelQuestion" className="form=label">10. Are you willing to travel in June?</label>
+                              </div>
+                            
+                              <div className="row col-6">
+                                <div className='col-6'>
+                                  <div className='col-3'>
+                                    <div className="form-check">
+                                      <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
+                                      <label htmlFor="juneTravelQuestion" className="form-label">Yes</label>
+                                      </input> */}
+                                    {/* </div>
+                                  </div>
+                                </div>
+                              
+                                <div className="col-6">
+                                  <div className='col-3'>
+                                    <div className="form-check">
+                                      <input className = "form-radio-input" type="radio" name="ThirdRadio" id="juneTravelQuestion"/>
+                                      <label htmlFor="juneTravelQuestion" className="form-label">No</label>
+                                      /* </input> */}
+                                     {/* </div>
+                                   </div>
+                                 </div>
+                               </div>
+                          
+                           </div>
+                     </div> */}
 
 
                     {/* Eleventh Question */}
-                    <div>
-                      <label htmlFor="officialDriverQuestion" className="form=label">Would you like to be the official driver of the PUPR ASCE Student Chapter?</label>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="SixthRadio" id="officialDriverQuestion"/>
-                          <label htmlFor="officialDriverQuestion" className="form-label">Yes</label>
-                        {/* </input> */}
+                    {/* <div className='row col-12'>
+                      <div className='col-6'>
+                        <div className="col-6">
+                        <label htmlFor="ageTwentyFiveQuestion" className="form=label">11. Are you 25 yeard old or older?</label>
+                        </div>
+                        
+                        <div className="row col-6">
+                          <div className='col-6'>
+                            <div className='col-3'>
+                              <div className="form-check">
+                                <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
+                                <label htmlFor="ageTwentyFiveQuestion" className="form-label">Yes</label>
+                              </div>
+                            </div>
+                          </div>
+                       
+                          <div className="col-6">
+                            <div className='col-3'>
+                              <div className="form-check">
+                                <input className = "form-radio-input" type="radio" name="FourthRadio" id="ageTwentyFiveQuestion"/>
+                                <label htmlFor="ageTwentyFiveQuestion" className="form-label">No</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div className="form-check">
-                        <input className = "form-radio-input" type="radio" name="SixthRadio" id="officialDriverQuestion"/>
-                          <label htmlFor="officialDriverQuestion" className="form-label">No</label>
-                        {/* </input> */}
+                     */}
+
+
+                      {/* Twelfth Question */}
+                      {/* <div className="col-6">
+                        <div className="col-6">
+                          <label htmlFor="heavyVehicleLicenseQuestion" className="form=label">12. Do you have a heavy vehicle license?</label>
+                        </div>
+                        
+                        <div className="row col-6">
+                          <div className='col-6'>
+                            <div className='col-3'>
+                              <div className="form-check">
+                                <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
+                                <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">Yes</label>
+                              </div>
+                            </div>
+                          </div>
+                        
+
+                          <div className="col-6">
+                            <div className='col-3'>
+                              <div className="form-check">
+                                <input className = "form-radio-input" type="radio" name="FifthRadio" id="heavyVehicleLicenseQuestion"/>
+                                <label htmlFor="heavyVehicleLicenseQuestion" className="form-label">No</label>
+                               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
+                    </div> */}
+                    
+                    
+
+
+
+                    {/* Thirdteenth Question */}
+                    {/* <div className="col-md-12 text-center">
+                      <label for="ascemember" className="form-label">13. Would you like to be the official driver of the PUPR ASCE Student Chapter?</label>
+                        <div className="row">
+                          <div className="col-sm-6">
+                            <input type="radio" id="html" name="fav_language" value="HTML"/>
+                            <label for="yes">Yes</label>
+                          </div>
+                          
+                          <div className="col-md-12 text-center">
+                            <label for="ascemember" className="form-label">Are you member of the official ASCE organization?</label>
+                              <div className="row">
+                              <div className="col-sm-6">
+                              <input type="radio" id="html" name="fav_language" value="HTML"/>
+                              <label for="yes">Yes</label> 
+                              </div>
+                              
+                              <div className="col-sm-6">
+                              <input type="radio" id="html" name="fav_language" value="HTML"/>
+                              <label for="no">No</label><br></br>
+                              </div>
+                            </div>
+                            </div>
                     </div>
+                    <Button>Submit</Button>
 
-                  </form>
-                </div>
-              </div>
-            </div>
+                    </div> */}
 
-        </section>
-
-        </div> 
-    
-  );
-};
-export default template;
-
-
-     
+                  {/* </form> */}
+                
+                
+             
