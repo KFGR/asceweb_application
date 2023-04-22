@@ -1,0 +1,26 @@
+.Competitions{
+    background-color:rgb(20, 74, 154); /*RGB(25 25 112)*/
+    width: 100%;
+    text-align: center;
+    color:white;
+    font-size: large;
+    font-family: Arial;
+    font-weight: 300;        
+}
+
+
+
+
+/*ol{
+    display: inline;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+}
+
+ol li{
+    list-style: decimal;
+    margin-bottom: 10px;
+    padding-left: 20px;
+} */
+
