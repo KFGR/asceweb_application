@@ -1,6 +1,9 @@
 import "./Competitions.css";
 import React from "react";
 import ContentCard from "../../components/ContentCard";
+
+import FormCompetition from "../../components/FormCompetition";
+
 // import { Image } from "react-bootstrap"; //Calling the Image object, this object is already responsive
 import imagename from '../../assets/Brand/Award.png'; //anothe method to call images, but you initialize the viewport
 import Calendar from "../../components/Calendar";
@@ -316,80 +319,18 @@ const handleRadioChange = (event) => {
             <div className="container my-5">
               <div className="row justify-content-center">
                 <div className="col-lg-9">
-                  <h1 className="mb-3">Sign Up for competitions</h1>
+                  <FormCompetition/>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+    <Calendar/>
+  </> 
+ );
+};
+export default Template;  
 
-                  <form onSubmit={handleSubmit}>
-                    <div className="row g-3">
-                      <div className="col-md-12 text-center py-5"> {/*First question */}
-                        <label for="ascemember" className="form-label">Are you member of the official ASCE organization?</label>
-                          <div className="row">
-                            <div className="col-sm-6">
-                            
-                              <input 
-                                type="radio" 
-                                id="asceMemberYes" 
-                                name="RadioSetOne" 
-                                value="Yes" 
-
-                              checked={radioButtons === 'Yes'}
-
-                              onChange={handleRadioChange}
-
-                              
-
-                              required/>
-                              <label>Yes</label>
-
-                            </div>
-                            <div className="col-sm-6">
-                              <input 
-                                type="radio" 
-                                id="asceMemberNO" 
-                                name="RadioSetOne" 
-                                value="No" 
-
-                                checked={radioButtons === 'No'}
-                                onChange={handleRadioChange}
-                                
-                              required/>
-                              <label>No</label>
-                            </div>
-                          <p>{radioButtons}</p>
-                        </div>
-                      </div>
-
-                      <div className="col-md-6 text-left py-2"> {/*Second Question */}
-                        <label for="your-name" className="form-label">Name</label>
-                        <input type="text" placeholder="Name Lastname" className="form-control" id="your-name" name="your-name" required/>
-                      </div>
-
-                      <div className="col-md-6 text-left py-2"> {/*Third Question */}
-                        <label for="your-email" className="form-label" id="email-label">Email</label>
-                        <input 
-                          type="email" 
-                          placeholder="name@students.pupr.edu or name@pupr.edu" 
-                          className="form-control" 
-                          id="your-email" 
-                          name="your-email" 
-                          // emailValidate={value={email}}
-                                                                             
-                          required/>
-                         
-                          
-                      </div>
-
-                      <div className="col-md-6 text-left py-2"> {/*Fourth Question */}
-                        <label for="your-phone" className="form-label">Phone</label>
-                        <input type="phone" placeholder="(787 or 939)-###-####" className="form-control" id="your-phone" name="your-phone" required/>
-                      </div>
-
-                      <div className="col-md-6 text-left py-2"> {/*Fifth Quesiton */}
-                        <label for="your-phone" className="form-label">ASCE Membership Number</label>
-                        <input type="text" placeholder="##########" className="form-control" id="your-number" name="your-number" aria-labelledby="ASCEMembershipNumberHelp" required/>
-                          <div id='ASCEMembershipNumberHelp' class='form-text' className='help-block'>
-                          Become a member of the Official ASCE at: https://www.asce.org/membership
-                          </div>
-                      </div>
 
                       {/* <div className="col-md-6 text-left py-2">----->THIS CODE WAS COMMENTED OUT BECAUSE IT WAS UNECESSARY
                         <label for="your-subject" className="form-label">Select Courses</label>
@@ -407,30 +348,7 @@ const handleRadioChange = (event) => {
                         </div>
                       </div> */}
 
-                      <div className="col-md-12 text-center py-2"> {/*Sixth Question */}
-                        <label for="your-subject" className="form-label">Select Competition of interest</label>
-                        <div>
-                        <select className="selectPicker" isMulti data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}} required>
-                        <option value="">Select</option>
-                        <option value="1">Concrete Canoe</option>
-                        <option value="2">Steel Bridge</option>
-                        <option value="3">Timber Strong</option>
-                        <option value="4">Sustainable Solutions</option>
-                        <option value="5">Innovation Contest</option>
-                        <option value="6">Construction Institute</option>
-                        <option value="7">Surveying</option>
-                        <option Value="8">Concrete Bridge</option>
-                        <option Value="9">Traffic Control</option>
-                        <option Value="10">Geo-Wall</option>
-                        <option Value="11">Muddy Waters</option>
-                        <option Value="12">Concrete Cornhole</option>
-                        <option Value="13">Plans Reading</option>
-                        <option Value="14">Professional Paper</option>
-                        <option Value="15">T-shirt Contest</option>
-                        <option Value="16">Mystery Competition</option>
-                        </select>
-                        </div>
-                      </div>
+                      
 
                       {/* Trying to make the dropdown checkboxes for muliple selection */}
                       {/* <select
@@ -467,7 +385,115 @@ const handleRadioChange = (event) => {
                       </div> */}
 
                       {/* I decided that it would be best to implement a selection based on multiple checkboxes */}
-                      <div className="col-md-12 text-center py-2">
+                      
+                    
+
+
+
+{/* <div className="col-lg-9">
+<h1 className="mb-3">Sign Up for competitions</h1>
+
+<form onSubmit={handleSubmit}>
+  <div className="row g-3">
+    <div className="col-md-12 text-center py-5"> {/*First question */}
+      // <label for="ascemember" className="form-label">Are you member of the official ASCE organization?</label>
+      //   <div className="row">
+      //     <div className="col-sm-6">
+          
+      //       <input 
+      //         type="radio" 
+      //         id="asceMemberYes" 
+      //         name="RadioSetOne" 
+      //         value="Yes" 
+
+      //       checked={radioButtons === 'Yes'}
+
+      //       onChange={handleRadioChange}
+
+            
+
+      //       required/>
+      //       <label>Yes</label>
+
+      //     </div>
+      //     <div className="col-sm-6">
+      //       <input 
+      //         type="radio" 
+      //         id="asceMemberNO" 
+      //         name="RadioSetOne" 
+      //         value="No" 
+
+      //         checked={radioButtons === 'No'}
+      //         onChange={handleRadioChange}
+              
+      //       required/>
+      //       <label>No</label>
+      //     </div>
+      //   <p>{radioButtons}</p>
+      // </div>
+    // </div> 
+
+
+// <div className="col-md-6 text-left py-2"> {/*Second Question */}
+// <label for="your-name" className="form-label">Name</label>
+// <input type="text" placeholder="Name Lastname" className="form-control" id="your-name" name="your-name" required/>
+// </div>
+
+// <div className="col-md-6 text-left py-2"> {/*Third Question */}
+// <label for="your-email" className="form-label" id="email-label">Email</label>
+// <input 
+//   type="email" 
+//   placeholder="name@students.pupr.edu or name@pupr.edu" 
+//   className="form-control" 
+//   id="your-email" 
+//   name="your-email" 
+//   // emailValidate={value={email}}
+                                                     
+//   required/>
+ 
+  
+// </div>
+
+// <div className="col-md-6 text-left py-2"> {/*Fourth Question */}
+// <label for="your-phone" className="form-label">Phone</label>
+// <input type="phone" placeholder="(787 or 939)-###-####" className="form-control" id="your-phone" name="your-phone" required/>
+// </div>
+
+// <div className="col-md-6 text-left py-2"> {/*Fifth Quesiton */}
+// <label for="your-phone" className="form-label">ASCE Membership Number</label>
+// <input type="text" placeholder="##########" className="form-control" id="your-number" name="your-number" aria-labelledby="ASCEMembershipNumberHelp" required/>
+//   <div id='ASCEMembershipNumberHelp' class='form-text' className='help-block'>
+//   Become a member of the Official ASCE at: https://www.asce.org/membership
+//   </div>
+// </div>
+
+
+{/* <div className="col-md-12 text-center py-2"> 
+                        <label for="your-subject" className="form-label">Select Competition of interest</label>
+                        <div>
+                        <select className="selectPicker" isMulti data-show-subtext="false" data-live-search="true" style={{width:"100%", height:"2rem"}} required>
+                        <option value="">Select</option>
+                        <option value="1">Concrete Canoe</option>
+                        <option value="2">Steel Bridge</option>
+                        <option value="3">Timber Strong</option>
+                        <option value="4">Sustainable Solutions</option>
+                        <option value="5">Innovation Contest</option>
+                        <option value="6">Construction Institute</option>
+                        <option value="7">Surveying</option>
+                        <option Value="8">Concrete Bridge</option>
+                        <option Value="9">Traffic Control</option>
+                        <option Value="10">Geo-Wall</option>
+                        <option Value="11">Muddy Waters</option>
+                        <option Value="12">Concrete Cornhole</option>
+                        <option Value="13">Plans Reading</option>
+                        <option Value="14">Professional Paper</option>
+                        <option Value="15">T-shirt Contest</option>
+                        <option Value="16">Mystery Competition</option>
+                        </select>
+                        </div>
+                      </div>  */}
+
+{/* <div className="col-md-12 text-center py-2">
                         <label htmlFor="your-subject" className="form-check-label">Select one or more Competitions</label>
                         <Form.Group FromControlId='competitionsCheckBoxGroup' className="text-center" required>
                           <div className="row">
@@ -495,178 +521,150 @@ const handleRadioChange = (event) => {
 
                      
                       <div className="col-12 text-center py-3"> {/*Seventh Question */}
-                        <label for="your-message" className="form-label">Write 3 recent courses taken</label>
-                        <textarea placeholder="At least 3 of the most recent courses taken in the University"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
-                      </div>
-                      <div className="col-12 text-center py-3"> {/*Eighth Question */}
-                        <label for="your-message" className="form-label">Write recent experiences</label>
-                        <textarea placeholder="At least 3 of the top recent experiences, can be projects or work or intern experiences"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
-                      </div>
+                      //   <label for="your-message" className="form-label">Write 3 recent courses taken</label>
+                      //   <textarea placeholder="At least 3 of the most recent courses taken in the University"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
+                      // </div>
+                      // <div className="col-12 text-center py-3"> {/*Eighth Question */}
+                      //   <label for="your-message" className="form-label">Write recent experiences</label>
+                      //   <textarea placeholder="At least 3 of the top recent experiences, can be projects or work or intern experiences"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
+                      // </div>
 
-                      <div className="col-12 text-center py-3"> {/*Ninth Question */}
-                        <label for="your-message" className="form-label">Please add your hourly availability</label>
-                        <textarea placeholder="Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
-                      </div>
+                      // <div className="col-12 text-center py-3"> {/*Ninth Question */}
+                      //   <label for="your-message" className="form-label">Please add your hourly availability</label>
+                      //   <textarea placeholder="Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday"  style={{resize:"none"}} className="form-control" id="your-message" name="your-message" rows="5" required></textarea>
+                      // </div>
 
 
-                      <div className="col-md-12 text-center py-5"> {/*Tenth Question */}
-                      <label for="ascemember" className="form-label">Are you willing to travel?</label>
-                      <div className="row">
-                        <div className="col-sm-6">
-                          <input 
-                            type="radio" 
-                            id="TravelQuestion" 
-                            name="RadioSetTwo" 
-                            value="Yes"
+                      // <div className="col-md-12 text-center py-5"> {/*Tenth Question */}
+                      // <label for="ascemember" className="form-label">Are you willing to travel?</label>
+                      // <div className="row">
+                      //   <div className="col-sm-6">
+                      //     <input 
+                      //       type="radio" 
+                      //       id="TravelQuestion" 
+                      //       name="RadioSetTwo" 
+                      //       value="Yes"
                             
-                            checked={radioButtons === "Yes"}
-                            onChange={handleRadioChange}
-                          />
-                          <label>Yes</label>
-                        </div>
+                      //       checked={radioButtons === "Yes"}
+                      //       onChange={handleRadioChange}
+                      //     />
+                      //     <label>Yes</label>
+                      //   </div>
                         
-                        <div className="col-sm-6">
-                          <input 
-                            type="radio" 
-                            id="TravelQuestion" 
-                            name="RadioSetTwo" 
-                            value="No"
+                      //   <div className="col-sm-6">
+                      //     <input 
+                      //       type="radio" 
+                      //       id="TravelQuestion" 
+                      //       name="RadioSetTwo" 
+                      //       value="No"
 
-                            checked={radioButtons === 'No'}
-                            onChange={handleRadioChange}
-                          />
-                          <label>No</label>
-                        </div>
-                        <div>
-                        <p>{radioButtons}</p>
-                        </div>
-                      </div>
-                      </div>
+                      //       checked={radioButtons === 'No'}
+                      //       onChange={handleRadioChange}
+                      //     />
+                      //     <label>No</label>
+                      //   </div>
+                      //   <div>
+                      //   <p>{radioButtons}</p>
+                      //   </div>
+                      // </div>
+                      // </div>
                       
-                      <div className="col-md-12 text-center py-5"> {/*Eleventh Question */}
-                        <label for="ascemember" className="form-label">Are you willing to travel in June?</label>
-                        <div className="row">
-                          <div className="col-sm-6">
-                          <input 
-                            type="radio"
-                            id="JuneTravelQuestion" 
-                            name="RadioSetThree" 
-                            value="Yes"
+                      // <div className="col-md-12 text-center py-5"> {/*Eleventh Question */}
+                      //   <label for="ascemember" className="form-label">Are you willing to travel in June?</label>
+                      //   <div className="row">
+                      //     <div className="col-sm-6">
+                      //     <input 
+                      //       type="radio"
+                      //       id="JuneTravelQuestion" 
+                      //       name="RadioSetThree" 
+                      //       value="Yes"
 
-                            checked={radioButtons === "Yes"}
-                            onChange={handleRadioChange}
-                          />
-                          <label>Yes</label>
-                          </div>
-                          <div className="col-sm-6">
-                            <input type="radio" 
-                              id="JuneTravelQuestion" 
-                              name="RadioSetThree" 
-                              value="No"
+                      //       checked={radioButtons === "Yes"}
+                      //       onChange={handleRadioChange}
+                      //     />
+                      //     <label>Yes</label>
+                      //     </div>
+                      //     <div className="col-sm-6">
+                      //       <input type="radio" 
+                      //         id="JuneTravelQuestion" 
+                      //         name="RadioSetThree" 
+                      //         value="No"
                               
-                              checked={radioButtons === 'No'}
-                              onChange={handleRadioChange}
-                              />
-                            <label>No</label>
-                          </div>
-                        </div>
-                        <p>{radioButtons}</p>
-                      </div>
+                      //         checked={radioButtons === 'No'}
+                      //         onChange={handleRadioChange}
+                      //         />
+                      //       <label>No</label>
+                      //     </div>
+                      //   </div>
+                      //   <p>{radioButtons}</p>
+                      // </div>
 
-                      <div className="col-md-12 text-center py-5"> {/*Twelfth Quesiton */}
-                        <label for="ascemember" className="form-label">Are you older than 25?</label>
-                        <div className="row">
-                          <div className="col-sm-6">
-                            <input type="radio" 
-                              id="TwentyFiveYearOldQuestion" 
-                              name="RadioSetFour" 
-                              value="Yes"
+                      // <div className="col-md-12 text-center py-5"> {/*Twelfth Quesiton */}
+                      //   <label for="ascemember" className="form-label">Are you older than 25?</label>
+                      //   <div className="row">
+                      //     <div className="col-sm-6">
+                      //       <input type="radio" 
+                      //         id="TwentyFiveYearOldQuestion" 
+                      //         name="RadioSetFour" 
+                      //         value="Yes"
                               
-                              checked={radioButtons === "Yes"}
-                              onChange={handleRadioChange}
-                              />
-                            <label>Yes</label>
-                          </div>
-                          <div className="col-sm-6">
-                            <input type="radio" 
-                            id="TwentyFiveYearOldQuestion" 
-                            name="RadioSetFive" 
-                            value="No"
+                      //         checked={radioButtons === "Yes"}
+                      //         onChange={handleRadioChange}
+                      //         />
+                      //       <label>Yes</label>
+                      //     </div>
+                      //     <div className="col-sm-6">
+                      //       <input type="radio" 
+                      //       id="TwentyFiveYearOldQuestion" 
+                      //       name="RadioSetFive" 
+                      //       value="No"
                             
-                            checked={radioButtons === 'No'}
-                            onChange={handleRadioChange}
-                            />
-                            <label>No</label>
-                          </div>
-                        </div>
-                        <p>{radioButtons}</p>
-                      </div>
+                      //       checked={radioButtons === 'No'}
+                      //       onChange={handleRadioChange}
+                      //       />
+                      //       <label>No</label>
+                      //     </div>
+                      //   </div>
+                      //   <p>{radioButtons}</p>
+                      // </div>
 
-                      <div className="col-md-12 text-center py-5"> {/*Thirdteenth Question */}
-                        <label for="ascemember" className="form-label">Do you have a heavy vehicle license?</label>
-                        <div className="row">
-                          <div className="col-sm-6">
-                            <input type="radio" 
-                            id="html" 
-                            name="RadioSetSix" 
-                            value="Yes"
+                      // <div className="col-md-12 text-center py-5"> {/*Thirdteenth Question */}
+                      //   <label for="ascemember" className="form-label">Do you have a heavy vehicle license?</label>
+                      //   <div className="row">
+                      //     <div className="col-sm-6">
+                      //       <input type="radio" 
+                      //       id="html" 
+                      //       name="RadioSetSix" 
+                      //       value="Yes"
                             
-                            checked={radioButtons === "Yes"}
-                            onChange={handleRadioChange}
-                            />
-                            <label>Yes</label>
-                          </div>
-                          <div className="col-sm-6">
-                            <input type="radio" 
-                            id="html" 
-                            name="RadioSetSix" 
-                            value="No"
+                      //       checked={radioButtons === "Yes"}
+                      //       onChange={handleRadioChange}
+                      //       />
+                      //       <label>Yes</label>
+                      //     </div>
+                      //     <div className="col-sm-6">
+                      //       <input type="radio" 
+                      //       id="html" 
+                      //       name="RadioSetSix" 
+                      //       value="No"
                             
-                            checked={radioButtons === 'No'}
-                            onChange={handleRadioChange}
-                            />
-                            <label>No</label>
-                          </div>
-                        </div>
-                        <p>{radioButtons}</p>
-                      </div>
+                      //       checked={radioButtons === 'No'}
+                      //       onChange={handleRadioChange}
+                      //       />
+                      //       <label>No</label>
+                      //     </div>
+                      //   </div>
+                      //   <p>{radioButtons}</p>
+                      // </div>
 
-                      <div className="col-lg-12 py-2">
-                      <button data-res="<?php echo $sum; ?>" type="submit" class="btn btn-primary w-50 fw-bold" >Submit</button> {/* <Button>Submit</Button> fw-bold*/}
-                      </div>
-                    
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            </section>
-
-        
-        
-        </div>
-
-    <Calendar/>
-  </> 
-     
-      
-   
- );
-};
-export default Template;   
-
-
-
-
-
-
-
-
+                      // <div className="col-lg-12 py-2">
+                      // <button data-res="<?php echo $sum; ?>" type="submit" class="btn btn-primary w-50 fw-bold" >Submit</button> {/* <Button>Submit</Button> fw-bold*/}
+                      // </div> */}
 
 
             
             
-          
+          // BELOW THIS LINE IS EVEN OLDER CODE AND ABOVE THIS SAME LINE IS MORE RECENT CODE
         
 
 

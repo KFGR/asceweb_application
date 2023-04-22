@@ -5,11 +5,12 @@ font-size: 30px;
 }
 
 .container-competitionForm{
-    border: 3px solid blue;
+    border: solid blue;
     border-radius: 20px;
-    width: 1000px;
+    width: 800px;
     margin: auto;
     padding: 20px;
+    
 }
 
 form{
@@ -56,7 +57,7 @@ label{
 }
 
 form > button{
-    background-color: #fbb71a;
+    background-color: rgb(20, 74, 154);
     width: 100px;
     color: white;
     font-weight: bold;

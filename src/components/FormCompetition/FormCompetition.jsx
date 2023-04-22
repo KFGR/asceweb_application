@@ -148,7 +148,7 @@ function Template() {
   
   return (
     <>
-      <div className="title"><h3>Competition Entry Form</h3></div>
+      <div className="title"><h3>Sign Up for Competitions</h3></div>
       <div className="container-competitionForm">
         <form id="compSignUp" onSubmit={handleSubmit}>
 
@@ -160,7 +160,7 @@ function Template() {
 
             <div className="questionInput">
                 <label htmlFor="email">Student email address </label>
-                <input type="text" placeholder="Doe_1234@student.pupr.edu" id="email" name="email" value={formData.email} onChange={handleChange} required/>
+                <input type="email" placeholder="Doe_1234@student.pupr.edu" id="email" name="email" value={formData.email} onChange={handleChange} required/>
                 <small className="hidden" id="box2">Error Enter a valid PUPR email</small>
             </div>
 
