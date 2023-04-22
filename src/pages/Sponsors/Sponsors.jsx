@@ -2,7 +2,7 @@ import "./Sponsors.css";
 import React from "react";
 import checkmark from '../../assets/img/checkmark.svg';
 //import Calendar from  '../../components/Calendar';
-
+import FormCompetitions from  '../../components/FormCompetition';
 function template() {
   return (
     <>
@@ -155,6 +155,7 @@ function template() {
         </div>
       </div>
       {/*<Calendar/>*/}
+      <FormCompetitions/>
     </>
   );
 };
