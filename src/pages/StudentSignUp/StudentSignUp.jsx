@@ -118,7 +118,7 @@ function Template() {
 				<div class="col-md-6">
 					<div class="form-group">
 						<label id="email-label" for="email">Institutional Email</label>
-						<input type="email" name="email" id="uniEmail" placeholder="Enter your institutional email" class="form-control" required/>
+						<input type="email" name="email" id="uniEmail" placeholder="Enter your email with (@students.pupr.edu)" class="form-control" required/>
 					</div>
 				</div>
 			</div>
