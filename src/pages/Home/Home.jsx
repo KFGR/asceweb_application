@@ -1,4 +1,5 @@
 import "./Home.css";
+import Counter from "./Counter";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandshake, faUsers} from "@fortawesome/free-solid-svg-icons";
@@ -8,16 +9,19 @@ import ContentCard from '../../components/ContentCard';
 import Award from '../../assets/Brand/Award.png';
 import Members from '../../assets/Brand/members.png';
 
+
 function template (){
+  
   return (
     <div className="home">
       {/* Section divider */}
       <div className="container-fluid py-2 header-yllw"/>
 
       <section id="About">
+
       {/* About us */}
       <ContentCard 
-        id = "first"
+        id = "third"
         className = "d-block mx-lg-auto img-fluid shadow-box-right-sm"
         imageSrc = {Members}
         imageAlt = "notabout"
@@ -27,30 +31,45 @@ function template (){
       />
       {/* Activities */}
       <ContentCard 
-        id = "second"
+        id = "fourth"
         className = "d-block mx-lg-auto img-fluid shadow-box-left-sm"
         imageSrc = {Award}
-        imageAlt = "notabout"
+        imageAlt = "Activities"
         title = "Activities"
-        paragraph = "Quickly design and customize responsive mobile-first sites with Bootstrap, the worlds most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins."
-      
-      />
-      {/* AWARS */}
-      {/* About us */}
-      <ContentCard 
-        id = "first"
-        className = "d-block mx-lg-auto img-fluid shadow-box-right-sm"
-        imageSrc = {Award}
-        imageAlt = "notabout"
-        title = "Awards"
         paragraph = "Quickly design and customize responsive mobile-first sites with Bootstrap, the worlds most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins."
       
       />
     </section>
 
+    <div className="container-fluid py-2 header-yllw"/> 
+    <section id="Counter" className="counts">
+      <div className="container-fluid" style={{padding:'1rem'}}>
+        <div className="container-fluid">
+          <h1 className='h1-text-content-chapter' id='mission_txt' style={{color:'black', textAlign:'center'}}><strong>Our Chapter</strong></h1>
+        <div className="row counters">
+          {/* First Counter */}
+          <div className="col-lg-4 col-5 col-3 col-6 text-center" style={{maxWidth:'100%'}}>
+            <Counter start={0} end={10}/>
+            <p>Active Years</p>
+          </div>
+          {/* Second Counter */}
+          <div className="col-lg-4 col-5 col-3 col-6 text-center" style={{maxWidth:'100%'}}>
+            <span><Counter start={0} end={50}/></span>            
+            <p>Active Members</p>
+          </div>
+          {/* Third Counter */}
+          <div className="col-lg-4 col-5 col-3 col-6 text-center" style={{maxWidth:'100%'}}>
+            <span><Counter start={0} end={10}/></span>
+            <p>Sponsors</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
 
        {/* Section divider */}
-       <div className="container-fluid py-2 header-yllw"/> 
+       <div className="container-fluid py-2 header-finite-ble"/>
+       <div className="container-fluid py-2 header-yllw"/>
 
       
         <div className="container-fluid container-values">

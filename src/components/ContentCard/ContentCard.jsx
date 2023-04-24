@@ -52,6 +52,39 @@ function template(props) {
             </div>
           </div>
       )}
+      {id === "third" && (
+        <div id="third">
+            <div className="container-fluid">
+          <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3" style={{justifyContent:"space-evenly"}}>
+            <div className="col-lg-6 p-3 p-lg-5 pt-lg-3">
+            <h1 className="h1-text-content"><strong><span>{title[0]}</span>{title.substring(1,title.length - 2)}<span>{title.charAt(title.length -2)}</span>{title.charAt(title.length -1)}</strong></h1>
+            <p className="lead">{paragraph}</p>
+
+            </div>
+            <div className="col-lg-5 offset-lg-1 p-0  shadow-lg">
+            <Image src={imageSrc} alt={imageAlt} className={className} width={"100%"} height={"auto"} />
+            </div>
+        </div>
+      </div>
+          </div>
+      )}
+
+{id === "fourth" && (
+        <div id="fourth" className="container-fluid-row">
+            <div className="container-fluid">
+          <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3" style={{justifyContent:"space-evenly"}}>
+            <div className="col-lg-5 offset-lg-1 p-0  shadow-lg">
+            <Image src={imageSrc} alt={imageAlt} className={className} width={"100%"} height={"auto"} />
+            </div>
+            <div className="col-lg-6 p-3 p-lg-5 pt-lg-3">
+            <h1 className="h1-text-content"><strong><span>{title[0]}</span>{title.substring(1,title.length - 2)}<span>{title.charAt(title.length -2)}</span>{title.charAt(title.length -1)}</strong></h1>
+            <p className="lead">{paragraph}</p>
+
+            </div>
+        </div>
+      </div>
+          </div>
+      )}
     </div>
   );
 }

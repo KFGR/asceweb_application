@@ -52,10 +52,10 @@
 
 
 
-.h1-text-content{
+.home .h1-text-content{
     font-weight: 550;
     margin-bottom: 3%;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 /* Media to change the size from 2.5rem to 1.6rem */
@@ -63,7 +63,9 @@
     .h1-text-content{
         font-size: 1.6rem;
     }
-    
+    .home .h1-text-content{
+      font-size: 1.6rem;
+    }
 }
 
 
@@ -78,7 +80,7 @@
     /* margin-left: 5%; */
     /* seguir experimentando con los margenes individuales
     Tratar de que el contenido inicial quede en el medio de la pagina y a 5% del navegation-bar */
-    background-image: url(../../assets/Brand/members.png);
+    /* background-image: url(../../assets/Brand/members.png); */
 }
 
 .intro-content::after{
@@ -396,4 +398,105 @@
 
 
 
-/* Hero intro content ----------------------------*/
+/*Counters ----------------------------*/
+.home .counts .counters p{
+  padding:0;
+  margin: 0 0 20px 0;
+  font-size: 3rem;
+  /* font-size: 1.7rem; */
+  font-weight: 900;
+  /* color: white; */
+  color: #ffc107;
+  /* color: black; */
+}
+
+.home .counts span{
+  font-size: 5rem;
+  display: block;
+  color: #144a9a;
+  /* color:#ffc107; */
+  font-weight: 900;
+}
+
+.home .counts .Chapter-graph{
+  font-size: 3rem;
+  color: #ffc107;
+  font-weight: 900;
+}
+
+.home .counts .row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+
+.home .counts .h1-text-content-chapter{
+  font-weight: 550;
+  margin-bottom: 3%;
+  font-size: 3rem;
+}
+
+
+@media (max-width: 1000px){
+  .home .counts .row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home .counts .counters p{
+    padding:0;
+    margin: 0 0 20px 0;
+    font-size: 2rem;
+    font-weight: 900;
+    /* color: white; */
+    color: #ffc107;
+  }
+
+  .home .counts .h1-text-content-chapter{
+    font-weight: 550;
+    margin-bottom: 3%;
+    font-size: 3rem;
+  }
+
+  .home .counts span{
+    font-size: 3rem;
+    display: block;
+    /* color: #144a9a; */
+    /* color:#ffc107; */
+    color: #144a9a;
+    font-weight: 900;
+  }
+}
+
+@media (max-width: 385px){
+  .home .counts .row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home .counts .counters p{
+    padding:0;
+    margin: 0 0 20px 0;
+    font-size: 1.5rem;
+    font-weight: 900;
+    /* color: white; */
+    color: #ffc107;
+  }
+
+  .home .counts .h1-text-content-chapter{
+    font-weight: 550;
+    margin-bottom: 3%;
+    font-size: 2rem;
+  }
+
+  .home .counts span{
+    font-size: 2rem;
+    display: block;
+    /* color: #144a9a; */
+    /* color:#ffc107; */
+    color: #144a9a;
+    font-weight: 900;
+  }
+}
