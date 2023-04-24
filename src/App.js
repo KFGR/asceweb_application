@@ -5,8 +5,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // import AppHeader from './components/AppHeader';
 
 // import HeaderHero from './pages/Home/HeaderHero';
-import AppHeader from './components/AppHeader';
-import AppFooter from './components/AppFooter';
+// import AppHeader from './components/AppHeader';
+// import AppFooter from './components/AppFooter';
+
+const LazyAppHeader = React.lazy(() => import('./components/AppHeader'));
+const LazyAppFooter = React.lazy(() => import('./components/AppFooter'));
+// const LazyAppLoader = React.lazy(() => import('./components/AppLoader'));
 
 const LazyHome = React.lazy(() => import('./pages/Home'));
 const LazyTeam = React.lazy(() => import('./pages/Team'));
@@ -25,9 +29,9 @@ const App = () => {
         <Route path='/home' element={<><AppHeader id="Home_header"/> <Home/></>}/>
 
         <Route path='/team' element={<><AppHeader id="Normal_header"/> <Team/></>}/> */}
-        <Route path='/' element={<React.Suspense fallback='loading...'><><AppHeader id="another_home_header"/><LazyHome/></></React.Suspense>}/>
-        <Route path='/Home' element={<React.Suspense fallback='loading...'><><AppHeader id="another_home_header"/><LazyHome/></></React.Suspense>}/>
-        <Route path='/team' element={<React.Suspense fallback='loading...'><><AppHeader id="Normal_header"/><LazyTeam/></></React.Suspense>}/>
+        <Route path='/' element={<React.Suspense fallback="loading..."><><LazyAppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
+        <Route path='/Home' element={<React.Suspense fallback="loading..."><><LazyAppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
+        <Route path='/team' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazyTeam/></></React.Suspense>}/>
 
 
 
@@ -38,7 +42,7 @@ const App = () => {
 
         </Routes>
       </div>
-      <AppFooter/>
+      <LazyAppFooter/>
     </Router>
   );
 };
