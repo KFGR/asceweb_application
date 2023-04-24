@@ -16,7 +16,7 @@ navbar-toggler-icon {
     padding-right: 0px;
   }
 
-ul {
+.navegation-bar ul {
     position: sticky;
     left: 75%;
     top: 75%;
@@ -24,7 +24,7 @@ ul {
     list-style: none;
   }
 
-  ul li {
+  .navegation-bar ul li {
     display: inline-block;
     padding: 5px 10px;
     font-size: 15px;
@@ -35,13 +35,13 @@ ul {
     position: relative;
   }
 
-  ul li a {
+  .navegation-bar ul li a {
     text-transform: uppercase;
     text-decoration: none;
     color: #000;
   }
 
-  ul li:before {
+  .navegation-bar ul li:before {
     position: absolute;
     content: '';
     width: 50px;
@@ -55,7 +55,7 @@ ul {
     opacity: 0;
   }
 
-  ul li:after {
+  .navegation-bar ul li:after {
     position: absolute;
     content: '';
     width: 50px;
@@ -68,13 +68,13 @@ ul {
     opacity: 0;
   }
 
-  ul li:hover:before {
+  .navegation-bar ul li:hover:before {
     left: -10px;
     top: -10px;
     opacity: 1;
   }
 
-  ul li:hover:after {
+  .navegation-bar ul li:hover:after {
     right: -10px;
     bottom: -10px;
     opacity: 1;
@@ -82,7 +82,7 @@ ul {
 
 
 
-  li {
+  .navegation-bar li {
     /* To make letters more bolder with a text shadow */
     font-size: 150%;
     text-transform: uppercase;
@@ -91,7 +91,7 @@ ul {
     color: #000;
     text-shadow: 1px 1px 2px black;
   }
-  .py-4{
+  .navegation-bar .py-4{
     padding-top:1.5rem!important;
     padding-bottom: 1.5rem;
   }
