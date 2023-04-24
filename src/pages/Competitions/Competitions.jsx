@@ -19,7 +19,7 @@ import { Button } from "react-bootstrap";
 
 // images for Competitions in Modals
 import canoeImage from '../../assets/Brand/ConcreteCanoe.png'
-import steeleBridgeImage from '../../assets/Brand/SteeleBridge.png'
+import steeleBridgeImage from '../../assets/Brand/members.png'
 import sustainableImage from '../../assets/Brand/SustainableSolutions.png'
 import surveyingImage from '../../assets/Brand/Surveying.png'
 import constructionInstiImage from '../../assets/Brand/ConstructionInstitute.png'
