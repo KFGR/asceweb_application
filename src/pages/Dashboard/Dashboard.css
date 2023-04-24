@@ -1,0 +1,25 @@
+.Dashboard{
+    width: auto;
+    padding: 0 20px 0 20px;
+}
+
+.custom-row {
+    height: 50px;
+}
+
+.multi-line {
+    white-space: normal;
+    word-break: break-word;
+    width: 800px;
+}
+
+.filter-inputs-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+  
+  .filter-inputs-container > .p-col {
+    margin-right: 1rem; /* add some space between inputs */
+  }
+  
