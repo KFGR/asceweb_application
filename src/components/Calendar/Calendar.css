@@ -1,11 +1,24 @@
 .calendarsize{
-    width: 60%;
+    width: 50%;
     margin: auto;
     border: 1px solid #ccc;
-    margin-top: 200px;
-    margin-bottom: 200px
+    /* margin-top: 200px; */
+    /* margin-bottom: 200px; */
+    position: relative;
+    height: 100%;
 }
 
+@media only screen and (max-width: 450px) {
+    .calendarsize {
+      height: 500px; /* Adjust the height to your preference */
+    }
+  }
+
+  @media only screen and (max-width: 385px) {
+    .calendarsize {
+      height: 50%; /* Adjust the height to your preference */
+    }
+  }
 
 @media screen and (max-width: 1400px){
 

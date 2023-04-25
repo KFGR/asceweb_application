@@ -5,6 +5,11 @@ function Icon(props) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
+      xmlnsvectornator="http://vectornator.io"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeMiterlimit="10"
+      clipRule="evenodd"
       // width="672"
       // height="480"
       //viewbox="0 75 504 150"

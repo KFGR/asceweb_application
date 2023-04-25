@@ -5,7 +5,8 @@ import checkmark from '../../assets/img/checkmark.svg';
 import FormCompetitions from  '../../components/FormCompetition';
 function template() {
   return (
-    <>
+
+    <div className="sponsors">
       <div className="section-hero">
         <h1>Help Us Reach Our Goals!</h1>
       </div>
@@ -24,7 +25,7 @@ function template() {
       <div className="section-rewards">
       <h2>Reward Tiers</h2>
         <table>
-        <tfoot><tr><td colspan="5">*Note: We sincerely appreciate all donations below $500, although they do not qualify for our rewards program.</td></tr></tfoot>
+        <tfoot><tr><td colSpan="5">*Note: We sincerely appreciate all donations below $500, although they do not qualify for our rewards program.</td></tr></tfoot>
           <tr>
             <th>Brand Logo Representation</th>
             <th><p>Bronze Tier</p>$500 - $1499</th>
@@ -156,7 +157,8 @@ function template() {
       </div>
       {/*<Calendar/>*/}
       <FormCompetitions/>
-    </>
+      </div>
+
   );
 };
 

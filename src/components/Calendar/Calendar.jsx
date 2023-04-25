@@ -13,8 +13,8 @@ function template() {
         <FullCalendar
           plugins={[ dayGridPlugin, googleCalendarPlugin]}
           initialView="dayGridMonth"
-          aspectRatio={1}
-          contentHeight={650}
+          aspectRatio={1.5}
+          // contentHeight={650}
           googleCalendarApiKey = "AIzaSyBWnGr-gIMutYMOR3EcrLAyp4nF_2CCpWE"
           events = {{
             googleCalendarId: 'johnrodricres@gmail.com'

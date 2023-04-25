@@ -52,7 +52,7 @@ function template() {
                           <ul style={{fontSize:'75%', padding:'0%', textAlign:'center'}}>
                           <div className="row" style={{flexDirection:'column'}}>
 
-                            <Nav.Link as={Link} to="/Home" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%', fontWeight:"700"}}>Home</li></Nav.Link>
+                            <Nav.Link as={Link} to="/Home"className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%', fontWeight:"700"}}>Home</li></Nav.Link>
                             <Nav.Link as={Link} to="/About" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%', fontWeight:"700"}}>About US</li></Nav.Link>
                             <Nav.Link as={Link} to="/Competitions" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%', fontWeight:"700"}}>Competitions</li></Nav.Link>
                             <Nav.Link as={Link} to="/Sponsors" className='nav-link py-1' aria-current="page" ><li className="footer-li" style={{color:'black', fontSize:'150%', fontWeight:"700"}}>Sponsors</li></Nav.Link>

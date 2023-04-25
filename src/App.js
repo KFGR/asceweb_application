@@ -28,16 +28,10 @@ const App = () => {
       {/* <AppHeader/>     */}
       <div>
         <Routes>
-        {/* <Route path="/" element={<CurrentPage Component1={<AppHeader id="Home_header" />} Component2={<Home />} />} /> */}
-        {/* <Route path='/' element={<><AppHeader id="Home_header"/> <Home/></>}/>
-        <Route path='/home' element={<><AppHeader id="Home_header"/> <Home/></>}/>
-
-        <Route path='/team' element={<><AppHeader id="Normal_header"/> <Team/></>}/> */}
-
         <Route path='/' element={<React.Suspense fallback="loading..."><><LazyAppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
         <Route path='/Home' element={<React.Suspense fallback="loading..."><><LazyAppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
         <Route path='/Sponsors' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazySponsors/></></React.Suspense>}/>
-        <Route path='/Competitions' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="another_home_header"/><LazyCompetitions/></></React.Suspense>}/>
+        <Route path='/Competitions' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazyCompetitions/></></React.Suspense>}/>
 
 
         </Routes>

@@ -10,7 +10,8 @@ function template(props) {
     <div className="app-logo app-logo-container">
       {id === "Header_logo" &&(
         <div className="svg-container">
-        <Navbar.Brand href='/Home'><svg><Icon viewbox="0 75 804 150"/></svg></Navbar.Brand>
+        {/* <Navbar.Brand href='/Home'><svg><Icon viewbox="0 75 804 150"/></svg></Navbar.Brand> */}
+       <Navbar.Brand style={{width:"50%"}} href="/Home"> <Icon viewbox="0 0 504 360" width={"100%"} height={"100%"}/></Navbar.Brand>
         {/* <Icon viewbox="0 75 504 150" /> */}
         {/* <Icon viewbox="0 75 804 150" /> */}
 

@@ -1,6 +1,4 @@
-body{
-    
-}
+
 
 .section-rewards{
     display: flex;
@@ -15,7 +13,7 @@ body{
     align-self: center;
 }
 
-.section-rewards > h2{
+.sponsors .section-rewards > h2{
     margin-bottom: 25px;
 }
 
@@ -26,7 +24,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-.section-hero > h1{
+.sponsors .section-hero > h1{
     color: white;
     font-size: 4rem;
 }
@@ -39,12 +37,12 @@ body{
     align-items: center;
 }
 
-.section-information > h2, .section-information > p{
+.sponsors .section-information > h2, .sponsors .section-information > p{
     color: black;
     width: 80%;
 }
 
-.section-information > p{
+.sponsors .section-information > p{
     margin-top: 20px;
     font-size: 20px;
 }
@@ -82,7 +80,7 @@ tfoot > tr >td{
     font-size: 13px;
 }
 
-p{
+.sponsors p{
     margin: 0px;
 
 }
@@ -93,7 +91,7 @@ p{
     margin: 50px auto;
 }
 
-div h2, div p{
+.sponsors div h2, .sponsors  div p{
     text-align: center;
 }
 
@@ -115,11 +113,11 @@ div h2, div p{
     color: white;
 }
 
-h2{
+.sponsors h2{
     margin-bottom: 10px;
 }
 
-.section-contact p{
+.sponsors .section-contact p{
     margin-bottom: 40px;
 }
 
@@ -172,20 +170,20 @@ form > button{
 
 @media screen and (max-width: 700px){
 
-    .section-hero > h1{
+    .sponsors .section-hero > h1{
         font-size: 2rem;
     }
 
-    .section-information > h2{
+    .sponsors .section-information > h2{
         font-size: 24px;
     }
     
-    .section-information > p{
+    .sponsors .section-information > p{
         margin-top: 20px;
         font-size: 14px;
     }
 
-    .section-rewards > h2{
+    .sponsors .section-rewards > h2{
         font-size: 24px;
     }
 
@@ -205,11 +203,11 @@ form > button{
         border-bottom: 1px solid #ccc;
     }
 
-    .section-contact > h2 {
+    .sponsors .section-contact > h2 {
         font-size: 24px;
     }
 
-    .section-contact > p {
+    .sponsors .section-contact > p {
         font-size: 14px;
     }
 
