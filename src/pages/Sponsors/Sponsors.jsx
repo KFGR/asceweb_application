@@ -2,7 +2,7 @@ import "./Sponsors.css";
 import React from "react";
 import checkmark from '../../assets/img/checkmark.svg';
 //import Calendar from  '../../components/Calendar';
-import FormCompetitions from  '../../components/FormCompetition';
+// import FormCompetitions from  '../../components/FormCompetition';
 function template() {
   return (
     <>
@@ -27,10 +27,10 @@ function template() {
         <tfoot><tr><td colspan="5">*Note: We sincerely appreciate all donations below $500, although they do not qualify for our rewards program.</td></tr></tfoot>
           <tr>
             <th>Brand Logo Representation</th>
-            <th><p>Bronze Tier</p>$500 - $1499</th>
-            <th><p>Silver Tier</p>$1500 - $2499</th>
-            <th><p>Gold Tier</p>$2500 - $4999</th>
-            <th><p>Diamond Tier</p>$5000 or more</th>
+            <th><p>Bronze Tier</p>$250 - $499</th>
+            <th><p>Silver Tier</p>$500 - $999</th>
+            <th><p>Gold Tier</p>$1000 - $1999</th>
+            <th><p>Diamond Tier</p>$2000 or more</th>
           </tr>
           <tr>
             <td>Presentation board</td>
@@ -63,7 +63,7 @@ function template() {
           <tr>
             <td>*Social Media Recognition</td>
             <td></td>
-            <td></td>
+            <td><img src={checkmark} alt="Checkmark"/></td>
             <td><img src={checkmark} alt="Checkmark"/></td>
             <td><img src={checkmark} alt="Checkmark"/></td>
           </tr>
@@ -76,7 +76,7 @@ function template() {
           </tr>
           <tr>
             <td>Social Events</td>
-            <td></td>
+            <td><img src={checkmark} alt="Checkmark"/></td>
             <td><img src={checkmark} alt="Checkmark"/></td>
             <td><img src={checkmark} alt="Checkmark"/></td>
             <td><img src={checkmark} alt="Checkmark"/></td>
@@ -155,7 +155,7 @@ function template() {
         </div>
       </div>
       {/*<Calendar/>*/}
-      <FormCompetitions/>
+      {/* <FormCompetitions/> */}
     </>
   );
 };
