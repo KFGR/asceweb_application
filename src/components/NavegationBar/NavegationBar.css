@@ -1,0 +1,106 @@
+navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    background-image: var(--bs-navbar-toggler-icon-bg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+
+.container-fluid {
+    --bs-gutter-x: 0;
+    box-shadow: none;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+.navegation-bar ul {
+    position: sticky;
+    left: 75%;
+    top: 75%;
+    /* transform: translate(0%, 0%); */
+    list-style: none;
+  }
+
+  .navegation-bar ul li {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    /* border: 1px solid #000; */
+    margin: 1px;
+    font-family: arial;
+    position: relative;
+  }
+
+  .navegation-bar ul li a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .navegation-bar ul li:before {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 20px;
+    border-top: 5px solid #fbb71a;
+    border-left: 5px solid #fbb71a;
+    left: 0;
+    top: 0;
+    /* right: -50px; */
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .navegation-bar ul li:after {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 20px;
+    border-right: 5px solid #144a9a;
+    border-bottom: 5px solid #144a9a;
+    right: 0;
+    bottom: 0;
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .navegation-bar ul li:hover:before {
+    left: -10px;
+    top: -10px;
+    opacity: 1;
+  }
+
+  .navegation-bar ul li:hover:after {
+    right: -10px;
+    bottom: -10px;
+    opacity: 1;
+  }
+
+
+
+  .navegation-bar li {
+    /* To make letters more bolder with a text shadow */
+    font-size: 150%;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-decoration: none;
+    color: #000;
+    text-shadow: 1px 1px 2px black;
+  }
+  .navegation-bar .py-4{
+    padding-top:1.5rem!important;
+    padding-bottom: 1.5rem;
+  }
+
+
+
+  @media (max-width: 991px){
+    .navbar{
+      padding: 0.5rem 1rem;
+    }
+  }
+
