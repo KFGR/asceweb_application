@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 function Template() {
   
-  const initialValue = {email: "", password: ""};
+  const initialValue = {userName: "", password: ""};
   const [adminFormValues, setAdminFormValues] = useState(initialValue);
 
   // function handleSubmit(event) {
@@ -42,13 +42,13 @@ function Template() {
           
         {/* Admin Username Input */}
         <div className="input-group mb-3">
-          <span className = "input-group-text" id="adminEmailInputGroup">Email</span>
+          <span className = "input-group-text" id="adminUsernameInputGroup">Username</span>
           <input 
-            type="email" 
+            type="text" 
             className="form-control" 
             
-            name="email" 
-            value={adminFormValues.email} 
+            name="userName" 
+            value={adminFormValues.userName} 
             onChange={handleChange}
             required/>
           {/* <div className="invalid"> Please enter your email </div> */}
