@@ -18,7 +18,7 @@ function Template() {
     //setAdminFormValues({ [name]: value });
     setAdminFormValues({ ...adminFormValues, [name]: value });
     //console.log(adminFormValues);
-   // console.log(name);
+    // console.log(name);
   }; 
 
   const handleSubmit = (event) => {
