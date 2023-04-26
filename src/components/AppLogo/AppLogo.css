@@ -1,0 +1,36 @@
+.icon-container{
+    width: 100%;
+    height: auto;
+}
+
+.app-logo-container{
+  width: 50%;
+}
+
+@media (max-width: 1000px){
+  .app-logo-container{
+    width: 100%;
+  }
+}
+
+/* .app-logo-container .logo-image{
+  width: 50%;
+  height: auto;
+} */
+/* @media (max-width: 1000px){
+  .app-logo .app-logo-container .svg-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+} */
+/* .svg-container {
+    width: 100%;
+  }
+  
+  .svg-container svg {
+    max-width: 100%;
+    height: auto;
+  } */
+  
