@@ -26,6 +26,10 @@ function template(props) {
               {/* <Nav.Link  className='nav-link py-1'  aria-current="page" href='#Competitions'><li style={{color:'black', fontSize:'150%'}}>Competitions</li></Nav.Link> style={{color:'black', fontSize:'150%'}} */}
               {/* <Nav.Link  className='nav-link py-1'  aria-current="page" href='#Contacts'><li style={{color:'black', fontSize:'150%'}}>Contacts US</li></Nav.Link> style={{color:'black', fontSize:'150%'}} */}
               {/* <Nav.Link  className='nav-link py-1'  aria-current="page" href='#JoinUS'><li style={{color:'black', fontSize:'150%'}}>Join Us</li></Nav.Link> style={{color:'black', fontSize:'150%'}} */}
+            
+              {/* This is just me trying to get to see my code for the Admin Log In page running */}
+              <Nav.Link as={Link} to="/AdminLogIn" className='nav-link py-1' aria-current="page" ><li style={{color:color, fontSize:'1.5rem'}}>AdminLogin TEST</li></Nav.Link>
+
             </ul>
           </Navbar.Collapse>
       </Navbar>
