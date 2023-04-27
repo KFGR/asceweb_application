@@ -136,7 +136,7 @@ function template (){
     <section id="calendar_activities" className="container-fluid home-calendar">
     <div className="container-fluid" style={{paddingTop:'2rem', paddingBottom:'2rem'}}>
         <div className="container-fluid">
-          <h1 className='h1-text-content-calendar' id='mission_txt' style={{color:'black', textAlign:'center'}}><strong>Our Chapter</strong></h1>
+          <h1 className='h1-text-content-calendar' id='mission_txt' style={{color:'black', textAlign:'center'}}><strong>Calendar Activities</strong></h1>
           <div className="row home-calendar">
             <Calendar/>
           </div>
