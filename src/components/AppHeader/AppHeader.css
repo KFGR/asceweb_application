@@ -16,6 +16,9 @@
 @media (max-width: 1208px){
     .header-containerr{
         display: block;
+        text-align: center;
+        align-items: center;
+        align-content: center;
     }
 }
 
@@ -94,11 +97,73 @@
     .header-image img{
       width: 100%!important;
       height: auto!important;
-      display: none;
+      /* display: none; */
+      /* flex-direction: column-reverse; */
+      filter: drop-shadow(2px 4px 6px black);
+
+    }
+    .header .row-me{
+      flex-direction: column-reverse;
     }
   }
 
-  .container-fluid  .btn{
+  .header  .container-fluid  .btn{
+    padding-left: 3rem!important;
+    padding-right: 3rem!important;
+    font-weight: bolder;
+    font-size: 3.5rem!important;
+    color: white;
+    /* background-color: #144a9a; */
+    border: 2px solid #ffc107;
+  }
+
+ @media (min-width: 1000px){
+  .container-fluid .header-image{
+    /* box-shadow: 0 1rem 3rem black!important; */
+    filter: drop-shadow(2px 4px 6px black);
+  }
+ }
+
+
+
+  /* .container-fluid .header-image::before{
+    content: "";
+    position: absolute;
+    top: -72px;
+    width: 226px;
+    height: 80px;
+     background-image: url(../../assets/Brand/gray-dots.svg); 
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 226px 186px;
+    z-index: 2;
+  } */
+
+.header .h1-title-header{
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.header .lead{
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  display: block;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-top: 20px;
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+@media (max-width: 415px){
+  .header .h1-title-header{
+    font-size: 2rem;
+  }
+  .header .lead{
+    font-size: 1.2rem;
+  }
+
+  .header .container-fluid  .btn{
     padding-left: 3rem!important;
     padding-right: 3rem!important;
     font-weight: bolder;
@@ -107,22 +172,23 @@
     /* background-color: #144a9a; */
     border: 2px solid #ffc107;
   }
+}
 
- @media (min-width: 1000px){
-  .container-fluid .header-image{
-    box-shadow: 0 1rem 3rem black!important;
+@media(max-width: 1000px){
+  .header-area .header-containerr {
+    text-align: center;
+    /* flex-direction: column; */
+  }
+}
+
+@media (max-width: 330px){
+  .header .container-fluid  .btn{
+    font-size: 2.5rem!important;
+    padding: 0%!important;
   }
  }
 
-  .container-fluid .header-image::before{
-    content: "";
-    position: absolute;
-    top: -72px;
-    width: 226px;
-    height: 80px;
-    /* background-image: url(../../assets/Brand/gray-dots.svg); */
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: 226px 186px;
-    z-index: 2;
-  }
+
+ /* .header .app-logo-container{
+  width: auto;
+ } */

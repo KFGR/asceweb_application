@@ -1,44 +1,48 @@
-.container-footer{
+.AppFooter .container-footer{
     background-color: white;
     /* display: flex; */
     /* width: 100%; */
     justify-content: center;
     padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
 }
 
-@media (max-width: 391px){
-    .container-footer {
-        display: block;
-    }
-}
+
 
 /*  */
-@media (max-width: 390px){
-  .container-footer {
+@media (max-width: 770px){
+  .AppFooter .container-footer {
       display: flex;
-      flex-direction: column-reverse;
-    
+      flex-direction: column;
+  }
+  .AppFooter .container-footer-row{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
 }
 
-.row{
+.AppFooter .row{
     display: flex!important;
 }
 
-.logo{
+.AppFooter .logo{
     width: 50%;
 }
-.footer-text{
+.AppFooter .footer-text{
     padding-top: 5%;
     margin-left: 5%;
 }
 
-.footer-header{
+.AppFooter .footer-header{
     padding-top:5%;
     font-weight: 500;
 }
 
-.footer-content{
+.AppFooter .footer-content{
     padding-top: 5%;
 }
 /* .footer-header{
@@ -51,7 +55,7 @@
 
 
 
-.footer-icon{
+.AppFooter .footer-icon{
     flex-shrink: 0;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
@@ -62,7 +66,7 @@
     /* margin-right: 10px; */
     color:#144a9a;
   }
-  .footer-content-header{
+  .AppFooter .footer-content-header{
     /* display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -70,7 +74,7 @@
     text-align: center;
   }
 
-  .footer-content p{
+  .AppFooter .footer-content p{
     font-size: 1rem;
     font-weight: 500;
     color: black;
@@ -78,7 +82,7 @@
 
   }
 
-  .footer-heading .h5, h5{
+  .AppFooter .footer-heading .h5, h5{
     font-size: 1.75rem;
     font-weight: 800;
     color: black;
@@ -87,7 +91,7 @@
 
 
 
-  .footer-li{
+  .AppFooter .footer-li{
     text-shadow: none;
     font-weight: 100;
     text-transform: capitalize;
@@ -95,24 +99,25 @@
     text-shadow: 1px 0px 1px black;
   }
 
-  .footer-icon .col-md-3{
+
+  .AppFooter .footer-icon .col-md-3{
     padding: 0%;
   }
-  .footer-icon a{
+  .AppFooter  .footer-icon a{
     padding: 0%;
   }
 
- .icon-image{
+  .AppFooter .icon-image{
   padding-left: 0%;
   padding-top: 0%;
  }
 
-  .container-footer p{
+ .AppFooter  .container-footer p{
     /* text-shadow: 1px 1px 2px black; */
     text-shadow: 1px 0px 1px black;
   }
 
-  .media-content-header{
+  .AppFooter  .media-content-header{
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -120,7 +125,7 @@
     align-items: center;
   }
 
-  .media-icon{
+  .AppFooter  .media-icon{
     flex-shrink: 0;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
@@ -131,31 +136,46 @@
     color:#144a9a;
   }
 
-  .media-heading{
+  .AppFooter  .media-heading{
     font-size: 1.75rem;
     font-weight: 800;
     color: black;
   }
 
-
-
-  .footer-content  .btn{
+  .AppFooter .footer-content  .btn{
     padding-left: 2rem!important;
     padding-right: 2rem!important;
     font-weight: bolder;
-    font-size: 1rem!important;
+    font-size: 3rem!important;
     color: white;
     /* background-color: #144a9a; */
     border: 2px solid #ffc107;
   }
 
+  @media (max-width: 375px){
+    .AppFooter .footer-content  .btn{
+      font-size: 1rem!important;
+    }
+   }
+   @media (max-width: 330px){
+    .AppFooter .footer-content  .btn{
+      font-size: 1rem!important;
+      padding: 0%!important;
+    }
+   }
+   @media (max-width: 560px){
+    .AppFooter .footer-content  .btn{
+      font-size: 3rem!important;
+    }
+   }
  @media (min-width: 1000px){
-  .container-fluid .header-image{
+  .AppFooter .container-fluid .header-image{
     box-shadow: 0 1rem 3rem black!important;
   }
  }
 
-  .container-fluid .header-image::before{
+
+ .AppFooter  .container-fluid .header-image::before{
     content: "";
     position: absolute;
     top: -72px;
@@ -171,4 +191,130 @@
 .contact-header{
   display: flex;
   /* justify-content: space-between; */
+}
+
+.AppFooter ul {
+  position: sticky;
+  left: 75%;
+  top: 75%;
+  /* transform: translate(0%, 0%); */
+  list-style: none;
+}
+
+.AppFooter ul li {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  /* border: 1px solid #000; */
+  margin: 1px;
+  font-family: arial;
+  position: relative;
+}
+
+.AppFooter ul li a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+}
+
+.AppFooter ul li:before {
+  position: absolute;
+  content: '';
+  width: 50px;
+  height: 20px;
+  border-top: 5px solid #fbb71a;
+  border-left: 5px solid #fbb71a;
+  left: 0;
+  top: 0;
+  /* right: -50px; */
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.AppFooter ul li:after {
+  position: absolute;
+  content: '';
+  width: 50px;
+  height: 20px;
+  border-right: 5px solid #144a9a;
+  border-bottom: 5px solid #144a9a;
+  right: 0;
+  bottom: 0;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.AppFooter ul li:hover:before {
+  left: -10px;
+  top: -10px;
+  opacity: 1;
+}
+
+.AppFooter ul li:hover:after {
+  right: -10px;
+  bottom: -10px;
+  opacity: 1;
+}
+
+.AppFooter li {
+  /* To make letters more bolder with a text shadow */
+  font-size: 150%;
+  text-transform: uppercase;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #000;
+  text-shadow: 1px 1px 2px black;
+}
+.AppFooter .py-4{
+  padding-top:1.5rem!important;
+  padding-bottom: 1.5rem;
+}
+
+@media (max-width: 991px){
+  .navbar{
+    padding: 0.5rem 1rem;
+  }
+}
+
+
+.AppFooter .icon-change-facebook:hover{
+  color: rgb(20, 74, 154);
+}
+.AppFooter .icon-change-instagram:hover{
+  color: rgb(20, 74, 154);
+  /* color: rgb(254, 218, 117), (250, 126, 30), (214, 41, 118), (150, 47, 191), (79, 91, 213) ; */
+  /* color: rgb(254, 218, 117), rgb(250, 126, 30), rgb(214, 41, 118), rgb(150, 47, 191), rgb(79, 91, 213); */
+  /* background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); */
+}
+
+/* .AppFooter .app-logo-container{
+  width: 75%;
+  margin-left: 10%;
+} */
+.AppFooter .fontawesomeicon{
+  margin-right: 10%;
+}
+
+@media (min-width: 550px){
+  .AppFooter .app-logo-container{
+    width: auto;
+    margin-left: auto;
+  }
+  
+}
+
+@media (max-width: 1000px){
+  .AppFooter .container-footer-row{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 1000px){
+  .AppFooter .fontawesomeicon{
+    margin-right: 5%;
+  }
 }
