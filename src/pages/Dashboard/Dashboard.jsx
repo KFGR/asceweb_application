@@ -10,7 +10,7 @@ import  {InputText} from "primereact/inputtext";
 
 function Template() {
 
-  const data = [
+  const dataCompetitions = [
     {
       name: "John Smith",
       email: "john.smith@example.com",
@@ -146,66 +146,199 @@ function Template() {
           heavyvehicleLicense: false,
           officialDriver: false
         }
-]
+  ]
 
-const [filters, setFilters] = useState({});
+  const dataStudents = [
+  {
+    name: "John",
+    email: "john.smith@example.com",
+    phone: "7871231234",
+    shirtSize: "XL",
+    age: "24",
+    bachelor: "cs",
+    department: "cs",
+    academicYear: "3rd",
+    paidMenmbership: "YES"
+  },
+  {
+    name: "Pepe",
+    email: "pepe.smith@example.com",
+    phone: "7871231234",
+    shirtSize: "L",
+    age: "23",
+    bachelor: "coe",
+    department: "coe",
+    academicYear: "2rd",
+    paidMenmbership: "NO"
+  }
+  ]
 
-const filterInputs = [
-  { field: "name", placeholder: "Filter by name" },
-  { field: "email", placeholder: "Filter by email" },
-  { field: "Competitions", placeholder: "Filter by competitions" }
-];
+  const dataAdmin = [
+  {
+    name: "Pedro",
+    email: "pedro@gmail.com",
+    phone: "6763913957",
+    Position: "President"
+  }
+  ]
 
-const onInputChange = (e, field) => {
-  const val = e.target.value;
-  setFilters(prevFilters => ({ ...prevFilters, [field]: { value: val, matchMode: FilterMatchMode.CONTAINS } }));
-};
+  const [filters, setFilters] = useState({});
 
-const renderFilterInputs = () => {
-  return (
-    <div className="filter-inputs-container">
-      {filterInputs.map(input => (
-        <div key={input.field} className="p-col">
-          <span className="p-float-label">
-            <InputText id={input.field} value={filters[input.field]?.value || ""} onChange={e => onInputChange(e, input.field)} />
-            <label htmlFor={input.field}>{input.placeholder}</label>
-          </span>
+  const filterInputsStudents = [
+    { field: "name", placeholder: "Filter by name" },
+    { field: "email", placeholder: "Filter by email" },
+  ];
+
+  const filterInputsCompetitions = [
+    { field: "name", placeholder: "Filter by name" },
+    { field: "email", placeholder: "Filter by email" },
+    { field: "Competitions", placeholder: "Filter by competitions" }
+  ];
+
+  const filterInputsAdmin = [
+    { field: "name", placeholder: "Filter by name" },
+    { field: "email", placeholder: "Filter by email" },
+    { field: "Positions", placeholder: "Filter by Positions" }
+  ]
+
+  const onInputChange = (e, field) => {
+    const val = e.target.value;
+    setFilters(prevFilters => ({ ...prevFilters, [field]: { value: val, matchMode: FilterMatchMode.CONTAINS } }));
+  };
+
+  const renderFilterInputs = (selected) => {
+    
+    let filterInputs = [];
+    if (selected === "Students") {
+      filterInputs = filterInputsStudents;
+    } else if (selected === "Competitions") {
+      filterInputs = filterInputsCompetitions;
+    } else if (selected === "Admin") {
+      filterInputs = filterInputsAdmin;
+    }
+
+      return (
+        <div className="filter-inputs-container">
+          {filterInputs.map(input => (
+            <div key={input.field} className="p-col">
+              <span className="p-float-label">
+                <InputText id={input.field} value={filters[input.field]?.value || ""} onChange={e => onInputChange(e, input.field)} />
+                <label htmlFor={input.field}>{input.placeholder}</label>
+              </span>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  );
-};
+      );
+  };
+
+
+  const [selectedButton, setSelectedButton] = useState('Students');
+
+  const switchTable = (selected) => {
+    setSelectedButton(selected);
+  };
+
 
   return (
-    <div className="Dashboard">
 
-      <div>{renderFilterInputs()}</div>
+    <>
+      <div className="adminHeader">
+        <ul>
+        <li><button id={selectedButton === 'Students' ? 'selected' : ''} onClick={() => switchTable('Students') }>Students</button></li>
+        <li><button id={selectedButton === 'Competitions' ? 'selected' : ''} onClick={() => switchTable('Competitions')}>Competitions</button></li>
+        <li><button id={selectedButton === 'Admin' ? 'selected' : ''} onClick={() => switchTable('Admin')}>Admin</button></li>
+        </ul>
+     </div>
+    
+      <div className="Dashboard">
+  
+        {selectedButton === 'Students' && (
+          <div id="Students">
+            <h2 className="tableHeader">ASCE Chapter Members</h2>
+            <div>{renderFilterInputs("Students")}</div>
+            <DataTable
+              filters={filters}
+              paginator rows={5} rowsPerPageOptions={[5, 10, 20, 30]} 
+              value={dataStudents} 
+              stripedRows 
+              showGridlines
+              removableSort 
+              resizableColumns
+              rowClassName={"custom-row"}
+              sortMode="multiple"
+            >
+              <Column field="name" header="Name" sortable />
+              <Column field="email" header="Email"sortable/>
+              <Column field="phone" header="Phone Num." sortable />
+              <Column field="shirtSize" header="shirtSize"sortable/>
+              <Column field="age" header="Age" sortable />
+              <Column field="bachelor" header="Bachelor"sortable/>
+              <Column field="department" header="Department" sortable />
+              <Column field="academicYear" header="Academic Year"sortable/>
+              <Column field="paidMenmbership" header="Paid Menmbership"sortable/>
+            </DataTable>
+          </div>
+        )}
 
-      <DataTable
-      filters={filters} 
-      value={data} 
-      stripedRows 
-      showGridlines
-      removableSort 
-      resizableColumns
-      rowClassName={"custom-row"}
-      sortMode="multiple"
-      >
-        <Column field="name" header="Name" sortable />
-        <Column field="email" header="Email"sortable/>
-        <Column field="ASCEMenber" header="ASCEMenber"sortable/>
-        <Column field="ASCENumber" header="ASCENumber"sortable/>
-        <Column field="Weekday" header="Weekday"/>
-        <Column field="Competitions" header="Competitions"  body={rowData => <div className="multi-line">{rowData.Competitions}</div>} sortable/>
-        <Column field="recentCourse" header="recentCourse" body={rowData => <div className="multi-line">{rowData.recentCourse}</div>} sortable/>
-        <Column field="Experience" header="Experience" body={rowData => <div className="multi-line">{rowData.Experience}</div>} />
-        <Column field="Travel" header="Travel"sortable/>
-        <Column field="travelJune" header="travelJune"sortable/>
-        <Column field="older25" header="older25"sortable/>
-        <Column field="heavyvehicleLicense" header="heavyvehicleLicense"sortable/>
-        <Column field="officialDriver" header="officialDriver"sortable/>
-      </DataTable>
-    </div>
+        {selectedButton === 'Competitions' && (
+            <div id="Competitions">
+              <h2 className="tableHeader">Competition Sign-up</h2>
+              <div>{renderFilterInputs('Competitions')}</div>
+              <DataTable
+              filters={filters}
+              paginator rows={5} rowsPerPageOptions={[5, 10, 20, 30]} 
+              value={dataCompetitions} 
+              stripedRows 
+              showGridlines
+              removableSort 
+              resizableColumns
+              rowClassName={"custom-row"}
+              sortMode="multiple"
+              >
+                <Column field="name" header="Name" sortable />
+                <Column field="email" header="Email"sortable/>
+                <Column field="ASCEMenber" header="ASCEMenber"sortable/>
+                <Column field="ASCENumber" header="ASCENumber"sortable/>
+                <Column field="Weekday" header="Weekday"/>
+                <Column field="Competitions" header="Competitions"  body={rowData => <div className="multi-line">{rowData.Competitions}</div>} sortable/>
+                <Column field="recentCourse" header="recentCourse" body={rowData => <div className="multi-line">{rowData.recentCourse}</div>} sortable/>
+                <Column field="Experience" header="Experience" body={rowData => <div className="multi-line">{rowData.Experience}</div>} />
+                <Column field="Travel" header="Travel"sortable/>
+                <Column field="travelJune" header="travelJune"sortable/>
+                <Column field="older25" header="older25"sortable/>
+                <Column field="heavyvehicleLicense" header="heavyvehicleLicense"sortable/>
+                <Column field="officialDriver" header="officialDriver"sortable/>
+              </DataTable>
+
+            </div>
+          )}
+        
+        {selectedButton === 'Admin' && (
+          <div id="Admin">
+            <h2 className="tableHeader">Admin Accounts</h2>
+            <div>{renderFilterInputs("Admin")}</div>
+            <DataTable
+              filters={filters}
+              paginator rows={5} rowsPerPageOptions={[5, 10, 20, 30]} 
+              value={dataAdmin} 
+              stripedRows 
+              showGridlines
+              removableSort 
+              resizableColumns
+              rowClassName={"custom-row"}
+              sortMode="multiple"
+            >
+              <Column field="name" header="Name" sortable />
+              <Column field="email" header="Email"sortable/>
+              <Column field="phone" header="Phone Num." sortable />
+              <Column field="Position" header="Position"sortable/>
+            </DataTable>
+          </div>
+        )}
+
+      </div>
+    </>
+    
   );
 };
 

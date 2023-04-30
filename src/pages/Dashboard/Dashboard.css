@@ -19,7 +19,47 @@
     margin-bottom: 20px;
 }
   
-  .filter-inputs-container > .p-col {
+.filter-inputs-container > .p-col {
     margin-right: 1rem; /* add some space between inputs */
-  }
+}
   
+.adminHeader{
+    background-color: #144a9a;
+    margin-bottom: 40px;
+    margin-top: 40px;
+ }
+
+.adminHeader > ul > li{
+    color: white;
+    margin: auto;
+    font-size: 20px;
+}
+
+.adminHeader >ul{
+    display: flex;
+    margin: auto;
+    padding: 0;
+}
+
+.adminHeader > ul > li > button{
+    color: white;
+    margin: auto;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: #144a9a;
+}
+
+.visibleDiv{
+    visibility: hidden;
+}
+
+.tableHeader{
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+#selected {
+    background-color: #ffc107;
+    color:black;
+    border: 1px solid black;
+  }
