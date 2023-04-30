@@ -177,7 +177,7 @@ function Template() {
             <div className="questionInput">
                 <label htmlFor="ASCENumber">ASCE Member Number</label>
                 <input type="number" placeholder="1234567890" id="ASCENumber" name="ASCENumber"   value={formData.ASCENumber} onChange={handleChange} required/>
-                <p>Note: If you do not have an ASCE Member Number, then please become an official ASCE Member website <a href="https://www.asce.org/" target="_blank">HERE</a></p>
+                <p id ="note">Note: If you do not have an ASCE Member Number, then please become an official ASCE Member website <a href="https://www.asce.org/" target="_blank">HERE</a></p>
             </div>
 
             <div className="questionInput">
@@ -192,70 +192,70 @@ function Template() {
                 <div className="left">
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions"  value="Concret Canoe" checked={formData.Competitions.split(',').includes('Concret Canoe')} onChange={handleChange}/>
-                        <p>Concret Canoe</p>  
+                        <p id="checkboxText">Concret Canoe</p>  
                     </div>
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Steel Bridge" checked={formData.Competitions.split(',').includes('Steel Bridge')} onChange={handleChange}/> 
-                        <p>Steel Bridge</p>  
+                        <p id="checkboxText">Steel Bridge</p>  
                     </div>
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Timber Strong" checked={formData.Competitions.split(',').includes('Timber Strong')} onChange={handleChange}/>   
-                        <p>Timber Strong</p>  
+                        <p id="checkboxText">Timber Strong</p>  
                     </div>
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Sustainable Solutions" checked={formData.Competitions.split(',').includes('Sustainable Solutions')} onChange={handleChange}/> 
-                        <p>Sustainable Solutions</p>  
+                        <p id="checkboxText">Sustainable Solutions</p>  
                     </div>
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Innovation Contest" checked={formData.Competitions.split(',').includes('Innovation Contest')} onChange={handleChange}/>
-                        <p>Innovation Contest</p>  
+                        <p id="checkboxText">Innovation Contest</p>  
                     </div>
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Construction Institute" checked={formData.Competitions.split(',').includes('Construction Institute')} onChange={handleChange}/>
-                        <p>Construction Institute</p>  
+                        <p id="checkboxText">Construction Institute</p>  
                     </div> 
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Surveying" checked={formData.Competitions.split(',').includes('Surveying')} onChange={handleChange}/>
-                        <p>Surveying</p>  
+                        <p id="checkboxText">Surveying</p>  
                     </div> 
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Concrete Bridge" checked={formData.Competitions.split(',').includes('Concrete Bridge')} onChange={handleChange}/>
-                        <p>Concrete Bridge</p>  
+                        <p id="checkboxText">Concrete Bridge</p>  
                     </div> 
                 </div>
 
                 <div className="right">
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Traffic Control" checked={formData.Competitions.split(',').includes('Traffic Control')} onChange={handleChange}/>
-                        <p>Traffic Control</p>  
+                        <p id="checkboxText">Traffic Control</p>  
                     </div>
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Geo-Wall" checked={formData.Competitions.split(',').includes('Geo-Wall')} onChange={handleChange}/> 
-                        <p>Geo-Wall</p>  
+                        <p id="checkboxText">Geo-Wall</p>  
                     </div>
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Muddy Waters" checked={formData.Competitions.split(',').includes('Muddy Waters')} onChange={handleChange}/>   
-                        <p>Muddy Waters</p>  
+                        <p id="checkboxText">Muddy Waters</p>  
                     </div>
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Concrete Cornhole" checked={formData.Competitions.split(',').includes('Concrete Cornhole')} onChange={handleChange}/> 
-                        <p>Concrete Cornhole</p>  
+                        <p id="checkboxText">Concrete Cornhole</p>  
                     </div>
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Plans Reading" checked={formData.Competitions.split(',').includes('Plans Reading')} onChange={handleChange}/>
-                        <p>Plans Reading</p>  
+                        <p id="checkboxText">Plans Reading</p>  
                     </div>
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Professional Paper" checked={formData.Competitions.split(',').includes('Professional Paper')} onChange={handleChange}/>
-                        <p>Professional Paper</p>  
+                        <p id="checkboxText">Professional Paper</p>  
                     </div> 
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="T-shirt Contest" checked={formData.Competitions.split(',').includes('T-shirt Contest')} onChange={handleChange}/>
-                        <p>T-shirt Contest</p>  
+                        <p id="checkboxText">T-shirt Contest</p>  
                     </div> 
                     <div className="Competition">
                         <input type="checkbox" name="selectCompetitions" value="Mystery Competition" checked={formData.Competitions.split(',').includes('Mystery Competition')} onChange={handleChange}/>
-                        <p>Mystery Competition</p>  
+                        <p id="checkboxText">Mystery Competition</p>  
                     </div> 
                 </div>
                 </div>

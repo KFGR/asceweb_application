@@ -305,26 +305,14 @@ const handleRadioChange = (event) => {
             />
           </div>
           
-          <div class='mt-5' style={{fontSize:"small"}}>
+          <div className='mt-5' style={{fontSize:"small"}}>
             <p>Other competitions aren't celebrated annually, rather the official ASCE decides which of these take place in a given year. These competitions are: Concrete Bridge, Traffic Control, Geo-Wall, Muddy Waters, Concrete Cornhole, Plans Reading, Professional Paper, T-shirt Contest, and Mystery Competiton.</p>
           </div>
             
           </div>
         </div>
-        
-
-
-
-         <section style={{paddingBottom:"3%", backgroundColor:"#FFC107", color:"black"}}>
-            <div className="container my-5">
-              <div className="row justify-content-center">
-                <div className="col-lg-9">
-                  <FormCompetition/>
-                </div>
-              </div>
-            </div>
-          </section>
         </div>
+        <FormCompetition/>
     <Calendar/>
   </> 
  );

@@ -2,8 +2,13 @@
     width: 60%;
     margin: auto;
     border: 1px solid #ccc;
-    margin-top: 200px;
-    margin-bottom: 200px
+    margin-bottom: 50px
+}
+
+h3{
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 

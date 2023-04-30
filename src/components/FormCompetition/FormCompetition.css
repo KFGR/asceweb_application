@@ -2,6 +2,7 @@
 text-align: center;
 margin-bottom: 20px;
 font-size: 30px;
+padding-top: 20px;
 }
 
 .container-competitionForm{
@@ -151,3 +152,60 @@ input[type="checkbox"]{
 #selectComp{
     padding: 5px;
 }
+
+@media screen and (max-width: 1000px) {
+
+    .container-competitionForm{
+        width: auto;
+        border: none;
+        margin: auto;
+        padding: 20px;
+    }
+
+    form{
+        font-size: 16px;
+        font-family: sans-serif;
+    }
+
+    .questionInput{
+        width: auto;
+    }
+
+    #note{
+        width: auto;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    input{
+        width: 60%;
+        font-size: 14px;
+    }
+
+    textarea{
+        width: auto;
+        font-size: 14px;
+    }
+
+    #checkboxText{
+        font-size: 13px;
+    }
+
+    input[type="checkbox"]{
+        width: 20px;
+        margin-right: 5px;
+    }
+
+    input[type="submit"]{
+        background-color: #fbb71a;
+        width: 100px;
+        height: 55px;
+        font-size: 20px;
+    }
+    
+    input[type="submit"]{
+        width: 120px;
+        margin-top: 0px;
+    }
+
+  }
