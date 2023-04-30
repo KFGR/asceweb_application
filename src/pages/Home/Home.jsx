@@ -9,22 +9,10 @@ import { Image } from "react-bootstrap";
 import ContentCard from '../../components/ContentCard';
 import Calendar from '../../components/Calendar';
 import Carousel from "../../components/Carousel";
-
 import Image3 from '../../assets/Brand/Image3.jpeg';
 
 //Images for the Carousel
 import Gallagher from '../../assets/Carousel_images/Gallagher3.jpg';
-// import image1 from '../../assets/Carousel_images/Gallagher2.jpeg';
-// import image6 from '../../assets/Carousel_images/Image6.jpeg';
-// import image2 from '../../assets/Carousel_images/Image2.jpeg';
-
-// import image3 from '../../assets/Carousel_images/Image7.jpeg';
-// import image4 from '../../assets/Carousel_images/Image4.jpeg';
-// import image5 from '../../assets/Carousel_images/Image5.jpeg';
-
-// import image8 from '../../assets/Carousel_images/image8.jpeg';
-// import image9 from '../../assets/Carousel_images/image9.jpeg';
-
 //newones
 import first from '../../assets/Carousel_images/1.png';
 import second from '../../assets/Carousel_images/2.png';
@@ -41,7 +29,6 @@ import nine from '../../assets/Carousel_images/9.png';
 import ten from '../../assets/Carousel_images/10.png';
 import eleven from '../../assets/Carousel_images/11.png';
 import twelve from '../../assets/Carousel_images/12.png';
-
 
 
 
@@ -150,7 +137,7 @@ function template (){
     <div className="container container-content">
       <div>
         <h1 className='h1-text-content' id='mission_txt' style={{color:'black', textAlign:'center'}}><strong>Our Sponsors</strong></h1>
-        <Image src={require("../../assets/Brand/clients.png")} alt="" width={500} height={500} style={{width:'100%', height:'auto'}}/>
+        <Image src={require("../../assets/Brand/sponsors.png")} alt="" width={500} height={500} style={{width:'100%', height:'auto'}}/>
       </div>
     </div>
 </div>
