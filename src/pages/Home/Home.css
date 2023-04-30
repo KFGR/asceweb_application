@@ -438,6 +438,39 @@
   font-size: 3rem;
 }
 
+.home .home-calendar p{
+  padding:0;
+  margin: 0 0 20px 0;
+  font-size: 3rem;
+  /* font-size: 1.7rem; */
+  font-weight: 900;
+  /* color: white; */
+  color: #ffc107;
+  /* color: black; */
+}
+
+.home .home-calendar span{
+  font-size: 5rem;
+  display: block;
+  color: #144a9a;
+  /* color:#ffc107; */
+  font-weight: 900;
+}
+
+
+.home .home-calendar .row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+
+.home .home-calendar .h1-text-content-calendar{
+  font-weight: 550;
+  margin-bottom: 3%;
+  font-size: 3rem;
+}
 
 @media (max-width: 1000px){
   .home .counts .row{
@@ -445,7 +478,20 @@
     flex-direction: column;
     align-items: center;
   }
+  .home .home-calendar .row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .home .counts .counters p{
+    padding:0;
+    margin: 0 0 20px 0;
+    font-size: 2rem;
+    font-weight: 900;
+    /* color: white; */
+    color: #ffc107;
+  }
+  .home .home-calendar p{
     padding:0;
     margin: 0 0 20px 0;
     font-size: 2rem;
@@ -459,6 +505,11 @@
     margin-bottom: 3%;
     font-size: 3rem;
   }
+  .home .home-calendar .h1-text-content-calendar{
+    font-weight: 550;
+    margin-bottom: 3%;
+    font-size: 3rem;
+  }
 
   .home .counts span{
     font-size: 3rem;
@@ -468,6 +519,17 @@
     color: #144a9a;
     font-weight: 900;
   }
+  .home .home-calendar span{
+    font-size: 3rem;
+    display: block;
+    /* color: #144a9a; */
+    /* color:#ffc107; */
+    color: #144a9a;
+    font-weight: 900;
+  }
+  .home .column-padding{
+    padding-bottom: 5%;
+  }
 }
 
 @media (max-width: 385px){
@@ -476,7 +538,20 @@
     flex-direction: column;
     align-items: center;
   }
+  .home .home-calendar .row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .home .counts .counters p{
+    padding:0;
+    margin: 0 0 20px 0;
+    font-size: 1.5rem;
+    font-weight: 900;
+    /* color: white; */
+    color: #ffc107;
+  }
+  .home .home-calendar p{
     padding:0;
     margin: 0 0 20px 0;
     font-size: 1.5rem;
@@ -491,7 +566,20 @@
     font-size: 2rem;
   }
 
+  .home .home-calendar .h1-text-content-calendar{
+    font-weight: 550;
+    margin-bottom: 3%;
+    font-size: 2rem;
+  }
   .home .counts span{
+    font-size: 2rem;
+    display: block;
+    /* color: #144a9a; */
+    /* color:#ffc107; */
+    color: #144a9a;
+    font-weight: 900;
+  }
+  .home .home-calendar span{
     font-size: 2rem;
     display: block;
     /* color: #144a9a; */

@@ -1,13 +1,38 @@
 import "./Home.css";
 import Counter from "./Counter";
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandshake, faUsers} from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faHandshake, faUsers} from "@fortawesome/free-solid-svg-icons";
 import { Image } from "react-bootstrap";
-// import HeaderHero from './HeaderHero';
+
+
 import ContentCard from '../../components/ContentCard';
-import Award from '../../assets/Brand/Award.png';
-import Members from '../../assets/Brand/members.png';
+import Calendar from '../../components/Calendar';
+import Carousel from "../../components/Carousel";
+import Image3 from '../../assets/Brand/Image3.jpeg';
+
+//Images for the Carousel
+import Gallagher from '../../assets/Carousel_images/Gallagher3.jpg';
+//newones
+import first from '../../assets/Carousel_images/1.png';
+import second from '../../assets/Carousel_images/2.png';
+import third from '../../assets/Carousel_images/3.png';
+
+import fourth from '../../assets/Carousel_images/4.png';
+import fifth from '../../assets/Carousel_images/5.png';
+import sixth from '../../assets/Carousel_images/6.png';
+
+import seventh from '../../assets/Carousel_images/7.png';
+import eight from '../../assets/Carousel_images/8.png';
+import nine from '../../assets/Carousel_images/9.png';
+
+import ten from '../../assets/Carousel_images/10.png';
+import eleven from '../../assets/Carousel_images/11.png';
+import twelve from '../../assets/Carousel_images/12.png';
+
+
+
+
 
 
 function template (){
@@ -16,14 +41,15 @@ function template (){
     <div className="home">
       {/* Section divider */}
       <div className="container-fluid py-2 header-yllw"/>
-
+      
+      {/* Section for cards */}
       <section id="About">
 
       {/* About us */}
       <ContentCard 
         id = "third"
         className = "d-block mx-lg-auto img-fluid shadow-box-right-sm"
-        imageSrc = {Members}
+        imageSrc = {Gallagher}
         imageAlt = "notabout"
         title = "About Us"
         paragraph = "Quickly design and customize responsive mobile-first sites with Bootstrap, the worlds most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins."
@@ -33,7 +59,7 @@ function template (){
       <ContentCard 
         id = "fourth"
         className = "d-block mx-lg-auto img-fluid shadow-box-left-sm"
-        imageSrc = {Award}
+        imageSrc = {Image3}
         imageAlt = "Activities"
         title = "Activities"
         paragraph = "Quickly design and customize responsive mobile-first sites with Bootstrap, the worlds most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins."
@@ -41,9 +67,11 @@ function template (){
       />
     </section>
 
-    <div className="container-fluid py-2 header-yllw"/> 
-    <section id="Counter" className="counts">
-      <div className="container-fluid" style={{padding:'1rem'}}>
+       <div className="container-fluid py-2 header-yllw"/>
+
+        {/* Section to display the ammount of members, years and sponsors */}
+       <section id="Counter" className="counts">
+      <div className="container-fluid" style={{paddingTop:'2rem'}}>
         <div className="container-fluid">
           <h1 className='h1-text-content-chapter' id='mission_txt' style={{color:'black', textAlign:'center'}}><strong>Our Chapter</strong></h1>
         <div className="row counters">
@@ -67,76 +95,51 @@ function template (){
       </div>
     </section>
 
-       {/* Section divider */}
-       <div className="container-fluid py-2 header-finite-ble"/>
-       <div className="container-fluid py-2 header-yllw"/>
-
-      
-        <div className="container-fluid container-values">
-          <div className="container">
-            <h1 className='h1-text-content' id='mission_txt' style={{color:'white', textAlign:'center'}}><strong>Mission and Values </strong></h1>
-            <div className="row ">
-              <div className="col-12">
-                <div className="row row-values">
-                  <div className="col-lg-6">
-                      <div className="grid-item move-up">
-                        <div className="ht-box-icon">
-                          <div className="icon-box-wrap">
-                            <div className="content-header">
-                              <div className="icon">
-                                <FontAwesomeIcon icon={faHandshake}  />
-                              </div>
-                              <h5 className="heading" style={{color:'black'}}>Mission</h5>
-                            </div>
-                            <div className="content">
-                              <h4 style={{color:'black'}}>
-                                To expose your brand will be presented in front of hundreds of people in the regional spectrum, 
-                                and in the national spectrum will be in the thousands.
-                              </h4>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  <div className="col-lg-6">
-                    <div className="grid-item move-up">
-                      <div className="ht-box-icon">
-                        <div className="icon-box-wrap">
-                          <div className="content-header">
-                            <div className="icon">
-                              <FontAwesomeIcon icon={faUsers} />
-                            </div>
-                            <h5 className="heading" style={{color:'black'}}>Values</h5>
-                          </div>
-                          <div className="content">
-                            <h4 style={{color:'black'}}>
-                              To connect more of our members to companies through seminars, internships and activities,
-                              to expose them to modern and contemporary projection experiences that can provide them professional development.
-                            </h4>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
+        {/* Section to display images about the chapter,  */}
+       <section className="container-fluid">
+       <div className="row p-4 pb-0 pe-lg-0 align-items-center rounded-3" style={{justifyContent:"space-evenly"}}>
+            <div className="col-lg-6 column-padding" style={{margin:'auto'}}>
+              <Carousel image1={first} image2={second} image3={third}/>
+            </div>
+            <div className="col-lg-6 column-padding" style={{margin:'auto'}}>
+              <Carousel image1={fourth} image2={fifth} image3={sixth}/>
             </div>
         </div>
-      </div>
+        <div className="row p-4 pb-0 pe-lg-0 align-items-center rounded-3" style={{justifyContent:"space-evenly"}}>
+            <div className="col-lg-6 column-padding" style={{margin:'auto'}}>
+              <Carousel image1={seventh} image2={eight} image3={nine}/>
+            </div>
+            <div className="col-lg-6 column-padding" style={{margin:'auto'}}>
+              <Carousel image1={ten} image2={eleven} image3={twelve}/>
+            </div>
+        </div>
+       </section>
+
 
     {/* Section divider */}
     <div className="container-fluid py-2 header-finite-ble"/> 
     <div className="container-fluid py-2 header-yllw"/> 
-    
+
+    <section id="calendar_activities" className="container-fluid home-calendar">
+    <div className="container-fluid" style={{paddingTop:'2rem', paddingBottom:'2rem'}}>
+        <div className="container-fluid">
+          <h1 className='h1-text-content-calendar' id='mission_txt' style={{color:'black', textAlign:'center'}}><strong>Calendar Activities</strong></h1>
+          <div className="row home-calendar">
+            <Calendar/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div className="container-fluid py-2 header-finite-ble"/> 
+    <div className="container-fluid py-2 header-yllw"/> 
+
     <div className="container container-content">
       <div>
         <h1 className='h1-text-content' id='mission_txt' style={{color:'black', textAlign:'center'}}><strong>Our Sponsors</strong></h1>
-      <Image src={require("../../assets/Brand/clients.png")} alt="" width={500} height={500} style={{width:'100%', height:'auto'}}/>
-      {/* <ImageModal show={showModal} onHide={handleCloseModal}/> */}
+        <Image src={require("../../assets/Brand/sponsors.png")} alt="" width={500} height={500} style={{width:'100%', height:'auto'}}/>
       </div>
     </div>
-      
 </div>
   );
 };
