@@ -319,7 +319,7 @@ function Template() {
                     <label htmlFor="officialDriver">No</label>
                 </div>
             </div>
-            <input type="submit" id="button" value="Submit" style={{backgroundColor : 'rgb(20,74,154)'}}/>
+            <input type="submit" id="button" value="Submit" />
         </form>
     </div>
     </>
