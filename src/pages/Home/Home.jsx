@@ -30,11 +30,6 @@ import ten from '../../assets/Carousel_images/10.png';
 import eleven from '../../assets/Carousel_images/11.png';
 import twelve from '../../assets/Carousel_images/12.png';
 
-
-
-
-
-
 function template (){
   
   return (
@@ -52,7 +47,7 @@ function template (){
         imageSrc = {Gallagher}
         imageAlt = "notabout"
         title = "About Us"
-        paragraph = "Quickly design and customize responsive mobile-first sites with Bootstrap, the worlds most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins."
+        paragraph = "Welcome to the American Civil Engineer Student Chapter of the Polytechnic University of Puerto Rico! Our student chapter is dedicated to inspiring and exposing our members to new experiences, while providing a space for professional development and cultural enrichment. Our mission is to connect our members to companies through seminars, internships, and activities that will expose them to modern and contemporary projects."
       
       />
       {/* Activities */}
@@ -62,7 +57,7 @@ function template (){
         imageSrc = {Image3}
         imageAlt = "Activities"
         title = "Activities"
-        paragraph = "Quickly design and customize responsive mobile-first sites with Bootstrap, the worlds most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins."
+        paragraph = "Our chapter provides a variety of activities for our members, including Info-Sessions with Professional Engineers or Industry Leaders, educational trips, ASCE Student Symposia, workshops, fundraisers, and community service. We aim to provide a well-rounded experience that helps our members grow personally and professionally. Through our activities, our members can learn from experts in the field, showcase their skills, learn new skills, give back to the community, and stay up-to-date with the latest developments in civil engineering."
       
       />
     </section>
@@ -82,12 +77,12 @@ function template (){
           </div>
           {/* Second Counter */}
           <div className="col-lg-4 col-5 col-3 col-6 text-center" style={{maxWidth:'100%'}}>
-            <span><Counter start={0} end={50}/></span>            
+            <span><Counter start={0} end={52}/></span>            
             <p>Active Members</p>
           </div>
           {/* Third Counter */}
           <div className="col-lg-4 col-5 col-3 col-6 text-center" style={{maxWidth:'100%'}}>
-            <span><Counter start={0} end={10}/></span>
+            <span><Counter start={0} end={6}/></span>
             <p>Sponsors</p>
           </div>
         </div>
@@ -96,22 +91,25 @@ function template (){
     </section>
 
         {/* Section to display images about the chapter,  */}
-       <section className="container-fluid">
+       {/* <section className="container-fluid"> */}
+       <section className="Images-carousel">
+        <div className="container-fluid">
        <div className="row p-4 pb-0 pe-lg-0 align-items-center rounded-3" style={{justifyContent:"space-evenly"}}>
-            <div className="col-lg-6 column-padding" style={{margin:'auto'}}>
+            <div className="col-lg-6 column-padding text-center" style={{margin:'auto'}}>
               <Carousel image1={first} image2={second} image3={third}/>
             </div>
-            <div className="col-lg-6 column-padding" style={{margin:'auto'}}>
+            <div className="col-lg-6 column-padding text-center" style={{margin:'auto'}}>
               <Carousel image1={fourth} image2={fifth} image3={sixth}/>
             </div>
         </div>
         <div className="row p-4 pb-0 pe-lg-0 align-items-center rounded-3" style={{justifyContent:"space-evenly"}}>
-            <div className="col-lg-6 column-padding" style={{margin:'auto'}}>
+            <div className="col-lg-6 column-padding text-center" style={{margin:'auto'}}>
               <Carousel image1={seventh} image2={eight} image3={nine}/>
             </div>
-            <div className="col-lg-6 column-padding" style={{margin:'auto'}}>
+            <div className="col-lg-6 column-padding text-center" style={{margin:'auto'}}>
               <Carousel image1={ten} image2={eleven} image3={twelve}/>
             </div>
+        </div>
         </div>
        </section>
 
@@ -137,7 +135,7 @@ function template (){
     <div className="container container-content">
       <div>
         <h1 className='h1-text-content' id='mission_txt' style={{color:'black', textAlign:'center'}}><strong>Our Sponsors</strong></h1>
-        <Image src={require("../../assets/Brand/sponsors.png")} alt="" width={500} height={500} style={{width:'100%', height:'auto'}}/>
+        <Image src={require("../../assets/Brand/sponsors.png")} alt="" width={500} height={500} style={{width:'100%', height:'auto', paddingTop:'5%'}}/>
       </div>
     </div>
 </div>
