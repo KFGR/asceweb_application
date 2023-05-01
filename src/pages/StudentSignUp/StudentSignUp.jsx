@@ -10,7 +10,6 @@ function Template() {
     phone: '',
     size: '',
     age: '',
-    bachelor: '',
     department: '',
     academic: ''
   });
