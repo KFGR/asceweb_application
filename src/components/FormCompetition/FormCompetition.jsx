@@ -24,49 +24,49 @@ function Template() {
 
   
 
-  function checkInputs(name, email, Weekday, recentCourse, Experience, Competitions){
+  function checkInputs(formData){
     const regexName = /^([a-zA-Z]+[’'`-]?[a-zA-Z]+[ ]?)+$/;
     const regexEmail = /^[a-zA-Z]+_[0-9]+@students\.pupr\.edu$/;
     const regexText = /['";()&$%~`^*{}\/+=[\\]|<>]/;
     var addError;
     let hasError = false;
   
-    if (!regexName.test(name)) {
+    if (!regexName.test(formData.name)) {
       addError = document.querySelector('#name');
       addError.classList.add('error');
       addError = document.querySelector('#box1');
       addError.classList.remove('hidden');
       hasError = true;
     }
-    if(!regexEmail.test(email)){
+    if(!regexEmail.test(formData.email)){
       addError = document.querySelector('#email');
       addError.classList.add('error');
       addError = document.querySelector('#box2');
       addError.classList.remove('hidden');
       hasError = true;
     }
-    if(regexText.test(Weekday)){
+    if(regexText.test(formData.Weekday)){
       addError = document.querySelector('#Weekday');
       addError.classList.add('error');
       addError = document.querySelector('#box3');
       addError.classList.remove('hidden');
       hasError = true;
     }
-    if(regexText.test(recentCourse)){
+    if(regexText.test(formData.recentCourse)){
       addError = document.querySelector('#recentCourse');
       addError.classList.add('error');
       addError = document.querySelector('#box4');
       addError.classList.remove('hidden');
       hasError = true;
     }
-    if(regexText.test(Experience)){
+    if(regexText.test(formData.Experience)){
       addError = document.querySelector('#Experience');
       addError.classList.add('error');
       addError = document.querySelector('#box5');
       addError.classList.remove('hidden');
       hasError = true;
     }
-    if(Competitions === ""){
+    if(formData.Competitions === ""){
       addError = document.querySelector('#selectComp');
       addError.classList.add('error');
       addError = document.querySelector('#box6');
@@ -123,8 +123,8 @@ function Template() {
       const updatedCompetitions = checked
       ? [...formData.Competitions.split(',').filter(comp => comp), value]
       : formData.Competitions.split(',').filter(comp => comp !== value);
-    setFormData(prevState => ({ ...prevState, Competitions: updatedCompetitions.join(',') }));
-    RemoveError('Competitions');
+      setFormData(prevState => ({ ...prevState, Competitions: updatedCompetitions.join(',') }));
+      RemoveError('Competitions');
     } else {
       setFormData(prevState => ({ ...prevState, [name]: value }));
       RemoveError(name);
@@ -134,7 +134,7 @@ function Template() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if(checkInputs(formData.name, formData.email, formData.Weekday, formData.recentCourse, formData.Experience, formData.Competitions)){
+    if(checkInputs(formData)){
       // Do something with the form data object
       console.log(formData);
       const formDataJson = JSON.stringify(formData);
