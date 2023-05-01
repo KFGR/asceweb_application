@@ -90,3 +90,40 @@ ol li{
     color: white;
 } */
 
+@media (max-width: 1500px) {
+    
+    .sectionCards{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .item:nth-child(n+5) {
+        left: 0%;
+    }
+
+    .item:nth-child(7) {
+        left: 50%;
+    }
+    
+    .note p {
+        width: auto;
+        text-align: center;
+
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 800px) {
+    
+    .sectionCards{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .item:nth-child(n+5) {
+        left: 0%;
+    }
+
+    .item:nth-child(7) {
+        left: 0%;
+    }
+    
+}
