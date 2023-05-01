@@ -100,3 +100,25 @@
     }
     
 }
+
+.cardBody{
+  width: 350px;
+  height: 450px;
+  margin: 25px auto;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  /* border: 3px solid black; */
+}
+
+.cardTitle{
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 35px;
+}
+
+#btnMoreInfo{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}

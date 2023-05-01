@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {Modal, Button} from "react-bootstrap";
 import Image from "react-bootstrap/Image";
+import "./ContentCard.css";
 //import ContentCard from "./ContentCard"; //trying to make the form show
 
 const CardWithModal = ({
@@ -19,7 +20,7 @@ const CardWithModal = ({
 
   return (
     <div >
-      <Button variant="primary" onClick={handleShow}>
+      <Button id="btnMoreInfo"  onClick={handleShow}>
         More information
       </Button>
      

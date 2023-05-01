@@ -42,3 +42,51 @@ ol li{
     margin-bottom: 10px;
     padding-left: 20px;
 } */
+
+.cardHeader{
+    background-color: blue;
+    text-align: center;
+    color: white;
+    padding-top: 100px;
+}
+
+.cardHeader p{
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+}
+
+.sectionCards{
+    background-color: blue;
+    /* padding-top: 100px; */
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    justify-items: center;
+
+}
+
+.item:nth-child(n+5) {
+    position: relative;
+    left: 50%;
+}
+
+.note{
+    background-color: blue;
+    color: white;
+}
+
+.note p {
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 40px;
+    font-size: 14px;
+}
+
+
+/* .sectionCards > h1, .sectionCards > p{
+    text-align: center;
+    color: white;
+} */
+

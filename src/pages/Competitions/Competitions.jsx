@@ -200,21 +200,16 @@ const handleRadioChange = (event) => {
 
   return(
     <>
-    
-    <div className="Competitions">
-      
-      <h1>Competitions</h1>
-      <p>These are the top ASCE Competitions, celebrated annually.</p>
-      
-      
 
-      <div className="container">
-        <div className = "row">
-          <div className = "col-12 col-lg-3">
-        
-            {/* Concrete Canoe */}
-            <div className="container">
-            <ContentCard id="competition_card"
+      <div className="cardHeader">
+        <h1>Competitions</h1>
+        <p>These are the top ASCE Competitions, celebrated annually.</p>
+      </div>
+      <div className="sectionCards">
+
+          <div className="item">
+              {/* Concrete Canoe */}
+              <ContentCard id="competition_card" 
               imageSrc={smallConcreteImage}
               imageAlt="none"
               title = "Concrete Canoe"
@@ -223,15 +218,12 @@ const handleRadioChange = (event) => {
               modalTitle = "Concrete Canoe"
               competitionDescription = "The ASCE Concrete Canoe Competition provides students a unique opportunity to gain hands-on practical experience while testing their skills with concrete mix designs and project management challenges. This elite competition combining engineering excellence, hydrodynamic design, and racing technique is known as the ''America's Cup of Civil Engineering.''"
               modalImage = {canoeImage}
-
             />
-            </div>
           </div>
 
-          <div className = "col-12 col-lg-3">
-            <div className="container">
+          <div className="item">
             {/* Steele Bridge */}
-            <ContentCard id="competition_card"
+            <ContentCard id="competition_card" 
               imageSrc={SteelBridgeResize}
               imageAlt="none"
               title = "Steel Bridge"
@@ -239,15 +231,12 @@ const handleRadioChange = (event) => {
               modalTitle = "Steel Bridge"
               competitionDescription = "The Student Steel Bridge Competition challenges students to extend their classroom knowledge to a practical and hands-on steel-design project that grows their interpersonal and professional skills, encourages innovation, and fosters impactful relationships between students and industry professionals.  Each student team develops a concept for a scale-model steel bridge to span approximately 20 feet and to carry 2,500 pounds according to the competition rules. The team must determine how to fabricate their bridge and then plan for an efficient assembly under timed construction conditions at the competition. Bridges are also load-tested, weighed, and judged on aesthetics."
               modalImage = {SteelBridgeResize}
-              
             />
-            </div>
           </div>
 
-
-          <div className = "col-12 col-md-3">
+          <div className="item">
               {/* Surveying */}
-              <ContentCard id="competition_card"
+              <ContentCard id="competition_card" 
               imageSrc={SurveyingResize}
               imageAlt="none"
               title = "Surveying"
@@ -256,11 +245,12 @@ const handleRadioChange = (event) => {
               competitionDescription = "The ASCE UESI Surveying Competition’s educational and professional goals include a recognition of the importance of basic surveying principles to all civil engineering projects. Students will be required to use standard field and office equipment and procedures to solve common problems encountered in industry. A clear understanding of and ability to apply basic surveying principles will assist the graduate civil engineer in communicating and working with the surveying professionals on the job site and during the design process."
               modalImage = {SurveyingResize}
               />
-            </div>
+          </div>
 
-              <div className = "col-12 col-md-3">
+
+          <div className="item">
                 {/* Construction Institute - PLACE THE CONSTRUCTION INSTITUTE IMAGE IN THE TIMBER STRONG IMAGE */}
-                <ContentCard id="competition_card"
+                <ContentCard id="competition_card" 
                 imageSrc={constructionInstituteNEW}
                 imageAlt="none"
                 title = "Construction Institute"
@@ -269,14 +259,14 @@ const handleRadioChange = (event) => {
                 competitionDescription = "Each student team shall act as a construction engineering firm, and these responses shall be directed and delivered professionally, similarly to how a real company would address an owner requesting additional information from a firm during the pre-construction phase of a job. Sample projects will entertain all sectors of civil engineering, while the individual challenges will be related to: Traffic Control / Site Logistics, QA/QC, Safety, Public Outreach, Environment, Risk Management, and other concerns that project managers and engineers plan for."
                 modalImage = {constructionInstituteNEW}
                 />
-          
-              </div>
+          </div>
+
         
 
-            
-          <div className = "col-12 col-lg-3">
+
+          <div className="item">
             {/* Timber Strong */}
-            <ContentCard id="competition_card"
+            <ContentCard id="competition_card" 
               imageSrc={TimberStrongResize}
               imageAlt="none"
               title = "Timber Strong"
@@ -285,12 +275,13 @@ const handleRadioChange = (event) => {
               competitionDescription = "The competition seeks student teams to design and build an artistically creative 2-story wood light-framed building that is sustainable, aesthetically pleasing and structurally durable. The competition enables students to gain experience in performing aspects of common structural engineering design and practice as well as gain exposure to the management and building practices used in construction environments."
               modalImage = {TimberStrongResize}
             />
-            </div>
+          </div>
+
           
 
-          <div className = "col-12 col-lg-3">
+          <div className="item">
             {/* Sustaible Solutions */}
-            <ContentCard id="competition_card"
+            <ContentCard id="competition_card" 
               imageSrc={SustainableSolutionsResize}
               imageAlt="none"
               title = "Sustainable Solutions"
@@ -301,9 +292,9 @@ const handleRadioChange = (event) => {
             />
           </div>
           
-          <div className = "col-12 col-md-3">
+          <div className="item">
             {/* Innovation Contest */}
-            <ContentCard id="competition_card"
+            <ContentCard id="competition_card" 
               imageSrc={InnovationContestResize}
               imageAlt="none"
               title = "Innovation Contest"
@@ -313,13 +304,10 @@ const handleRadioChange = (event) => {
               modalImage = {InnovationContestResize}
             />
           </div>
-          
-          <div className='mt-5' style={{fontSize:"small"}}>
-            <p>Other competitions aren't celebrated annually, rather the official ASCE decides which of these take place in a given year. These competitions are: Concrete Bridge, Traffic Control, Geo-Wall, Muddy Waters, Concrete Cornhole, Plans Reading, Professional Paper, T-shirt Contest, and Mystery Competiton.</p>
-          </div>
-            
-          </div>
         </div>
+
+        <div className="note">
+          <p>Other competitions aren't celebrated annually, rather the official ASCE decides which of these take place in a given year. These competitions are: Concrete Bridge, Traffic Control, Geo-Wall, Muddy Waters, Concrete Cornhole, Plans Reading, Professional Paper, T-shirt Contest, and Mystery Competiton.</p>
         </div>
         <FormCompetition/>
     <Calendar/>
