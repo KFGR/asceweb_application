@@ -14,7 +14,7 @@ function template() {
   return (
     <div className="AppFooter">
     <div className="container container-footer">
-           <div className="row" style={{borderTop:'solid #144a9a'}}>
+           <div className="row" style={{borderTop:'0.5rem solid #144a9a'}}>
               <div className="col-12">
                 <div className="row container-footer-row">
                   <div className="col"> {/* was on col-lg-4 */}
@@ -77,32 +77,42 @@ function template() {
                           <ul style={{fontSize:'75%', padding:'0%', textAlign:'center'}}>
                            <div className="row" style={{flexDirection:'column', alignItems:'center'}}>
                               <li className="footer-li" style={{color:'black', fontSize:'150%', width:'100%'}}>
-                                <a href="tel:787-777-8877">
+                                <a href="tel:787-552-5508">
                                   <span className="fontawesomeicon">
                                   <FontAwesomeIcon icon={faPhone} />
                                   </span>
                                   <span>
-                                  787-888-7788
+                                  787-552-5508
                                   </span>
                                 </a>
                               </li>
                               <li className="footer-li" style={{color:'black', fontSize:'150%', width:'100%'}}>
-                                <a href="tel:787-777-8877">
-                                  <span className="fontawesomeicon">
-                                  <FontAwesomeIcon  icon={faPhone} />
-                                  </span>
-                                  <span>
-                                  787-888-7788
-                                  </span>
-                                </a>
-                              </li>
-                              <li className="footer-li" style={{color:'black', fontSize:'150%', width:'100%'}}>
-                                <a href="mailto:ascepupr@gmail.com">
+                                <a href="mailto:valentin_120106@students.pupr.edu">
                                   <span className="fontawesomeicon">
                                   <FontAwesomeIcon icon={faEnvelope} />
                                   </span>
                                   <span style={{textTransform:'lowercase'}}>
-                                  ascepupr@gmail.com
+                                  valentin_120106@students.pupr.edu
+                                  </span>
+                                </a>
+                              </li>
+                              <li className="footer-li" style={{color:'black', fontSize:'150%', width:'100%'}}>
+                                <a href="tel:787-669-5618">
+                                  <span className="fontawesomeicon">
+                                  <FontAwesomeIcon  icon={faPhone} />
+                                  </span>
+                                  <span>
+                                  787-669-5618
+                                  </span>
+                                </a>
+                              </li>
+                              <li className="footer-li" style={{color:'black', fontSize:'150%', width:'100%'}}>
+                                <a href="mailto:grossy@pupr.edu">
+                                  <span className="fontawesomeicon">
+                                  <FontAwesomeIcon icon={faEnvelope} />
+                                  </span>
+                                  <span style={{textTransform:'lowercase'}}>
+                                  grossy@pupr.edu
                                   </span>
                                 </a>
                               </li>
@@ -129,7 +139,7 @@ function template() {
                 <li className="footer-li" style={{color:'black', fontSize:'150%', textAlign:'center'}}>
                   <div className="media-content-header">
                     <div className="media-icon">
-                      <a href="/Facebook" className="icon-change-facebook">
+                      <a href="https://www.facebook.com/ASCEPUPR?mibextid=LQQJ4d" className="icon-change-facebook" target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faFacebookSquare}/>
                       </a>
                     </div>
@@ -138,7 +148,7 @@ function template() {
                 <li className="footer-li" style={{color:'black', fontSize:'150%', textAlign:'center'}}>
                   <div className="media-content-header">
                     <div className="media-icon">
-                      <a href="https://www.instagram.com/pupr_asce/?igshid=YmMyMTA2M2Y%3D" className="icon-change-instagram" target="_blank" rel="noreferrer">
+                      <a href="https://www.instagram.com/pupr_asce/?igshid=YmMyMTA2M2Y%3D"  className="icon-change-instagram" target="_blank" rel="noreferrer">
                         <FontAwesomeIcon icon={faInstagram}/>
                       </a>
                     </div>
