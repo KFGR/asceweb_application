@@ -130,7 +130,8 @@
     flex-shrink: 0;
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
-    font-size: 40px;
+    /* font-size: 40px; */
+    font-size: 50px;
     font-weight: 48px;
     min-width: 60px;
     /* margin-right: 10px; */
