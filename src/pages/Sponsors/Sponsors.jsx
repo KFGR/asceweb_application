@@ -157,7 +157,7 @@ function template() {
       </div>
       {/*<Calendar/>*/}
       {/* <FormCompetitions/> */}
-    </>
+    </div>
   );
 };
 
