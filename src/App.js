@@ -20,6 +20,7 @@ const LazySponsors = React.lazy(() => import('./pages/Sponsors'));
 const LazyCompetitions = React.lazy(() => import('./pages/Competitions'));
 
 const LazyStudentSignUp = React.lazy(() => import ('./pages/StudentSignUp/StudentSignUp'));
+const LazyAboutUs = React.lazy(() => import('./pages/AboutUs'))
 
 
 
