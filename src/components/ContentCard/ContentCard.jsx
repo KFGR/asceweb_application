@@ -86,16 +86,22 @@ import CardWithModal from "./Modal.jsx";
 
 
       {id === "competition_card" && (
-        <div className = "card h-100">
+        // <div className = "card h-100">
           
-          <Image src={modalImage} alr={imageAlt} className="card-img-top img-fluid"/>
+        //   <Image src={modalImage} alr={imageAlt} className="card-img-top img-fluid"/>
           
-            <div className="card-body">
-            <h5 className="card-title">{modalTitle}</h5>
-            {/* <p className = "card-text">{competitionDescription}</p> */}
-          </div>  
-          <CardWithModal  modalTitle={modalTitle} modalImageSrc={modalImage} modalImageAlt={imageAlt} modalDetails={competitionDescription}/>
-        </div>
+        //     <div className="card-body">
+        //     <h5 className="card-title">{modalTitle}</h5>
+        //   </div>  
+        //   <CardWithModal  modalTitle={modalTitle} modalImageSrc={modalImage} modalImageAlt={imageAlt} modalDetails={competitionDescription}/>
+        // </div>
+        <div className="cardBody">
+          <div>
+            <Image src={modalImage} alr={imageAlt} className="card-img-top img-fluid"/>
+            <h5 className="cardTitle">{modalTitle}</h5>
+            <CardWithModal modalTitle={modalTitle} modalImageSrc={modalImage} modalImageAlt={imageAlt} modalDetails={competitionDescription}/>
+          </div>
+          </div>
 
       )}
   </div>
