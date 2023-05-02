@@ -36,7 +36,7 @@ function template(props) {
     )} */}
 
     {id === "Normal_header" && (
-       <div id="Normal_header" className="container-fluid text-center">
+      //  <div id="Normal_header" className="container-fluid text-center">
        <div className="header-area header-area--absolute">
          <div className="header-top-bar-info d-lg-block">
            <div className="container-fluid py-2 header-yllw"/> 
@@ -59,7 +59,7 @@ function template(props) {
            </div>
          </div>
        </div>
-     </div>
+    //  </div>
     )}
 
 {/* {id === "another_home_header" && (
