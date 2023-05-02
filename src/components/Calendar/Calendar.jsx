@@ -8,7 +8,7 @@ import googleCalendarPlugin from '@fullcalendar/google-calendar';
 function template() {
   return (
     <>
-      <h3>Event Calendar</h3>
+      {/* <h3>Event Calendar</h3> */}
       <div className="calendarsize">
         <FullCalendar
           plugins={[ dayGridPlugin, googleCalendarPlugin]}

@@ -180,28 +180,25 @@ function template(props) {
         </div>
       </div>
 
-      <div className="container-fluid">
-         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
-           <div className="col-lg-4 p-3 p-lg-5 pt-lg-3">
-             <h1 className="h1-text-content"><strong>ASCE Competitions</strong></h1>
+     <div className="container-fluid">
+         <div className="row row-me p-4 pb-0 pe-lg-0 pt-lg-5  rounded-3" style={{justifyContent:"space-evenly"}}>
+           <div className="col-lg-6 p-3 p-lg-5 pt-lg-3">
+             <h1 className="h1-title-header"><strong>ASCE Competition</strong></h1>
              <p className="lead">
-               Each year, the American Society of Civil Engineers celebrates
+              Each year, the American Society of Civil Engineers celebrates
                a number of society wide competitions both in Puerto Rico and within
                the United States. Below you can see more information on these 
                competititions, including a form to fill out if you wish to
-               participate
              </p>
-             <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-               <a href="/home"><button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Join today</button></a>
-               {/* <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Default</button> */}
-             </div>
+             {/* <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+               <a href="/StudentSignUp"><button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Join today</button></a>
+             </div> */}
            </div>
-           <div className="header-image col-lg-4 offset-lg-1 p-0  shadow-lg">
-               <img className="rounded-lg-3" src={competitionsHeaderImage} alt="" width="800"/>
+           <div className="header-image col-lg-6 p-0">
+            <img className="rounded-lg-3" src={competitionsHeaderImage} alt="" width="750"/>
            </div>
        </div>
-
-   </div>
+     </div>
     </div>
     )}
 

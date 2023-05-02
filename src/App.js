@@ -35,7 +35,7 @@ const App = () => {
         <Route path='/' element={<React.Suspense fallback="loading..."><><LazyAppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
         <Route path='/Home' element={<React.Suspense fallback="loading..."><><LazyAppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
         <Route path='/Sponsors' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazySponsors/></></React.Suspense>}/>
-        <Route path='/Competitions' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazyCompetitions/></></React.Suspense>}/>
+        <Route path='/Competitions' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="competitions_header"/><LazyCompetitions/></></React.Suspense>}/>
         <Route path='/AboutUs' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazyAboutUs/></></React.Suspense>}/>
 
         <Route path='/StudentSignUp' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazyStudentSignUp/></></React.Suspense>}/>
