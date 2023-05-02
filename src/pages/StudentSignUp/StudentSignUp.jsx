@@ -26,6 +26,7 @@ function Template() {
       hasError = true;
     }
 
+    
     return(!hasError);  
   };
     
