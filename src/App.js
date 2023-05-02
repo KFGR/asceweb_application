@@ -19,6 +19,7 @@ const LazyHome = React.lazy(() => import('./pages/Home'));
 const LazySponsors = React.lazy(() => import('./pages/Sponsors'));
 const LazyCompetitions = React.lazy(() => import('./pages/Competitions'));
 
+const LazyStudentSignUp = React.lazy(() => import ('./pages/StudentSignUp/StudentSignUp'));
 
 
 
@@ -34,6 +35,8 @@ const App = () => {
         <Route path='/Home' element={<React.Suspense fallback="loading..."><><LazyAppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
         <Route path='/Sponsors' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazySponsors/></></React.Suspense>}/>
         <Route path='/Competitions' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazyCompetitions/></></React.Suspense>}/>
+        <Route path='/StudentSignUp' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazyStudentSignUp/></></React.Suspense>}/>
+
 
 
         </Routes>
