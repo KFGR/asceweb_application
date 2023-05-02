@@ -1,5 +1,6 @@
 import "./AboutUs.css";
 import React from "react";
+import { Button } from '@react-email/button';
 
 
 export default function template() {
@@ -153,7 +154,7 @@ export default function template() {
                     <h2>Maria Rosado</h2>
                     <p className="title">Chapter President</p>
                     <p>Phone: 787-220-375#</p>
-                    <p><button className="button">Email</button></p>
+                    <p><Button className="button" href="mailto:rosado_105467@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
               </div>
@@ -164,7 +165,7 @@ export default function template() {
                     <h2>Leonardo Perez </h2>
                     <p className="title">Chapter Vice President</p>
                     <p>Phone: 787-360-8361</p>
-                    <p><button className="button">Email</button></p>
+                    <p><Button className="button" href="mailto:perez_121465@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
               </div>
@@ -175,7 +176,7 @@ export default function template() {
                     <h2>Gonzalo Valentin</h2>
                     <p className="title">Chapter Secretary</p>
                     <p>Phone: 787-552-5508</p>
-                    <p><button className="button">Email</button></p>
+                    <p><Button className="button" href="mailto:valentin_120106@students.pupr.edu ">Send Email</Button></p>
                   </div>
                 </div>
               </div>
@@ -186,7 +187,7 @@ export default function template() {
                     <h2>Kariannys Rodriguez</h2>
                     <p className="title">Chapter Treasurer Supervisor</p>
                     <p>Phone: 787-360-8361</p>
-                    <p><button className="button">Email</button></p>
+                    <p><Button className="button" href="mailto:rodriguez_104373@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
               </div>
@@ -197,7 +198,7 @@ export default function template() {
                     <h2>Elian Santana</h2>
                     <p className="title">Chapter Treasurer</p>
                     <p>Phone: 939-332-8808</p>
-                    <p><button className="button">Email</button></p>
+                    <p><Button className="button" href="mailto:santana_116552@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
               </div>
@@ -208,7 +209,7 @@ export default function template() {
                     <h2>Jose Yamil Serrano</h2>
                     <p className="title">Chapter Treasurer</p>
                     <p>Phone: 787-217-8361</p>
-                    <p><button className="button">Email</button></p>
+                    <p><Button className="button" href="mailto:serrano_127256@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
               </div>
@@ -219,7 +220,7 @@ export default function template() {
                     <h2>Luis Rodriguez</h2>
                     <p className="title">Chapter Spokeperson</p>
                     <p>Phone: 787-243-5232</p>
-                    <p><button className="button">Email</button></p>
+                    <p><Button className="button" href="mailto:rodriguez_127354@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
               </div>
@@ -230,7 +231,7 @@ export default function template() {
                     <h2>Prof. Ginger Rossy</h2>
                     <p className="title">Chapter Mentor</p>
                     <p>Phone: 787-669-5618</p>
-                    <p><button className="button">Email</button></p>
+                    <p><Button className="button" href="mailto:NULL">Send Email</Button></p>
                   </div>
                 </div>
               </div>
