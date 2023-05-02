@@ -13,7 +13,8 @@
     align-self: center;
 }
 
-.sponsors .section-rewards > h2{
+.section-rewards > h2{
+    font-weight: 900;
     margin-bottom: 25px;
 }
 
@@ -37,13 +38,17 @@
     align-items: center;
 }
 
-.sponsors .section-information > h2, .sponsors .section-information > p{
+.section-information > h2{
+    font-weight: 800;
     color: black;
     width: 80%;
 }
 
-.sponsors .section-information > p{
+.section-information > p{
+    font-weight: 700;
     margin-top: 20px;
+    color: black;
+    width: 80%;
     font-size: 20px;
 }
 
@@ -117,8 +122,13 @@ tfoot > tr >td{
     margin-bottom: 10px;
 }
 
-.sponsors .section-contact p{
+.section-contact p{
+    font-weight: 700;
     margin-bottom: 40px;
+}
+
+.section-contact h2{
+    font-weight: 700;
 }
 
 .input-row{
