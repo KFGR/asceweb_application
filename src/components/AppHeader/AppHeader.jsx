@@ -140,7 +140,7 @@ function template(props) {
               - George Bernard Shaw
               </p>
               <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                <a href="/home"><button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Join today</button></a>
+                <a href="/StudentSignUp"><button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Join today</button></a>
               </div>
             </div>
             <div className="header-image col-lg-6 p-0">

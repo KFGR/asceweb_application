@@ -32,7 +32,7 @@ function template() {
                                 To expose your brand will be presented in front of hundreds of people in the regional spectrum, 
                                 and in the national spectrum will be in the thousands.
                               </p> */}
-                              <a href="/home"><button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Join today</button></a>
+                              <a href="/StudentSignUp"><button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Join today</button></a>
                             </div>
                           </div>
                         </div>
