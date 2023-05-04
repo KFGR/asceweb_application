@@ -4,7 +4,6 @@
     text-align: center;
     color:white;
     font-size: large;
-    font-family: Arial;
     font-weight: 300;        
 }
 
@@ -44,19 +43,24 @@ ol li{
 } */
 
 .cardHeader{
-    background-color: blue;
+    background-color: #144a9a;
     text-align: center;
     color: white;
     padding-top: 100px;
 }
 
+.cardHeader > h1{
+    font-size: 40px;
+} 
+
 .cardHeader p{
     margin-bottom: 0px;
     padding-bottom: 20px;
+    font-size: 20px;
 }
 
 .sectionCards{
-    background-color: blue;
+    background-color: #144a9a;
     /* padding-top: 100px; */
     margin: auto;
     display: grid;
@@ -72,7 +76,7 @@ ol li{
 }
 
 .note{
-    background-color: blue;
+    background-color: #144a9a;
     color: white;
 }
 
@@ -84,11 +88,12 @@ ol li{
     font-size: 14px;
 }
 
-
-/* .sectionCards > h1, .sectionCards > p{
+.calendarTittle{
     text-align: center;
-    color: white;
-} */
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
 
 @media (max-width: 1500px) {
     
@@ -125,4 +130,7 @@ ol li{
         left: 0%;
     }
     
+    .calendarTittle{
+        margin-top: 40px;
+    }
 }

@@ -241,6 +241,7 @@ const handleRadioChange = (event) => {
           <p>Other competitions aren't celebrated annually, rather the official ASCE decides which of these take place in a given year. These competitions are: Concrete Bridge, Traffic Control, Geo-Wall, Muddy Waters, Concrete Cornhole, Plans Reading, Professional Paper, T-shirt Contest, and Mystery Competiton.</p>
         </div>
         <FormCompetition/>
+        <h3 className="calendarTittle">Calendar Activities</h3>
     <Calendar/>
   </> 
  );
