@@ -328,10 +328,13 @@ function Template() {
               rowClassName={"custom-row"}
               sortMode="multiple"
             >
+              <Column field="idadministrstor" header="idadministrstor" sortable />
               <Column field="name" header="Name" sortable />
-              <Column field="email" header="Email"sortable/>
-              <Column field="phone" header="Phone Num." sortable />
-              <Column field="Position" header="Position"sortable/>
+              <Column field="username" header="username"sortable/>
+              <Column field="email" header="Email" sortable />
+              <Column field="admin_level" header="admin_level" sortable />
+              <Column field="created_at" header="created_at"sortable/>
+              <Column field="updated_at" header="updated_at"sortable/>
             </DataTable>
           </div>
         )}
