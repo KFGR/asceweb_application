@@ -92,7 +92,7 @@ export default function template() {
                     <p className="auContentImageTextV1">ASCE Competitions at UNF (2023)</p>
                   </div>
                   <div className ="auContentImageBox auContentImageTextV3">
-                    <h2 className = "auContentTextFont1" style={{textAlign: "right", marginTop: "-20px"}}>
+                    <h2 className = "auContentTextFont1" style={{textAlign: "left", marginTop: "-20px"}}>
                       ASCE Competitions
                     </h2>
                     <p className="auContentTextFont2">
