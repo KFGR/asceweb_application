@@ -1,5 +1,6 @@
 import "./AboutUs.css";
 import React from "react";
+import { Button } from '@react-email/button';
 
 
 export default function template() {
@@ -52,6 +53,9 @@ export default function template() {
               <div className="auContentImagesRow">
                 <div className="auContentImagesColumn">
                   <div className ="auContentImageBox auContentImageTextV2">
+                  <h2 className = "auContentTextFont1" style={{marginTop: "-20px"}}>
+                      PUPR ASCE
+                    </h2>
                     <p className="auContentTextFont2">
                       As one of the student chapters of the American Society of Civil Engineers (ASCE), we have participated in various
                       professional events and competitions. By being part of the organization, our memebers are able to gain insight and
@@ -64,9 +68,9 @@ export default function template() {
                     <img src={require("./img/AU_P1.jpg")} alt="Test"/>
                     <p className="auContentImageTextV1">Concrete Bridge Team (2022)</p>
                   </div>
-                  <div className ="auContentImageBox auContentImageTextV2">
+                  <div className ="auContentImageBox auContentImageTextV4">
                     <h2 className = "auContentTextFont1" style={{marginTop: "-20px"}}>
-                      PUPR ASCE Events
+                      ASCE Events
                     </h2>
                     <p className="auContentTextFont2">
                       As part of the professional events the organization takes part in, our mamembers are able to participate in:
@@ -87,9 +91,9 @@ export default function template() {
                     <img src={require("./img/AU_P3.jpg")} alt="Test"/>
                     <p className="auContentImageTextV1">ASCE Competitions at UNF (2023)</p>
                   </div>
-                  <div className ="auContentImageBox auContentImageTextV2">
+                  <div className ="auContentImageBox auContentImageTextV3">
                     <h2 className = "auContentTextFont1" style={{textAlign: "right", marginTop: "-20px"}}>
-                      PUPR ASCE Competitions
+                      ASCE Competitions
                     </h2>
                     <p className="auContentTextFont2">
                       With ASCE Competions, memebers of our student chapter organization are able to identify areas of interest related to
@@ -145,73 +149,89 @@ export default function template() {
             <div className="row">
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
+                  <img src={require("./img/AU_Rand.jpg")} alt="CP" style={{width: "329.237px",height:"246.925px"}}/>
                   <div className="container">
-                    <h2>Jane Doe</h2>
+                    <h2>Maria Rosado</h2>
                     <p className="title">Chapter President</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button className="button">Contact</button></p>
+                    <p>Phone: 787-220-375#</p>
+                    <p><Button className="button" href="mailto:rosado_105467@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
+                  <img src={require("./img/AU_P7.jpg")} alt="CVP" style={{width: "329.237px",height:"246.925px"}}/>
                   <div className="container">
-                    <h2>Jane Doe</h2>
-                    <p className="title">Chapter Vicepresident</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button className="button">Contact</button></p>
+                    <h2>Leonardo Perez </h2>
+                    <p className="title">Chapter Vice President</p>
+                    <p>Phone: 787-360-8361</p>
+                    <p><Button className="button" href="mailto:perez_121465@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
+                  <img src={require("./img/AU_Rand.jpg")} alt="CS" style={{width: "329.237px",height:"246.925px"}}/>
                   <div className="container">
-                    <h2>Jane Doe</h2>
-                    <p className="title">Grunt #1</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button className="button">Contact</button></p>
+                    <h2>Gonzalo Valentin</h2>
+                    <p className="title">Chapter Secretary</p>
+                    <p>Phone: 787-552-5508</p>
+                    <p><Button className="button" href="mailto:valentin_120106@students.pupr.edu ">Send Email</Button></p>
                   </div>
                 </div>
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
+                  <img src={require("./img/AU_Rand.jpg")} alt="CTS" style={{width: "329.237px",height:"246.925px"}}/>
                   <div className="container">
-                    <h2>Jane Doe</h2>
-                    <p className="title">Grunt #2</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button className="button">Contact</button></p>
+                    <h2>Kariannys Rodriguez</h2>
+                    <p className="title">Chapter Treasurer Supervisor</p>
+                    <p>Phone: 787-360-8361</p>
+                    <p><Button className="button" href="mailto:rodriguez_104373@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
+                  <img src={require("./img/AU_P8.jpg")} alt="CT1" style={{width: "329.237px",height:"246.925px"}}/>
                   <div className="container">
-                    <h2>Jane Doe</h2>
-                    <p className="title">Grunt #3</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button className="button">Contact</button></p>
+                    <h2>Elian Santana</h2>
+                    <p className="title">Chapter Treasurer</p>
+                    <p>Phone: 939-332-8808</p>
+                    <p><Button className="button" href="mailto:santana_116552@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_P1.jpg")} alt="Jane" style={{width: "100%"}}/>
+                  <img src={require("./img/AU_Rand.jpg")} alt="CT2" style={{width: "329.237px",height:"246.925px"}}/>
                   <div className="container">
-                    <h2>Jane Doe</h2>
+                    <h2>Jose Yamil Serrano</h2>
+                    <p className="title">Chapter Treasurer</p>
+                    <p>Phone: 787-217-8361</p>
+                    <p><Button className="button" href="mailto:serrano_127256@students.pupr.edu">Send Email</Button></p>
+                  </div>
+                </div>
+              </div>
+              <div className="column">
+                <div className="card">
+                  <img src={require("./img/AU_Rand.jpg")} alt="CSP" style={{width: "329.237px",height:"246.925px"}}/>
+                  <div className="container">
+                    <h2>Luis Rodriguez</h2>
+                    <p className="title">Chapter Spokeperson</p>
+                    <p>Phone: 787-243-5232</p>
+                    <p><Button className="button" href="mailto:rodriguez_127354@students.pupr.edu">Send Email</Button></p>
+                  </div>
+                </div>
+              </div>
+              <div className="column">
+                <div className="card">
+                  <img src={require("./img/AU_Rand.jpg")} alt="Jane" style={{width: "329.237px",height:"246.925px"}}/>
+                  <div className="container">
+                    <h2>Prof. Ginger Rossy</h2>
                     <p className="title">Chapter Mentor</p>
-                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                    <p>example@example.com</p>
-                    <p><button className="button">Contact</button></p>
+                    <p>Phone: 787-669-5618</p>
+                    <p><Button className="button" href="mailto:NULL">Send Email</Button></p>
                   </div>
                 </div>
               </div>
