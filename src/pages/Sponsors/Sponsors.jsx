@@ -124,21 +124,21 @@ function template() {
               <div className="input-row">
                 <div className="input-group">
                   <label>Name</label>
-                  <input type="text" placeholder="John Rodriguez" name="name"/>
+                  <input type="text" placeholder="John Doe" name="name"/>
                 </div>
                 <div className="input-group">
                   <label>Subject</label>
-                  <input type="text" placeholder="What" name="subject"/>
+                  <input type="text" placeholder="Topic" name="subject"/>
                 </div>
               </div>
               <div className="input-row">
                 <div className="input-group">
                   <label>Email</label>
-                  <input type="text" placeholder="example132@gmail.com" name="email"/>
+                  <input type="text" placeholder="your@email.com" name="email"/>
                 </div>
                 <div className="input-group">
                   <label>Phone</label>
-                  <input type="text" placeholder="787 345 2341" name="phone" />
+                  <input type="text" placeholder="123 456 7890" name="phone" />
                 </div>
               </div>
 
