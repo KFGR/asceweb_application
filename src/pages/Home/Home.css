@@ -173,12 +173,13 @@
  
  
 
-  h2, h4{
+  .home h4{
     color:white;
   }
 
-  h2{
+  .home h2{
     text-align: center;
+    color: black
   }
 
 
