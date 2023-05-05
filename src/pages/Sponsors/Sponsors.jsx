@@ -134,7 +134,7 @@ function template() {
               <div className="input-row">
                 <div className="input-group">
                   <label>Email</label>
-                  <input type="text" placeholder="example132@gmail.com" name="email"/>
+                  <input type="text" placeholder="your@email.com" name="email"/>
                 </div>
                 <div className="input-group">
                   <label>Phone</label>
