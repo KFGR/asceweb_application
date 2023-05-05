@@ -325,7 +325,7 @@ function Template() {
             <DataTable
               filters={filters}
               paginator rows={5} rowsPerPageOptions={[5, 10, 20, 30]} 
-              value={dataAdmin} 
+              value={test} 
               stripedRows 
               showGridlines
               removableSort 
