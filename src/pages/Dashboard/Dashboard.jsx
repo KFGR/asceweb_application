@@ -1,5 +1,6 @@
 import "./Dashboard.css";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import axios from 'axios';
 import {DataTable} from "primereact/datatable";
 import { Column } from "primereact/column";
 import "primereact/resources/themes/lara-light-indigo/theme.css";     
@@ -9,6 +10,20 @@ import  {InputText} from "primereact/inputtext";
         
 
 function Template() {
+
+
+  const [adminData, setAdminData] = useState([]);
+
+  // function handleData(event){
+  //   setAdminData(event.target.value);
+  // }
+
+  useEffect(() => {
+    axios.get('https://ascewebbackend.azurewebsites.net/Content/Admins/')
+      .then(response => {setAdminData(response.data); console.log(response.data)})
+      .catch(error => {console.error(error.message);});
+      console.log('https://ascewebbackend.azurewebsites.net/Content/Admins/')
+  }, []);
 
   const dataCompetitions = [
     {
@@ -243,6 +258,7 @@ function Template() {
     setSelectedButton(selected);
   };
 
+ 
 
   return (
 
@@ -325,7 +341,7 @@ function Template() {
             <DataTable
               filters={filters}
               paginator rows={5} rowsPerPageOptions={[5, 10, 20, 30]} 
-              value={test} 
+              value={adminData} 
               stripedRows 
               showGridlines
               removableSort 
@@ -333,13 +349,14 @@ function Template() {
               rowClassName={"custom-row"}
               sortMode="multiple"
             >
-              <Column field="idadministrstor" header="idadministrstor" sortable />
+              <Column field="idAdministrators" header="idadministrstor" sortable />
               <Column field="name" header="Name" sortable />
-              <Column field="username" header="username"sortable/>
+              <Column field="userName" header="username"sortable/>
+              <Column field="password" header="password"/>
               <Column field="email" header="Email" sortable />
-              <Column field="admin_level" header="admin_level" sortable />
-              <Column field="created_at" header="created_at"sortable/>
-              <Column field="updated_at" header="updated_at"sortable/>
+              <Column field="adminLevel" header="admin_level" sortable />
+              <Column field="createdAt" header="created_at"sortable/>
+              <Column field="updatedAt" header="updated_at"sortable/>
             </DataTable>
           </div>
         )}
