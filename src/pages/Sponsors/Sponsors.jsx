@@ -12,13 +12,12 @@ function template() {
       </div>
       <div className="section-information">
         <h2>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit
+          About Donations:
         </h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque magni eos fugiat maxime eum, 
-          porro nostrum deserunt ab! Error alias eum reprehenderit doloremque nam aliquid blanditiis fugit qui eveniet.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque magni eos fugiat maxime eum, 
-          porro nostrum deserunt ab! Error alias eum reprehenderit doloremque nam aliquid blanditiis fugit qui eveniet.
+          The ASCE Student Chapter of the Polytechnic University of Puerto Rico appreciates any and all donations to for our participation
+          in the yearly ASCE competitions. Below you'll find a detailed tier based table which outlines the perks of donating. In the case 
+          that you woul wish to donate, we also have a space where you can contact our directive.
         </p>
       </div>
 
@@ -115,8 +114,9 @@ function template() {
 
       <div className="section-contact">
         <h2>Connect With Us</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, 
-          doloribus nisi? Tenetur ut a officia repudiandae eius, explicabo reprehenderit eos delectus.</p>
+        <p>
+          If you wish to donate to our student chapter, please fill out the form below to get into contact with us.
+        </p>
         <div className="contact-box">
           <div className="contact-left">
             <h3>Send us a message</h3>
@@ -124,11 +124,11 @@ function template() {
               <div className="input-row">
                 <div className="input-group">
                   <label>Name</label>
-                  <input type="text" placeholder="John Rodriguez" name="name"/>
+                  <input type="text" placeholder="John Done" name="name"/>
                 </div>
                 <div className="input-group">
                   <label>Subject</label>
-                  <input type="text" placeholder="What" name="subject"/>
+                  <input type="text" placeholder="Subject" name="subject"/>
                 </div>
               </div>
               <div className="input-row">
@@ -138,7 +138,7 @@ function template() {
                 </div>
                 <div className="input-group">
                   <label>Phone</label>
-                  <input type="text" placeholder="787 345 2341" name="phone" />
+                  <input type="text" placeholder="123 456 7890" name="phone" />
                 </div>
               </div>
 
