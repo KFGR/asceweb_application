@@ -8,22 +8,25 @@ import "primereact/resources/primereact.min.css";
 import  {FilterMatchMode} from "primereact/api";
 import  {InputText} from "primereact/inputtext";                                 
         
+        
+
+
 
 function Template() {
 
 
-  const [adminData, setAdminData] = useState([]);
+  // const [adminData, setAdminData] = useState([]);
 
-  // function handleData(event){
-  //   setAdminData(event.target.value);
-  // }
+  // // function handleData(event){
+  // //   setAdminData(event.target.value);
+  // // }
 
-  useEffect(() => {
-    axios.get('https://ascewebbackend.azurewebsites.net/Content/Admins/')
-      .then(response => {setAdminData(response.data); console.log(response.data)})
-      .catch(error => {console.error(error.message);});
-      console.log('https://ascewebbackend.azurewebsites.net/Content/Admins/')
-  }, []);
+  // useEffect(() => {
+  //   axios.get('https://ascewebbackend.azurewebsites.net/Content/Admins/')
+  //     .then(response => {setAdminData(response.data); console.log(response.data)})
+  //     .catch(error => {console.error(error.message);});
+  //     console.log('https://ascewebbackend.azurewebsites.net/Content/Admins/')
+  // }, []);
 
   const dataCompetitions = [
     {
@@ -188,22 +191,19 @@ function Template() {
   }
   ]
 
-  const dataAdmin = [
-  {
-    name: "Pedro",
-    email: "pedro@gmail.com",
-    phone: "6763913957",
-    Position: "President"
-  }
-  ]
 
 
- const test = "";
-
-
-
+  const [selectedAdmins, setselectedAdmins] = useState([]);
   const [filters, setFilters] = useState({});
+  const [newAdmin, setnewAdmin] = useState({
+    userName: '',
+    passwd: '',
+    name: '',
+    email: '',
+    adminLevel: '',
+  });
 
+  let test = "GA";
   const filterInputsStudents = [
     { field: "name", placeholder: "Filter by name" },
     { field: "email", placeholder: "Filter by email" },
@@ -258,7 +258,67 @@ function Template() {
     setSelectedButton(selected);
   };
 
+  const textEditor = (options) => {
+    return <InputText type="text" value={options.value} onChange={(e) => options.editorCallback(e.target.value)} />;
+  };
  
+  const onRowEditComplete = (e) => {
+    // let _adminData = [...adminData];
+    // let { newData, index } = e;
+
+    // _adminData[index] = newData;
+
+    // setAdminData(_adminData);
+    // const editRow = JSON.stringify(_adminData[index]);
+    // console.log(editRow)
+  };
+
+  function checkInputs(_newAdmin){
+    const regexText = /^([a-zA-Z]+[’'`-]?[a-zA-Z]+[ ]?)+$/;
+    const regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let hasError = false;
+  
+    if (!regexText.test(_newAdmin.userName)) {
+      alert('incorrect username *ENTER ONLY LETTER*');
+      hasError = true;
+    }
+    if(!regexText.test(_newAdmin.passwd)){
+      alert('password *ENTER ONLY LETTER*');
+      hasError = true;
+    }
+    if(!regexText.test(_newAdmin.name)){
+      alert('name *ENTER ONLY LETTER*');
+      hasError = true;
+    }
+    if(!regexEmail.test(_newAdmin.email)){
+      alert('email');
+      hasError = true;
+    }
+
+    return(!hasError);
+  }
+
+  function deleteAdmin(delAdmin){
+
+    if(delAdmin.length !== 0 ){
+      console.log(JSON.stringify(delAdmin))
+    }
+    
+  }
+
+  const handleChange = (event) => {
+    const { name, value} = event.target;
+    setnewAdmin(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if(checkInputs(newAdmin)){
+      console.log(newAdmin);
+    }
+
+  };
+
 
   return (
 
@@ -267,7 +327,10 @@ function Template() {
         <ul>
         <li><button id={selectedButton === 'Students' ? 'selected' : ''} onClick={() => switchTable('Students') }>Students</button></li>
         <li><button id={selectedButton === 'Competitions' ? 'selected' : ''} onClick={() => switchTable('Competitions')}>Competitions</button></li>
+
+        {test === 'GA' && (
         <li><button id={selectedButton === 'Admin' ? 'selected' : ''} onClick={() => switchTable('Admin')}>Admin</button></li>
+        )}
         </ul>
      </div>
     
@@ -332,16 +395,22 @@ function Template() {
               </DataTable>
 
             </div>
-          )}
-        
+        )}
+
         {selectedButton === 'Admin' && (
           <div id="Admin">
             <h2 className="tableHeader">Admin Accounts</h2>
-            <div>{renderFilterInputs("Admin")}</div>
+            <div>
+              {renderFilterInputs("Admin")}
+            </div>
+            <button className="delete" onClick={() => deleteAdmin(selectedAdmins) }>Delete</button>
             <DataTable
+              editMode="row"
+              onRowEditComplete={onRowEditComplete}
               filters={filters}
               paginator rows={5} rowsPerPageOptions={[5, 10, 20, 30]} 
-              value={adminData} 
+              value={dataStudents} 
+              selection={selectedAdmins} onSelectionChange={(e) => setselectedAdmins(e.value)}
               stripedRows 
               showGridlines
               removableSort 
@@ -349,18 +418,49 @@ function Template() {
               rowClassName={"custom-row"}
               sortMode="multiple"
             >
-              <Column field="idAdministrators" header="idadministrstor" sortable />
-              <Column field="name" header="Name" sortable />
+              <Column selectionMode="multiple" exportable={true}></Column>
+              <Column field="idAdministrators" header="idadministrstor" editor={(options) => textEditor(options)} sortable />
+              <Column field="name" header="Name" editor={(options) => textEditor(options)} sortable />
               <Column field="userName" header="username"sortable/>
               <Column field="password" header="password"/>
               <Column field="email" header="Email" sortable />
               <Column field="adminLevel" header="admin_level" sortable />
               <Column field="createdAt" header="created_at"sortable/>
               <Column field="updatedAt" header="updated_at"sortable/>
+              <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
             </DataTable>
-          </div>
-        )}
 
+            <h2 className="tableHeader addAccountSpacing">Add Admin Account</h2>
+            <form onSubmit={handleSubmit}>
+
+              <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleChange} required/>
+              <input className="p-inputtext" type="text" name="passwd" placeholder="Password" onChange={handleChange} required/>
+              <input className="p-inputtext" type="text" name="name" placeholder="Name" onChange={handleChange} required/>
+              <input className="p-inputtext" type="text" name="email" placeholder="Email" onChange={handleChange} required/>
+
+              <p className="p-inputtext" id="adminLevel">Admin level:</p>
+              <div className="p-radiobutton-box p-inputtext">
+        
+                <div className="radioGroup">
+                <label className="p-inputtext" id="selectedColor" htmlFor="adminLevel">MA</label>                
+                <input  type="radio"    name="adminLevel" value="MA" onChange={handleChange} required/>
+                </div>
+
+                <div className="radioGroup" >
+                  <label className="p-inputtext" id="selectedColor" htmlFor="adminLevel">GA</label>
+                  <input  type="radio"    name="adminLevel" value="GA" onChange={handleChange} required/>
+                </div>
+
+              </div>
+
+              <input className="p-inputtext" id="submitButton" type="submit" />
+              <label htmlFor="in"></label>
+
+            </form>
+
+          </div>
+          
+        )}
       </div>
     </>
     

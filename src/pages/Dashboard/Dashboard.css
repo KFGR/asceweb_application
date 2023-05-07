@@ -58,8 +58,72 @@
     font-weight: 700;
 }
 
+.addAccountSpacing{
+    margin-top: 20px;
+}
+
 #selected {
     background-color: #ffc107;
     color:black;
     border: 1px solid black;
-  }
+}
+
+form{
+    margin: 20px auto;
+    display: flex;
+}
+
+form > input[type="text"]{
+    margin-left: 20px;
+}
+
+form > input[type="text"]:first-child{
+    margin-left: 0px;
+}
+
+select{
+    width: 207px;
+}
+
+.delete{
+    align-items: center;
+    padding: 10.5px 17.5px;
+    border: 1px;
+    color: white;
+    font-size: 20px;
+    background-color: rgb(159, 14, 14);
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+#submitButton{
+    width: 100px;
+    background-color: rgb(27, 158, 75);
+    color: white;
+    margin-left: 20px;
+}
+
+input[type="radio"]{
+    width: 18px;
+    height: 18px;
+}
+
+#adminLevel{
+    border: none;
+    margin-left: 20px;
+}
+
+.radioGroup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#selectedColor{
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    margin-right: 10px;
+}
+
