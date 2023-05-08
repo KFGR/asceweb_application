@@ -193,6 +193,8 @@ function Template() {
 
 
 
+  const [selectedStudents, setselectedStudents] = useState([]);
+  const [selectedCompetitions, setselectedCompetitions] = useState([]);
   const [selectedAdmins, setselectedAdmins] = useState([]);
   const [filters, setFilters] = useState({});
   const [newAdmin, setnewAdmin] = useState({
@@ -263,14 +265,40 @@ function Template() {
   };
  
   const onRowEditComplete = (e) => {
-    // let _adminData = [...adminData];
-    // let { newData, index } = e;
+    if(selectedButton === 'Students'){
+      // let _dataStudents = [...dataStudents];
+      // let { newData, index } = e;
 
-    // _adminData[index] = newData;
+      // _dataStudents[index] = newData;
 
-    // setAdminData(_adminData);
-    // const editRow = JSON.stringify(_adminData[index]);
-    // console.log(editRow)
+      // setdataStudents(_dataStudents);
+      // const editRow = JSON.stringify(_dataStudents[index]);
+      // console.log(editRow)
+      console.log('students')
+    }
+    if(selectedButton === 'Competitions'){
+      // let _dataCompetitions = [...dataCompetitions];
+      // let { newData, index } = e;
+
+      // _dataCompetitions[index] = newData;
+
+      // setdataCompetitions(_dataCompetitions);
+      // const editRow = JSON.stringify(_dataCompetitions[index]);
+      // console.log(editRow)
+      console.log('Competitions')
+    }
+    if(selectedButton === 'Admin'){
+      // let _adminData = [...adminData];
+      // let { newData, index } = e;
+
+      // _adminData[index] = newData;
+
+      // setAdminData(_adminData);
+      // const editRow = JSON.stringify(_adminData[index]);
+      // console.log(editRow)
+      console.log('Admin')
+    }
+
   };
 
   function checkInputs(_newAdmin){
@@ -298,12 +326,25 @@ function Template() {
     return(!hasError);
   }
 
-  function deleteAdmin(delAdmin){
 
-    if(delAdmin.length !== 0 ){
-      console.log(JSON.stringify(delAdmin))
+  const deleteInformation = (delInfo) => {
+
+    if(selectedButton === 'Students'){
+      if(delInfo.length !== 0 ){
+        console.log(JSON.stringify(delInfo))
+      }
     }
-    
+    if(selectedButton === 'Competitions'){
+      if(delInfo.length !== 0 ){
+        console.log(JSON.stringify(delInfo))
+      }
+    }
+    if(selectedButton === 'Admin'){
+      if(delInfo.length !== 0 ){
+      console.log(JSON.stringify(delInfo))
+      }
+    }
+
   }
 
   const handleChange = (event) => {
@@ -340,17 +381,22 @@ function Template() {
           <div id="Students">
             <h2 className="tableHeader">ASCE Chapter Members</h2>
             <div>{renderFilterInputs("Students")}</div>
+            <button className="delete" onClick={() => deleteInformation(selectedStudents) }>Delete</button>
             <DataTable
+              editMode="row"
               filters={filters}
               paginator rows={5} rowsPerPageOptions={[5, 10, 20, 30]} 
               value={dataStudents} 
               stripedRows 
               showGridlines
-              removableSort 
+              removableSort
+              onRowEditComplete={onRowEditComplete}
+              selection={selectedStudents} onSelectionChange={(e) => setselectedStudents(e.value)}
               resizableColumns
               rowClassName={"custom-row"}
               sortMode="multiple"
             >
+              <Column selectionMode="multiple" exportable={true}></Column>
               <Column field="name" header="Name" sortable />
               <Column field="email" header="Email"sortable/>
               <Column field="phone" header="Phone Num." sortable />
@@ -360,6 +406,7 @@ function Template() {
               <Column field="department" header="Department" sortable />
               <Column field="academicYear" header="Academic Year"sortable/>
               <Column field="paidMenmbership" header="Paid Menmbership"sortable/>
+              <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
             </DataTable>
           </div>
         )}
@@ -368,18 +415,23 @@ function Template() {
             <div id="Competitions">
               <h2 className="tableHeader">Competition Sign-up</h2>
               <div>{renderFilterInputs('Competitions')}</div>
+              <button className="delete" onClick={() => deleteInformation(selectedCompetitions) }>Delete</button>
               <DataTable
+              editMode="row"
               filters={filters}
               paginator rows={5} rowsPerPageOptions={[5, 10, 20, 30]} 
               value={dataCompetitions} 
               stripedRows 
               showGridlines
-              removableSort 
+              removableSort
+              onRowEditComplete={onRowEditComplete}
+              selection={selectedCompetitions} onSelectionChange={(e) => setselectedCompetitions(e.value)}
               resizableColumns
               rowClassName={"custom-row"}
               sortMode="multiple"
               >
-                <Column field="name" header="Name" sortable />
+                <Column selectionMode="multiple" exportable={true}></Column>
+                <Column field="name" header="Name" editor={(options) => textEditor(options)} sortable />
                 <Column field="email" header="Email"sortable/>
                 <Column field="ASCEMenber" header="ASCEMenber"sortable/>
                 <Column field="ASCENumber" header="ASCENumber"sortable/>
@@ -392,6 +444,7 @@ function Template() {
                 <Column field="older25" header="older25"sortable/>
                 <Column field="heavyvehicleLicense" header="heavyvehicleLicense"sortable/>
                 <Column field="officialDriver" header="officialDriver"sortable/>
+                <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
               </DataTable>
 
             </div>
@@ -403,7 +456,7 @@ function Template() {
             <div>
               {renderFilterInputs("Admin")}
             </div>
-            <button className="delete" onClick={() => deleteAdmin(selectedAdmins) }>Delete</button>
+            <button className="delete" onClick={() => deleteInformation(selectedAdmins) }>Delete</button>
             <DataTable
               editMode="row"
               onRowEditComplete={onRowEditComplete}
