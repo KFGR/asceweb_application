@@ -311,7 +311,7 @@ function Template() {
                 </div>
             </div>
             <div className="questionInput">
-                <label htmlFor="officialDriver">Would you like to be official diver of the PUPR ASCE Student Chapter?</label>
+                <label htmlFor="officialDriver">Would you like to be official driver of the PUPR ASCE Student Chapter?</label>
                 <div className="radio-option">
                     <input type="radio" placeholder="Test" name="officialDriver"  onChange={handleChange} value="YES" required/>
                     <label htmlFor="officialDriver">Yes</label> 
