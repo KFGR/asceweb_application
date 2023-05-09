@@ -1,6 +1,6 @@
 import "./FormCompetition.css";
 import React, { useState } from 'react';
-
+import emailjs from '@emailjs/browser';
 
 
 function Template() {
@@ -139,6 +139,14 @@ function Template() {
       console.log(formData);
       const formDataJson = JSON.stringify(formData);
       console.log(formDataJson);
+
+      emailjs.send('service_he5fwo7','template_po5c80p', formData, 'cz8JC7lswvQNgszAG')
+              .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+              }, (err) => {
+                console.log('FAILED...', err);
+              });
+      
     }else{
       console.log('error');
       alert("Input ERROR")
@@ -322,6 +330,9 @@ function Template() {
             <input type="submit" id="button" value="Submit" />
         </form>
     </div>
+    <script type="text/javascript">
+      emailjs.init('cz8JC7lswvQNgszAG')
+    </script>
     </>
   );
 };

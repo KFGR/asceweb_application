@@ -1,5 +1,6 @@
 import "./StudentSignUp.css";
 import React, { useState } from "react";
+import emailjs from '@emailjs/browser';
  
 function Template() {
   const [picSize,setSize] = useState('Select')
@@ -49,6 +50,15 @@ function Template() {
     if (checkInput(formData)){      
       const formDataJson = JSON.stringify(formData);
       console.log(formDataJson);
+
+      emailjs.send('service_he5fwo7','template_tsi8u6l', formData, 'cz8JC7lswvQNgszAG')
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      }, (err) => {
+        console.log('FAILED...', err);
+      });
+
+
     }else {
       console.log('error');
       alert('Input ERROR');
