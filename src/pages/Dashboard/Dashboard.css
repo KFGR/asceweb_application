@@ -108,6 +108,10 @@ input[type="radio"]{
     height: 18px;
 }
 
+input[type="email"], input[type="number"]{
+    margin-left: 20px;
+}
+
 #adminLevel{
     border: none;
     margin-left: 20px;
@@ -125,5 +129,22 @@ input[type="radio"]{
     padding: 0;
     border: none;
     margin-right: 10px;
+}
+
+.cofinmation-button{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.confirmation{
+    margin-top: 15px;
+    width: 100px;
+}
+
+.confirmation-yes{
+    background-color: #1B9E4B;
+    margin-top: 15px;
+    width: 100px;
 }
 

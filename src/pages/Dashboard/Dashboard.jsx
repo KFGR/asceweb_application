@@ -6,21 +6,22 @@ import { Column } from "primereact/column";
 import "primereact/resources/themes/lara-light-indigo/theme.css";     
 import "primereact/resources/primereact.min.css";
 import  {FilterMatchMode} from "primereact/api";
-import  {InputText} from "primereact/inputtext";                                 
+import  {InputText} from "primereact/inputtext";
+import { Dialog } from 'primereact/dialog';                            
         
         
 
 
 
 function Template() {
+  const masterAdminToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlc3RpbmdBUElGcm9udEVuZDIiLCJleHBfZGF0ZSI6MTY4MzY3MjE2Ni40NDc5MjgsImxldmVsIjoiTUEifQ.fwc_Oyod_XkpF2hfNj0rLtjHuoe4nxmKzofOOmLyLdE";
+  const [dataAdmin, setdataAdmin] = useState([]);
 
-  // const [dataAdmin, setdataAdmin] = useState([]);
-
-  // useEffect(() => {
-  //   axios.get('https://ascewebbackend.azurewebsites.net/Content/Admins/')
-  //     .then(response => {setdataAdmin(response.data); console.log(response.data)})
-  //     .catch(error => {console.error(error.message);});
-  // }, []);
+  useEffect(() => {
+    axios.get(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/GET_ADMINS/?masterAdminToken=${masterAdminToken}`)
+      .then(response => {setdataAdmin(response.data.body); console.log(response.data)})
+      .catch(error => {console.error(error.message);});
+  }, []);
 
   // const [dataCompetitions, setDataCompetitions] = useState([]);
 
@@ -211,26 +212,28 @@ function Template() {
     name: '',
     email: '',
     phone: '',
+    adminLevel: ''
   });
 
-  const [newPassword, setnewPassword] = useState({
-    userName: '',
-    oldpasswd: '',
-    newpasswd: '',
-    email: '',
-  });
+  // const [newPassword, setnewPassword] = useState({
+  //   userName: '',
+  //   oldpasswd: '',
+  //   newpasswd: '',
+  //   email: '',
+  // });
 
-  const [newEmail, setnewEmail] = useState({
-    userName: '',
-    oldemail: '',
-    newemail: '',
-  });
+  // const [newEmail, setnewEmail] = useState({
+  //   userName: '',
+  //   oldemail: '',
+  //   newemail: '',
+  // });
 
   const [selectedStudents, setselectedStudents] = useState([]);
   const [selectedCompetitions, setselectedCompetitions] = useState([]);
   const [selectedAdmins, setselectedAdmins] = useState([]);
   const [filters, setFilters] = useState({});
   const [selectedButton, setSelectedButton] = useState('Students');
+  const [visible, setVisible] = useState(false);
   const adminType = "MA";
 
   const filterInputsStudents = [
@@ -315,64 +318,96 @@ function Template() {
       console.log('Competitions')
     }
     if(selectedButton === 'Admin'){
-      // let _dataAdmin = [...dataAdmin];
-      // let { newData, index } = e;
+      let _dataAdmin = [...dataAdmin];
+      let { newData, index } = e;
 
-      // _dataAdmin[index] = newData;
+      _dataAdmin[index] = newData;
 
-      // setDataAdmin(_dataAdmin);
-      // const editRow = JSON.stringify(_dataAdmin[index]);
-      // console.log(editRow)
-      console.log('Admin')
+      setdataAdmin(_dataAdmin);
+      const editRow = _dataAdmin[index];
+      editRow.phone = editRow.phone.replace(/-/g, "");
+      console.log(editRow)
+      axios.put(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/CHANGE_PASSWD_EMAIL/?userName=${editRow.userName}&masterAdminToken=${masterAdminToken}&newPasswd=${editRow.password}&newEmail=${editRow.email}&newPhone=${editRow.phone}`)
+      .then((response) => {
+        console.log(response.data);
+        if(response.data.status_code === 200){
+          //reload page
+        }else{
+          alert(`${response.data.body}`)
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     }
 
   };
 
   function checkInputs(_newAdmin){
-    const regexText = /^([a-zA-Z]+[’'`-]?[a-zA-Z]+[ ]?)+$/;
-    const regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const regexPassword = /^[A-Z][a-zA-Z0-9]{7,}$/;
+    const regexUserName = /^[A-Z][A-Za-z0-9]*$/;
+    const regexName = /^[A-Z][A-Za-z\s]*$/;
+    const regexEmail = /^[a-z0-9_]+@[a-z\.a-z]+(\.com)|[a-z0-9_]+@[a-z\.a-z]+(\.edu)$/;
+    const regexPhone = /^[0-9]{10}$/;
     let hasError = false;
   
-    if (!regexText.test(_newAdmin.userName)) {
-      alert('incorrect username *ENTER ONLY LETTER*');
+    if (!regexUserName.test(_newAdmin.userName)) {
+      alert('incorrect username \n *USERNAME STARTS WITH UPPERCASE AND CAN ONLY CONTAIN NUMBERS*');
       hasError = true;
     }
-    if(!regexText.test(_newAdmin.passwd)){
-      alert('password *ENTER ONLY LETTER*');
+    if(!regexPassword.test(_newAdmin.passwd)){
+      alert('incorrect password \n *PASSWORD NEDDS TO BE 8 CHARACTERS LONG* \n *PASSWORD STARTS WITH UPPERCASE AND MUST CONTAIN 1 SYMBOL*');
       hasError = true;
     }
-    if(!regexText.test(_newAdmin.name)){
-      alert('name *ENTER ONLY LETTER*');
+    if(!regexName.test(_newAdmin.name)){
+      alert('incorrect name \n *ENTER ONLY LETTER*');
       hasError = true;
     }
     if(!regexEmail.test(_newAdmin.email)){
-      alert('email');
+      alert('incorrect email \n *ENTER A VALID EMAIL*');
+      hasError = true;
+    }
+    if(!regexPhone.test(_newAdmin.phone)){
+      alert('incorrect phone number \n *ENTER A VALID 10 DIGIT PHONE NUMBER*');
       hasError = true;
     }
 
     return(!hasError);
   }
 
+  const deleteConfirmation = () =>{
+    deleteInformation();
+    setVisible(false);
+  }
 
-  const deleteInformation = (delInfo) => {
+  const deleteInformation = () => {
 
     if(selectedButton === 'Students'){
-      if(delInfo.length !== 0 ){
-        const delStudentEmail = selectedStudents.map(student => student.email);
-        console.log(JSON.stringify(delStudentEmail));
-      }
+
+      //ADD DELETE API USING THIS VARIABLE ====>  selectedStudents
+      console.log("READY FOR API STUDENTS");
     }
     if(selectedButton === 'Competitions'){
-      if(delInfo.length !== 0 ){
-        const delCompetitionEmail = selectedCompetitions.map(Competition => Competition.email);
-        console.log(JSON.stringify(delCompetitionEmail));
-      }
+      
+      //ADD DELETE API USING THIS VARIABLE ====>  selectedCompetitions
+      console.log("READY FOR API COMPETITIONS");
     }
     if(selectedButton === 'Admin'){
-      if(selectedAdmins.length !== 0 ){
-      const delAdminEmail = selectedAdmins.map(admin => admin.email);
-      console.log(JSON.stringify(delAdminEmail));
-      }
+
+      console.log(selectedAdmins.email);
+      axios.delete(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/DEL_ACCOUNT/?masterAdminToken=${masterAdminToken}&email=${selectedAdmins.email}`)
+        .then((response) => {
+          console.log(response.data);
+          if(response.data.status_code === 200){
+            //reload page
+          }else{
+            alert(`${response.data.body}`)
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      
     }
 
   }
@@ -384,13 +419,17 @@ function Template() {
 
   const handleAddAdmiinSubmit = (event) => {
     event.preventDefault();
+    newAdmin.phone = newAdmin.phone.replace(/-/g, "");
     if(checkInputs(newAdmin)){
-      const _newAdmin = JSON.stringify(newAdmin);
-      console.log(_newAdmin);
 
-      axios.post('https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/CREATE_MASTER_ADMIN/', _newAdmin)
+      axios.post(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/CREATE_ACCOUNT/?userName=${newAdmin.userName}&passwd=${newAdmin.passwd}&name=${newAdmin.name}&email=${newAdmin.email}&phone=${newAdmin.phone}&adminLevel=${newAdmin.adminLevel}&masterAdminToken=${masterAdminToken}`)
         .then((response) => {
           console.log(response.data);
+          if(response.data.status_code === 200){
+            //reload page
+          }else{
+            alert(`${response.data.body}`)
+          }
         })
         .catch((error) => {
           console.error(error);
@@ -400,31 +439,31 @@ function Template() {
 
   };
 
-  const handleNewPasswordChange = (event) => {
-    const { name, value} = event.target;
-    setnewPassword(prevState => ({ ...prevState, [name]: value }));
-  };
+  // const handleNewPasswordChange = (event) => {
+  //   const { name, value} = event.target;
+  //   setnewPassword(prevState => ({ ...prevState, [name]: value }));
+  // };
 
-  const handleNewPasswordSubmit = (event) => {
-    event.preventDefault();
-    if(checkInputs(newPassword)){
-      console.log(newPassword);
-    }
+  // const handleNewPasswordSubmit = (event) => {
+  //   event.preventDefault();
+  //   if(checkInputs(newPassword)){
+  //     console.log(newPassword);
+  //   }
 
-  };
+  // };
 
-  const handleNewEmailChange = (event) => {
-    const { name, value} = event.target;
-    setnewEmail(prevState => ({ ...prevState, [name]: value }));
-  };
+  // const handleNewEmailChange = (event) => {
+  //   const { name, value} = event.target;
+  //   setnewEmail(prevState => ({ ...prevState, [name]: value }));
+  // };
 
-  const handleNewEmailSubmit = (event) => {
-    event.preventDefault();
-    if(checkInputs(newEmail)){
-      console.log(newEmail);
-    }
+  // const handleNewEmailSubmit = (event) => {
+  //   event.preventDefault();
+  //   if(checkInputs(newEmail)){
+  //     console.log(newEmail);
+  //   }
 
-  };
+  // };
 
 
   return (
@@ -447,7 +486,8 @@ function Template() {
           <div id="Students">
             <h2 className="tableHeader">ASCE Chapter Members</h2>
             <div>{renderFilterInputs("Students")}</div>
-            <button className="delete" onClick={() => deleteInformation(selectedStudents) }>Delete</button>
+            {/* <button className="delete" onClick={() => deleteInformation(selectedStudents) }>Delete</button> */}
+            <button className="delete" onClick={() => setVisible(true) }>Delete</button>
             <DataTable
               editMode="row"
               filters={filters}
@@ -474,6 +514,19 @@ function Template() {
               <Column field="paidMenmbership" header="Paid Menmbership"sortable/>
               <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
             </DataTable>
+
+            <div className="card flex justify-content-center">
+              <Dialog header="WARNING" visible={visible} style={{ width: '25vw' }} onHide={() => setVisible(false)}>
+                  <p className="m-0">
+                    Are you sure you want to delete this user?
+                  </p>
+                  <div className="cofinmation-button">
+                    <div><button className="delete confirmation-yes"  onClick={() => deleteConfirmation()}>Yes</button></div>
+                    <div><button className="delete confirmation" onClick={() => setVisible(false)}>No</button></div>
+                  </div>
+              </Dialog>
+            </div>
+
           </div>
         )}
 
@@ -481,7 +534,8 @@ function Template() {
             <div id="Competitions">
               <h2 className="tableHeader">Competition Sign-up</h2>
               <div>{renderFilterInputs('Competitions')}</div>
-              <button className="delete" onClick={() => deleteInformation(selectedCompetitions) }>Delete</button>
+              {/* <button className="delete" onClick={() => deleteInformation(selectedCompetitions) }>Delete</button> */}
+              <button className="delete" onClick={() => setVisible(true) }>Delete</button>
               <DataTable
               editMode="row"
               filters={filters}
@@ -513,6 +567,17 @@ function Template() {
                 <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
               </DataTable>
 
+              <div className="card flex justify-content-center">
+                <Dialog header="WARNING" visible={visible} style={{ width: '25vw' }} onHide={() => setVisible(false)}>
+                    <p className="m-0">
+                        Are you sure you want to delete this user?
+                    </p>
+                    <div className="cofinmation-button">
+                      <div><button className="delete confirmation-yes"  onClick={() => deleteConfirmation()}>Yes</button></div>
+                      <div><button className="delete confirmation" onClick={() => setVisible(false)}>No</button></div>
+                    </div>
+                </Dialog>
+              </div>
             </div>
         )}
 
@@ -522,13 +587,14 @@ function Template() {
             <div>
               {renderFilterInputs("Admin")}
             </div>
-            <button className="delete" onClick={() => deleteInformation() }>Delete</button>
+            {/* <button className="delete" onClick={() => deleteInformation() }>Delete</button> */}
+            <button className="delete" onClick={() => setVisible(true) }>Delete</button>
             <DataTable
               editMode="row"
               onRowEditComplete={onRowEditComplete}
               filters={filters}
               paginator rows={5} rowsPerPageOptions={[5, 10, 20, 30]} 
-              // value={dataAdmin} 
+              value={dataAdmin} 
               selection={selectedAdmins} onSelectionChange={(e) => setselectedAdmins(e.value)}
               stripedRows 
               showGridlines
@@ -537,15 +603,17 @@ function Template() {
               rowClassName={"custom-row"}
               sortMode="multiple"
             >
-              <Column selectionMode="multiple" exportable={true}></Column>
-              <Column field="idAdministrators" header="idadministrstor" editor={(options) => textEditor(options)} sortable />
-              <Column field="name" header="Name" editor={(options) => textEditor(options)} sortable />
+              <Column selectionMode="single" exportable={true}></Column>
+              <Column field="idAdministrators" header="idadministrstor"  sortable />
+              <Column field="name" header="Name"  sortable />
               <Column field="userName" header="username"sortable/>
-              <Column field="password" header="password"/>
-              <Column field="email" header="Email" sortable />
+              <Column field="password" header="password" editor={(options) => textEditor(options)}/>
+              <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable />
+              <Column field="phone" header="Phone" editor={(options) => textEditor(options)} sortable/>
               <Column field="adminLevel" header="admin_level" sortable />
               <Column field="createdAt" header="created_at"sortable/>
               <Column field="updatedAt" header="updated_at"sortable/>
+              <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
             </DataTable>
 
             <h2 className="tableHeader addAccountSpacing">Add Admin Account</h2>
@@ -554,10 +622,10 @@ function Template() {
               <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleAddAdminChange} required/>
               <input className="p-inputtext" type="text" name="passwd" placeholder="Password" onChange={handleAddAdminChange} required/>
               <input className="p-inputtext" type="text" name="name" placeholder="Name" onChange={handleAddAdminChange} required/>
-              <input className="p-inputtext" type="text" name="email" placeholder="Email" onChange={handleAddAdminChange} required/>
-              <input className="p-inputtext" type="text" name="phone" placeholder="Phone" onChange={handleAddAdminChange} required/>
+              <input className="p-inputtext" type="email" name="email" placeholder="Email" onChange={handleAddAdminChange} required/>
+              <input className="p-inputtext" type="number" name="phone" placeholder="Phone" onChange={handleAddAdminChange} required/>
 
-              {/* <p className="p-inputtext" id="adminLevel">Admin level:</p>
+              <p className="p-inputtext" id="adminLevel">Admin level:</p>
               <div className="p-radiobutton-box p-inputtext">
         
                 <div className="radioGroup">
@@ -570,13 +638,13 @@ function Template() {
                   <input  type="radio"    name="adminLevel" value="GA" onChange={handleAddAdminChange} required/>
                 </div>
 
-              </div> */}
+              </div>
 
               <input className="p-inputtext" id="submitButton" type="submit" />
 
             </form>
 
-            <h2 className="tableHeader addAccountSpacing">Change Password</h2>
+            {/* <h2 className="tableHeader addAccountSpacing">Change Password</h2>
             <form onSubmit={handleNewPasswordSubmit}>
 
               <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleNewPasswordChange} required/>
@@ -593,10 +661,24 @@ function Template() {
               <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleNewEmailChange} required/>
               <input className="p-inputtext" type="text" name="oldemail" placeholder="oldEmail" onChange={handleNewEmailChange} required/>
               <input className="p-inputtext" type="text" name="newemail" placeholder="newEmail" onChange={handleNewEmailChange} required/>
-              {/* <input className="p-inputtext" type="text" name="email" placeholder="Email" onChange={handleNewEmailChange} required/> */}
+              <input className="p-inputtext" type="text" name="email" placeholder="Email" onChange={handleNewEmailChange} required/>
               <input className="p-inputtext" id="submitButton" type="submit" />
 
-            </form>
+            </form> */}
+
+            <div className="card flex justify-content-center">
+              <Dialog header="WARNING" visible={visible} style={{ width: '25vw' }} onHide={() => setVisible(false)}>
+                  <p className="m-0">
+                      Are you sure you want to delete this user?
+                  </p>
+                  <div className="cofinmation-button">
+                    <div><button className="delete confirmation-yes"  onClick={() => deleteConfirmation()}>Yes</button></div>
+                    <div><button className="delete confirmation" onClick={() => setVisible(false)}>No</button></div>
+                  </div>
+              </Dialog>
+            </div>
+
+
           </div>
           
         )}
