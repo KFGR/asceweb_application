@@ -120,31 +120,33 @@ function template() {
         <div className="contact-box">
           <div className="contact-left">
             <h3>Send us a message</h3>
-            <form action="https://formsubmit.co/johnrodricres@gmail.com" method="POST">
+            <form action="https://formsubmit.co/ascepuprchapter@gmail.com" method="POST">
               <div className="input-row">
                 <div className="input-group">
                   <label>Name</label>
-                  <input type="text" placeholder="John Done" name="name"/>
+                  <input type="text" placeholder="John Done" name="name" required/>
                 </div>
                 <div className="input-group">
                   <label>Subject</label>
-                  <input type="text" placeholder="Subject" name="subject"/>
+                  <input type="text" placeholder="Subject" name="subject" required/>
                 </div>
               </div>
               <div className="input-row">
                 <div className="input-group">
                   <label>Email</label>
-                  <input type="text" placeholder="your@email.com" name="email"/>
+                  <input type="email" placeholder="your@email.com" name="email" required/>
                 </div>
                 <div className="input-group">
                   <label>Phone</label>
-                  <input type="text" placeholder="123 456 7890" name="phone" />
+                  <input type="number" placeholder="123 456 7890" name="phone" required/>
                 </div>
               </div>
 
               <label>Message</label>
-              <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+              <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
 
+              <input type="hidden" name="_subject" value="New Sponsor form submission!"/>
+              <input type="hidden" name="_template" value="table"/>
               <button type="submit">Send</button>
             </form>
           </div>
