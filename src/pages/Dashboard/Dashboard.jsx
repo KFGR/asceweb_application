@@ -14,20 +14,23 @@ import  {InputText} from "primereact/inputtext";
 
 function Template() {
 
-
-  // const [adminData, setAdminData] = useState([]);
-
-  // // function handleData(event){
-  // //   setAdminData(event.target.value);
-  // // }
+  // const [dataAdmin, setdataAdmin] = useState([]);
 
   // useEffect(() => {
   //   axios.get('https://ascewebbackend.azurewebsites.net/Content/Admins/')
-  //     .then(response => {setAdminData(response.data); console.log(response.data)})
+  //     .then(response => {setdataAdmin(response.data); console.log(response.data)})
   //     .catch(error => {console.error(error.message);});
-  //     console.log('https://ascewebbackend.azurewebsites.net/Content/Admins/')
   // }, []);
 
+  // const [dataCompetitions, setDataCompetitions] = useState([]);
+
+  // useEffect(() => {
+  //   axios.get('*INSERT getCompetitions API*')
+  //     .then(response => {setDataCompetitions(response.data); console.log(response.data)})
+  //     .catch(error => {console.error(error.message);});
+  // }, []);
+
+  //    DELETE THE VARIABLE BELOW WHEN YOU ADD THE GETCOMPETITIONS API ABOVE
   const dataCompetitions = [
     {
       name: "John Smith",
@@ -166,37 +169,42 @@ function Template() {
         }
   ]
 
+
+  // const [dataStudents, setDataStudents] = useState([]);
+
+  // useEffect(() => {
+  //   axios.get('*INSERT getStudents API*')
+  //     .then(response => {setDataStudents(response.data); console.log(response.data)})
+  //     .catch(error => {console.error(error.message);});
+  // }, []);
+
+  //    DELETE THE VARIABLE BELOW WHEN YOU ADD THE GETSTUDENTS API ABOVE
   const dataStudents = [
-  {
-    name: "John",
-    email: "john.smith@example.com",
-    phone: "7871231234",
-    shirtSize: "XL",
-    age: "24",
-    bachelor: "cs",
-    department: "cs",
-    academicYear: "3rd",
-    paidMenmbership: "YES"
-  },
-  {
-    name: "Pepe",
-    email: "pepe.smith@example.com",
-    phone: "7871231234",
-    shirtSize: "L",
-    age: "23",
-    bachelor: "coe",
-    department: "coe",
-    academicYear: "2rd",
-    paidMenmbership: "NO"
-  }
+    {
+      name: "John",
+      email: "john.smith@example.com",
+      phone: "7871231234",
+      shirtSize: "XL",
+      age: "24",
+      bachelor: "cs",
+      department: "cs",
+      academicYear: "3rd",
+      paidMenmbership: "YES"
+    },
+    {
+      name: "Pepe",
+      email: "pepe.smith@example.com",
+      phone: "7871231234",
+      shirtSize: "L",
+      age: "23",
+      bachelor: "coe",
+      department: "coe",
+      academicYear: "2rd",
+      paidMenmbership: "NO"
+    }
   ]
+  
 
-
-
-  const [selectedStudents, setselectedStudents] = useState([]);
-  const [selectedCompetitions, setselectedCompetitions] = useState([]);
-  const [selectedAdmins, setselectedAdmins] = useState([]);
-  const [filters, setFilters] = useState({});
   const [newAdmin, setnewAdmin] = useState({
     userName: '',
     passwd: '',
@@ -205,7 +213,26 @@ function Template() {
     adminLevel: '',
   });
 
-  let test = "GA";
+  const [newPassword, setnewPassword] = useState({
+    userName: '',
+    oldpasswd: '',
+    newpasswd: '',
+    email: '',
+  });
+
+  const [newEmail, setnewEmail] = useState({
+    userName: '',
+    oldemail: '',
+    newemail: '',
+  });
+
+  const [selectedStudents, setselectedStudents] = useState([]);
+  const [selectedCompetitions, setselectedCompetitions] = useState([]);
+  const [selectedAdmins, setselectedAdmins] = useState([]);
+  const [filters, setFilters] = useState({});
+  const [selectedButton, setSelectedButton] = useState('Students');
+  const adminType = "MA";
+
   const filterInputsStudents = [
     { field: "name", placeholder: "Filter by name" },
     { field: "email", placeholder: "Filter by email" },
@@ -221,7 +248,7 @@ function Template() {
     { field: "name", placeholder: "Filter by name" },
     { field: "email", placeholder: "Filter by email" },
     { field: "Positions", placeholder: "Filter by Positions" }
-  ]
+  ];
 
   const onInputChange = (e, field) => {
     const val = e.target.value;
@@ -254,7 +281,7 @@ function Template() {
   };
 
 
-  const [selectedButton, setSelectedButton] = useState('Students');
+
 
   const switchTable = (selected) => {
     setSelectedButton(selected);
@@ -288,13 +315,13 @@ function Template() {
       console.log('Competitions')
     }
     if(selectedButton === 'Admin'){
-      // let _adminData = [...adminData];
+      // let _dataAdmin = [...dataAdmin];
       // let { newData, index } = e;
 
-      // _adminData[index] = newData;
+      // _dataAdmin[index] = newData;
 
-      // setAdminData(_adminData);
-      // const editRow = JSON.stringify(_adminData[index]);
+      // setDataAdmin(_dataAdmin);
+      // const editRow = JSON.stringify(_dataAdmin[index]);
       // console.log(editRow)
       console.log('Admin')
     }
@@ -331,31 +358,70 @@ function Template() {
 
     if(selectedButton === 'Students'){
       if(delInfo.length !== 0 ){
-        console.log(JSON.stringify(delInfo))
+        const delStudentEmail = selectedStudents.map(student => student.email);
+        console.log(JSON.stringify(delStudentEmail));
       }
     }
     if(selectedButton === 'Competitions'){
       if(delInfo.length !== 0 ){
-        console.log(JSON.stringify(delInfo))
+        const delCompetitionEmail = selectedCompetitions.map(Competition => Competition.email);
+        console.log(JSON.stringify(delCompetitionEmail));
       }
     }
     if(selectedButton === 'Admin'){
-      if(delInfo.length !== 0 ){
-      console.log(JSON.stringify(delInfo))
+      if(selectedAdmins.length !== 0 ){
+      const delAdminEmail = selectedAdmins.map(admin => admin.email);
+      console.log(JSON.stringify(delAdminEmail));
       }
     }
 
   }
 
-  const handleChange = (event) => {
+  const handleAddAdminChange = (event) => {
     const { name, value} = event.target;
     setnewAdmin(prevState => ({ ...prevState, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleAddAdmiinSubmit = (event) => {
     event.preventDefault();
     if(checkInputs(newAdmin)){
-      console.log(newAdmin);
+      const _newAdmin = JSON.stringify(newAdmin);
+      console.log(_newAdmin);
+
+      axios.post('https://ascewebbackend.azurewebsites.net/Content/AdminCreate/', _newAdmin)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+    }
+
+  };
+
+  const handleNewPasswordChange = (event) => {
+    const { name, value} = event.target;
+    setnewPassword(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  const handleNewPasswordSubmit = (event) => {
+    event.preventDefault();
+    if(checkInputs(newPassword)){
+      console.log(newPassword);
+    }
+
+  };
+
+  const handleNewEmailChange = (event) => {
+    const { name, value} = event.target;
+    setnewEmail(prevState => ({ ...prevState, [name]: value }));
+  };
+
+  const handleNewEmailSubmit = (event) => {
+    event.preventDefault();
+    if(checkInputs(newEmail)){
+      console.log(newEmail);
     }
 
   };
@@ -369,7 +435,7 @@ function Template() {
         <li><button id={selectedButton === 'Students' ? 'selected' : ''} onClick={() => switchTable('Students') }>Students</button></li>
         <li><button id={selectedButton === 'Competitions' ? 'selected' : ''} onClick={() => switchTable('Competitions')}>Competitions</button></li>
 
-        {test === 'GA' && (
+        {adminType === 'MA' && (
         <li><button id={selectedButton === 'Admin' ? 'selected' : ''} onClick={() => switchTable('Admin')}>Admin</button></li>
         )}
         </ul>
@@ -456,13 +522,13 @@ function Template() {
             <div>
               {renderFilterInputs("Admin")}
             </div>
-            <button className="delete" onClick={() => deleteInformation(selectedAdmins) }>Delete</button>
+            <button className="delete" onClick={() => deleteInformation() }>Delete</button>
             <DataTable
               editMode="row"
               onRowEditComplete={onRowEditComplete}
               filters={filters}
               paginator rows={5} rowsPerPageOptions={[5, 10, 20, 30]} 
-              value={dataStudents} 
+              // value={dataAdmin} 
               selection={selectedAdmins} onSelectionChange={(e) => setselectedAdmins(e.value)}
               stripedRows 
               showGridlines
@@ -480,37 +546,56 @@ function Template() {
               <Column field="adminLevel" header="admin_level" sortable />
               <Column field="createdAt" header="created_at"sortable/>
               <Column field="updatedAt" header="updated_at"sortable/>
-              <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
             </DataTable>
 
             <h2 className="tableHeader addAccountSpacing">Add Admin Account</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleAddAdmiinSubmit}>
 
-              <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleChange} required/>
-              <input className="p-inputtext" type="text" name="passwd" placeholder="Password" onChange={handleChange} required/>
-              <input className="p-inputtext" type="text" name="name" placeholder="Name" onChange={handleChange} required/>
-              <input className="p-inputtext" type="text" name="email" placeholder="Email" onChange={handleChange} required/>
+              <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleAddAdminChange} required/>
+              <input className="p-inputtext" type="text" name="passwd" placeholder="Password" onChange={handleAddAdminChange} required/>
+              <input className="p-inputtext" type="text" name="name" placeholder="Name" onChange={handleAddAdminChange} required/>
+              <input className="p-inputtext" type="text" name="email" placeholder="Email" onChange={handleAddAdminChange} required/>
 
               <p className="p-inputtext" id="adminLevel">Admin level:</p>
               <div className="p-radiobutton-box p-inputtext">
         
                 <div className="radioGroup">
                 <label className="p-inputtext" id="selectedColor" htmlFor="adminLevel">MA</label>                
-                <input  type="radio"    name="adminLevel" value="MA" onChange={handleChange} required/>
+                <input  type="radio"    name="adminLevel" value="MA" onChange={handleAddAdminChange} required/>
                 </div>
 
                 <div className="radioGroup" >
                   <label className="p-inputtext" id="selectedColor" htmlFor="adminLevel">GA</label>
-                  <input  type="radio"    name="adminLevel" value="GA" onChange={handleChange} required/>
+                  <input  type="radio"    name="adminLevel" value="GA" onChange={handleAddAdminChange} required/>
                 </div>
 
               </div>
 
               <input className="p-inputtext" id="submitButton" type="submit" />
-              <label htmlFor="in"></label>
 
             </form>
 
+            <h2 className="tableHeader addAccountSpacing">Change Password</h2>
+            <form onSubmit={handleNewPasswordSubmit}>
+
+              <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleNewPasswordChange} required/>
+              <input className="p-inputtext" type="text" name="oldpasswd" placeholder="oldPassword" onChange={handleNewPasswordChange} required/>
+              <input className="p-inputtext" type="text" name="newpasswd" placeholder="newPassword" onChange={handleNewPasswordChange} required/>
+              <input className="p-inputtext" type="text" name="email" placeholder="Email" onChange={handleNewPasswordChange} required/>
+              <input className="p-inputtext" id="submitButton" type="submit" />
+
+            </form>
+
+            <h2 className="tableHeader addAccountSpacing">Change Email</h2>
+            <form onSubmit={handleNewEmailSubmit}>
+
+              <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleNewEmailChange} required/>
+              <input className="p-inputtext" type="text" name="oldemail" placeholder="oldEmail" onChange={handleNewEmailChange} required/>
+              <input className="p-inputtext" type="text" name="newemail" placeholder="newEmail" onChange={handleNewEmailChange} required/>
+              {/* <input className="p-inputtext" type="text" name="email" placeholder="Email" onChange={handleNewEmailChange} required/> */}
+              <input className="p-inputtext" id="submitButton" type="submit" />
+
+            </form>
           </div>
           
         )}
