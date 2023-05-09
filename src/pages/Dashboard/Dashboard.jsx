@@ -210,7 +210,7 @@ function Template() {
     passwd: '',
     name: '',
     email: '',
-    adminLevel: '',
+    phone: '',
   });
 
   const [newPassword, setnewPassword] = useState({
@@ -388,7 +388,7 @@ function Template() {
       const _newAdmin = JSON.stringify(newAdmin);
       console.log(_newAdmin);
 
-      axios.post('https://ascewebbackend.azurewebsites.net/Content/AdminCreate/', _newAdmin)
+      axios.post('https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/CREATE_MASTER_ADMIN/', _newAdmin)
         .then((response) => {
           console.log(response.data);
         })
@@ -555,8 +555,9 @@ function Template() {
               <input className="p-inputtext" type="text" name="passwd" placeholder="Password" onChange={handleAddAdminChange} required/>
               <input className="p-inputtext" type="text" name="name" placeholder="Name" onChange={handleAddAdminChange} required/>
               <input className="p-inputtext" type="text" name="email" placeholder="Email" onChange={handleAddAdminChange} required/>
+              <input className="p-inputtext" type="text" name="phone" placeholder="Phone" onChange={handleAddAdminChange} required/>
 
-              <p className="p-inputtext" id="adminLevel">Admin level:</p>
+              {/* <p className="p-inputtext" id="adminLevel">Admin level:</p>
               <div className="p-radiobutton-box p-inputtext">
         
                 <div className="radioGroup">
@@ -569,7 +570,7 @@ function Template() {
                   <input  type="radio"    name="adminLevel" value="GA" onChange={handleAddAdminChange} required/>
                 </div>
 
-              </div>
+              </div> */}
 
               <input className="p-inputtext" id="submitButton" type="submit" />
 
