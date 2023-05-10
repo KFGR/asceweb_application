@@ -2,7 +2,6 @@ import "./AdminLogIn.css";
 import React from "react";
 import { useState } from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
 
 function Template() {
   
@@ -10,7 +9,6 @@ function Template() {
   const [adminFormValues, setAdminFormValues] = useState(initialValue);
 
   const [invalidInput, setinvalidInput] = useState('');
-
   // function handleSubmit(event) {
   //   event.preventDefault();
   //   console.log();
@@ -18,6 +16,7 @@ function Template() {
 
   const handleChange = (event) => {
     // console.log(event.target);
+
     const { name, value }= event.target;
     //setAdminFormValues({ [name]: value });
     setAdminFormValues({ ...adminFormValues, [name]: value });
@@ -31,41 +30,55 @@ function Template() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(adminFormValues);
-    console.log('handleSubmit called');
 
-    if(localStorage.length === 0){
-      const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/LOGIN/?userName=${adminFormValues.userName}&passwd=${adminFormValues.password}`);
+   if(adminFormValues.userName.length <5 || adminFormValues.password.length <8){
+      setinvalidInput('invalid username or password')
       
-      console.log(response.data);//check if the database sends any response
-  
-      const responseModel = response.data;
+   }else{
 
-      console.log('estamos adentro del if');
-      if(responseModel['status_code'] === 201){
+      console.log(adminFormValues); //will eventually have to be deleted
+      console.log('handleSubmit called');//will eventually have to be deleted
+
+      if(localStorage.length === 0){
+        const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/LOGIN/?userName=${adminFormValues.userName}&passwd=${adminFormValues.password}`);
+        
+        console.log(response.data);//check if the database sends any response
+    
+        const responseModel = response.data;
+
+        console.log('estamos adentro del if');
+        if(responseModel['status_code'] === 201){
+            localStorage.setItem('token',responseModel['body']);
+            window.location.href = '/Home';
+        }
+      }else{
+        const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/LOGIN/?userName=${adminFormValues.userName}&passwd=${adminFormValues.password}&token=${adminFormValues.token}`);
+        
+            console.log(response.data);//check if the database sends any response
+        
+        const responseModel = response.data;
+        
+        console.log('estamos adentro del else');
+        if(responseModel['status_code'] === 200)
+        {
+          // localStorage.setItem('token',responseModel['body']);
+          window.location.href = '/Home';
+        }
+        else if(responseModel['status_code'] === 201)
+        {
           localStorage.setItem('token',responseModel['body']);
           window.location.href = '/Home';
+        }
+        else if(responseModel['status_code'] === 401)
+        {
+          console.log(responseModel['body']);
+          setinvalidInput(responseModel['body']);
+        }
+        else if(responseModel['status_code'] === 400) //ESTO PASA CUANDO EL USERNAME Y PASSWORD NO CUMPLEN CON REQUIREMENTS DE LENGTH
+        {
+          window.location.reload();
+        }
       }
-    }else{
-      const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/LOGIN/?userName=${adminFormValues.userName}&passwd=${adminFormValues.password}&token=${adminFormValues.token}`);
-      
-          console.log(response.data);//check if the database sends any response
-      
-       const responseModel = response.data;
-      
-       console.log('estamos adentro del else');
-       if(responseModel['status_code'] === 200){
-         // localStorage.setItem('token',responseModel['body']);
-         window.location.href = '/Home';
-       }
-       else if(responseModel['status_code'] === 201){
-        localStorage.setItem('token',responseModel['body']);
-        window.location.href = '/Home';
-       }
-       else if(responseModel['status_code'] === 401){
-        console.log(responseModel['body']);
-        setinvalidInput(responseModel['body']);
-       }
     }
   
 
