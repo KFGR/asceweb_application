@@ -1,9 +1,10 @@
 import "./StudentSignUp.css";
 import React, { useState } from "react";
 import emailjs from '@emailjs/browser';
+import axios from 'axios';
  
 function Template() {
-  const [picSize,setSize] = useState('Select')
+  const [picSize,setSize] = useState('Select') //pic = picture ; pick= escoge
   // validation form
   const [formData, setFormData] = useState({
     name: '',
@@ -16,12 +17,12 @@ function Template() {
     academic: ''
   });
 
-  //checkInput function htmlFor the validation 
+  //checkInput function htmlFor the validation - This function is for the email validation to make sure it is *****_numbers@students.pupr.edu
   function checkInput (formData) {
     //validation constants
     const regexEmail = /^[a-zA-Z]+_[0-9]+@students\.pupr\.edu$/;
     let hasError = false;
-    console.log(formData.email)
+    console.log(formData.email) // this is a test line to ensure that checkInput is receiving data from formData, the email specifically
     if (!regexEmail.test(formData.email)){
       alert('Please enter a @students.pupr.edu valid email!');
       hasError = true;
@@ -44,25 +45,40 @@ function Template() {
     });
   };
   
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
     if (checkInput(formData)){      
-      const formDataJson = JSON.stringify(formData);
+      const formDataJson = JSON.stringify(formData); //this line shows all input AFTER clicking submit
       console.log(formDataJson);
 
+      //Email functionality below
       emailjs.send('service_he5fwo7','template_tsi8u6l', formData, 'cz8JC7lswvQNgszAG')
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
       }, (err) => {
         console.log('FAILED...', err);
       });
+      //Email functionality Above
+
+      //Below this line, we are trying to get the input data from the Student Sign Up Form to reach the database Member table.
+      const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ascepupr/signupchapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`);
+      
+      console.log('this is just to debug!');
+      
+      console.log(response.data); // this is to see the data that the database responds with
 
 
-    }else {
+
+
+
+
+    }
+    else//THIS ELSE TAKES PLACE IF THE USER ENTERED AN INCORRECT EMAIL (SEE FUCNTION checkInput) 
+    {
       console.log('error');
       alert('Input ERROR');
-      }
+    }
   };
 
   return (
@@ -80,7 +96,14 @@ function Template() {
             <div className="form-group">
               {/* 1. Name */}
               <label id="name-label" htmlFor="name">First & Last Name</label>
-              <input type="text" name="name" id="name" placeholder="John Doe" className="form-control" onChange={handleChange} required/>
+              <input 
+              type="text" 
+              name="name" 
+              id="name" 
+              placeholder="John Doe" 
+              className="form-control" 
+              onChange={handleChange} 
+              required/>
             </div>
           </div>
 
@@ -88,7 +111,14 @@ function Template() {
           <div className="col-md-6">
             <div className="form-group">
               <label id="email-label" htmlFor="email">Institutional Email</label>
-              <input type="email" name="email" id="uniEmail" placeholder="doe_123456@students.pupr.edu" className="form-control" onChange={handleChange} required/>
+              <input 
+              type="email" 
+              name="email" 
+              id="uniEmail" 
+              placeholder="doe_123456@students.pupr.edu" 
+              className="form-control" 
+              onChange={handleChange} 
+              required/>
             </div>
           </div>
         </div>
@@ -129,11 +159,25 @@ function Template() {
             <div className="form-group">
               {/* 5. Age */}
               <label id="number-label" htmlFor="number">Age</label>
-              <input type="text" name="age" id="number" className="form-control" placeholder="Enter your age" onChange={handleChange} required/>
+              <input 
+              type="text" 
+              name="age" 
+              id="number" 
+              className="form-control" 
+              placeholder="Enter your age" 
+              onChange={handleChange} 
+              required/>
             </div>
             <div className="form-group">
               <label id="number-label" htmlFor="number">Department</label>
-              <input type="text" name="department" id="department" className="form-control" placeholder="Enter your department" onChange={handleChange} required/>
+              <input 
+              type="text" 
+              name="department" 
+              id="department" 
+              className="form-control" 
+              placeholder="Enter your department" 
+              onChange={handleChange} 
+              required/>
             </div>
             </div>
           </div>
@@ -143,12 +187,27 @@ function Template() {
             <div className="form-group">
               {/* 6. Bachelor */}
               <label id="number-label" htmlFor="number">Bachelor</label>
-              <input type="text" name="bachelor" id="bachelor" className="form-control" placeholder="Enter your bachelor" onChange={handleChange} required/>
+              <input 
+              type="text" 
+              name="bachelor" 
+              id="bachelor" 
+              className="form-control" 
+              placeholder="Enter your bachelor" 
+              onChange={handleChange} 
+              required/>
             </div>
             <div className="form-group">
               {/* 8. Academic Year */}
               <label id="number-label" htmlFor="number">Academic Year</label>
-              <input type="text" name="academic" id="academic" min="1" max="15" className="form-control" placeholder="Enter your academic year" onChange={handleChange} required/>
+              <input 
+              type="text" 
+              name="academic" 
+              id="academic" 
+              min="1" max="15" 
+              className="form-control" 
+              placeholder="Enter your academic year" 
+              onChange={handleChange} 
+              required/>
             </div>
             </div>
           </div>
@@ -162,7 +221,7 @@ function Template() {
                 <input type="checkbox" 
                   id="checkbox" required/> After the "Submit" button, there will be a fee of $25.00 dollars
                   in order to become a member of the PUPR-ASCE, by contacting the PUPR-ASCE treasuer directive member. 
-                  The $25.00 dollars are not refundable.  
+                  The $25.00 dollars are not refundable.
                 </div>   
             </div>
           </div>
