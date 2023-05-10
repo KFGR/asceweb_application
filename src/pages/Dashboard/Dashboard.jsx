@@ -14,7 +14,7 @@ import { Dialog } from 'primereact/dialog';
 
 
 function Template() {
-  const masterAdminToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlc3RpbmdBUElGcm9udEVuZDIiLCJleHBfZGF0ZSI6MTY4MzY3MjE2Ni40NDc5MjgsImxldmVsIjoiTUEifQ.fwc_Oyod_XkpF2hfNj0rLtjHuoe4nxmKzofOOmLyLdE";
+  const masterAdminToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlc3RpbmdBUElGcm9udEVuZDIiLCJleHBfZGF0ZSI6MTY4MzcwMjg0NS45MzYyNjQsImxldmVsIjoiTUEifQ.nrUm0nDqGp5No3fW3L9JDBw2X8YSgHkJjgMj5-8e-r8";
   const [dataAdmin, setdataAdmin] = useState([]);
 
   useEffect(() => {
@@ -384,32 +384,52 @@ function Template() {
 
     if(selectedButton === 'Students'){
 
-      //ADD DELETE API USING THIS VARIABLE ====>  selectedStudents
-      console.log("READY FOR API STUDENTS");
+      if(selectedStudents.length !== 0){
+
+        const deleteEmailsStudents = selectedStudents.map(obj => obj.email);
+        console.log(deleteEmailsStudents);
+        console.log("READY FOR API STUDENTS");
+        //ADD DELETE API USING THIS VARIABLE ====>  selectedCompetitions
+      }else{
+        alert("SELECT A USER TO DELETE");
+      }
     }
     if(selectedButton === 'Competitions'){
       
-      //ADD DELETE API USING THIS VARIABLE ====>  selectedCompetitions
-      console.log("READY FOR API COMPETITIONS");
+
+      if(selectedCompetitions.length !== 0){
+
+        const deleteEmailsCompetitions = selectedCompetitions.map(obj => obj.email);
+        console.log(deleteEmailsCompetitions)
+        console.log("READY FOR API COMPETITIONS");
+        //ADD DELETE API USING THIS VARIABLE ====>  selectedCompetitions
+      }else{
+        alert("SELECT A USER TO DELETE");
+      }
+
     }
     if(selectedButton === 'Admin'){
 
-      console.log(selectedAdmins.email);
-      axios.delete(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/DEL_ACCOUNT/?masterAdminToken=${masterAdminToken}&email=${selectedAdmins.email}`)
-        .then((response) => {
-          console.log(response.data);
-          if(response.data.status_code === 200){
-            //reload page
-          }else{
-            alert(`${response.data.body}`)
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      
-    }
+      if(selectedAdmins.length !== 0){
 
+        console.log(selectedAdmins.email);
+        axios.delete(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/DEL_ACCOUNT/?masterAdminToken=${masterAdminToken}&email=${selectedAdmins.email}`)
+          .then((response) => {
+            console.log(response.data);
+            if(response.data.status_code === 200){
+              //reload page
+            }else{
+              alert(`${response.data.body}`)
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+
+      }else{
+        alert("SELECT A USER TO DELETE");
+      }
+    }
   }
 
   const handleAddAdminChange = (event) => {
