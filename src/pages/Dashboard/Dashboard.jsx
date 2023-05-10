@@ -14,7 +14,7 @@ import { Dialog } from 'primereact/dialog';
 
 
 function Template() {
-  const masterAdminToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlc3RpbmdBUElGcm9udEVuZDIiLCJleHBfZGF0ZSI6MTY4MzcwMjg0NS45MzYyNjQsImxldmVsIjoiTUEifQ.nrUm0nDqGp5No3fW3L9JDBw2X8YSgHkJjgMj5-8e-r8";
+  const masterAdminToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlc3RpbmdBUElGcm9udEVuZDIiLCJleHBfZGF0ZSI6MTY4MzcyOTc1MC4wMTEzNjEsImxldmVsIjoiTUEifQ.yqC2fTXjRijXn8_hD0296zdr25UQg0oj0GZUcAB0Lt4";
   const [dataAdmin, setdataAdmin] = useState([]);
 
   useEffect(() => {
