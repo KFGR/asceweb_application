@@ -14,194 +14,31 @@ import { Dialog } from 'primereact/dialog';
 
 
 function Template() {
-  const masterAdminToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFkbWluTWFzdGVyIiwiZXhwX2RhdGUiOjE2ODM4MTg4NjMuNjI3Nzc4LCJsZXZlbCI6Ik1BIn0.yizDbFKDyuvKak1GIeNvNPhE8pPxHXoY9y8TxVuMT4c";
-  
+  const masterAdminToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG5UZXN0aW5nMSIsImV4cF9kYXRlIjoxNjg0MDg3ODQzLjM4ODcwOSwibGV2ZWwiOiJNQSJ9.XRw21-DUBJ39T5IfDu0-Gm1ho_mpAdZLlOaLW5bMEwc";
+  const decodedToken = JSON.parse(atob(masterAdminToken.split('.')[1]));
+  const adminType = decodedToken.level;
+
   const [dataAdmin, setdataAdmin] = useState([]);  
   useEffect(() => {
-    axios.get(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/GET_ADMINS/?masterAdminToken=${masterAdminToken}`)
-      .then(response => {setdataAdmin(response.data.body); console.log(response.data)})
+    axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/admins/?masterAdminToken=${masterAdminToken}`)
+      .then(response => {setdataAdmin(response.data.body); console.log(response.data) })
       .catch(error => {console.error(error.message);});
   }, []);
 
-  // const [dataCompetitions, setDataCompetitions] = useState([]);
-  // useEffect(() => {
-  //   axios.get('*INSERT getCompetitions API*')
-  //     .then(response => {setDataCompetitions(response.data); console.log(response.data)})
-  //     .catch(error => {console.error(error.message);});
-  // }, []);
-
-  //    DELETE THE VARIABLE BELOW WHEN YOU ADD THE GETCOMPETITIONS API ABOVE
-  const dataCompetitions = [
-    {
-      name: "John Smith",
-      email: "john.smith@example.com",
-      ASCEMenber: true,
-      ASCENumber: "123456",
-      Weekday: "Monday",
-      Competitions: "Steel Bridge, Concrete Canoe",
-      recentCourse: "Structural Engineering",
-      Experience: "2 years",
-      Travel: true,
-      travelJune: true,
-      older25: false,
-      heavyvehicleLicense: false,
-      officialDriver: false
-      },
-      {
-        name: "Emily Chen",
-        email: "emily.chen@example.com",
-        ASCEMenber: false,
-        ASCENumber: "",
-        Weekday: "Tuesday",
-        Competitions: "Concrete Frisbee, Environmental",
-        recentCourse: "Environmental Engineering",
-        Experience: "1 year",
-        Travel: true,
-        travelJune: false,
-        older25: false,
-        heavyvehicleLicense: false,
-        officialDriver: false
-        },
-        {
-          name: "Michael Rodriguez",
-          email: "michael.rodriguez@example.com",
-          ASCEMenber: true,
-          ASCENumber: "234567",
-          Weekday: "Wednesday",
-          Competitions: "Geotechnical, Pavement",
-          recentCourse: "Geotechnical Engineering",
-          Experience: "4 years",
-          Travel: false,
-          travelJune: false,
-          older25: true,
-          heavyvehicleLicense: false,
-          officialDriver: true
-        },
-        {
-          name: "Sophia Kim",
-          email: "sophia.kim@example.com",
-          ASCEMenber: false,
-          ASCENumber: "",
-          Weekday: "Thursday",
-          Competitions: "Steel Bridge, Concrete Canoe",
-          recentCourse: "Structural Engineering",
-          Experience: "3 years",
-          Travel: true,
-          travelJune: true,
-          older25: true,
-          heavyvehicleLicense: false,
-          officialDriver: false
-        },
-        {
-          name: "Daniel Nguyen",
-          email: "daniel.nguyen@example.com",
-          ASCEMenber: true,
-          ASCENumber: "345678",
-          Weekday: "Friday",
-          Competitions: "Environmental, Concrete Canoe",
-          recentCourse: "Environmental Engineering",
-          Experience: "6 years",
-          Travel: true,
-          travelJune: false,
-          older25: true,
-          heavyvehicleLicense: true,
-          officialDriver: true
-        },
-        {
-          name: "Jessica Lee",
-          email: "jessica.lee@example.com",
-          ASCEMenber: false,
-          ASCENumber: "",
-          Weekday: "Saturday",
-          Competitions: "Geotechnical, Pavement",
-          recentCourse: "Geotechnical Engineering",
-          Experience: "2 years",
-          Travel: true,
-          travelJune: true,
-          older25: false,
-          heavyvehicleLicense: false,
-          officialDriver: false
-        },
-        {
-          name: "Brian Lee",
-          email: "brian.lee@example.com",
-          ASCEMenber: false,
-          ASCENumber: "",
-          Weekday: "Tuesday",
-          Competitions: "Geotechnical, Environmental",
-          recentCourse: "Geotechnical Engineering",
-          Experience: "5 years",
-          Travel: true,
-          travelJune: false,
-          older25: true,
-          heavyvehicleLicense: false,
-          officialDriver: false
-        },
-        {
-          name: "David Kim",
-          email: "david.kim@example.com",
-          ASCEMenber: true,
-          ASCENumber: "456789",
-          Weekday: "Monday",
-          Competitions: "Steel Bridge, Pavement",
-          recentCourse: "Structural Engineering",
-          Experience: "8 years",
-          Travel: true,
-          travelJune: true,
-          older25: true,
-          heavyvehicleLicense: true,
-          officialDriver: true
-        },
-        {
-          name: "Karen Wong",
-          email: "karen.wong@example.com",
-          ASCEMenber: false,
-          ASCENumber: "",
-          Weekday: "Wednesday",
-          Competitions: "Environmental, Concrete Canoe",
-          recentCourse: "Environmental Engineering",
-          Experience: "2 years",
-          Travel: true,
-          travelJune: false,
-          older25: true,
-          heavyvehicleLicense: false,
-          officialDriver: false
-        }
-  ]
-
+  const [dataCompetitions, setDataCompetitions] = useState([]);
+  useEffect(() => {
+    axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/competitions/?masterAdminToken=${masterAdminToken}`)
+      .then(response => {setDataCompetitions(response.data.body); console.log(response.data) })
+      .catch(error => {console.error(error.message);});
+  }, []);
 
   const [dataStudents, setDataStudents] = useState([]);
   useEffect(() => {
     axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/members/?masterAdminToken=${masterAdminToken}`)
-      .then(response => {setDataStudents(response.data.body); console.log(response.data)})
+      .then(response => {setDataStudents(response.data.body); })
       .catch(error => {console.error(error.message);});
   }, []);
 
-  //    DELETE THE VARIABLE BELOW WHEN YOU ADD THE GETSTUDENTS API ABOVE
-  // const dataStudents = [
-  //   {
-  //     name: "John",
-  //     email: "john.smith@example.com",
-  //     phone: "7871231234",
-  //     shirtSize: "XL",
-  //     age: "24",
-  //     bachelor: "cs",
-  //     department: "cs",
-  //     academicYear: "3rd",
-  //     paidMenmbership: "YES"
-  //   },
-  //   {
-  //     name: "Pepe",
-  //     email: "pepe.smith@example.com",
-  //     phone: "7871231234",
-  //     shirtSize: "L",
-  //     age: "23",
-  //     bachelor: "coe",
-  //     department: "coe",
-  //     academicYear: "2rd",
-  //     paidMenmbership: "NO"
-  //   }
-  // ]
   
 
   const [newAdmin, setnewAdmin] = useState({
@@ -215,11 +52,10 @@ function Template() {
 
   const [selectedStudents, setselectedStudents] = useState([]);
   const [selectedCompetitions, setselectedCompetitions] = useState([]);
-  const [selectedAdmins, setselectedAdmins] = useState([]);
+  const [selectedAdmins, setselectedAdmins] = useState(null);
   const [filters, setFilters] = useState({});
   const [selectedButton, setSelectedButton] = useState('Students');
   const [visible, setVisible] = useState(false);
-  const adminType = "MA";
 
   const filterInputsStudents = [
     { field: "name", placeholder: "Filter by name" },
@@ -240,17 +76,17 @@ function Template() {
 
   function getData(){
     if(selectedButton === "Students"){
-      // axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/members/?masterAdminToken=${masterAdminToken}`)
-      // .then(response => {setDataStudents(response.data.body); console.log(response.data)})
-      // .catch(error => {console.error(error.message);});
+      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/members/?masterAdminToken=${masterAdminToken}`)
+      .then(response => {setDataStudents(response.data.body); })
+      .catch(error => {console.error(error.message);});
     }
     if(selectedButton === "Competitions"){
-      // axios.get(`API HERE`)
-      // .then(response => {setdataAdmin(response.data.body); console.log(response.data)})
-      // .catch(error => {console.error(error.message);});
+      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/competitions/?masterAdminToken=${masterAdminToken}`)
+      .then(response => {setDataCompetitions(response.data.body); })
+      .catch(error => {console.error(error.message);});
     }
     if(selectedButton === "Admin"){
-      axios.get(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/GET_ADMINS/?masterAdminToken=${masterAdminToken}`)
+      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/admins/?masterAdminToken=${masterAdminToken}`)
       .then(response => {setdataAdmin(response.data.body); console.log(response.data)})
       .catch(error => {console.error(error.message);});
     }
@@ -299,60 +135,47 @@ function Template() {
  
   const onRowEditComplete = (e) => {
     if(selectedButton === 'Students'){
-      // let _dataStudents = [...dataStudents];
-      // let { newData, index } = e;
+      let _dataStudents = [...dataStudents];
+      let { newData, index } = e;
 
-      // _dataStudents[index] = newData;
+      _dataStudents[index] = newData;
 
-      // setdataStudents(_dataStudents);
-      // const editRow = JSON.stringify(_dataStudents[index]);
-      // console.log(editRow)
-      console.log('students')
+      setDataStudents(_dataStudents);
+      const editRow = _dataStudents[index];
+      editRow.phone = editRow.phone.replace(/-/g, "");
+      console.log(editRow);
+      updateRow(editRow);
     }
     if(selectedButton === 'Competitions'){
-      // let _dataCompetitions = [...dataCompetitions];
-      // let { newData, index } = e;
+      let _dataCompetitions = [...dataCompetitions];
+      let { newData, index } = e;
 
-      // _dataCompetitions[index] = newData;
+      _dataCompetitions[index] = newData;
 
-      // setdataCompetitions(_dataCompetitions);
-      // const editRow = _dataCompetitions[index]);
-      // console.log(editRow)
-      // updateRow(editRow);
-      console.log('Competitions')
+      setDataCompetitions(_dataCompetitions);
+      const editRow = _dataCompetitions[index];
+      editRow.phone = editRow.phone.replace(/-/g, "");
+      console.log(editRow);
+      updateRow(editRow);
     }
     if(selectedButton === 'Admin'){
       let _dataAdmin = [...dataAdmin];
       let { newData, index } = e;
 
       _dataAdmin[index] = newData;
-
+      
       const editRow = _dataAdmin[index];
-      editRow.phone = editRow.phone.replace(/-/g, "");
-      index = dataAdmin.findIndex(dataAdmin => dataAdmin.email === editRow.email);
-
-      if(editRow.email === dataAdmin[index].email){
-        if(editRow.passwd !== dataAdmin[index].passwd){
-          updateRow(editRow);
-        }else{
-          updateRowNotPassword(editRow);
-        }
-
-      }
+      index = dataAdmin.findIndex(dataAdmin => dataAdmin.userName === editRow.userName);
+      updateRow(editRow, index);
     }
 
   };
 
-  function updateRow(editRow){
+  function updateRow(editRow, index){
 
     if(selectedButton === "Students"){
       console.log('Students')
-    }
-    if(selectedButton === "Competitions"){
-      console.log('Competitions')
-    }
-    if(selectedButton === "Admin"){
-      axios.put(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/CHANGE_PASSWD_EMAIL/?userName=${editRow.userName}&masterAdminToken=${masterAdminToken}&newPasswd=${editRow.password}&newEmail=${editRow.email}&newPhone=${editRow.phone}`)
+      axios.put(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/members/updatefrommember?token=${masterAdminToken}&name=${editRow.name}&email=${editRow.email}&phone=${editRow.phone}&tshirt_size=${editRow.tshirt_size}&age=${editRow.age}&bachelor=${editRow.bachelor}&department=${editRow.department}&Academic_Years=${editRow.aca_years}`)
       .then((response) => {
         console.log(response.data);
         if(response.data.status_code === 200){
@@ -366,43 +189,69 @@ function Template() {
         console.error(error);
       });
     }
+    if(selectedButton === "Competitions"){
+      console.log('Competitions')
+    }
+    if(selectedButton === "Admin"){
 
-  }
-
-  function updateRowNotPassword(editRow){
-    axios.put(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/CHANGE_PASSWD_EMAIL/?userName=${editRow.userName}&masterAdminToken=${masterAdminToken}&newEmail=${editRow.email}&newPhone=${editRow.phone}`)
-    .then((response) => {
-      console.log(response.data);
-      if(response.data.status_code === 200){
-        getData();
-        alert(`${response.data.body}`);
-      }else{
-        alert(`${response.data.body}`)
+      let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/admin/updatefromadmin/?userName=${editRow.userName}&masterAdminToken=${masterAdminToken}`;
+      let _link = ``;
+      if(editRow.passwd !== dataAdmin[index].passwd){
+        _link = link + `&newPasswd=${editRow.passwd}`;
       }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+      if(editRow.email !== dataAdmin[index].email){
+        _link = _link + `&newEmail=${editRow.email}`;
+      }
+      if(editRow.phone !== dataAdmin[index].phone){
+        editRow.phone = editRow.phone.replace(/-/g, "");
+        _link = _link + `&newPhone=${editRow.phone}`;
+      }
+      if(editRow.adminLevel !== dataAdmin[index].adminLevel){
+        _link = _link + `&newLevel=${editRow.adminLevel}`;
+      }
+      if(_link === ''){
+        alert("NO CHANGES WERE MADE")
+      }else{
+
+      axios.put(_link)
+      .then((response) => {
+        console.log(response.data);
+        if(response.data.status_code === 201){
+          getData();
+          alert(`${response.data.body}`);
+        }else{
+          alert(`${response.data.body}`);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+      }
+
+    }
+
   }
 
-  function checkInputs(_newAdmin){
-    const regexPassword = /^[A-Z][a-zA-Z0-9]{7,}$/;
+
+  function checkAddAdminInputs(_newAdmin){
+    const regexPassword = /[A-Z](?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+={}[\]:;"'<>,.?/])[A-Za-z\d!@#$%^&*()_+={}[\]:;"'<>,.?/]{7,}$/;
     const regexUserName = /^[A-Z][A-Za-z0-9]*$/;
-    const regexName = /^[A-Z][A-Za-z\s]*$/;
+    const regexName = /^[A-Z][a-z]{2,}( [A-Z][a-z]{1,})+$/;
     const regexEmail = /^[a-z0-9_]+@[a-z\.a-z]+(\.com)|[a-z0-9_]+@[a-z\.a-z]+(\.edu)$/;
     const regexPhone = /^[0-9]{10}$/;
     let hasError = false;
-  
+    
+    
     if (!regexUserName.test(_newAdmin.userName)) {
-      alert('incorrect username \n *USERNAME STARTS WITH UPPERCASE AND CAN ONLY CONTAIN NUMBERS*');
+      alert('incorrect username \n *USERNAME STARTS WITH UPPERCASE AND CAN ONLY CONTAIN LETTERS AND NUMBERS*');
       hasError = true;
     }
-    // if(!regexPassword.test(_newAdmin.passwd)){
-    //   alert('incorrect password \n *PASSWORD NEDDS TO BE 8 CHARACTERS LONG* \n *PASSWORD STARTS WITH UPPERCASE AND MUST CONTAIN 1 SYMBOL*');
-    //   hasError = true;
-    // }
+    if(!regexPassword.test(_newAdmin.passwd)){
+      alert('incorrect password \n *PASSWORD NEDDS TO BE 8 CHARACTERS LONG* \n *PASSWORD STARTS WITH UPPERCASE AND MUST CONTAIN ATLEAST 1 LOWERCASE AND 1 SYMBOL*');
+      hasError = true;
+    }
     if(!regexName.test(_newAdmin.name)){
-      alert('incorrect name \n *ENTER ONLY LETTER*');
+      alert('incorrect name \n *ENTER  FIRSTNAME AND  LASTNAME*');
       hasError = true;
     }
     if(!regexEmail.test(_newAdmin.email)){
@@ -431,37 +280,67 @@ function Template() {
         const deleteEmailsStudents = selectedStudents.map(obj => obj.email);
         console.log(deleteEmailsStudents);
         console.log("READY FOR API STUDENTS");
-        //ADD DELETE API USING THIS VARIABLE ====>  selectedCompetitions
+        
+        // axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/deletemembers/?masterAdminToken=${masterAdminToken}&email=${deleteEmailsStudents}`)
+        // .then((response) => {
+        //   console.log(response.data);
+        //   if(response.data.status_code === 200){
+        //     getData();
+        //     alert(`${response.data.body}`);
+        //     setselectedStudents("")
+        //   }else{
+        //     alert(`${response.data.body}`);
+        //   }
+        // })
+        // .catch((error) => {
+        //   console.error(error);
+        // });
+
       }else{
-        alert("SELECT A USER TO DELETE");
+        alert("SELECT A MEMBER TO DELETE");
       }
     }
     if(selectedButton === 'Competitions'){
       
-
       if(selectedCompetitions.length !== 0){
 
         const deleteEmailsCompetitions = selectedCompetitions.map(obj => obj.email);
         console.log(deleteEmailsCompetitions)
         console.log("READY FOR API COMPETITIONS");
-        //ADD DELETE API USING THIS VARIABLE ====>  selectedCompetitions
+        
+        // axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/competitionsmember/deletecompetitionsmember/?masterAdminToken=${masterAdminToken}&email=${deleteEmailsCompetitions}`)
+        // .then((response) => {
+        //   console.log(response.data);
+        //   if(response.data.status_code === 200){
+        //     getData();
+        //     alert(`${response.data.body}`);
+        //     setselectedCompetitions("")
+        //   }else{
+        //     alert(`${response.data.body}`);
+        //   }
+        // })
+        // .catch((error) => {
+        //   console.error(error);
+        // });
       }else{
-        alert("SELECT A USER TO DELETE");
+        alert("SELECT A COMPETITION SUBMITION TO DELETE");
       }
 
     }
     if(selectedButton === 'Admin'){
+      console.log(selectedAdmins)
+      if(selectedAdmins === null){
+        
+       alert("SELECT A USER TO DELETE");
 
-      if(selectedAdmins.length !== 0){
-
-        console.log(selectedAdmins.email);
-        axios.delete(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/DEL_ACCOUNT/?masterAdminToken=${masterAdminToken}&email=${selectedAdmins.email}`)
+      }else{
+        axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/admin/deleteadminfromtable/?masterAdminToken=${masterAdminToken}&email=${selectedAdmins.email}`)
           .then((response) => {
             console.log(response.data);
             if(response.data.status_code === 200){
               getData();
               alert(`${response.data.body}`);
-              setselectedAdmins("")
+              setselectedAdmins(null)
             }else{
               alert(`${response.data.body}`);
             }
@@ -469,9 +348,6 @@ function Template() {
           .catch((error) => {
             console.error(error);
           });
-
-      }else{
-        alert("SELECT A USER TO DELETE");
       }
     }
   }
@@ -484,15 +360,16 @@ function Template() {
   const handleAddAdmiinSubmit = (event) => {
     event.preventDefault();
     newAdmin.phone = newAdmin.phone.replace(/-/g, "");
-    if(checkInputs(newAdmin)){
+    if(checkAddAdminInputs(newAdmin)){
 
-      axios.post(`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/CREATE_ACCOUNT/?userName=${newAdmin.userName}&passwd=${newAdmin.passwd}&name=${newAdmin.name}&email=${newAdmin.email}&phone=${newAdmin.phone}&adminLevel=${newAdmin.adminLevel}&masterAdminToken=${masterAdminToken}`)
+      axios.post(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/create/admin/createadmin/?userName=${newAdmin.userName}&passwd=${newAdmin.passwd}&name=${newAdmin.name}&email=${newAdmin.email}&phone=${newAdmin.phone}&adminLevel=${newAdmin.adminLevel}&token=${masterAdminToken}`)
         .then((response) => {
           console.log(response.data);
           if(response.data.status_code === 201){
             console.log('Data changed')
             alert(`${response.data.body}`);
             getData();
+            setnewAdmin("")
           }else{
             alert(`${response.data.body}`);
           }
@@ -544,17 +421,20 @@ function Template() {
             >
               <Column selectionMode="multiple" exportable={true}></Column>
               <Column field="idchapter_members" header="ID Chapter Member" sortable />
-              <Column field="name" header="Name" sortable />
-              <Column field="email" header="Email"sortable/>
-              <Column field="phone" header="Phone Num." sortable/>
-              <Column field="tshirt_size" header="Shirt Size"sortable/>
-              <Column field="age" header="Age" sortable />
-              <Column field="bachelor" header="Bachelor"sortable/>
-              <Column field="department" header="Department" sortable />
-              <Column field="aca_years" header="Academic Year"sortable/>
+              <Column field="name" header="Name" editor={(options) => textEditor(options)} sortable />
+              <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable/>
+              <Column field="phone" header="Phone Num." editor={(options) => textEditor(options)} sortable/>
+              <Column field="tshirt_size" header="Shirt Size" editor={(options) => textEditor(options)} sortable/>
+              <Column field="age" header="Age" editor={(options) => textEditor(options)} sortable />
+              <Column field="bachelor" header="Bachelor" editor={(options) => textEditor(options)} sortable/>
+              <Column field="department" header="Department" editor={(options) => textEditor(options)} sortable />
+              <Column field="aca_years" header="Academic Year" editor={(options) => textEditor(options)} sortable/>
               <Column field="type" header="Member Type" sortable />
               <Column field="competitions_form" header="Competition Form"sortable/>
-              <Column field="paidMenmbership" header="Paid Menmbership"sortable/>
+              {/* Make editable */}
+              <Column field="membership_paid" header="Paid Menmbership"  sortable/>
+              {/* Make editable */}
+              <Column field="membership_until" header="Membership Until"  sortable/> 
               <Column field="created_at" header="Created at"sortable/>
               <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
             </DataTable>
@@ -562,7 +442,7 @@ function Template() {
             <div className="card flex justify-content-center">
               <Dialog header="WARNING" visible={visible} style={{ width: '25vw' }} onHide={() => setVisible(false)}>
                   <p className="m-0">
-                    Are you sure you want to delete this user?
+                    Are you sure you want to delete {selectedStudents.length} Members?
                   </p>
                   <div className="cofinmation-button">
                     <div><button className="delete confirmation-yes"  onClick={() => deleteConfirmation()}>Yes</button></div>
@@ -595,26 +475,29 @@ function Template() {
               sortMode="multiple"
               >
                 <Column selectionMode="multiple" exportable={true}></Column>
-                <Column field="name" header="Name" editor={(options) => textEditor(options)} sortable />
+                <Column field="idchapter_members" header="ID Chapter Member"/>
+                <Column field="name" header="Name"  />
                 <Column field="email" header="Email"sortable/>
-                <Column field="ASCEMenber" header="ASCEMenber"sortable/>
-                <Column field="ASCENumber" header="ASCENumber"sortable/>
-                <Column field="Weekday" header="Weekday"/>
-                <Column field="Competitions" header="Competitions"  body={rowData => <div className="multi-line">{rowData.Competitions}</div>} sortable/>
-                <Column field="recentCourse" header="recentCourse" body={rowData => <div className="multi-line">{rowData.recentCourse}</div>} sortable/>
-                <Column field="Experience" header="Experience" body={rowData => <div className="multi-line">{rowData.Experience}</div>} />
-                <Column field="Travel" header="Travel"sortable/>
-                <Column field="travelJune" header="travelJune"sortable/>
-                <Column field="older25" header="older25"sortable/>
-                <Column field="heavyvehicleLicense" header="heavyvehicleLicense"sortable/>
-                <Column field="officialDriver" header="officialDriver"sortable/>
+                <Column field="phone" header="Phone"sortable/>
+                <Column field="ascemembership" header="ASCE Menbership"sortable/>
+                <Column field="competition_name" header="Competitions"  body={rowData => <div className="multi-line">{rowData.competition_name}</div>} sortable/>
+                <Column field="daily_availability" header="Daily Availability"/>
+                <Column field="courses" header="Recent Course" body={rowData => <div className="multi-line">{rowData.courses}</div>} sortable/>
+                {/* <Column field="Experience" header="Experience" body={rowData => <div className="multi-line">{rowData.Experience}</div>} /> */}
+                <Column field="travel_availability" header="Travel Availability"sortable/>
+                {/* <Column field="travelJune" header="Travel Availability In June"sortable/> */}
+                <Column field="older_than_twentyfive" header="older25"sortable/>
+                <Column field="heavy_driver" header="Heavy Vehicle License"sortable/>
+                <Column field="official_driver" header="officialDriver"sortable/>
+                <Column field="created_at" header="Created At"sortable/>
+                <Column field="competitions_form" header="Competitions Form"sortable/>
                 <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
               </DataTable>
 
               <div className="card flex justify-content-center">
                 <Dialog header="WARNING" visible={visible} style={{ width: '25vw' }} onHide={() => setVisible(false)}>
                     <p className="m-0">
-                        Are you sure you want to delete this user?
+                        Are you sure you want to delete {selectedCompetitions.length} competition submissions?
                     </p>
                     <div className="cofinmation-button">
                       <div><button className="delete confirmation-yes"  onClick={() => deleteConfirmation()}>Yes</button></div>
@@ -654,7 +537,7 @@ function Template() {
               <Column field="password" header="password" editor={(options) => textEditor(options)}/>
               <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable />
               <Column field="phone" header="Phone" editor={(options) => textEditor(options)} sortable/>
-              <Column field="adminLevel" header="admin_level" sortable />
+              <Column field="adminLevel" header="admin_level" editor={(options) => textEditor(options)} sortable />
               <Column field="createdAt" header="created_at"sortable/>
               <Column field="updatedAt" header="updated_at"sortable/>
               <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
