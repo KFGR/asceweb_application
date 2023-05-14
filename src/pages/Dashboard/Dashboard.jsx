@@ -195,37 +195,41 @@ function Template() {
     if(selectedButton === "Admin"){
 
       let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/admin/updatefromadmin/?userName=${editRow.userName}&masterAdminToken=${masterAdminToken}`;
-      let _link = ``;
-      if(editRow.passwd !== dataAdmin[index].passwd){
-        _link = link + `&newPasswd=${editRow.passwd}`;
+      let linkChanged = false;
+      if(editRow.password !== dataAdmin[index].passwd){
+        link = link + `&newPasswd=${editRow.password}`;
+        linkChanged = true;
       }
       if(editRow.email !== dataAdmin[index].email){
-        _link = _link + `&newEmail=${editRow.email}`;
+        link = link + `&newEmail=${editRow.email}`;
+        linkChanged = true;
       }
       if(editRow.phone !== dataAdmin[index].phone){
         editRow.phone = editRow.phone.replace(/-/g, "");
-        _link = _link + `&newPhone=${editRow.phone}`;
+        link = link + `&newPhone=${editRow.phone}`;
+        linkChanged = true;
       }
       if(editRow.adminLevel !== dataAdmin[index].adminLevel){
-        _link = _link + `&newLevel=${editRow.adminLevel}`;
+        link = link + `&newLevel=${editRow.adminLevel}`;
+        linkChanged = true;
       }
-      if(_link === ''){
-        alert("NO CHANGES WERE MADE")
-      }else{
+      if(linkChanged){
+        axios.put(link)
+        .then((response) => {
+          console.log(response.data);
+          if(response.data.status_code === 201){
+            getData();
+            alert(`${response.data.body}`);
+          }else{
+            alert(`${response.data.body}`);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
 
-      axios.put(_link)
-      .then((response) => {
-        console.log(response.data);
-        if(response.data.status_code === 201){
-          getData();
-          alert(`${response.data.body}`);
-        }else{
-          alert(`${response.data.body}`);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      }else{
+        alert("NO CHANGES WERE MADE")
       }
 
     }
