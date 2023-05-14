@@ -21,13 +21,17 @@ function Template() {
   function checkInput (formData) {
     //validation constants
     const regexEmail = /^[a-zA-Z]+_[0-9]+@students\.pupr\.edu$/;
+    const regexName = /[A-Z][a-z]{2,}( [A-Z][a-z]{1,})+$/ //ADDED FOR THE FIRST NAME LAST NAME VALIDATION
     let hasError = false;
     console.log(formData.email) // this is a test line to ensure that checkInput is receiving data from formData, the email specifically
     if (!regexEmail.test(formData.email)){
       alert('Please enter a @students.pupr.edu valid email!');
       hasError = true;
     }
-
+    if(!regexName.test(formData.name)){ //ADDED FOR THE FIRST NAME LAST NAME VALIDATION
+      alert('Please enter your First Name and your Last Name only.');
+      return(hasError = true);
+    }
     
     return(!hasError);  
   };
@@ -43,6 +47,10 @@ function Template() {
       ...formData,
       [name]: value,
     });
+
+    
+
+
   };
   
   const handleSubmit = async (event) => {
@@ -52,22 +60,28 @@ function Template() {
       const formDataJson = JSON.stringify(formData); //this line shows all input AFTER clicking submit
       console.log(formDataJson);
 
-      //Email functionality below
-      emailjs.send('service_he5fwo7','template_tsi8u6l', formData, 'cz8JC7lswvQNgszAG')
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-      }, (err) => {
-        console.log('FAILED...', err);
-      });
-      //Email functionality Above
+      
+
 
       //Below this line, we are trying to get the input data from the Student Sign Up Form to reach the database Member table.
-      const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ascepupr/signupchapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`);
-      
+      //const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ascepupr/signup/form/signuptochapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`);
+      const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ascewepupr/signup/form/signuptochapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`); 
+
       console.log('this is just to debug!');
       
       console.log(response.data); // this is to see the data that the database responds with
 
+      //const responseModel = response.data;
+
+      if(response.data.status_code === 200)
+      {
+          emailjs.send('service_he5fwo7','template_tsi8u6l', formData, 'cz8JC7lswvQNgszAG')
+        .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+        }, (err) => {
+          console.log('FAILED...', err);
+        });
+      }
 
 
 
@@ -128,7 +142,14 @@ function Template() {
             <div className="form-group">
               {/* 3. Phone */}
               <label id="number-label" htmlFor="number">Phone</label>
-              <input type="text" name="phone" id="phone" className="form-control" placeholder="787-123-4567" onChange={handleChange} required/>
+              <input 
+              type="text" 
+              name="phone" 
+              id="phone" 
+              className="form-control" 
+              placeholder="787-123-4567" 
+              onChange={handleChange} 
+              required/>
             </div>
           </div>
           <div className="col-md-6">
@@ -144,10 +165,10 @@ function Template() {
               </select> */}
               <select id="size" name="size" value={picSize} className="form-control" onChange={handleChange} required>
                 <option  value="selected">Select</option>
-                <option value="small">Small</option>
-                <option value="medium">Medium</option>
-                <option value="large">Large</option>
-                <option value="extraLarge">Extra Large</option>
+                <option value="S">Small</option>
+                <option value="M">Medium</option>
+                <option value="L">Large</option>
+                <option value="XL">Extra Large</option>
               </select>
             </div>
           </div>

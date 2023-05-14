@@ -1,6 +1,7 @@
 import "./FormCompetition.css";
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import axios from 'axios';
 
 
 function Template() {
@@ -131,7 +132,7 @@ function Template() {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if(checkInputs(formData)){
@@ -139,6 +140,15 @@ function Template() {
       console.log(formData);
       const formDataJson = JSON.stringify(formData);
       console.log(formDataJson);
+
+      //Adding endpoint of the competition member table in the database backend. For this to work the following
+      //must be added to the endpoint of the signuptocompetitions table: ASCE number field for the ASCE number question,  
+      //June travel field for the June travel question, as well as add the field for the recent experience question,
+      //and eliminate the phone entry in this endpoint.
+      const response = await axios.post(`https://ascewebbackend.azurewebsites.net/ascepupr/competitions/form/signuptocompetition/?name=${formData.name}&email=${formData.email}&asce_member=${formData.ASCEMenber}&ascemembership_number=${formData.ASCENumber}&competition_name=${formData.Competitions}&courses=${formData.recentCourse}&experiences=${formData.Experience}&daily_availability=${formData.Weekday}&travel_availability=${formData.Travel}&travel_june=${formData.travelJune}&older_than_twentyfive=${formData.older25}&heavy_driver=${formData.heavyvehicleLicense}&official_driver=${formData.officialDriver}`);
+
+      console.log(response.data);
+
 
       emailjs.send('service_he5fwo7','template_po5c80p', formData, 'cz8JC7lswvQNgszAG')
               .then((response) => {
@@ -175,9 +185,9 @@ function Template() {
             <div className="questionInput">
                 <label htmlFor="ASCEMenber">Are you an ASCE Member? </label>
                 <div className="radio-option">
-                    <input type="radio"  id="ASCEMenber" name="ASCEMenber"  value="YES"   onChange={handleChange} required/>
+                    <input type="radio"  id="ASCEMenber" name="ASCEMenber"  value="Yes"   onChange={handleChange} required/>
                     <label htmlFor="ASCEMenber">Yes</label> 
-                    <input type="radio"  id="ASCEMenber" name="ASCEMenber" value="NO"  onChange={handleChange} required/>
+                    <input type="radio"  id="ASCEMenber" name="ASCEMenber" value="No"  onChange={handleChange} required/>
                     <label htmlFor="ASCEMenber">No</label>
                 </div>
             </div>
@@ -284,9 +294,9 @@ function Template() {
             <div className="questionInput">
                 <label htmlFor="Travel">Are you willing to travel?</label>
                 <div className="radio-option">
-                    <input type="radio" placeholder="Test" name="Travel" value="YES"   onChange={handleChange} required/>
+                    <input type="radio" placeholder="Test" name="Travel" value="Yes"   onChange={handleChange} required/>
                     <label htmlFor="Travel">Yes</label> 
-                    <input type="radio" placeholder="Test" name="Travel" value="NO"  onChange={handleChange} required/>
+                    <input type="radio" placeholder="Test" name="Travel" value="No"  onChange={handleChange} required/>
                     <label htmlFor="Travel">No</label>
                 </div>
             </div>
@@ -294,36 +304,36 @@ function Template() {
             <div className="questionInput">
                 <label htmlFor="travelJune">Are you willing to travel in June?</label>
                 <div className="radio-option">
-                    <input type="radio" placeholder="Test" name="travelJune" value="YES"  onChange={handleChange} required/>
+                    <input type="radio" placeholder="Test" name="travelJune" value="Yes"  onChange={handleChange} required/>
                     <label htmlFor="travelJune">Yes</label> 
-                    <input type="radio" placeholder="Test" name="travelJune" value="NO"  onChange={handleChange} required/>
+                    <input type="radio" placeholder="Test" name="travelJune" value="No"  onChange={handleChange} required/>
                     <label htmlFor="travelJune">No</label>
                 </div>
             </div>
             <div className="questionInput">
                 <label htmlFor="older25">Are you 25 years old or older?</label>
                 <div className="radio-option">
-                    <input type="radio" placeholder="Test" name="older25" value="YES"  onChange={handleChange} required/>
+                    <input type="radio" placeholder="Test" name="older25" value="Yes"  onChange={handleChange} required/>
                     <label htmlFor="older25">Yes</label> 
-                    <input type="radio" placeholder="Test" name="older25" value="NO"   onChange={handleChange} required/>
+                    <input type="radio" placeholder="Test" name="older25" value="No"   onChange={handleChange} required/>
                     <label htmlFor="older25">No</label>
                 </div>
             </div>
             <div className="questionInput">
                 <label htmlFor="heavyvehicleLicense">Do you have a heavy vehicle license?</label>
                 <div className="radio-option">
-                    <input type="radio" placeholder="Test" name="heavyvehicleLicense" value="YES"  onChange={handleChange} required/>
+                    <input type="radio" placeholder="Test" name="heavyvehicleLicense" value="Yes"  onChange={handleChange} required/>
                     <label htmlFor="heavyvehicleLicense">Yes</label> 
-                    <input type="radio" placeholder="Test" name="heavyvehicleLicense" value="NO"  onChange={handleChange} required/>
+                    <input type="radio" placeholder="Test" name="heavyvehicleLicense" value="No"  onChange={handleChange} required/>
                     <label htmlFor="heavyvehicleLicense">No</label>
                 </div>
             </div>
             <div className="questionInput">
                 <label htmlFor="officialDriver">Would you like to be official driver of the PUPR ASCE Student Chapter?</label>
                 <div className="radio-option">
-                    <input type="radio" placeholder="Test" name="officialDriver"  onChange={handleChange} value="YES" required/>
+                    <input type="radio" placeholder="Test" name="officialDriver"  onChange={handleChange} value="Yes" required/>
                     <label htmlFor="officialDriver">Yes</label> 
-                    <input type="radio" placeholder="Test" name="officialDriver"  onChange={handleChange} value="NO" required/>
+                    <input type="radio" placeholder="Test" name="officialDriver"  onChange={handleChange} value="No" required/>
                     <label htmlFor="officialDriver">No</label>
                 </div>
             </div>
