@@ -26,7 +26,7 @@
 .adminHeader{
     background-color: #144a9a;
     margin-bottom: 40px;
-    margin-top: 40px;
+    /* margin-top: 20px; */
  }
 
 .adminHeader > ul > li{
@@ -148,3 +148,22 @@ input[type="email"], input[type="number"]{
     width: 100px;
 }
 
+.Logout-button{
+    display: flex;
+    justify-content: end;
+}
+
+svg {
+   fill: white;
+}
+
+.Logout-button > button{
+    align-items: center;
+    padding: 10.5px 17.5px;
+    border: 1px;
+    color: white;
+    font-size: 20px;
+    background-color: #144a9a;
+    border-radius: 6px;
+    margin: 10px;
+}

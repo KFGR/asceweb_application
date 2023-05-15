@@ -8,17 +8,25 @@ import "primereact/resources/primereact.min.css";
 import  {FilterMatchMode} from "primereact/api";
 import  {InputText} from "primereact/inputtext";
 import { Dialog } from 'primereact/dialog';                            
-        
+
         
 
 
 
 function Template() {
-  const token = "eyjhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG5UZXN0aW5nMSIsImV4cF9kYXRlIjoxNjg0MTE1MzM5LjkxMDE5NSwibGV2ZWwiOiJNQSJ9.KN1Jkl3vfH8P4qgiZy47QX37AF3pReoFcfgexnom-DY";
+  // const token = "eyjhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG5UZXN0aW5nMSIsImV4cF9kYXRlIjoxNjg0MTE1MzM5LjkxMDE5NSwibGV2ZWwiOiJNQSJ9.KN1Jkl3vfH8P4qgiZy47QX37AF3pReoFcfgexnom-DY";
+  const token = localStorage.getItem('token');
+
+  // if(token === null){
+  //   window.location.href = '/AdminLogIn';
+  // }
+
+
+
   const decodedToken = JSON.parse(atob(token.split('.')[1]));
   const adminType = decodedToken.level;
-  console.log(adminType);
-
+  // console.log(adminType);
+  
   const [dataAdmin, setdataAdmin] = useState([]);  
   useEffect(() => {
     if (adminType === 'MA') {
@@ -27,7 +35,7 @@ function Template() {
             setdataAdmin(response.data.body); 
             console.log(response.data); 
             if(response.data.status_code === 401){
-              window.location.href = '/Home';
+              window.location.href = '/AdminLogIn';
             }
           })
         .catch(error => {console.error(error.message);});
@@ -43,7 +51,7 @@ function Template() {
           setDataCompetitions(response.data.body); 
           console.log(response.data) 
           if(response.data.status_code === 401){
-            window.location.href = '/Home';
+            window.location.href = '/AdminLogIn';
           }
         })
         .catch(error => {console.error(error.message);});
@@ -58,7 +66,7 @@ function Template() {
         .then(response => {
           setDataStudents(response.data.body); 
           if(response.data.status_code === 401){
-            window.location.href = '/Home';
+            window.location.href = '/AdminLogIn';
           }
         })
         .catch(error => {console.error(error.message);});
@@ -383,6 +391,12 @@ function Template() {
     }
   }
 
+  function Logout(){
+    console.log('test');
+    localStorage.removeItem('token');
+    window.location.href = '/AdminLogIn';
+  }
+  
   const handleAddAdminChange = (event) => {
     const { name, value} = event.target;
     setnewAdmin(prevState => ({ ...prevState, [name]: value }));
@@ -417,6 +431,12 @@ function Template() {
   return (
 
     <>
+      <div className="Logout-button">
+        <button  onClick={() => Logout()}>
+        <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="M180 936q-24 0-42-18t-18-42V276q0-24 18-42t42-18h291v60H180v600h291v60H180Zm486-185-43-43 102-102H375v-60h348L621 444l43-43 176 176-174 174Z" /></svg>
+          Logout
+          </button>
+      </div>
       <div className="adminHeader">
         <ul>
         <li><button id={selectedButton === 'Students' ? 'selected' : ''} onClick={() => switchTable('Students') }>Students</button></li>
@@ -426,8 +446,8 @@ function Template() {
         <li><button id={selectedButton === 'Admin' ? 'selected' : ''} onClick={() => switchTable('Admin')}>Admin</button></li>
         )}
         </ul>
-     </div>
-    
+     </div>      
+
       <div className="Dashboard">
   
         {selectedButton === 'Students' && (
@@ -435,7 +455,10 @@ function Template() {
             <h2 className="tableHeader">ASCE Chapter Members</h2>
             <div>{renderFilterInputs("Students")}</div>
             {/* <button className="delete" onClick={() => deleteInformation(selectedStudents) }>Delete</button> */}
-            <button className="delete" onClick={() => setVisible(true) }>Delete</button>
+            <button className="delete" onClick={() => setVisible(true) }>
+              <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960" width="28"><path d="M264.666 957.333q-35.499 0-59.749-24.25t-24.25-59.749V313.333H140v-84h210.666v-38.666h260.001v38.666h210.666v84h-40.667v560.001q0 33.724-25.137 58.862-25.137 25.137-58.862 25.137H264.666Zm432.001-644H264.666v560.001h432.001V313.333ZM351 788.334h84V397h-84v391.334Zm176 0h84V397h-84v391.334ZM264.666 313.333v560.001-560.001Z"/></svg> 
+              Delete
+            </button>
             <DataTable
               editMode="row"
               filters={filters}
@@ -490,7 +513,10 @@ function Template() {
               <h2 className="tableHeader">Competition Sign-up</h2>
               <div>{renderFilterInputs('Competitions')}</div>
               {/* <button className="delete" onClick={() => deleteInformation(selectedCompetitions) }>Delete</button> */}
-              <button className="delete" onClick={() => setVisible(true) }>Delete</button>
+              <button className="delete" onClick={() => setVisible(true) }>
+                <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960" width="28"><path d="M264.666 957.333q-35.499 0-59.749-24.25t-24.25-59.749V313.333H140v-84h210.666v-38.666h260.001v38.666h210.666v84h-40.667v560.001q0 33.724-25.137 58.862-25.137 25.137-58.862 25.137H264.666Zm432.001-644H264.666v560.001h432.001V313.333ZM351 788.334h84V397h-84v391.334Zm176 0h84V397h-84v391.334ZM264.666 313.333v560.001-560.001Z"/></svg> 
+                Delete
+              </button>
               <DataTable
               editMode="row"
               filters={filters}
@@ -545,8 +571,10 @@ function Template() {
             <div>
               {renderFilterInputs("Admin")}
             </div>
-            {/* <button className="delete" onClick={() => deleteInformation() }>Delete</button> */}
-            <button className="delete" onClick={() => setVisible(true) }>Delete</button>
+            <button className="delete" onClick={() => setVisible(true) }>
+                <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960" width="28"><path d="M264.666 957.333q-35.499 0-59.749-24.25t-24.25-59.749V313.333H140v-84h210.666v-38.666h260.001v38.666h210.666v84h-40.667v560.001q0 33.724-25.137 58.862-25.137 25.137-58.862 25.137H264.666Zm432.001-644H264.666v560.001h432.001V313.333ZM351 788.334h84V397h-84v391.334Zm176 0h84V397h-84v391.334ZM264.666 313.333v560.001-560.001Z"/></svg> 
+                Delete
+            </button>
             <DataTable
               editMode="row"
               onRowEditComplete={onRowEditComplete}
