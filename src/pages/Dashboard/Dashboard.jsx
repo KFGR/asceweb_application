@@ -14,30 +14,57 @@ import { Dialog } from 'primereact/dialog';
 
 
 function Template() {
-  const masterAdminToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG5UZXN0aW5nMSIsImV4cF9kYXRlIjoxNjg0MDg3ODQzLjM4ODcwOSwibGV2ZWwiOiJNQSJ9.XRw21-DUBJ39T5IfDu0-Gm1ho_mpAdZLlOaLW5bMEwc";
-  const decodedToken = JSON.parse(atob(masterAdminToken.split('.')[1]));
+  const token = "eyjhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG5UZXN0aW5nMSIsImV4cF9kYXRlIjoxNjg0MTE1MzM5LjkxMDE5NSwibGV2ZWwiOiJNQSJ9.KN1Jkl3vfH8P4qgiZy47QX37AF3pReoFcfgexnom-DY";
+  const decodedToken = JSON.parse(atob(token.split('.')[1]));
   const adminType = decodedToken.level;
+  console.log(adminType);
 
   const [dataAdmin, setdataAdmin] = useState([]);  
   useEffect(() => {
-    axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/admins/?masterAdminToken=${masterAdminToken}`)
-      .then(response => {setdataAdmin(response.data.body); console.log(response.data) })
-      .catch(error => {console.error(error.message);});
-  }, []);
+    if (adminType === 'MA') {
+      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/admins/?masterAdminToken=${token}`)
+        .then(response => {
+            setdataAdmin(response.data.body); 
+            console.log(response.data); 
+            if(response.data.status_code === 401){
+              window.location.href = '/Home';
+            }
+          })
+        .catch(error => {console.error(error.message);});
+    }
+  }, [adminType]);
+  
 
   const [dataCompetitions, setDataCompetitions] = useState([]);
   useEffect(() => {
-    axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/competitions/?masterAdminToken=${masterAdminToken}`)
-      .then(response => {setDataCompetitions(response.data.body); console.log(response.data) })
-      .catch(error => {console.error(error.message);});
-  }, []);
+    if (adminType === 'MA' || adminType === 'MA') {
+      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/competitions/?masterAdminToken=${token}`)
+        .then(response => {
+          setDataCompetitions(response.data.body); 
+          console.log(response.data) 
+          if(response.data.status_code === 401){
+            window.location.href = '/Home';
+          }
+        })
+        .catch(error => {console.error(error.message);});
+    }
+  }, [adminType]);
+  
 
   const [dataStudents, setDataStudents] = useState([]);
   useEffect(() => {
-    axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/members/?masterAdminToken=${masterAdminToken}`)
-      .then(response => {setDataStudents(response.data.body); })
-      .catch(error => {console.error(error.message);});
-  }, []);
+    if (adminType === 'MA' || adminType === 'MA') {
+      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/members/?masterAdminToken=${token}`)
+        .then(response => {
+          setDataStudents(response.data.body); 
+          if(response.data.status_code === 401){
+            window.location.href = '/Home';
+          }
+        })
+        .catch(error => {console.error(error.message);});
+    }
+  }, [adminType]);
+  
 
   
 
@@ -76,17 +103,17 @@ function Template() {
 
   function getData(){
     if(selectedButton === "Students"){
-      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/members/?masterAdminToken=${masterAdminToken}`)
+      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/members/?masterAdminToken=${token}`)
       .then(response => {setDataStudents(response.data.body); })
       .catch(error => {console.error(error.message);});
     }
     if(selectedButton === "Competitions"){
-      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/competitions/?masterAdminToken=${masterAdminToken}`)
+      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/competitions/?masterAdminToken=${token}`)
       .then(response => {setDataCompetitions(response.data.body); })
       .catch(error => {console.error(error.message);});
     }
     if(selectedButton === "Admin"){
-      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/admins/?masterAdminToken=${masterAdminToken}`)
+      axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/admins/?masterAdminToken=${token}`)
       .then(response => {setdataAdmin(response.data.body); console.log(response.data)})
       .catch(error => {console.error(error.message);});
     }
@@ -175,7 +202,7 @@ function Template() {
 
     if(selectedButton === "Students"){
       console.log('Students')
-      axios.put(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/members/updatefrommember?token=${masterAdminToken}&name=${editRow.name}&email=${editRow.email}&phone=${editRow.phone}&tshirt_size=${editRow.tshirt_size}&age=${editRow.age}&bachelor=${editRow.bachelor}&department=${editRow.department}&Academic_Years=${editRow.aca_years}`)
+      axios.put(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/members/updatefrommember?token=${token}&name=${editRow.name}&email=${editRow.email}&phone=${editRow.phone}&tshirt_size=${editRow.tshirt_size}&age=${editRow.age}&bachelor=${editRow.bachelor}&department=${editRow.department}&Academic_Years=${editRow.aca_years}`)
       .then((response) => {
         console.log(response.data);
         if(response.data.status_code === 200){
@@ -194,7 +221,7 @@ function Template() {
     }
     if(selectedButton === "Admin"){
 
-      let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/admin/updatefromadmin/?userName=${editRow.userName}&masterAdminToken=${masterAdminToken}`;
+      let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/admin/updatefromadmin/?userName=${editRow.userName}&masterAdminToken=${token}`;
       let linkChanged = false;
       if(editRow.password !== dataAdmin[index].passwd){
         link = link + `&newPasswd=${editRow.password}`;
@@ -285,7 +312,7 @@ function Template() {
         console.log(deleteEmailsStudents);
         console.log("READY FOR API STUDENTS");
         
-        // axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/deletemembers/?masterAdminToken=${masterAdminToken}&email=${deleteEmailsStudents}`)
+        // axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/deletemembers/?masterAdminToken=${token}&email=${deleteEmailsStudents}`)
         // .then((response) => {
         //   console.log(response.data);
         //   if(response.data.status_code === 200){
@@ -312,7 +339,7 @@ function Template() {
         console.log(deleteEmailsCompetitions)
         console.log("READY FOR API COMPETITIONS");
         
-        // axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/competitionsmember/deletecompetitionsmember/?masterAdminToken=${masterAdminToken}&email=${deleteEmailsCompetitions}`)
+        // axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/competitionsmember/deletecompetitionsmember/?masterAdminToken=${token}&email=${deleteEmailsCompetitions}`)
         // .then((response) => {
         //   console.log(response.data);
         //   if(response.data.status_code === 200){
@@ -338,7 +365,7 @@ function Template() {
        alert("SELECT A USER TO DELETE");
 
       }else{
-        axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/admin/deleteadminfromtable/?masterAdminToken=${masterAdminToken}&email=${selectedAdmins.email}`)
+        axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/admin/deleteadminfromtable/?masterAdminToken=${token}&email=${selectedAdmins.email}`)
           .then((response) => {
             console.log(response.data);
             if(response.data.status_code === 200){
@@ -366,7 +393,7 @@ function Template() {
     newAdmin.phone = newAdmin.phone.replace(/-/g, "");
     if(checkAddAdminInputs(newAdmin)){
 
-      axios.post(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/create/admin/createadmin/?userName=${newAdmin.userName}&passwd=${newAdmin.passwd}&name=${newAdmin.name}&email=${newAdmin.email}&phone=${newAdmin.phone}&adminLevel=${newAdmin.adminLevel}&token=${masterAdminToken}`)
+      axios.post(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/create/admin/createadmin/?userName=${newAdmin.userName}&passwd=${newAdmin.passwd}&name=${newAdmin.name}&email=${newAdmin.email}&phone=${newAdmin.phone}&adminLevel=${newAdmin.adminLevel}&token=${token}`)
         .then((response) => {
           console.log(response.data);
           if(response.data.status_code === 201){
