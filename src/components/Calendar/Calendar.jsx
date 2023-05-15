@@ -15,9 +15,9 @@ function template() {
           initialView="dayGridMonth"
           aspectRatio={1.5}
           // contentHeight={650}
-          googleCalendarApiKey = "AIzaSyBWnGr-gIMutYMOR3EcrLAyp4nF_2CCpWE"
+          googleCalendarApiKey = "AIzaSyCSrHS44Yste7ErEJ1WAMSoi3XTOtGKStA"
           events = {{
-            googleCalendarId: 'johnrodricres@gmail.com'
+            googleCalendarId: 'ascepuprchapter@gmail.com'
           }}
           
         />
