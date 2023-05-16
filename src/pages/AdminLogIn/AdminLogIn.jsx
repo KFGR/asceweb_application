@@ -5,118 +5,35 @@ import axios from 'axios';
 
 function Template() {
   
-  const initialValue = {userName: "", password: "", token: localStorage.getItem('token')};
-  const [adminFormValues, setAdminFormValues] = useState(initialValue);
-
-  const [invalidInput, setinvalidInput] = useState('');
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   console.log();
-  // }
+  const [adminFormValues, setAdminFormValues] = useState({
+    userName: '',
+    password: '',
+    token: null,
+  });
 
   const handleChange = (event) => {
-    // console.log(event.target);
-
     const { name, value }= event.target;
-    //setAdminFormValues({ [name]: value });
     setAdminFormValues({ ...adminFormValues, [name]: value });
-    //console.log(adminFormValues);
-    // console.log(name);
   }; 
 
-
-  
-
-
-  const handleSubmit = async (event) => {
+  function handleSubmit (event){
     event.preventDefault();
-
-   if(adminFormValues.userName.length <5 || adminFormValues.password.length <8){
-      setinvalidInput('invalid username or password')
-      
-   }else{
-
-      console.log(adminFormValues); //will eventually have to be deleted
-      console.log('handleSubmit called');//will eventually have to be deleted
-
-      if(localStorage.length === 0){
-        const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ascepupr/login/user/form/user/logintodashboard/?userName=${adminFormValues.userName}&passwd=${adminFormValues.password}`);
-        
-        console.log(response.data);//check if the database sends any response
     
-        const responseModel = response.data;
-
-        console.log('estamos adentro del if');
-        if(responseModel['status_code'] === 201){
-            localStorage.setItem('token',responseModel['body']);
-            window.location.href = '/Dashboard';
-        }
+    axios.post(`https://ascewebbackend.azurewebsites.net/ascepupr/login/user/form/user/logintodashboard/?userName=${adminFormValues.userName}&passwd=${adminFormValues.password}`)
+    .then((response) => {
+      console.log(response.data);
+      if(response.data.status_code === 201){
+        localStorage.setItem('token', response.data.body);
+        window.location.href = '/Dashboard';
       }else{
-        const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ascepupr/login/user/form/user/logintodashboard/?userName=${adminFormValues.userName}&passwd=${adminFormValues.password}&token=${adminFormValues.token}`);
-        
-            console.log(response.data);//check if the database sends any response
-        
-        const responseModel = response.data;
-        
-        console.log('estamos adentro del else');
-        if(responseModel['status_code'] === 200)
-        {
-          // localStorage.setItem('token',responseModel['body']);
-          window.location.href = '/Dashboard';
-        }
-        else if(responseModel['status_code'] === 201)
-        {
-          localStorage.setItem('token',responseModel['body']);
-          window.location.href = '/Home';
-        }
-        else if(responseModel['status_code'] === 401)
-        {
-          console.log(responseModel['body']);
-          setinvalidInput(responseModel['body']);
-        }
-        else if(responseModel['status_code'] === 400) //ESTO PASA CUANDO EL USERNAME Y PASSWORD NO CUMPLEN CON REQUIREMENTS DE LENGTH
-        {
-          window.location.reload();
-        }
+        alert(`${response.data.body}`);
       }
-    }
-  
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
 
-
-    
-
-    // try{
-    //   // const response = await axios.post("https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/LOGIN/",{ THIS RESULTED IN ERROR CODE 422
-    //     // const response = await axios.post("https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/CREATE_MASTER_ADMIN/?userName=AleMasterTwo&passwd=Th1sistH3%40therp%40ss&name=Alejandro&email=alejandro%40throwaway.com&phone=7771234567",{
-    //    const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ASCEPUPR/ADMIN/LOGIN/?userName=${adminFormValues.userName}&passwd=${adminFormValues.password}&token=${adminFormValues.token}`);
-      
-    //       console.log(response.data);//check if the database sends any response
-      
-    //    const responseModel = response.data;
-
-    //    if(responseModel['status_code'] === 200){
-    //       localStorage.setItem('token',responseModel['body']);
-    //       <Link to = '/Home' ></Link>
-    //    }
-
-
-    //    //console.log(response);
-    //   //Store the token in localStorage or as a cookie
-    //   //Redirect the user to the dashboard or private section of the website
-    //   //console.log(token);
-
-    //   //console.log('response', response);
-    //   //console.log('token',token['body']);
-
-     
-    //   console.log(localStorage.length);
-
-    // }catch(error){
-    //   console.log(error);
-    // }
-    
-
-  };
 
   return (
   <>
@@ -125,9 +42,9 @@ function Template() {
         <div className="container-fluid py-3 header-ble"/>        
     </div>
 
-    <pre>{JSON.stringify(adminFormValues, undefined, 2)}</pre>
+    
     <form onSubmit={handleSubmit}>
-      <div className="adminLogIn" style={{backgroundColor: 'rgb(20, 74, 154)'}}>
+      <div className="adminLogIn" >
         <h1>Administrator Dashboard Login</h1>
       </div>  
       <div className="admin-log-in" class = "loginbox mx-auto mt-5 w-25 p-5 bg-light border text-center">
@@ -160,7 +77,6 @@ function Template() {
           {/* <div className="invalid">Please enter your Password.</div> */}
         </div>
         <button className="btn btn-primary">Log In</button>
-        <p> {invalidInput} </p>
       </div>
     </form>
     
