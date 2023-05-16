@@ -2,7 +2,6 @@ import "./AboutUs.css";
 import React from "react";
 import { Button } from '@react-email/button';
 
-
 export default function template() {
   return (
     <div className = "AboutUs">
@@ -149,7 +148,7 @@ export default function template() {
             <div className="row">
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_Rand.jpg")} alt="CP" style={{width: "329.237px",height:"246.925px"}}/>
+                  <img src={require("./img/MariaRosado.jpg")} alt="CP" style={{width: "365px",height:"246.925px"}}/>
                   <div className="container">
                     <h2>Maria Rosado</h2>
                     <p className="title">Chapter President</p>
@@ -160,7 +159,7 @@ export default function template() {
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_P7.jpg")} alt="CVP" style={{width: "329.237px",height:"246.925px"}}/>
+                  <img src={require("./img/AU_P7.jpg")} alt="CVP" style={{width: "365px",height:"246.925px"}}/>
                   <div className="container">
                     <h2>Leonardo Perez </h2>
                     <p className="title">Chapter Vice President</p>
@@ -171,7 +170,7 @@ export default function template() {
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_Rand.jpg")} alt="CS" style={{width: "329.237px",height:"246.925px"}}/>
+                  <img src={require("./img/GonzaloValentin.jpg")} alt="CS" style={{width: "365px",height:"246.925px"}}/>
                   <div className="container">
                     <h2>Gonzalo Valentin</h2>
                     <p className="title">Chapter Secretary</p>
@@ -182,7 +181,7 @@ export default function template() {
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_Rand.jpg")} alt="CTS" style={{width: "329.237px",height:"246.925px"}}/>
+                  <img src={require("./img/KarianysRodriguez.jpg")} alt="CTS" style={{width: "365px",height:"246.925px"}}/>
                   <div className="container">
                     <h2>Kariannys Rodriguez</h2>
                     <p className="title">Chapter Treasurer Supervisor</p>
@@ -193,7 +192,7 @@ export default function template() {
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_P8.jpg")} alt="CT1" style={{width: "329.237px",height:"246.925px"}}/>
+                  <img src={require("./img/AU_P8.jpg")} alt="CT1" style={{width: "365px",height:"246.925px"}}/>
                   <div className="container">
                     <h2>Elian Santana</h2>
                     <p className="title">Chapter Treasurer</p>
@@ -204,7 +203,7 @@ export default function template() {
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_Rand.jpg")} alt="CT2" style={{width: "329.237px",height:"246.925px"}}/>
+                  <img src={require("./img/JoseYamil.jpg")} alt="CT2" style={{width: "365px",height:"246.925px"}}/>
                   <div className="container">
                     <h2>Jose Yamil Serrano</h2>
                     <p className="title">Chapter Treasurer</p>
@@ -215,7 +214,7 @@ export default function template() {
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_Rand.jpg")} alt="CSP" style={{width: "329.237px",height:"246.925px"}}/>
+                  <img src={require("./img/LuisRodriguez.jpg")} alt="CSP" style={{width: "365px",height:"246.925px"}}/>
                   <div className="container">
                     <h2>Luis Rodriguez</h2>
                     <p className="title">Chapter Spokeperson</p>
@@ -226,7 +225,7 @@ export default function template() {
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_Rand.jpg")} alt="Jane" style={{width: "329.237px",height:"246.925px"}}/>
+                  <img src={require("./img/AU_Rand.jpg")} alt="Jane" style={{width: "365px",height:"246.925px"}}/>
                   <div className="container">
                     <h2>Prof. Ginger Rossy</h2>
                     <p className="title">Chapter Mentor</p>
