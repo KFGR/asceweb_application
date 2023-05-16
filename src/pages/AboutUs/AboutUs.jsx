@@ -225,7 +225,7 @@ export default function template() {
               </div>
               <div className="column">
                 <div className="card">
-                  <img src={require("./img/AU_Rand.jpg")} alt="Jane" style={{width: "365px",height:"246.925px"}}/>
+                  <img src={require("./img/GingerRossy.jpg")} alt="Jane" style={{width: "365px",height:"246.925px"}}/>
                   <div className="container">
                     <h2>Prof. Ginger Rossy</h2>
                     <p className="title">Chapter Mentor</p>
