@@ -49,7 +49,7 @@ function Template() {
         console.log('estamos adentro del if');
         if(responseModel['status_code'] === 201){
             localStorage.setItem('token',responseModel['body']);
-            window.location.href = '/dashboard';
+            window.location.href = '/Dashboard';
         }
       }else{
         const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ascepupr/login/user/form/user/logintodashboard/?userName=${adminFormValues.userName}&passwd=${adminFormValues.password}&token=${adminFormValues.token}`);
