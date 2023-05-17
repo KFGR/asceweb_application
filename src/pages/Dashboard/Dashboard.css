@@ -20,13 +20,12 @@
 }
   
 .filter-inputs-container > .p-col {
-    margin-right: 1rem; /* add some space between inputs */
+    margin-right: 1rem;
 }
   
 .adminHeader{
     background-color: #144a9a;
     margin-bottom: 40px;
-    /* margin-top: 20px; */
  }
 
 .adminHeader > ul > li{
@@ -174,4 +173,24 @@ svg {
     font-size: 24px;
     font-weight: 700;
     margin: 0;
+}
+
+@media screen and (max-width: 500px){
+
+    .adminHeader > ul > li > button{
+        font-size: 18px;
+    }
+
+    .filter-inputs-container > .p-col {
+        margin-bottom: 10px; 
+    }
+
+    .filter-inputs-container {
+        flex-direction: column;
+        margin-bottom: 0px;
+    }
+ 
+    .Logout-button > p{
+        font-size: 18px;
+    }
 }
