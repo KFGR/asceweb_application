@@ -262,3 +262,9 @@
 .AboutUs .button:hover {
     background-color: #555;
 }
+
+.column > .card > img{
+    aspect-ratio: 4/3;
+    object-fit: contain;
+    margin: 10px auto;
+}
