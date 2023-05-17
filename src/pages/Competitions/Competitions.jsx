@@ -165,7 +165,7 @@ const handleRadioChange = (event) => {
             />
           </div>
           
-          <div class='mt-5' style={{fontSize:"small"}}>
+          <div className='mt-5' style={{fontSize:"small"}}>
             <p>Other competitions aren't celebrated annually, rather the official ASCE decides which of these take place in a given year. These competitions are: Concrete Bridge, Traffic Control, Geo-Wall, Muddy Waters, Concrete Cornhole, Plans Reading, Professional Paper, T-shirt Contest, and Mystery Competiton.</p>
           </div>
             
@@ -249,7 +249,7 @@ const handleRadioChange = (event) => {
                       <div className="col-md-6 text-left py-2"> {/*Fifth Quesiton */}
                         <label for="your-phone" className="form-label">ASCE Membership Number</label>
                         <input type="text" placeholder="##########" className="form-control" id="your-number" name="your-number" aria-labelledby="ASCEMembershipNumberHelp" required/>
-                          <div id='ASCEMembershipNumberHelp' class='form-text' className='help-block'>
+                          <div id='ASCEMembershipNumberHelp' className='form-text' class='help-block'>
                           Become a member of the Official ASCE at: https://www.asce.org/membership
                           </div>
                       </div>
@@ -446,7 +446,7 @@ const handleRadioChange = (event) => {
                       </div>
 
                       <div className="col-lg-12 py-2">
-                      <button data-res="<?php echo $sum; ?>" type="submit" class="btn btn-primary w-50 fw-bold" >Submit</button> {/* <Button>Submit</Button> fw-bold*/}
+                      <button data-res="<?php echo $sum; ?>" type="submit" className="btn btn-primary w-50 fw-bold" >Submit</button> {/* <Button>Submit</Button> fw-bold*/}
                       </div>
                     
                     </div>

@@ -6,7 +6,6 @@ import { Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
 
 function template() {
   const currentYear = new Date().getFullYear();

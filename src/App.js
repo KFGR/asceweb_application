@@ -34,7 +34,7 @@ function Dashboard() {
     if (token === null) {
       navigate('/AdminLogin');
     }
-  }, []);
+  }, [navigate, token]);
 
   return (
     <React.Suspense fallback='loading...'>
