@@ -17,23 +17,23 @@ function Template() {
   // const token = "eyjhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG5UZXN0aW5nMSIsImV4cF9kYXRlIjoxNjg0MTE1MzM5LjkxMDE5NSwibGV2ZWwiOiJNQSJ9.KN1Jkl3vfH8P4qgiZy47QX37AF3pReoFcfgexnom-DY";
   const token = localStorage.getItem('token');
 
-  // if(token === null){
-  //   window.location.href = '/AdminLogIn';
-  // }
+  if(token === null){
+    window.location.href = '/AdminLogIn';
+  }
 
 
-  // useEffect(() => {
-  //   window.addEventListener('beforeunload', handleBeforeUnload);
+  useEffect(() => {
+    window.addEventListener('beforeunload', handleBeforeUnload);
   
-  //   return () => {
-  //     window.removeEventListener('beforeunload', handleBeforeUnload);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
   
 
-  // function handleBeforeUnload(event) {
-  //   localStorage.removeItem('token');
-  // }
+  function handleBeforeUnload(event) {
+    localStorage.removeItem('token');
+  }
 
   const decodedToken = JSON.parse(atob(token.split('.')[1]));
   const adminType = decodedToken.level;
@@ -51,6 +51,7 @@ function Template() {
     }
   }
   waitAndRedirect()
+
   const [dataAdmin, setdataAdmin] = useState([]);  
   useEffect(() => {
     if (adminType === 'MA') {
@@ -64,7 +65,7 @@ function Template() {
           })
         .catch(error => {console.error(error.message);});
     }
-  }, [adminType]);
+  }, [adminType, token]);
   
 
   const [dataCompetitions, setDataCompetitions] = useState([]);
@@ -80,7 +81,7 @@ function Template() {
         })
         .catch(error => {console.error(error.message);});
     }
-  }, [adminType]);
+  }, [adminType, token]);
   
 
   const [dataStudents, setDataStudents] = useState([]);
@@ -95,7 +96,7 @@ function Template() {
         })
         .catch(error => {console.error(error.message);});
     }
-  }, [adminType]);
+  }, [adminType, token]);
   
 
   
@@ -197,25 +198,26 @@ function Template() {
       let _dataStudents = [...dataStudents];
       let { newData, index } = e;
 
+  
+      index = dataStudents.findIndex(dataStudents => dataStudents.email === _dataStudents[index].email);
       _dataStudents[index] = newData;
 
       setDataStudents(_dataStudents);
       const editRow = _dataStudents[index];
-      editRow.phone = editRow.phone.replace(/-/g, "");
-      console.log(editRow);
-      updateRow(editRow);
+      updateRow(editRow, index);
     }
     if(selectedButton === 'Competitions'){
       let _dataCompetitions = [...dataCompetitions];
       let { newData, index } = e;
 
+  
+      index = dataCompetitions.findIndex(dataCompetitions => dataCompetitions.email === _dataCompetitions[index].email);
       _dataCompetitions[index] = newData;
 
       setDataCompetitions(_dataCompetitions);
       const editRow = _dataCompetitions[index];
-      editRow.phone = editRow.phone.replace(/-/g, "");
-      console.log(editRow);
-      updateRow(editRow);
+      updateRow(editRow, index);
+
     }
     if(selectedButton === 'Admin'){
       let _dataAdmin = [...dataAdmin];
@@ -231,66 +233,322 @@ function Template() {
   };
 
   function updateRow(editRow, index){
-
+    
     if(selectedButton === "Students"){
-      console.log('Students')
-      axios.put(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/members/updatefrommember?token=${token}&name=${editRow.name}&email=${editRow.email}&phone=${editRow.phone}&tshirt_size=${editRow.tshirt_size}&age=${editRow.age}&bachelor=${editRow.bachelor}&department=${editRow.department}&Academic_Years=${editRow.aca_years}`)
+
+      // let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/members/updatefrommember?token=${token}&email=${dataStudents[index].email}`;
+      // let linkChanged = false;
+      // if(editRow.email !== dataStudents[index].email){
+      //   link = link + `&newEmail=${editRow.email}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.phone !== dataStudents[index].phone){
+      //   editRow.phone = editRow.phone.replace(/-/g, "");
+      //   link = link + `&newPhone=${editRow.phone}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.tshirt_size !== dataStudents[index].tshirt_size){
+      //   link = link + `&newTshirt_size=${editRow.tshirt_size}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.age !== dataStudents[index].age){
+      //   link = link + `&newAge=${editRow.age}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.bachelor !== dataStudents[index].bachelor){
+      //   link = link + `&newBachelor=${editRow.bachelor}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.department !== dataStudents[index].department){
+      //   link = link + `&newDepartment=${editRow.department}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.aca_years !== dataStudents[index].aca_years){
+      //   link = link + `&newAcademic_Years=${editRow.aca_years}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.membership_paid !== dataStudents[index].membership_paid){
+      //   link = link + `&newMembership=${editRow.membership_paid}`;
+      //   linkChanged = true;
+      // }
+      
+      // if(linkChanged){
+      //   axios.put(link)
+      //   .then((response) => {
+      //     console.log(response.data);
+      //     if(response.data.status_code === 201){
+      //       getData();
+      //       alert(`${response.data.body}`);
+      //     }else{
+      //       alert(`${response.data.body}`);
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
+
+      // }else{
+      //   alert("NO CHANGES WERE MADE")
+      // }
+
+
+
+      let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/members/updatefrommember?token=${token}&email=${dataStudents[index].email}`;
+      let linkChanged = false;
+
+      const properties = {
+        email: 'newEmail',
+        phone: 'newPhone',
+        tshirt_size: 'newTshirt_size',
+        age: 'newAge',
+        bachelor: 'newBachelor',
+        department: 'newDepartment',
+        aca_years: 'newAcademic_Years',
+        membership_paid: 'newMembership'
+      };
+
+      for (const prop in properties) {
+        if (editRow[prop] !== dataStudents[index][prop]) {
+          let value = editRow[prop];
+          if (prop === 'phone') {
+            value = value.replace(/-/g, "");
+          }
+          link = `${link}&${properties[prop]}=${value}`;
+          linkChanged = true;
+        }
+      }
+
+      if (linkChanged) {
+        axios.put(link)
+          .then((response) => {
+            console.log(response.data);
+            if (response.data.status_code === 201) {
+              getData();
+              alert(`${response.data.body}`);
+            } else {
+              alert(`${response.data.body}`);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      } else {
+        alert("NO CHANGES WERE MADE");
+      }
+
+    }
+
+    if(selectedButton === "Competitions"){
+      // let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/competitionsmember/updatefromcompetitionsmember?token=${token}&email=${dataCompetitions[index].email}`;
+      // let linkChanged = false;
+      // if(editRow.email !== dataCompetitions[index].email){
+      //   link = link + `&newEmail=${editRow.email}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.phone !== dataCompetitions[index].phone){
+      //   editRow.phone = editRow.phone.replace(/-/g, "");
+      //   link = link + `&newPhone=${editRow.phone}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.asce_member !== dataCompetitions[index].asce_member){
+      //   link = link + `&newAscemember=${editRow.asce_member}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.ascemembership !== dataCompetitions[index].ascemembership){
+      //   link = link + `&newAscemembership=${editRow.ascemembership}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.competition_name !== dataCompetitions[index].competition_name){
+      //   link = link + `&newCompetition_name=${editRow.competition_name}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.courses !== dataCompetitions[index].courses){
+      //   link = link + `&newCourses=${editRow.courses}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.daily_availability !== dataCompetitions[index].daily_availability){
+      //   link = link + `&newDaily_Avail=${editRow.daily_availability}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.travel_availability !== dataCompetitions[index].travel_availability){
+      //   link = link + `&newTravel=${editRow.travel_availability}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.travel_june !== dataCompetitions[index].travel_june){
+      //   link = link + `&newTravel_june=${editRow.travel_june}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.older_than_twentyfive !== dataCompetitions[index].older_than_twentyfive){
+      //   link = link + `&newOlder=${editRow.older_than_twentyfive}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.heavy_driver !== dataCompetitions[index].heavy_driver){
+      //   link = link + `&newHeavy=${editRow.heavy_driver}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.official_driver !== dataCompetitions[index].official_driver){
+      //   link = link + `&newOffdriver=${editRow.official_driver}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.competitions_form !== dataCompetitions[index].competitions_form){
+      //   link = link + `&newCompetitions_form=${editRow.competitions_form}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.experiences !== dataCompetitions[index].experiences){
+      //   link = link + `&newExperiences=${editRow.experiences}`;
+      //   linkChanged = true;
+      // }
+      // if(linkChanged){
+      //   axios.put(link)
+      //   .then((response) => {
+      //     console.log(response.data);
+      //     if(response.data.status_code === 201){
+      //       getData();
+      //       alert(`${response.data.body}`);
+      //     }else{
+      //       alert(`${response.data.body}`);
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
+
+      // }else{
+      //   alert("NO CHANGES WERE MADE")
+      // }
+
+
+  let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/competitionsmember/updatefromcompetitionsmember?token=${token}&email=${dataCompetitions[index].email}`;
+  let linkChanged = false;
+
+  const properties = {
+    email: 'newEmail',
+    phone: 'newPhone',
+    asce_member: 'newAscemember',
+    ascemembership: 'newAscemembership',
+    competition_name: 'newCompetition_name',
+    courses: 'newCourses',
+    daily_availability: 'newDaily_Avail',
+    travel_availability: 'newTravel',
+    travel_june: 'newTravel_june',
+    older_than_twentyfive: 'newOlder',
+    heavy_driver: 'newHeavy',
+    official_driver: 'newOffdriver',
+    competitions_form: 'newCompetitions_form',
+    experiences: 'newExperiences'
+  };
+
+  for (const prop in properties) {
+    if (editRow[prop] !== dataCompetitions[index][prop]) {
+      let value = editRow[prop];
+      if (prop === 'phone') {
+        value = value.replace(/-/g, "");
+      }
+      link = `${link}&${properties[prop]}=${value}`;
+      linkChanged = true;
+    }
+  }
+console.log(link)
+  if (linkChanged) {
+    axios.put(link)
       .then((response) => {
         console.log(response.data);
-        if(response.data.status_code === 200){
+        if (response.data.status_code === 201) {
           getData();
           alert(`${response.data.body}`);
-        }else{
+        } else {
           alert(`${response.data.body}`);
         }
       })
       .catch((error) => {
         console.error(error);
       });
-    }
-    if(selectedButton === "Competitions"){
-      console.log('Competitions')
+  } else {
+    alert("NO CHANGES WERE MADE");
+  }
+
+
     }
     if(selectedButton === "Admin"){
 
+      // let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/admin/updatefromadmin/?userName=${editRow.userName}&masterAdminToken=${token}`;
+      // let linkChanged = false;
+      // if(editRow.password !== dataAdmin[index].password){
+      //   link = link + `&newPasswd=${editRow.password}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.email !== dataAdmin[index].email){
+      //   link = link + `&newEmail=${editRow.email}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.phone !== dataAdmin[index].phone){
+      //   editRow.phone = editRow.phone.replace(/-/g, "");
+      //   link = link + `&newPhone=${editRow.phone}`;
+      //   linkChanged = true;
+      // }
+      // if(editRow.adminLevel !== dataAdmin[index].adminLevel){
+      //   link = link + `&newLevel=${editRow.adminLevel}`;
+      //   linkChanged = true;
+      // }
+      // if(linkChanged){
+      //   axios.put(link)
+      //   .then((response) => {
+      //     console.log(response.data);
+      //     if(response.data.status_code === 201){
+      //       getData();
+      //       alert(`${response.data.body}`);
+      //     }else{
+      //       alert(`${response.data.body}`);
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
+
+      // }else{
+      //   alert("NO CHANGES WERE MADE")
+      // }
+
+
+
       let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/admin/updatefromadmin/?userName=${editRow.userName}&masterAdminToken=${token}`;
       let linkChanged = false;
-      if(editRow.password !== dataAdmin[index].passwd){
-        link = link + `&newPasswd=${editRow.password}`;
-        linkChanged = true;
-      }
-      if(editRow.email !== dataAdmin[index].email){
-        link = link + `&newEmail=${editRow.email}`;
-        linkChanged = true;
-      }
-      if(editRow.phone !== dataAdmin[index].phone){
-        editRow.phone = editRow.phone.replace(/-/g, "");
-        link = link + `&newPhone=${editRow.phone}`;
-        linkChanged = true;
-      }
-      if(editRow.adminLevel !== dataAdmin[index].adminLevel){
-        link = link + `&newLevel=${editRow.adminLevel}`;
-        linkChanged = true;
-      }
-      if(linkChanged){
-        axios.put(link)
-        .then((response) => {
-          console.log(response.data);
-          if(response.data.status_code === 201){
-            getData();
-            alert(`${response.data.body}`);
-          }else{
-            alert(`${response.data.body}`);
+
+      const properties = {
+        password: 'newPasswd',
+        email: 'newEmail',
+        phone: 'newPhone',
+        adminLevel: 'newLevel'
+      };
+
+      for (const prop in properties) {
+        if (editRow[prop] !== dataAdmin[index][prop]) {
+          let value = editRow[prop];
+          if (prop === 'phone') {
+            value = value.replace(/-/g, "");
           }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-
-      }else{
-        alert("NO CHANGES WERE MADE")
+          link = `${link}&${properties[prop]}=${value}`;
+          linkChanged = true;
+        }
       }
 
+      if (linkChanged) {
+        axios.put(link)
+          .then((response) => {
+            console.log(response.data);
+            if (response.data.status_code === 201) {
+              getData();
+              alert(`${response.data.body}`);
+            } else {
+              alert(`${response.data.body}`);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      } else {
+        alert("NO CHANGES WERE MADE");
+      }
     }
 
   }
@@ -300,7 +558,7 @@ function Template() {
     const regexPassword = /[A-Z](?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+={}[\]:;"'<>,.?/])[A-Za-z\d!@#$%^&*()_+={}[\]:;"'<>,.?/]{7,}$/;
     const regexUserName = /^[A-Z][A-Za-z0-9]*$/;
     const regexName = /^[A-Z][a-z]{2,}( [A-Z][a-z]{1,})+$/;
-    const regexEmail = /^[a-z0-9_]+@[a-z\.a-z]+(\.com)|[a-z0-9_]+@[a-z\.a-z]+(\.edu)$/;
+    const regexEmail = /^[a-z0-9_]+@[a-z]+(\.com)|[a-zA-Z]+_\d+@students\.pupr\.edu|[a-z]+@pupr\.edu$/;
     const regexPhone = /^[0-9]{10}$/;
     let hasError = false;
     
@@ -344,20 +602,20 @@ function Template() {
         console.log(deleteEmailsStudents);
         console.log("READY FOR API STUDENTS");
         
-        // axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/deletemembers/?masterAdminToken=${token}&email=${deleteEmailsStudents}`)
-        // .then((response) => {
-        //   console.log(response.data);
-        //   if(response.data.status_code === 200){
-        //     getData();
-        //     alert(`${response.data.body}`);
-        //     setselectedStudents("")
-        //   }else{
-        //     alert(`${response.data.body}`);
-        //   }
-        // })
-        // .catch((error) => {
-        //   console.error(error);
-        // });
+        axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/deletemembers/?masterAdminToken=${token}&email=${deleteEmailsStudents}`)
+        .then((response) => {
+          console.log(response.data);
+          if(response.data.status_code === 200){
+            getData();
+            alert(`${response.data.body}`);
+            setselectedStudents("")
+          }else{
+            alert(`${response.data.body}`);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
 
       }else{
         alert("SELECT A MEMBER TO DELETE");
@@ -371,20 +629,20 @@ function Template() {
         console.log(deleteEmailsCompetitions)
         console.log("READY FOR API COMPETITIONS");
         
-        // axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/competitionsmember/deletecompetitionsmember/?masterAdminToken=${token}&email=${deleteEmailsCompetitions}`)
-        // .then((response) => {
-        //   console.log(response.data);
-        //   if(response.data.status_code === 200){
-        //     getData();
-        //     alert(`${response.data.body}`);
-        //     setselectedCompetitions("")
-        //   }else{
-        //     alert(`${response.data.body}`);
-        //   }
-        // })
-        // .catch((error) => {
-        //   console.error(error);
-        // });
+        axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/competitionsmember/deletecompetitionsmember/?masterAdminToken=${token}&email=${deleteEmailsCompetitions}`)
+        .then((response) => {
+          console.log(response.data);
+          if(response.data.status_code === 200){
+            getData();
+            alert(`${response.data.body}`);
+            setselectedCompetitions("")
+          }else{
+            alert(`${response.data.body}`);
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
       }else{
         alert("SELECT A COMPETITION SUBMITION TO DELETE");
       }
@@ -500,7 +758,7 @@ function Template() {
             >
               <Column selectionMode="multiple" exportable={true}></Column>
               <Column field="idchapter_members" header="ID Chapter Member" sortable />
-              <Column field="name" header="Name" editor={(options) => textEditor(options)} sortable />
+              <Column field="name" header="Name"  sortable />
               <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable/>
               <Column field="phone" header="Phone Num." editor={(options) => textEditor(options)} sortable/>
               <Column field="tshirt_size" header="Shirt Size" editor={(options) => textEditor(options)} sortable/>
@@ -510,9 +768,7 @@ function Template() {
               <Column field="aca_years" header="Academic Year" editor={(options) => textEditor(options)} sortable/>
               <Column field="type" header="Member Type" sortable />
               <Column field="competitions_form" header="Competition Form"sortable/>
-              {/* Make editable */}
-              <Column field="membership_paid" header="Paid Menmbership"  sortable/>
-              {/* Make editable */}
+              <Column field="membership_paid" header="Paid Menmbership"  editor={(options) => textEditor(options)} sortable/>
               <Column field="membership_until" header="Membership Until"  sortable/> 
               <Column field="created_at" header="Created at"sortable/>
               <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
@@ -559,20 +815,21 @@ function Template() {
                 <Column selectionMode="multiple" exportable={true}></Column>
                 <Column field="idchapter_members" header="ID Chapter Member"/>
                 <Column field="name" header="Name"  />
-                <Column field="email" header="Email"sortable/>
-                <Column field="phone" header="Phone"sortable/>
-                <Column field="ascemembership" header="ASCE Menbership"sortable/>
-                <Column field="competition_name" header="Competitions"  body={rowData => <div className="multi-line">{rowData.competition_name}</div>} sortable/>
-                <Column field="daily_availability" header="Daily Availability"/>
-                <Column field="courses" header="Recent Course" body={rowData => <div className="multi-line">{rowData.courses}</div>} sortable/>
-                {/* <Column field="Experience" header="Experience" body={rowData => <div className="multi-line">{rowData.Experience}</div>} /> */}
-                <Column field="travel_availability" header="Travel Availability"sortable/>
-                {/* <Column field="travelJune" header="Travel Availability In June"sortable/> */}
-                <Column field="older_than_twentyfive" header="older25"sortable/>
-                <Column field="heavy_driver" header="Heavy Vehicle License"sortable/>
-                <Column field="official_driver" header="officialDriver"sortable/>
+                <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable/>
+                <Column field="phone" header="Phone" editor={(options) => textEditor(options)} sortable/>
+                <Column field="asce_member" header="ASCE Menber" editor={(options) => textEditor(options)} sortable/>
+                <Column field="ascemembership" header="ASCE Menbership" editor={(options) => textEditor(options)} sortable/>
+                <Column field="competition_name" header="Competitions"  body={rowData => <div className="multi-line">{rowData.competition_name}</div>} editor={(options) => textEditor(options)} sortable/>
+                <Column field="daily_availability" header="Daily Availability" editor={(options) => textEditor(options)} />
+                <Column field="courses" header="Recent Course" body={rowData => <div className="multi-line">{rowData.courses}</div>} editor={(options) => textEditor(options)} sortable/>
+                <Column field="experiences" header="Experience" body={rowData => <div className="multi-line">{rowData.experiences}</div>} editor={(options) => textEditor(options)} />
+                <Column field="travel_availability" header="Travel Availability" editor={(options) => textEditor(options)} sortable/>
+                <Column field="travel_june" header="Travel Availability In June" editor={(options) => textEditor(options)} sortable/>
+                <Column field="older_than_twentyfive" header="older25" editor={(options) => textEditor(options)} sortable/>
+                <Column field="heavy_driver" header="Heavy Vehicle License" editor={(options) => textEditor(options)} sortable/>
+                <Column field="official_driver" header="officialDriver" editor={(options) => textEditor(options)} sortable/>
                 <Column field="created_at" header="Created At"sortable/>
-                <Column field="competitions_form" header="Competitions Form"sortable/>
+                <Column field="competitions_form" header="Competitions Form" editor={(options) => textEditor(options)} sortable/>
                 <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
               </DataTable>
 
