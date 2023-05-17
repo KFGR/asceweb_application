@@ -55,7 +55,7 @@ function Template() {
 
   const [dataAdmin, setdataAdmin] = useState([]);  
   useEffect(() => {
-    if (adminType === 'MA') {
+    if (adminType === 'MA' || adminType === "GA") {
       axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/admins/?masterAdminToken=${token}`)
         .then(response => {
             setdataAdmin(response.data.body); 
@@ -71,7 +71,7 @@ function Template() {
 
   const [dataCompetitions, setDataCompetitions] = useState([]);
   useEffect(() => {
-    if (adminType === 'MA' || adminType === 'MA') {
+    if (adminType === 'MA' || adminType === 'GA') {
       axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/competitions/?masterAdminToken=${token}`)
         .then(response => {
           setDataCompetitions(response.data.body); 
@@ -87,7 +87,7 @@ function Template() {
 
   const [dataStudents, setDataStudents] = useState([]);
   useEffect(() => {
-    if (adminType === 'MA' || adminType === 'MA') {
+    if (adminType === 'MA' || adminType === 'GA') {
       axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/members/?masterAdminToken=${token}`)
         .then(response => {
           setDataStudents(response.data.body); 
@@ -725,10 +725,7 @@ console.log(link)
         <ul>
         <li><button id={selectedButton === 'Students' ? 'selected' : ''} onClick={() => switchTable('Students') }>Students</button></li>
         <li><button id={selectedButton === 'Competitions' ? 'selected' : ''} onClick={() => switchTable('Competitions')}>Competitions</button></li>
-
-        {adminType === 'MA' && (
         <li><button id={selectedButton === 'Admin' ? 'selected' : ''} onClick={() => switchTable('Admin')}>Admin</button></li>
-        )}
         </ul>
      </div>      
 
@@ -739,10 +736,12 @@ console.log(link)
             <h2 className="tableHeader">ASCE Chapter Members</h2>
             <div>{renderFilterInputs("Students")}</div>
             {/* <button className="delete" onClick={() => deleteInformation(selectedStudents) }>Delete</button> */}
-            <button className="delete" onClick={() => setVisible(true) }>
-              <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960" width="28"><path d="M264.666 957.333q-35.499 0-59.749-24.25t-24.25-59.749V313.333H140v-84h210.666v-38.666h260.001v38.666h210.666v84h-40.667v560.001q0 33.724-25.137 58.862-25.137 25.137-58.862 25.137H264.666Zm432.001-644H264.666v560.001h432.001V313.333ZM351 788.334h84V397h-84v391.334Zm176 0h84V397h-84v391.334ZM264.666 313.333v560.001-560.001Z"/></svg> 
-              Delete
-            </button>
+            {adminType === "MA" && (
+              <button className="delete" onClick={() => setVisible(true) }>
+                <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960" width="28"><path d="M264.666 957.333q-35.499 0-59.749-24.25t-24.25-59.749V313.333H140v-84h210.666v-38.666h260.001v38.666h210.666v84h-40.667v560.001q0 33.724-25.137 58.862-25.137 25.137-58.862 25.137H264.666Zm432.001-644H264.666v560.001h432.001V313.333ZM351 788.334h84V397h-84v391.334Zm176 0h84V397h-84v391.334ZM264.666 313.333v560.001-560.001Z"/></svg> 
+                Delete
+              </button>
+            )}
             <DataTable
               editMode="row"
               filters={filters}
@@ -757,7 +756,9 @@ console.log(link)
               rowClassName={"custom-row"}
               sortMode="multiple"
             >
-              <Column selectionMode="multiple" exportable={true}></Column>
+              {adminType === "MA" && (
+                <Column selectionMode="multiple" exportable={true}></Column>
+              )}
               <Column field="idchapter_members" header="ID Chapter Member" sortable />
               <Column field="name" header="Name"  sortable />
               <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable/>
@@ -795,10 +796,12 @@ console.log(link)
               <h2 className="tableHeader">Competition Sign-up</h2>
               <div>{renderFilterInputs('Competitions')}</div>
               {/* <button className="delete" onClick={() => deleteInformation(selectedCompetitions) }>Delete</button> */}
-              <button className="delete" onClick={() => setVisible(true) }>
-                <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960" width="28"><path d="M264.666 957.333q-35.499 0-59.749-24.25t-24.25-59.749V313.333H140v-84h210.666v-38.666h260.001v38.666h210.666v84h-40.667v560.001q0 33.724-25.137 58.862-25.137 25.137-58.862 25.137H264.666Zm432.001-644H264.666v560.001h432.001V313.333ZM351 788.334h84V397h-84v391.334Zm176 0h84V397h-84v391.334ZM264.666 313.333v560.001-560.001Z"/></svg> 
-                Delete
-              </button>
+              {adminType === "MA" && (
+                <button className="delete" onClick={() => setVisible(true) }>
+                  <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960" width="28"><path d="M264.666 957.333q-35.499 0-59.749-24.25t-24.25-59.749V313.333H140v-84h210.666v-38.666h260.001v38.666h210.666v84h-40.667v560.001q0 33.724-25.137 58.862-25.137 25.137-58.862 25.137H264.666Zm432.001-644H264.666v560.001h432.001V313.333ZM351 788.334h84V397h-84v391.334Zm176 0h84V397h-84v391.334ZM264.666 313.333v560.001-560.001Z"/></svg> 
+                  Delete
+                </button>
+              )}
               <DataTable
               editMode="row"
               filters={filters}
@@ -813,7 +816,9 @@ console.log(link)
               rowClassName={"custom-row"}
               sortMode="multiple"
               >
-                <Column selectionMode="multiple" exportable={true}></Column>
+                {adminType === "MA" && (
+                  <Column selectionMode="multiple" exportable={true}></Column>
+                )}
                 <Column field="idchapter_members" header="ID Chapter Member"/>
                 <Column field="name" header="Name"  />
                 <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable/>
@@ -831,7 +836,7 @@ console.log(link)
                 <Column field="official_driver" header="officialDriver" editor={(options) => textEditor(options)} sortable/>
                 <Column field="created_at" header="Created At"sortable/>
                 <Column field="competitions_form" header="Competitions Form" editor={(options) => textEditor(options)} sortable/>
-                <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
+                <Column rowEditor id="hidden" headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}/>
               </DataTable>
 
               <div className="card flex justify-content-center">
@@ -854,10 +859,12 @@ console.log(link)
             <div>
               {renderFilterInputs("Admin")}
             </div>
+            {adminType === "MA" && (
             <button className="delete" onClick={() => setVisible(true) }>
                 <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960" width="28"><path d="M264.666 957.333q-35.499 0-59.749-24.25t-24.25-59.749V313.333H140v-84h210.666v-38.666h260.001v38.666h210.666v84h-40.667v560.001q0 33.724-25.137 58.862-25.137 25.137-58.862 25.137H264.666Zm432.001-644H264.666v560.001h432.001V313.333ZM351 788.334h84V397h-84v391.334Zm176 0h84V397h-84v391.334ZM264.666 313.333v560.001-560.001Z"/></svg> 
                 Delete
             </button>
+            )}
             <DataTable
               editMode="row"
               onRowEditComplete={onRowEditComplete}
@@ -872,7 +879,9 @@ console.log(link)
               rowClassName={"custom-row"}
               sortMode="multiple"
             >
+              {adminType === "MA" && (
               <Column selectionMode="single" exportable={true}></Column>
+              )}
               <Column field="idAdministrators" header="idadministrstor"  sortable />
               <Column field="name" header="Name"  sortable />
               <Column field="userName" header="username"sortable/>
@@ -882,37 +891,41 @@ console.log(link)
               <Column field="adminLevel" header="admin_level" editor={(options) => textEditor(options)} sortable />
               <Column field="createdAt" header="created_at"sortable/>
               <Column field="updatedAt" header="updated_at"sortable/>
-              <Column rowEditor headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}></Column>
+              {adminType === "MA" && (
+                <Column rowEditor  headerStyle={{ width: '30px', minWidth: '30px' }} bodyStyle={{ textAlign: 'center' }}/>
+              )}
             </DataTable>
+            {adminType === "MA" && (
+              <div>
+              <h2 className="tableHeader addAccountSpacing">Add Admin Account</h2>
+              <form onSubmit={handleAddAdmiinSubmit}>
 
-            <h2 className="tableHeader addAccountSpacing">Add Admin Account</h2>
-            <form onSubmit={handleAddAdmiinSubmit}>
+                <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleAddAdminChange} required/>
+                <input className="p-inputtext" type="text" name="passwd" placeholder="Password" onChange={handleAddAdminChange} required/>
+                <input className="p-inputtext" type="text" name="name" placeholder="Name" onChange={handleAddAdminChange} required/>
+                <input className="p-inputtext" type="email" name="email" placeholder="Email" onChange={handleAddAdminChange} required/>
+                <input className="p-inputtext" type="number" name="phone" placeholder="Phone" onChange={handleAddAdminChange} required/>
 
-              <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleAddAdminChange} required/>
-              <input className="p-inputtext" type="text" name="passwd" placeholder="Password" onChange={handleAddAdminChange} required/>
-              <input className="p-inputtext" type="text" name="name" placeholder="Name" onChange={handleAddAdminChange} required/>
-              <input className="p-inputtext" type="email" name="email" placeholder="Email" onChange={handleAddAdminChange} required/>
-              <input className="p-inputtext" type="number" name="phone" placeholder="Phone" onChange={handleAddAdminChange} required/>
+                <p className="p-inputtext" id="adminLevel">Admin level:</p>
+                <div className="p-radiobutton-box p-inputtext">
+          
+                  <div className="radioGroup">
+                  <label className="p-inputtext" id="selectedColor" htmlFor="adminLevel">MA</label>                
+                  <input  type="radio"    name="adminLevel" value="MA" onChange={handleAddAdminChange} required/>
+                  </div>
 
-              <p className="p-inputtext" id="adminLevel">Admin level:</p>
-              <div className="p-radiobutton-box p-inputtext">
-        
-                <div className="radioGroup">
-                <label className="p-inputtext" id="selectedColor" htmlFor="adminLevel">MA</label>                
-                <input  type="radio"    name="adminLevel" value="MA" onChange={handleAddAdminChange} required/>
+                  <div className="radioGroup" >
+                    <label className="p-inputtext" id="selectedColor" htmlFor="adminLevel">GA</label>
+                    <input  type="radio"    name="adminLevel" value="GA" onChange={handleAddAdminChange} required/>
+                  </div>
+
                 </div>
 
-                <div className="radioGroup" >
-                  <label className="p-inputtext" id="selectedColor" htmlFor="adminLevel">GA</label>
-                  <input  type="radio"    name="adminLevel" value="GA" onChange={handleAddAdminChange} required/>
-                </div>
+                <input className="p-inputtext" id="submitButton" type="submit" />
 
+              </form>
               </div>
-
-              <input className="p-inputtext" id="submitButton" type="submit" />
-
-            </form>
-
+            )}
             {/* <h2 className="tableHeader addAccountSpacing">Change Password</h2>
             <form onSubmit={handleNewPasswordSubmit}>
 
