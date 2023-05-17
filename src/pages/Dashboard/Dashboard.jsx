@@ -14,7 +14,7 @@ import { Dialog } from 'primereact/dialog';
 
 
 function Template() {
-  // const token = "eyjhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG5UZXN0aW5nMSIsImV4cF9kYXRlIjoxNjg0MTE1MzM5LjkxMDE5NSwibGV2ZWwiOiJNQSJ9.KN1Jkl3vfH8P4qgiZy47QX37AF3pReoFcfgexnom-DY";
+
   const token = localStorage.getItem('token');
 
   if(token === null){
@@ -44,6 +44,7 @@ function Template() {
     const timeDifference = decodedToken.exp_date - currentTime;
     if (timeDifference > 0) {
       setTimeout(() => {
+        alert("Session Expired")
         window.location.href = '/AdminLogIn';
       }, timeDifference * 1000); // convert back to milliseconds
     } else {
@@ -555,7 +556,7 @@ console.log(link)
 
 
   function checkAddAdminInputs(_newAdmin){
-    const regexPassword = /[A-Z](?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+={}[\]:;"'<>,.?/])[A-Za-z\d!@#$%^&*()_+={}[\]:;"'<>,.?/]{7,}$/;
+    const regexPassword = /[A-Z](?=.*[a-z])(?=.*\d)(?=.*[!@#$%&])[A-Za-z\d!@#$%&]{7,}$/;
     const regexUserName = /^[A-Z][A-Za-z0-9]*$/;
     const regexName = /^[A-Z][a-z]{2,}( [A-Z][a-z]{1,})+$/;
     const regexEmail = /^[a-z0-9_]+@[a-z]+(\.com)|[a-zA-Z]+_\d+@students\.pupr\.edu|[a-z]+@pupr\.edu$/;
