@@ -15,6 +15,7 @@ function template(props) {
             <Nav.Link as={Link} to="/Home" className='nav-link py-1' aria-current="page" ><li style={{color:color, fontSize:'1.5rem'}}>Home</li></Nav.Link>
             <Nav.Link as={Link} to="/Home" className='nav-link py-1' aria-current="page" ><li style={{color:color, fontSize:'1.5rem'}}>About us</li></Nav.Link>
             <Nav.Link as={Link} to="/Competitions" className='nav-link py-1' aria-current="page" ><li style={{color:color, fontSize:'1.5rem'}}>Competitions</li></Nav.Link>
+            <Nav.Link as={Link} to="/AdminLogin" className='nav-link py-1' aria-current="page" ><li style={{color:color, fontSize:'1.5rem'}}>AdminLogin</li></Nav.Link>
 
             <Nav.Link as={Link} to="/Competitions" className='nav-link py-1' aria-current="page" ><li style={{color:color, fontSize:'1.5rem'}}>Sponsors</li></Nav.Link>
             {/* <Nav.Link as={Link} to="/Team" className='nav-link py-1' aria-current="page" ><li style={{color:color, fontSize:'1.5rem'}}>Team</li></Nav.Link> */}
