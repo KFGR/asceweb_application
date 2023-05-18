@@ -188,49 +188,11 @@
     }
 }
 
-.AboutUs .row{
-    display: flex;
-    flex-wrap:wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    box-sizing: border-box;
-}
-/* Three columns side by side */
-.AboutUs .column {
-    -webkit-box-flex: 0;
-    flex: 0 0 24.9%;
-    max-width: 24.9%;
-    width: 100%;
-    min-height: 1px;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-    position: relative;
-
-    box-sizing: border-box;
-}
   
-  /* Display the columns below each other instead of side by side on small screens */
-@media screen and (max-width: 800px) {
-    .AboutUs .column{
-        position: relative;
-        width: 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-left: auto;
-        margin-right: auto;
 
-        box-sizing: border-box;
-        display: block;
-    }
-}
   
   /* Add some shadows to create a card effect */
-  .AboutUs .card {
+  .AboutUs  #card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
   
@@ -251,7 +213,7 @@
     font-weight: 400;
     margin-bottom: 8px;
 }
-.column > .card > .container > p{
+#column > #card > .container > p{
     color: black;
     font-weight: 400;
 }
@@ -272,8 +234,58 @@
     background-color: #555;
 }
 
-.column > .card > img{
+ #card > img{
+    width: 100%;
     aspect-ratio: 4/3;
     object-fit: contain;
-    margin: 10px auto;
+    margin: auto;
+}
+
+#row{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+#card{
+    width: 350px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 15px auto;
+}
+
+@media screen and (max-width: 1600px) {
+    #row{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #card:nth-child(7) {
+        position: relative;
+        left: 50%;
+    }
+    #card:nth-child(8) {
+        position: relative;
+        left: 50%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    #row{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #row{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    #card{
+        width: 300px;
+    }
+    #card:nth-child(7) {
+        left: 0%;
+    }
+    #card:nth-child(8) {
+        left: 0%;
+    }
 }

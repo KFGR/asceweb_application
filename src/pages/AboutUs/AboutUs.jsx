@@ -141,14 +141,14 @@ export default function template() {
             <p className="auContentTextFont2">
               For further information related with the American Society of Civil Engineers (ASCE), pleae follow the following <a href="https://www.asce.org/">link</a>.
             </p>
-
-            <h2 className = "auContentTextFont1" style={{textAlign: "center"}}>
+          </div>
+        </div>
+        <h2 className = "auContentTextFont1" style={{textAlign: "center"}}>
               Meet Our Team!
             </h2>
-            <div className="row">
-              <div className="column">
-                <div className="card">
-                  <img src={require("./img/MariaRosado.jpg")} alt="CP" style={{width: "365px",height:"246.925px"}}/>
+            <div id="row">
+                <div id="card">
+                  <img src={require("./img/MariaRosado.jpg")} alt="CP" />
                   <div className="container">
                     <h2>Maria Rosado</h2>
                     <p className="title">Chapter President</p>
@@ -156,87 +156,70 @@ export default function template() {
                     <p><Button className="button" href="mailto:rosado_105467@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
-              </div>
-              <div className="column">
-                <div className="card">
-                  <img src={require("./img/AU_P7.jpg")} alt="CVP" style={{width: "365px",height:"246.925px"}}/>
-                  <div className="container">
+                <div id="card">
+                  <img src={require("./img/AU_P7.jpg")} alt="CVP" />
+                  <div id="container">
                     <h2>Leonardo Perez </h2>
                     <p className="title">Chapter Vice President</p>
                     <p>Phone: 787-360-8361</p>
                     <p><Button className="button" href="mailto:perez_121465@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
-              </div>
-              <div className="column">
-                <div className="card">
-                  <img src={require("./img/GonzaloValentin.jpg")} alt="CS" style={{width: "365px",height:"246.925px"}}/>
-                  <div className="container">
+                <div id="card">
+                  <img src={require("./img/GonzaloValentin.jpg")} alt="CS" />
+                  <div id="container">
                     <h2>Gonzalo Valentin</h2>
                     <p className="title">Chapter Secretary</p>
                     <p>Phone: 787-552-5508</p>
                     <p><Button className="button" href="mailto:valentin_120106@students.pupr.edu ">Send Email</Button></p>
                   </div>
                 </div>
-              </div>
-              <div className="column">
-                <div className="card">
-                  <img src={require("./img/KarianysRodriguez.jpg")} alt="CTS" style={{width: "365px",height:"246.925px"}}/>
-                  <div className="container">
+                <div id="card">
+                  <img src={require("./img/KarianysRodriguez.jpg")} alt="CTS" />
+                  <div id="container">
                     <h2>Kariannys Rodriguez</h2>
                     <p className="title">Chapter Treasurer Supervisor</p>
                     <p>Phone: 787-360-8361</p>
                     <p><Button className="button" href="mailto:rodriguez_104373@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
-              </div>
-              <div className="column">
-                <div className="card">
-                  <img src={require("./img/AU_P8.jpg")} alt="CT1" style={{width: "365px",height:"246.925px"}}/>
-                  <div className="container">
+                <div id="card">
+                  <img src={require("./img/AU_P8.jpg")} alt="CT1" />
+                  <div id="container">
                     <h2>Elian Santana</h2>
                     <p className="title">Chapter Treasurer</p>
                     <p>Phone: 939-332-8808</p>
                     <p><Button className="button" href="mailto:santana_116552@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
-              </div>
-              <div className="column">
-                <div className="card">
-                  <img src={require("./img/JoseYamil.jpg")} alt="CT2" style={{width: "365px",height:"246.925px"}}/>
-                  <div className="container">
+                <div id="card">
+                  <img src={require("./img/JoseYamil.jpg")} alt="CT2" />
+                  <div id="container">
                     <h2>Jose Yamil Serrano</h2>
                     <p className="title">Chapter Treasurer</p>
                     <p>Phone: 787-217-8361</p>
                     <p><Button className="button" href="mailto:serrano_127256@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
-              </div>
-              <div className="column">
-                <div className="card">
-                  <img src={require("./img/LuisRodriguez.jpg")} alt="CSP" style={{width: "365px",height:"246.925px"}}/>
-                  <div className="container">
+                <div id="card">
+                  <img src={require("./img/LuisRodriguez.jpg")} alt="CSP" />
+                  <div id="container">
                     <h2>Luis Rodriguez</h2>
                     <p className="title">Chapter Spokeperson</p>
                     <p>Phone: 787-243-5232</p>
                     <p><Button className="button" href="mailto:rodriguez_127354@students.pupr.edu">Send Email</Button></p>
                   </div>
                 </div>
-              </div>
-              <div className="column">
-                <div className="card">
-                  <img src={require("./img/GingerRossy.jpg")} alt="Jane" style={{width: "365px",height:"246.925px"}}/>
-                  <div className="container">
+                <div id="card">
+                  <img src={require("./img/GingerRossy.jpg")} alt="Jane" />
+                  <div id="container">
                     <h2>Prof. Ginger Rossy</h2>
                     <p className="title">Chapter Mentor</p>
                     <p>Phone: 787-669-5618</p>
                     <p><Button className="button" href="mailto:NULL">Send Email</Button></p>
                   </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
     </div>
   );
 };
