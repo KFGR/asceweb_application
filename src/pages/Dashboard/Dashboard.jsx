@@ -111,8 +111,8 @@ function Template() {
     adminLevel: ''
   });
 
-  const [selectedStudents, setselectedStudents] = useState([]);
-  const [selectedCompetitions, setselectedCompetitions] = useState([]);
+  const [selectedStudents, setselectedStudents] = useState(null);
+  const [selectedCompetitions, setselectedCompetitions] = useState(null);
   const [selectedAdmins, setselectedAdmins] = useState(null);
   const [filters, setFilters] = useState({});
   const [selectedButton, setSelectedButton] = useState('Students');
@@ -237,63 +237,6 @@ function Template() {
     
     if(selectedButton === "Students"){
 
-      // let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/members/updatefrommember?token=${token}&email=${dataStudents[index].email}`;
-      // let linkChanged = false;
-      // if(editRow.email !== dataStudents[index].email){
-      //   link = link + `&newEmail=${editRow.email}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.phone !== dataStudents[index].phone){
-      //   editRow.phone = editRow.phone.replace(/-/g, "");
-      //   link = link + `&newPhone=${editRow.phone}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.tshirt_size !== dataStudents[index].tshirt_size){
-      //   link = link + `&newTshirt_size=${editRow.tshirt_size}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.age !== dataStudents[index].age){
-      //   link = link + `&newAge=${editRow.age}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.bachelor !== dataStudents[index].bachelor){
-      //   link = link + `&newBachelor=${editRow.bachelor}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.department !== dataStudents[index].department){
-      //   link = link + `&newDepartment=${editRow.department}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.aca_years !== dataStudents[index].aca_years){
-      //   link = link + `&newAcademic_Years=${editRow.aca_years}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.membership_paid !== dataStudents[index].membership_paid){
-      //   link = link + `&newMembership=${editRow.membership_paid}`;
-      //   linkChanged = true;
-      // }
-      
-      // if(linkChanged){
-      //   axios.put(link)
-      //   .then((response) => {
-      //     console.log(response.data);
-      //     if(response.data.status_code === 201){
-      //       getData();
-      //       alert(`${response.data.body}`);
-      //     }else{
-      //       alert(`${response.data.body}`);
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     console.error(error);
-      //   });
-
-      // }else{
-      //   alert("NO CHANGES WERE MADE")
-      // }
-
-
-
       let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/members/updatefrommember?token=${token}&email=${dataStudents[index].email}`;
       let linkChanged = false;
 
@@ -340,84 +283,6 @@ function Template() {
     }
 
     if(selectedButton === "Competitions"){
-      // let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/competitionsmember/updatefromcompetitionsmember?token=${token}&email=${dataCompetitions[index].email}`;
-      // let linkChanged = false;
-      // if(editRow.email !== dataCompetitions[index].email){
-      //   link = link + `&newEmail=${editRow.email}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.phone !== dataCompetitions[index].phone){
-      //   editRow.phone = editRow.phone.replace(/-/g, "");
-      //   link = link + `&newPhone=${editRow.phone}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.asce_member !== dataCompetitions[index].asce_member){
-      //   link = link + `&newAscemember=${editRow.asce_member}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.ascemembership !== dataCompetitions[index].ascemembership){
-      //   link = link + `&newAscemembership=${editRow.ascemembership}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.competition_name !== dataCompetitions[index].competition_name){
-      //   link = link + `&newCompetition_name=${editRow.competition_name}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.courses !== dataCompetitions[index].courses){
-      //   link = link + `&newCourses=${editRow.courses}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.daily_availability !== dataCompetitions[index].daily_availability){
-      //   link = link + `&newDaily_Avail=${editRow.daily_availability}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.travel_availability !== dataCompetitions[index].travel_availability){
-      //   link = link + `&newTravel=${editRow.travel_availability}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.travel_june !== dataCompetitions[index].travel_june){
-      //   link = link + `&newTravel_june=${editRow.travel_june}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.older_than_twentyfive !== dataCompetitions[index].older_than_twentyfive){
-      //   link = link + `&newOlder=${editRow.older_than_twentyfive}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.heavy_driver !== dataCompetitions[index].heavy_driver){
-      //   link = link + `&newHeavy=${editRow.heavy_driver}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.official_driver !== dataCompetitions[index].official_driver){
-      //   link = link + `&newOffdriver=${editRow.official_driver}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.competitions_form !== dataCompetitions[index].competitions_form){
-      //   link = link + `&newCompetitions_form=${editRow.competitions_form}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.experiences !== dataCompetitions[index].experiences){
-      //   link = link + `&newExperiences=${editRow.experiences}`;
-      //   linkChanged = true;
-      // }
-      // if(linkChanged){
-      //   axios.put(link)
-      //   .then((response) => {
-      //     console.log(response.data);
-      //     if(response.data.status_code === 201){
-      //       getData();
-      //       alert(`${response.data.body}`);
-      //     }else{
-      //       alert(`${response.data.body}`);
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     console.error(error);
-      //   });
-
-      // }else{
-      //   alert("NO CHANGES WERE MADE")
-      // }
-
 
   let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/competitionsmember/updatefromcompetitionsmember?token=${token}&email=${dataCompetitions[index].email}`;
   let linkChanged = false;
@@ -471,46 +336,6 @@ console.log(link)
 
     }
     if(selectedButton === "Admin"){
-
-      // let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/admin/updatefromadmin/?userName=${editRow.userName}&masterAdminToken=${token}`;
-      // let linkChanged = false;
-      // if(editRow.password !== dataAdmin[index].password){
-      //   link = link + `&newPasswd=${editRow.password}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.email !== dataAdmin[index].email){
-      //   link = link + `&newEmail=${editRow.email}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.phone !== dataAdmin[index].phone){
-      //   editRow.phone = editRow.phone.replace(/-/g, "");
-      //   link = link + `&newPhone=${editRow.phone}`;
-      //   linkChanged = true;
-      // }
-      // if(editRow.adminLevel !== dataAdmin[index].adminLevel){
-      //   link = link + `&newLevel=${editRow.adminLevel}`;
-      //   linkChanged = true;
-      // }
-      // if(linkChanged){
-      //   axios.put(link)
-      //   .then((response) => {
-      //     console.log(response.data);
-      //     if(response.data.status_code === 201){
-      //       getData();
-      //       alert(`${response.data.body}`);
-      //     }else{
-      //       alert(`${response.data.body}`);
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     console.error(error);
-      //   });
-
-      // }else{
-      //   alert("NO CHANGES WERE MADE")
-      // }
-
-
 
       let link = `https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/update/admin/updatefromadmin/?userName=${editRow.userName}&masterAdminToken=${token}`;
       let linkChanged = false;
@@ -597,19 +422,15 @@ console.log(link)
 
     if(selectedButton === 'Students'){
 
-      if(selectedStudents.length !== 0){
-
-        const deleteEmailsStudents = selectedStudents.map(obj => obj.email);
-        console.log(deleteEmailsStudents);
-        console.log("READY FOR API STUDENTS");
+      if(selectedStudents !== null){
         
-        axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/deletemembers/?masterAdminToken=${token}&email=${deleteEmailsStudents}`)
+        axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/deletemembers/?masterAdminToken=${token}&email=${selectedStudents.email}`)
         .then((response) => {
           console.log(response.data);
           if(response.data.status_code === 200){
             getData();
             alert(`${response.data.body}`);
-            setselectedStudents("")
+            setselectedStudents(null)
           }else{
             alert(`${response.data.body}`);
           }
@@ -624,19 +445,15 @@ console.log(link)
     }
     if(selectedButton === 'Competitions'){
       
-      if(selectedCompetitions.length !== 0){
-
-        const deleteEmailsCompetitions = selectedCompetitions.map(obj => obj.email);
-        console.log(deleteEmailsCompetitions)
-        console.log("READY FOR API COMPETITIONS");
+      if(selectedCompetitions !== null){
         
-        axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/competitionsmember/deletecompetitionsmember/?masterAdminToken=${token}&email=${deleteEmailsCompetitions}`)
+        axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/competitionsmember/deletecompetitionsmember/?masterAdminToken=${token}&email=${selectedCompetitions.email}`)
         .then((response) => {
           console.log(response.data);
           if(response.data.status_code === 200){
             getData();
             alert(`${response.data.body}`);
-            setselectedCompetitions("")
+            setselectedCompetitions(null)
           }else{
             alert(`${response.data.body}`);
           }
@@ -757,7 +574,7 @@ console.log(link)
               sortMode="multiple"
             >
               {adminType === "MA" && (
-                <Column selectionMode="multiple" exportable={true}></Column>
+                <Column selectionMode="single" exportable={true}></Column>
               )}
               <Column field="idchapter_members" header="ID Chapter Member" sortable />
               <Column field="name" header="Name"  sortable />
@@ -779,7 +596,7 @@ console.log(link)
             <div className="card flex justify-content-center">
               <Dialog header="WARNING" visible={visible} style={{ width: '25vw' }} onHide={() => setVisible(false)}>
                   <p className="m-0">
-                    Are you sure you want to delete {selectedStudents.length} Members?
+                    Are you sure you want to delete this Members?
                   </p>
                   <div className="cofinmation-button">
                     <div><button className="delete confirmation-yes"  onClick={() => deleteConfirmation()}>Yes</button></div>
@@ -817,7 +634,7 @@ console.log(link)
               sortMode="multiple"
               >
                 {adminType === "MA" && (
-                  <Column selectionMode="multiple" exportable={true}></Column>
+                  <Column selectionMode="single" exportable={true}></Column>
                 )}
                 <Column field="idchapter_members" header="ID Chapter Member"/>
                 <Column field="name" header="Name"  />
@@ -842,7 +659,7 @@ console.log(link)
               <div className="card flex justify-content-center">
                 <Dialog header="WARNING" visible={visible} style={{ width: '25vw' }} onHide={() => setVisible(false)}>
                     <p className="m-0">
-                        Are you sure you want to delete {selectedCompetitions.length} competition submissions?
+                        Are you sure you want to delete this competition submissions?
                     </p>
                     <div className="cofinmation-button">
                       <div><button className="delete confirmation-yes"  onClick={() => deleteConfirmation()}>Yes</button></div>
