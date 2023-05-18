@@ -32,6 +32,10 @@ function Template() {
       alert('Please enter your First Name and your Last Name only.');
       return(hasError = true);
     }
+    if(formData.confirm !== true){
+      alert('Please check the checkbox at the end of the form');
+      hasError = true;
+    }
     
     return(!hasError);  
   };
@@ -55,8 +59,8 @@ function Template() {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (checkInput(formData)){      
-
+    if (checkInput(formData)){    
+      console.log(formData);
       axios.post(`https://ascewebbackend.azurewebsites.net/ascewepupr/signup/form/signuptochapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`)
       .then((response) => {
         if(response.data.status_code === 201){
@@ -79,6 +83,7 @@ function Template() {
     }
     else//THIS ELSE TAKES PLACE IF THE USER ENTERED AN INCORRECT EMAIL (SEE FUCNTION checkInput) 
     {
+      console.log(formData);
       console.log('error');
       alert('Input ERROR');
     }
@@ -228,7 +233,7 @@ function Template() {
             <div className="form-group">
               <div className="disclaimer">
                 {/* Checkbox */}
-                <input type="checkbox" 
+                <input type="checkbox" value={true} name="confirm" onChange={handleChange} 
                   id="checkbox" required/> After the "Submit" button, there will be a fee of $25.00 dollars
                   in order to become a member of the PUPR-ASCE, by contacting the PUPR-ASCE treasuer directive member. 
                   The $25.00 dollars are not refundable.
