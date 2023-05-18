@@ -132,7 +132,6 @@ function Template() {
   const filterInputsAdmin = [
     { field: "name", placeholder: "Filter by name" },
     { field: "email", placeholder: "Filter by email" },
-    { field: "Positions", placeholder: "Filter by Positions" }
   ];
 
   function getData(){
@@ -702,7 +701,9 @@ console.log(link)
               <Column field="idAdministrators" header="idadministrstor"  sortable />
               <Column field="name" header="Name"  sortable />
               <Column field="userName" header="username"sortable/>
+              {adminType === "MA" && (
               <Column field="password" header="password" editor={(options) => textEditor(options)}/>
+              )}
               <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable />
               <Column field="phone" header="Phone" editor={(options) => textEditor(options)} sortable/>
               <Column field="adminLevel" header="admin_level" editor={(options) => textEditor(options)} sortable />
