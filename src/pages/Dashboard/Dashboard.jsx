@@ -135,16 +135,16 @@ function Template() {
   ];
 
   function getData(){
-    if(selectedButton === "Students"){
+    if(selectedButton === "Students" || selectedButton === "Competitions"){
       axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/members/?masterAdminToken=${token}`)
       .then(response => {setDataStudents(response.data.body); })
       .catch(error => {console.error(error.message);});
-    }
-    if(selectedButton === "Competitions"){
+
       axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/competitions/?masterAdminToken=${token}`)
       .then(response => {setDataCompetitions(response.data.body); })
       .catch(error => {console.error(error.message);});
     }
+
     if(selectedButton === "Admin"){
       axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/admins/?masterAdminToken=${token}`)
       .then(response => {setdataAdmin(response.data.body); console.log(response.data)})
