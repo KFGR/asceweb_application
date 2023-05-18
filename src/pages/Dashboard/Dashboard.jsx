@@ -743,27 +743,6 @@ console.log(link)
               </form>
               </div>
             )}
-            {/* <h2 className="tableHeader addAccountSpacing">Change Password</h2>
-            <form onSubmit={handleNewPasswordSubmit}>
-
-              <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleNewPasswordChange} required/>
-              <input className="p-inputtext" type="text" name="oldpasswd" placeholder="oldPassword" onChange={handleNewPasswordChange} required/>
-              <input className="p-inputtext" type="text" name="newpasswd" placeholder="newPassword" onChange={handleNewPasswordChange} required/>
-              <input className="p-inputtext" type="text" name="email" placeholder="Email" onChange={handleNewPasswordChange} required/>
-              <input className="p-inputtext" id="submitButton" type="submit" />
-
-            </form>
-
-            <h2 className="tableHeader addAccountSpacing">Change Email</h2>
-            <form onSubmit={handleNewEmailSubmit}>
-
-              <input className="p-inputtext" type="text" name="userName" placeholder="Username" onChange={handleNewEmailChange} required/>
-              <input className="p-inputtext" type="text" name="oldemail" placeholder="oldEmail" onChange={handleNewEmailChange} required/>
-              <input className="p-inputtext" type="text" name="newemail" placeholder="newEmail" onChange={handleNewEmailChange} required/>
-              <input className="p-inputtext" type="text" name="email" placeholder="Email" onChange={handleNewEmailChange} required/>
-              <input className="p-inputtext" id="submitButton" type="submit" />
-
-            </form> */}
 
             <div className="card flex justify-content-center">
               <Dialog header="WARNING" visible={visible} style={{ width: '25vw' }} onHide={() => setVisible(false)}>
