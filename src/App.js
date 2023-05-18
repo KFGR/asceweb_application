@@ -22,13 +22,8 @@ const LazySponsors = React.lazy(() => import('./pages/Sponsors'));
 const LazyCompetitions = React.lazy(() => import('./pages/Competitions'));
 const LazyDashboard = React.lazy(() => import('./pages/Dashboard'));
 const LazyAdminLogIn = React.lazy(() => import('./pages/AdminLogIn'));
-
 const LazyStudentSignUp = React.lazy(() => import ('./pages/StudentSignUp/StudentSignUp'));
 const LazyAboutUs = React.lazy(() => import('./pages/AboutUs'))
-// const token = localStorage.getItem('token');
-// if(token === null){
-//   window.location.href = '/AdminLogIn';
-// }
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -38,7 +33,7 @@ function Dashboard() {
     if (token === null) {
       navigate('/AdminLogin');
     }
-  }, []);
+  }, [navigate,token]);
 
   return (
     <React.Suspense fallback='loading...'>
@@ -59,18 +54,9 @@ const App = () => {
         <Route path='/Sponsors' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazySponsors/></></React.Suspense>}/>
         <Route path='/Competitions' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="competitions_header"/><LazyCompetitions/></></React.Suspense>}/>
         <Route path='/AboutUs' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazyAboutUs/></></React.Suspense>}/>
-
-        <Route path='/team' element={<><AppHeader id="Normal_header"/> <Team/></>}/> */}
-        <Route path='/' element={<React.Suspense fallback='loading...'><><AppHeader id="another_home_header"/><LazyHome/></></React.Suspense>}/>
-        <Route path='/Home' element={<React.Suspense fallback='loading...'><><AppHeader id="Home_header"/><LazyHome/></></React.Suspense>}/>
-        <Route path='/team' element={<React.Suspense fallback='loading...'><><AppHeader id="Normal_header"/><LazyTeam/></></React.Suspense>}/>
-        <Route path='/Sponsors' element={<React.Suspense fallback='loading...'><><AppHeader id="Normal_header"/><LazySponsors/></></React.Suspense>}/>
-        <Route path='/Competitions' element={<React.Suspense fallback='loading...'><><AppHeader id="another_home_header"/><LazyCompetitions/></></React.Suspense>}/>
         <Route path='/AdminLogin' element={<React.Suspense fallback='loading...'><><LazyAdminLogIn/></></React.Suspense>}/>
         <Route path='/Dashboard' element={<Dashboard />} />
-          {/* <Route  path='/home' element={<CurrentPage Component1={<AppHeader id="Home_header"/>} Component2={Home}/>}/>
-          <Route path='/team' element={<CurrentPage Component1={<AppHeader id="Normal_header"/>} Component2={Team}/>}/> */}
-
+        <Route path='/StudentSignUp' element={<React.Suspense fallback='loading...'><><LazyAppHeader id="Normal_header"/><LazyStudentSignUp/></></React.Suspense>}/>
         </Routes>
       </div>
       <LazyAppFooter/>
