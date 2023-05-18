@@ -53,39 +53,28 @@ function Template() {
 
   };
   
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
     if (checkInput(formData)){      
-      const formDataJson = JSON.stringify(formData); //this line shows all input AFTER clicking submit
-      console.log(formDataJson);
 
-      
+      axios.post(`https://ascewebbackend.azurewebsites.net/ascewepupr/signup/form/signuptochapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`)
+      .then((response) => {
+        if(response.data.status_code === 201){
+          alert(`${response.data.body}`);
+          emailjs.send('service_he5fwo7','template_po5c80p', formData, 'cz8JC7lswvQNgszAG')
+          .then((response) => {
+            console.log('SUCCESS!', response.status, response.text);
+          }, (err) => {
+            console.log('FAILED...', err);
+          });
 
-
-      //Below this line, we are trying to get the input data from the Student Sign Up Form to reach the database Member table.
-      //const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ascepupr/signup/form/signuptochapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`);
-      const response = await axios.post (`https://ascewebbackend.azurewebsites.net/ascewepupr/signup/form/signuptochapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`); 
-
-      console.log('this is just to debug!');
-      
-      console.log(response.data); // this is to see the data that the database responds with
-
-      //const responseModel = response.data;
-
-      if(response.data.status_code === 200)
-      {
-          emailjs.send('service_he5fwo7','template_tsi8u6l', formData, 'cz8JC7lswvQNgszAG')
-        .then((response) => {
-          console.log('SUCCESS!', response.status, response.text);
-        }, (err) => {
-          console.log('FAILED...', err);
-        });
-      }
-
-
-
-
+        }else{
+          alert(`${response.data.body}`);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 
     }
     else//THIS ELSE TAKES PLACE IF THE USER ENTERED AN INCORRECT EMAIL (SEE FUCNTION checkInput) 

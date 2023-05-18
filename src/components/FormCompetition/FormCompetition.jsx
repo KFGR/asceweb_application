@@ -137,25 +137,32 @@ function Template() {
 
     if(checkInputs(formData)){
       // Do something with the form data object
-      console.log(formData);
-      const formDataJson = JSON.stringify(formData);
-      console.log(formDataJson);
+
 
       //Adding endpoint of the competition member table in the database backend. For this to work the following
       //must be added to the endpoint of the signuptocompetitions table: ASCE number field for the ASCE number question,  
       //June travel field for the June travel question, as well as add the field for the recent experience question,
       //and eliminate the phone entry in this endpoint.
-      const response = await axios.post(`https://ascewebbackend.azurewebsites.net/ascepupr/competitions/form/signuptocompetition/?name=${formData.name}&email=${formData.email}&asce_member=${formData.ASCEMenber}&ascemembership_number=${formData.ASCENumber}&competition_name=${formData.Competitions}&courses=${formData.recentCourse}&experiences=${formData.Experience}&daily_availability=${formData.Weekday}&travel_availability=${formData.Travel}&travel_june=${formData.travelJune}&older_than_twentyfive=${formData.older25}&heavy_driver=${formData.heavyvehicleLicense}&official_driver=${formData.officialDriver}`);
 
-      console.log(response.data);
+      axios.post(`https://ascewebbackend.azurewebsites.net/ascepupr/competitions/form/signuptocompetition/?name=${formData.name}&email=${formData.email}&asce_member=${formData.ASCEMenber}&ascemembership_number=${formData.ASCENumber}&competition_name=${formData.Competitions}&courses=${formData.recentCourse}&experiences=${formData.Experience}&daily_availability=${formData.Weekday}&travel_availability=${formData.Travel}&travel_june=${formData.travelJune}&older_than_twentyfive=${formData.older25}&heavy_driver=${formData.heavyvehicleLicense}&official_driver=${formData.officialDriver}`)
+      .then((response) => {
+        console.log(response.data);
+        if(response.data.status_code === 201){
+          alert(`${response.data.body}`);
+          emailjs.send('service_he5fwo7','template_po5c80p', formData, 'cz8JC7lswvQNgszAG')
+          .then((response) => {
+            console.log('SUCCESS!', response.status, response.text);
+          }, (err) => {
+            console.log('FAILED...', err);
+          });
 
-
-      emailjs.send('service_he5fwo7','template_po5c80p', formData, 'cz8JC7lswvQNgszAG')
-              .then((response) => {
-                console.log('SUCCESS!', response.status, response.text);
-              }, (err) => {
-                console.log('FAILED...', err);
-              });
+        }else{
+          alert(`${response.data.body}`);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
       
     }else{
       console.log('error');
