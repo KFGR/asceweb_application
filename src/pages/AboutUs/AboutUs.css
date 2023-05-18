@@ -254,6 +254,11 @@
     padding: 15px;
     margin: 15px auto;
 }
+#container > p{
+    color: black;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
 
 @media screen and (max-width: 1600px) {
     #row{
