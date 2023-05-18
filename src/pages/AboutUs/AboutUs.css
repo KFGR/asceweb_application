@@ -273,6 +273,12 @@
     #row{
         grid-template-columns: repeat(2, 1fr);
     }
+    #card:nth-child(7) {
+        left: 0%;
+    }
+    #card:nth-child(8) {
+        left: 0%;
+    }
 }
 
 @media screen and (max-width: 800px) {
@@ -281,11 +287,5 @@
     }
     #card{
         width: 300px;
-    }
-    #card:nth-child(7) {
-        left: 0%;
-    }
-    #card:nth-child(8) {
-        left: 0%;
     }
 }
