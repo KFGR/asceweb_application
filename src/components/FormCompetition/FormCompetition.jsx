@@ -28,7 +28,7 @@ function Template() {
   function checkInputs(formData){
     const regexName = /^([a-zA-Z]+[’'`-]?[a-zA-Z]+[ ]?)+$/;
     const regexEmail = /^[a-zA-Z]+_[0-9]+@students\.pupr\.edu$/;
-    const regexText = /['";()&$%~`^*{}\/+=[\\]|<>]/;
+    const regexText = /['";()&$%~`^*{}/+=[\\]|<>]/;
     var addError;
     let hasError = false;
   
@@ -202,7 +202,7 @@ function Template() {
             <div className="questionInput">
                 <label htmlFor="ASCENumber">ASCE Member Number</label>
                 <input type="number" placeholder="1234567890" id="ASCENumber" name="ASCENumber"   value={formData.ASCENumber} onChange={handleChange} required/>
-                <p id ="note">Note: If you do not have an ASCE Member Number, then please become an official ASCE Member website <a href="https://www.asce.org/" target="_blank">HERE</a></p>
+                <p id ="note">Note: If you do not have an ASCE Member Number, then please become an official ASCE Member website <a href="https://www.asce.org/" target="__blank">HERE</a></p>
             </div>
 
             <div className="questionInput">
