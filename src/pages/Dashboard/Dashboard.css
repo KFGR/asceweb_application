@@ -1,0 +1,196 @@
+.Dashboard{
+    width: auto;
+    padding: 0 20px 0 20px;
+}
+
+.custom-row {
+    height: 50px;
+}
+
+.multi-line {
+    white-space: normal;
+    word-break: break-word;
+    width: 800px;
+}
+
+.filter-inputs-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+  
+.filter-inputs-container > .p-col {
+    margin-right: 1rem;
+}
+  
+.adminHeader{
+    background-color: #144a9a;
+    margin-bottom: 40px;
+ }
+
+.adminHeader > ul > li{
+    color: white;
+    margin: auto;
+    font-size: 20px;
+}
+
+.adminHeader >ul{
+    display: flex;
+    margin: auto;
+    padding: 0;
+}
+
+.adminHeader > ul > li > button{
+    color: white;
+    margin: auto;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: #144a9a;
+}
+
+.visibleDiv{
+    visibility: hidden;
+}
+
+.tableHeader{
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+.addAccountSpacing{
+    margin-top: 20px;
+}
+
+#selected {
+    background-color: #ffc107;
+    color:black;
+    border: 1px solid black;
+}
+
+form{
+    margin: 20px auto;
+    display: flex;
+}
+
+form > input[type="text"]{
+    margin-left: 20px;
+}
+
+form > input[type="text"]:first-child{
+    margin-left: 0px;
+}
+
+select{
+    width: 207px;
+}
+
+.delete{
+    align-items: center;
+    padding: 10.5px 17.5px;
+    border: 1px;
+    color: white;
+    font-size: 20px;
+    background-color: rgb(159, 14, 14);
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+#submitButton{
+    width: 100px;
+    background-color: rgb(27, 158, 75);
+    color: white;
+    margin-left: 20px;
+}
+
+input[type="radio"]{
+    width: 18px;
+    height: 18px;
+}
+
+input[type="email"], input[type="number"]{
+    margin-left: 20px;
+}
+
+#adminLevel{
+    border: none;
+    margin-left: 20px;
+}
+
+.radioGroup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#selectedColor{
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    margin-right: 10px;
+}
+
+.cofinmation-button{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.confirmation{
+    margin-top: 15px;
+    width: 100px;
+}
+
+.confirmation-yes{
+    background-color: #1B9E4B;
+    margin-top: 15px;
+    width: 100px;
+}
+
+.Logout-button{
+    display: flex;
+    justify-content: end;
+}
+
+svg {
+   fill: white;
+}
+
+.Logout-button > button{
+    align-items: center;
+    padding: 10.5px 17.5px;
+    border: 1px;
+    color: white;
+    font-size: 20px;
+    background-color: #144a9a;
+    border-radius: 6px;
+    margin: 10px;
+}
+
+.Logout-button > p{
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+@media screen and (max-width: 500px){
+
+    .adminHeader > ul > li > button{
+        font-size: 18px;
+    }
+
+    .filter-inputs-container > .p-col {
+        margin-bottom: 10px; 
+    }
+
+    .filter-inputs-container {
+        flex-direction: column;
+        margin-bottom: 0px;
+    }
+ 
+    .Logout-button > p{
+        font-size: 18px;
+    }
+}
