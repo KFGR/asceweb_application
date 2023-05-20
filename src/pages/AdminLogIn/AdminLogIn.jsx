@@ -47,7 +47,7 @@ function Template() {
       <div className="adminLogIn" >
         <h1>Administrator Dashboard Login</h1>
       </div>  
-      <div className="admin-log-in" class = "loginbox mx-auto mt-5 w-25 p-5 bg-light border text-center">
+      <div className="admin-log-in loginbox mx-auto mt-5 w-25 p-5 bg-light border text-center">
           
         {/* Admin Username Input */}
         <div className="input-group mb-3">

@@ -51,7 +51,7 @@ function Template() {
       window.location.href = '/AdminLogIn';
     }
   }
-  waitAndRedirect()
+  waitAndRedirect();
 
   const [dataAdmin, setdataAdmin] = useState([]);  
   useEffect(() => {
@@ -59,7 +59,6 @@ function Template() {
       axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/admins/?masterAdminToken=${token}`)
         .then(response => {
             setdataAdmin(response.data.body); 
-            console.log(response.data); 
             if(response.data.status_code === 401){
               window.location.href = '/AdminLogIn';
             }
@@ -75,7 +74,6 @@ function Template() {
       axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/competitions/?masterAdminToken=${token}`)
         .then(response => {
           setDataCompetitions(response.data.body); 
-          console.log(response.data) 
           if(response.data.status_code === 401){
             window.location.href = '/AdminLogIn';
           }
@@ -147,7 +145,7 @@ function Template() {
 
     if(selectedButton === "Admin"){
       axios.get(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/table/admins/?masterAdminToken=${token}`)
-      .then(response => {setdataAdmin(response.data.body); console.log(response.data)})
+      .then(response => {setdataAdmin(response.data.body);})
       .catch(error => {console.error(error.message);});
     }
   }
@@ -264,11 +262,11 @@ function Template() {
       if (linkChanged) {
         axios.put(link)
           .then((response) => {
-            console.log(response.data);
             if (response.data.status_code === 201) {
               getData();
               alert(`${response.data.body}`);
             } else {
+              getData();
               alert(`${response.data.body}`);
             }
           })
@@ -313,15 +311,15 @@ function Template() {
       linkChanged = true;
     }
   }
-console.log(link)
+
   if (linkChanged) {
     axios.put(link)
       .then((response) => {
-        console.log(response.data);
         if (response.data.status_code === 201) {
           getData();
           alert(`${response.data.body}`);
         } else {
+          getData();
           alert(`${response.data.body}`);
         }
       })
@@ -360,11 +358,11 @@ console.log(link)
       if (linkChanged) {
         axios.put(link)
           .then((response) => {
-            console.log(response.data);
             if (response.data.status_code === 201) {
               getData();
               alert(`${response.data.body}`);
             } else {
+              getData();
               alert(`${response.data.body}`);
             }
           })
@@ -422,22 +420,39 @@ console.log(link)
     if(selectedButton === 'Students'){
 
       if(selectedStudents !== null){
-        
-        axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/deletemembers/?masterAdminToken=${token}&email=${selectedStudents.email}`)
-        .then((response) => {
-          console.log(response.data);
-          if(response.data.status_code === 200){
-            getData();
-            alert(`${response.data.body}`);
-            setselectedStudents(null)
-          }else{
-            alert(`${response.data.body}`);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+        // if(selectedStudents.length === 1){
 
+          const deleteEmailsStudents = selectedStudents.email
+          axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/deletemembers/?masterAdminToken=${token}&email=${deleteEmailsStudents}`)
+          .then((response) => {
+            if(response.data.status_code === 200){
+              getData();
+              alert(`${response.data.body}`);
+              setselectedStudents([])
+            }else{
+              alert(`${response.data.body}`);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+        // }else{
+        //   const deleteEmailsStudents = selectedStudents.map(obj => obj.email);
+
+        //   axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/list/deletemembers/?masterAdminToken=${token}&email=${deleteEmailsStudents}`)
+        //   .then((response) => {
+        //     if(response.data.status_code === 200){
+        //       getData();
+        //       alert(`${response.data.body}`);
+        //       setselectedStudents([])
+        //     }else{
+        //       alert(`${response.data.body}`);
+        //     }
+        //   })
+        //   .catch((error) => {
+        //     console.error(error);
+        //   });
+        // }
       }else{
         alert("SELECT A MEMBER TO DELETE");
       }
@@ -445,28 +460,46 @@ console.log(link)
     if(selectedButton === 'Competitions'){
       
       if(selectedCompetitions !== null){
-        
-        axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/competitionsmember/deletecompetitionsmember/?masterAdminToken=${token}&email=${selectedCompetitions.email}`)
-        .then((response) => {
-          console.log(response.data);
-          if(response.data.status_code === 200){
-            getData();
-            alert(`${response.data.body}`);
-            setselectedCompetitions(null)
-          }else{
-            alert(`${response.data.body}`);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+        // if(selectedCompetitions.length !== 1){
+          const deleteEmailsCompetitions = selectedCompetitions.email;
+
+          axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/competitionsmember/deletecompetitionsmember/?masterAdminToken=${token}&email=${deleteEmailsCompetitions}`)
+          .then((response) => {
+            if(response.data.status_code === 200){
+              getData();
+              alert(`${response.data.body}`);
+              setselectedCompetitions(null)
+            }else{
+              alert(`${response.data.body}`);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+
+        // }else{
+        //   const deleteEmailsCompetitions = selectedCompetitions.map(obj => obj.email);
+
+        //   axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/list/deletecompetitions/?masterAdminToken=${token}&email=${deleteEmailsCompetitions}`)
+        //   .then((response) => {
+        //     if(response.data.status_code === 200){
+        //       getData();
+        //       alert(`${response.data.body}`);
+        //       setselectedCompetitions([])
+        //     }else{
+        //       alert(`${response.data.body}`);
+        //     }
+        //   })
+        //   .catch((error) => {
+        //     console.error(error);
+        //   });
+        // }
       }else{
         alert("SELECT A COMPETITION SUBMITION TO DELETE");
       }
 
     }
     if(selectedButton === 'Admin'){
-      console.log(selectedAdmins)
       if(selectedAdmins === null){
         
        alert("SELECT A USER TO DELETE");
@@ -474,7 +507,6 @@ console.log(link)
       }else{
         axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/admin/deleteadminfromtable/?masterAdminToken=${token}&email=${selectedAdmins.email}`)
           .then((response) => {
-            console.log(response.data);
             if(response.data.status_code === 200){
               getData();
               alert(`${response.data.body}`);
@@ -491,7 +523,6 @@ console.log(link)
   }
 
   function Logout(){
-    console.log('test');
     localStorage.removeItem('token');
     window.location.href = '/AdminLogIn';
   }
@@ -508,9 +539,7 @@ console.log(link)
 
       axios.post(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/user/create/admin/createadmin/?userName=${newAdmin.userName}&passwd=${newAdmin.passwd}&name=${newAdmin.name}&email=${newAdmin.email}&phone=${newAdmin.phone}&adminLevel=${newAdmin.adminLevel}&token=${token}`)
         .then((response) => {
-          console.log(response.data);
           if(response.data.status_code === 201){
-            console.log('Data changed')
             alert(`${response.data.body}`);
             getData();
             setnewAdmin("")
@@ -539,7 +568,7 @@ console.log(link)
       </div>
       <div className="adminHeader">
         <ul>
-        <li><button id={selectedButton === 'Students' ? 'selected' : ''} onClick={() => switchTable('Students') }>Students</button></li>
+        <li><button id={selectedButton === 'Students' ? 'selected' : ''} onClick={() => switchTable('Students') }>Members</button></li>
         <li><button id={selectedButton === 'Competitions' ? 'selected' : ''} onClick={() => switchTable('Competitions')}>Competitions</button></li>
         <li><button id={selectedButton === 'Admin' ? 'selected' : ''} onClick={() => switchTable('Admin')}>Admin</button></li>
         </ul>
@@ -551,13 +580,12 @@ console.log(link)
           <div id="Students">
             <h2 className="tableHeader">ASCE Chapter Members</h2>
             <div>{renderFilterInputs("Students")}</div>
-            {/* <button className="delete" onClick={() => deleteInformation(selectedStudents) }>Delete</button> */}
-            {adminType === "MA" && (
+
               <button className="delete" onClick={() => setVisible(true) }>
                 <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960" width="28"><path d="M264.666 957.333q-35.499 0-59.749-24.25t-24.25-59.749V313.333H140v-84h210.666v-38.666h260.001v38.666h210.666v84h-40.667v560.001q0 33.724-25.137 58.862-25.137 25.137-58.862 25.137H264.666Zm432.001-644H264.666v560.001h432.001V313.333ZM351 788.334h84V397h-84v391.334Zm176 0h84V397h-84v391.334ZM264.666 313.333v560.001-560.001Z"/></svg> 
                 Delete
               </button>
-            )}
+
             <DataTable
               editMode="row"
               filters={filters}
@@ -572,9 +600,7 @@ console.log(link)
               rowClassName={"custom-row"}
               sortMode="multiple"
             >
-              {adminType === "MA" && (
-                <Column selectionMode="single" exportable={true}></Column>
-              )}
+              <Column selectionMode="single" exportable={true}></Column>
               <Column field="idchapter_members" header="ID Chapter Member" sortable />
               <Column field="name" header="Name"  sortable />
               <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable/>
@@ -611,13 +637,12 @@ console.log(link)
             <div id="Competitions">
               <h2 className="tableHeader">Competition Sign-up</h2>
               <div>{renderFilterInputs('Competitions')}</div>
-              {/* <button className="delete" onClick={() => deleteInformation(selectedCompetitions) }>Delete</button> */}
-              {adminType === "MA" && (
+
                 <button className="delete" onClick={() => setVisible(true) }>
                   <svg xmlns="http://www.w3.org/2000/svg" height="28" viewBox="0 96 960 960" width="28"><path d="M264.666 957.333q-35.499 0-59.749-24.25t-24.25-59.749V313.333H140v-84h210.666v-38.666h260.001v38.666h210.666v84h-40.667v560.001q0 33.724-25.137 58.862-25.137 25.137-58.862 25.137H264.666Zm432.001-644H264.666v560.001h432.001V313.333ZM351 788.334h84V397h-84v391.334Zm176 0h84V397h-84v391.334ZM264.666 313.333v560.001-560.001Z"/></svg> 
                   Delete
                 </button>
-              )}
+
               <DataTable
               editMode="row"
               filters={filters}
@@ -632,9 +657,7 @@ console.log(link)
               rowClassName={"custom-row"}
               sortMode="multiple"
               >
-                {adminType === "MA" && (
-                  <Column selectionMode="single" exportable={true}></Column>
-                )}
+                <Column selectionMode="single" exportable={true}></Column>
                 <Column field="idchapter_members" header="ID Chapter Member"/>
                 <Column field="name" header="Name"  />
                 <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable/>
