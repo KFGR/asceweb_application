@@ -109,8 +109,8 @@ function Template() {
     adminLevel: ''
   });
 
-  const [selectedStudents, setselectedStudents] = useState(null);
-  const [selectedCompetitions, setselectedCompetitions] = useState(null);
+  const [selectedStudents, setselectedStudents] = useState([]);
+  const [selectedCompetitions, setselectedCompetitions] = useState([]);
   const [selectedAdmins, setselectedAdmins] = useState(null);
   const [filters, setFilters] = useState({});
   const [selectedButton, setSelectedButton] = useState('Students');
@@ -202,7 +202,11 @@ function Template() {
 
       setDataStudents(_dataStudents);
       const editRow = _dataStudents[index];
-      updateRow(editRow, index);
+      if(checkEdits(editRow)){
+        updateRow(editRow, index);
+      }else{
+        getData();
+      }
     }
     if(selectedButton === 'Competitions'){
       let _dataCompetitions = [...dataCompetitions];
@@ -214,8 +218,11 @@ function Template() {
 
       setDataCompetitions(_dataCompetitions);
       const editRow = _dataCompetitions[index];
-      updateRow(editRow, index);
-
+      if(checkEdits(editRow)){
+        updateRow(editRow, index);
+      }else{
+        getData();
+      }
     }
     if(selectedButton === 'Admin'){
       let _dataAdmin = [...dataAdmin];
@@ -225,7 +232,12 @@ function Template() {
       
       const editRow = _dataAdmin[index];
       index = dataAdmin.findIndex(dataAdmin => dataAdmin.userName === editRow.userName);
-      updateRow(editRow, index);
+      if(checkEdits(editRow)){
+        updateRow(editRow, index);
+      }else{
+        getData();
+      }
+      
     }
 
   };
@@ -376,13 +388,109 @@ function Template() {
 
   }
 
+  function checkEdits(editRow){
+    const regexEmail = /^[a-z0-9_]+@[a-z]+(\.com)|[a-zA-Z]+_\d+@students\.pupr\.edu|[a-z]+@pupr\.edu$/;
+    const regexNumbers = /^[0-9]/;
+    const regexPhone = /^(?:\d{3}-\d{3}-\d{4}|\d{10})$/;
+    const regexPassword = /[A-Z](?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%&])[A-Za-z\d!@#$%&]{7,}$/;
+    let hasError = false;
+    
+    if(selectedButton === 'Students'){
+
+      if(!regexEmail.test(editRow.email)){
+        alert('INVALID EMAIL');
+        hasError = true;
+      }
+      if(!regexPhone.test(editRow.phone)){
+        alert('INVALID PHONE NUMBER');
+        hasError = true;
+      }
+      if(editRow.tshirt_size !== 'S' && editRow.tshirt_size !== 'M' && editRow.tshirt_size !== 'L' && editRow.tshirt_size !== 'XL'){
+        alert('INVALID TSHIRT SIZE VALUE ENTER "S", "M", "L", "XL"');
+        hasError = true;
+      }
+      if(!regexNumbers.test(editRow.age)){
+        alert('INVALID INPUT ENTER NUMBERS');
+        hasError = true;
+      }
+      if(!regexNumbers.test(editRow.aca_years)){
+        alert('INVALID INPUT ENTER NUMBERS');
+        hasError = true;
+      }
+      if(editRow.membership_paid !== 'Yes' && editRow.membership_paid !== 'No'){
+        alert('INVALID MEMBERSHIP PAID VALUE ENTER "Yes" or "No"');
+        hasError = true;
+      }
+    }
+    if(selectedButton === 'Competitions'){
+      if(!regexEmail.test(editRow.email)){
+        alert('INVALID EMAIL');
+        hasError = true;
+      }
+      if(!regexPhone.test(editRow.phone)){
+        alert('INVALID PHONE NUMBER');
+        hasError = true;
+      }
+      if(editRow.asce_member !== 'Yes' && editRow.asce_member !== 'No'){
+        alert('INVALID ASCE MEMBER VALUE ENTER "Yes" or "No"');
+        hasError = true;
+      }
+      if(!regexNumbers.test(editRow.ascemembership)){
+        alert('INVALID ASCE MEMBERSHIP ENTER NUMBERS');
+        hasError = true;
+      }
+      if(editRow.travel_availability !== 'Yes' && editRow.travel_availability !== 'No'){
+        alert('INVALID TRAVEL AVAILABILITY VALUE ENTER "Yes" or "No"');
+        hasError = true;
+      }
+      if(editRow.travel_june !== 'Yes' && editRow.travel_june !== 'No'){
+        alert('INVALID TRAVEL JUNE VALUE ENTER "Yes" or "No"');
+        hasError = true;
+      }
+      if(editRow.older_than_twentyfive !== 'Yes' && editRow.older_than_twentyfive !== 'No'){
+        alert('INVALID OLDER THAN 25 VALUE ENTER "Yes" or "No"');
+        hasError = true;
+      }
+      if(editRow.heavy_driver !== 'Yes' && editRow.heavy_driver !== 'No'){
+        alert('INVALID HEAVY VEHICLE LICENSE VALUE ENTER "Yes" or "No"');
+        hasError = true;
+      }
+      if(editRow.official_driver !== 'Yes' && editRow.official_driver !== 'No'){
+        alert('INVALID OFFICIAL DRIVER VALUE ENTER "Yes" or "No"');
+        hasError = true;
+      }
+      if(editRow.competitions_form !== 'Yes' && editRow.competitions_form !== 'No'){
+        alert('INVALID COMPETITION FORM VALUE ENTER "Yes" or "No"');
+        hasError = true;
+      }
+    }
+    if(selectedButton === 'Admin'){
+      if(!regexPassword.test(editRow.password)){
+        alert('INVALID PASSWORD \n STARTS 1 UPPERCASE MUST CONTAIN 1 SYMBOL 8 CHARACTERS LONG ');
+        hasError = true;
+      }
+      if(!regexEmail.test(editRow.email)){
+        alert('INVALID EMAIL');
+        hasError = true;
+      }
+      if(!regexPhone.test(editRow.phone)){
+        alert('INVALID PHONE NUMBER');
+        hasError = true;
+      }
+      if(editRow.adminLevel !== 'MA' && editRow.adminLevel !== 'GA'){
+        alert('INVALID ADMIN LEVEL ENTER "MA" or "GA"');
+        hasError = true;
+      }
+    }
+    return (!hasError);
+  }
 
   function checkAddAdminInputs(_newAdmin){
-    const regexPassword = /[A-Z](?=.*[a-z])(?=.*\d)(?=.*[!@#$%&])[A-Za-z\d!@#$%&]{7,}$/;
+    const regexPassword = /[A-Z](?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%&])[A-Za-z\d!@#$%&]{7,}$/;
     const regexUserName = /^[A-Z][A-Za-z0-9]*$/;
     const regexName = /^[A-Z][a-z]{2,}( [A-Z][a-z]{1,})+$/;
     const regexEmail = /^[a-z0-9_]+@[a-z]+(\.com)|[a-zA-Z]+_\d+@students\.pupr\.edu|[a-z]+@pupr\.edu$/;
-    const regexPhone = /^[0-9]{10}$/;
+    const regexPhone = /^(?:\d{3}-\d{3}-\d{4}|\d{10})$/;
     let hasError = false;
     
     
@@ -419,10 +527,11 @@ function Template() {
 
     if(selectedButton === 'Students'){
 
-      if(selectedStudents !== null){
-        // if(selectedStudents.length === 1){
+      if(selectedStudents.length !== 0){
+        if(selectedStudents.length === 1){
 
-          const deleteEmailsStudents = selectedStudents.email
+          const deleteEmailsStudents = selectedStudents[0].email
+
           axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/deletemembers/?masterAdminToken=${token}&email=${deleteEmailsStudents}`)
           .then((response) => {
             if(response.data.status_code === 200){
@@ -436,39 +545,39 @@ function Template() {
           .catch((error) => {
             console.error(error);
           });
-        // }else{
-        //   const deleteEmailsStudents = selectedStudents.map(obj => obj.email);
+        }else{
+          const deleteEmailsStudents = selectedStudents.map(obj => obj.email).join(",");
 
-        //   axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/list/deletemembers/?masterAdminToken=${token}&email=${deleteEmailsStudents}`)
-        //   .then((response) => {
-        //     if(response.data.status_code === 200){
-        //       getData();
-        //       alert(`${response.data.body}`);
-        //       setselectedStudents([])
-        //     }else{
-        //       alert(`${response.data.body}`);
-        //     }
-        //   })
-        //   .catch((error) => {
-        //     console.error(error);
-        //   });
-        // }
+          axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/list/deletemembers/?token=${token}&emails=${deleteEmailsStudents}`)
+          .then((response) => {
+            if(response.data.status_code === 200){
+              getData();
+              alert(`${response.data.body}`);
+              setselectedStudents([])
+            }else{
+              alert(`${response.data.body}`);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+        }
       }else{
         alert("SELECT A MEMBER TO DELETE");
       }
     }
     if(selectedButton === 'Competitions'){
       
-      if(selectedCompetitions !== null){
-        // if(selectedCompetitions.length !== 1){
-          const deleteEmailsCompetitions = selectedCompetitions.email;
+      if(selectedCompetitions.length !== 0){
+         if(selectedCompetitions.length === 1){
+          const deleteEmailsCompetitions = selectedCompetitions[0].email;
 
           axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/competitionsmember/deletecompetitionsmember/?masterAdminToken=${token}&email=${deleteEmailsCompetitions}`)
           .then((response) => {
             if(response.data.status_code === 200){
               getData();
               alert(`${response.data.body}`);
-              setselectedCompetitions(null)
+              setselectedCompetitions([])
             }else{
               alert(`${response.data.body}`);
             }
@@ -477,23 +586,23 @@ function Template() {
             console.error(error);
           });
 
-        // }else{
-        //   const deleteEmailsCompetitions = selectedCompetitions.map(obj => obj.email);
+        }else{
+          const deleteEmailsCompetitions = selectedCompetitions.map(obj => obj.email).join(",");
 
-        //   axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/list/deletecompetitions/?masterAdminToken=${token}&email=${deleteEmailsCompetitions}`)
-        //   .then((response) => {
-        //     if(response.data.status_code === 200){
-        //       getData();
-        //       alert(`${response.data.body}`);
-        //       setselectedCompetitions([])
-        //     }else{
-        //       alert(`${response.data.body}`);
-        //     }
-        //   })
-        //   .catch((error) => {
-        //     console.error(error);
-        //   });
-        // }
+          axios.delete(`https://ascewebbackend.azurewebsites.net/ascepupr/dashboard/admin/table/delete/members/list/deletecompetitions/?token=${token}&emails=${deleteEmailsCompetitions}`)
+          .then((response) => {
+            if(response.data.status_code === 200){
+              getData();
+              alert(`${response.data.body}`);
+              setselectedCompetitions([])
+            }else{
+              alert(`${response.data.body}`);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+        }
       }else{
         alert("SELECT A COMPETITION SUBMITION TO DELETE");
       }
@@ -600,7 +709,7 @@ function Template() {
               rowClassName={"custom-row"}
               sortMode="multiple"
             >
-              <Column selectionMode="single" exportable={true}></Column>
+              <Column selectionMode="multiple" exportable={true}></Column>
               <Column field="idchapter_members" header="ID Chapter Member" sortable />
               <Column field="name" header="Name"  sortable />
               <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable/>
@@ -621,7 +730,7 @@ function Template() {
             <div className="card flex justify-content-center">
               <Dialog header="WARNING" visible={visible} style={{ width: '25vw' }} onHide={() => setVisible(false)}>
                   <p className="m-0">
-                    Are you sure you want to delete this Members?
+                    Are you sure you want to {selectedStudents.length} Member?
                   </p>
                   <div className="cofinmation-button">
                     <div><button className="delete confirmation-yes"  onClick={() => deleteConfirmation()}>Yes</button></div>
@@ -657,7 +766,7 @@ function Template() {
               rowClassName={"custom-row"}
               sortMode="multiple"
               >
-                <Column selectionMode="single" exportable={true}></Column>
+                <Column selectionMode="multiple" exportable={true}></Column>
                 <Column field="idchapter_members" header="ID Chapter Member"/>
                 <Column field="name" header="Name"  />
                 <Column field="email" header="Email" editor={(options) => textEditor(options)} sortable/>
@@ -681,7 +790,7 @@ function Template() {
               <div className="card flex justify-content-center">
                 <Dialog header="WARNING" visible={visible} style={{ width: '25vw' }} onHide={() => setVisible(false)}>
                     <p className="m-0">
-                        Are you sure you want to delete this competition submissions?
+                        Are you sure you want to delete {selectedCompetitions.length} competition?
                     </p>
                     <div className="cofinmation-button">
                       <div><button className="delete confirmation-yes"  onClick={() => deleteConfirmation()}>Yes</button></div>
