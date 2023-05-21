@@ -22,6 +22,8 @@ function Template() {
     //validation constants
     const regexEmail = /^[a-zA-Z]+_[0-9]+@students\.pupr\.edu$/;
     const regexName = /[A-Z][a-z]{2,}( [A-Z][a-z]{1,})+$/ //ADDED FOR THE FIRST NAME LAST NAME VALIDATION
+    const regexPhone = /^(?:\d{3}-\d{3}-\d{4}|\d{10})$/;
+    const regexNumbers = /^[0-9]+$/;
     let hasError = false;
     console.log(formData.email) // this is a test line to ensure that checkInput is receiving data from formData, the email specifically
     if (!regexEmail.test(formData.email)){
@@ -34,6 +36,18 @@ function Template() {
     }
     if(formData.confirm !== true){
       alert('Please check the checkbox at the end of the form');
+      hasError = true;
+    }
+    if(!regexPhone.test(formData.phone)){
+      alert('Please enter a valid phone number');
+      hasError = true;
+    }
+    if(!regexNumbers.test(formData.age)){
+      alert('Please enter a valid age');
+      hasError = true;
+    }
+    if(!regexNumbers.test(formData.academic)){
+      alert('Please enter a valid academic year number');
       hasError = true;
     }
     
@@ -80,12 +94,6 @@ function Template() {
         console.error(error);
       });
 
-    }
-    else//THIS ELSE TAKES PLACE IF THE USER ENTERED AN INCORRECT EMAIL (SEE FUCNTION checkInput) 
-    {
-      console.log(formData);
-      console.log('error');
-      alert('Input ERROR');
     }
   };
 

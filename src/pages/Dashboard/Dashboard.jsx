@@ -390,7 +390,7 @@ function Template() {
 
   function checkEdits(editRow){
     const regexEmail = /^[a-z0-9_]+@[a-z]+(\.com)|[a-zA-Z]+_\d+@students\.pupr\.edu|[a-z]+@pupr\.edu$/;
-    const regexNumbers = /^[0-9]/;
+    const regexNumbers = /^[0-9]+$/;
     const regexPhone = /^(?:\d{3}-\d{3}-\d{4}|\d{10})$/;
     const regexPassword = /[A-Z](?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%&])[A-Za-z\d!@#$%&]{7,}$/;
     let hasError = false;

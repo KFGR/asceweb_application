@@ -26,7 +26,7 @@ function Template() {
   
 
   function checkInputs(formData){
-    const regexName = /^([a-zA-Z]+[’'`-]?[a-zA-Z]+[ ]?)+$/;
+    const regexName = /^[A-Z][a-z]{2,}( [A-Z][a-z]{1,})+$/;
     const regexEmail = /^[a-zA-Z]+_[0-9]+@students\.pupr\.edu$/;
     const regexText = /['";()&$%~`^*{}/+=[\\]|<>]/;
     var addError;
@@ -136,14 +136,7 @@ function Template() {
     event.preventDefault();
 
     if(checkInputs(formData)){
-      // Do something with the form data object
-
-
-      //Adding endpoint of the competition member table in the database backend. For this to work the following
-      //must be added to the endpoint of the signuptocompetitions table: ASCE number field for the ASCE number question,  
-      //June travel field for the June travel question, as well as add the field for the recent experience question,
-      //and eliminate the phone entry in this endpoint.
-
+      
       axios.post(`https://ascewebbackend.azurewebsites.net/ascepupr/competitions/form/signuptocompetition/?name=${formData.name}&email=${formData.email}&asce_member=${formData.ASCEMenber}&ascemembership_number=${formData.ASCENumber}&competition_name=${formData.Competitions}&courses=${formData.recentCourse}&experiences=${formData.Experience}&daily_availability=${formData.Weekday}&travel_availability=${formData.Travel}&travel_june=${formData.travelJune}&older_than_twentyfive=${formData.older25}&heavy_driver=${formData.heavyvehicleLicense}&official_driver=${formData.officialDriver}`)
       .then((response) => {
         console.log(response.data);
@@ -165,7 +158,6 @@ function Template() {
       });
       
     }else{
-      console.log('error');
       alert("Input ERROR")
     }
 
