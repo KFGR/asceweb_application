@@ -466,7 +466,7 @@ function Template() {
     }
     if(selectedButton === 'Admin'){
       if(!regexPassword.test(editRow.password)){
-        alert('INVALID PASSWORD \n STARTS 1 UPPERCASE MUST CONTAIN 1 SYMBOL 8 CHARACTERS LONG ');
+        alert('INVALID PASSWORD \n STARTS 1 UPPERCASE MUST CONTAIN 1 SYMBOL, 1 NUMBER, AND IS ATLEAST 8 CHARACTERS LONG ');
         hasError = true;
       }
       if(!regexEmail.test(editRow.email)){
@@ -499,7 +499,7 @@ function Template() {
       hasError = true;
     }
     if(!regexPassword.test(_newAdmin.passwd)){
-      alert('incorrect password \n *PASSWORD NEDDS TO BE 8 CHARACTERS LONG* \n *PASSWORD STARTS WITH UPPERCASE AND MUST CONTAIN ATLEAST 1 LOWERCASE AND 1 SYMBOL*');
+      alert('INVALID PASSWORD \n STARTS 1 UPPERCASE MUST CONTAIN 1 SYMBOL, 1 NUMBER, AND IS ATLEAST 8 CHARACTERS LONG ');
       hasError = true;
     }
     if(!regexName.test(_newAdmin.name)){
