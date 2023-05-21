@@ -25,17 +25,20 @@ function Template() {
     const regexPhone = /^(?:\d{3}-\d{3}-\d{4}|\d{10})$/;
     const regexNumbers = /^[0-9]+$/;
     let hasError = false;
-    console.log(formData.email) // this is a test line to ensure that checkInput is receiving data from formData, the email specifically
+    if(!regexName.test(formData.name)){ //ADDED FOR THE FIRST NAME LAST NAME VALIDATION
+      alert('Please enter your First Name and your Last Name only.');
+      hasError = true;
+    }
     if (!regexEmail.test(formData.email)){
       alert('Please enter a @students.pupr.edu valid email!');
       hasError = true;
     }
-    if(!regexName.test(formData.name)){ //ADDED FOR THE FIRST NAME LAST NAME VALIDATION
-      alert('Please enter your First Name and your Last Name only.');
-      return(hasError = true);
-    }
     if(formData.confirm !== true){
       alert('Please check the checkbox at the end of the form');
+      hasError = true;
+    }
+    if(formData.size !== "S" && formData.size !== "M" && formData.size !== "L" && formData.size !== "XL"){
+      alert('Please select a valid size');
       hasError = true;
     }
     if(!regexPhone.test(formData.phone)){
