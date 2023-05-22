@@ -10,6 +10,10 @@ function Template() {
     password: '',
     token: null,
   });
+  
+  if (window.innerWidth < 1000) {
+    window.location.href = '/home';
+  }
 
   const handleChange = (event) => {
     const { name, value }= event.target;
