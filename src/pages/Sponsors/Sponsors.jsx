@@ -147,6 +147,7 @@ function template() {
 
               <input type="hidden" name="_subject" value="New Sponsor form submission!"/>
               <input type="hidden" name="_template" value="table"/>
+              <input type="hidden" name="_url" value="https://www.examdev.net/Sponsors"></input>
               <button type="submit">Send</button>
             </form>
           </div>
