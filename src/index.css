@@ -31,3 +31,14 @@ html, body {
   padding-bottom: 0.5rem!important;
   background-color: #144a9a;
 }
+
+small{
+	color: red;
+	font-size: 100%;
+	font-weight: 800;
+	text-shadow: 0px 1px black;
+}
+
+label{
+  font-weight: 900;
+}

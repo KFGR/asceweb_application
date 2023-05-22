@@ -89,7 +89,7 @@ function template (){
         </div>
       </div>
     </section>
-
+ 
         {/* Section to display images about the chapter,  */}
        {/* <section className="container-fluid"> */}
        <section className="Images-carousel">
