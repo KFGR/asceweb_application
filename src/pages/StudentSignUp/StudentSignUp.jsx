@@ -190,7 +190,7 @@ function Template() {
         if(response.data.status_code === 201){
           alert(`${response.data.body}`);
           window.location.href = "/Home";
-          emailjs.send('service_he5fwo7','template_po5c80p', formData, 'cz8JC7lswvQNgszAG')
+          emailjs.send('service_he5fwo7','template_tsi8u6l', formData, 'cz8JC7lswvQNgszAG')
           .then((response) => {
             console.log('SUCCESS!', response.status, response.text);
           }, (err) => {
