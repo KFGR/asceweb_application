@@ -137,7 +137,7 @@ function Template() {
 
     if(checkInputs(formData)){
 
-      axios.post(`https://ascewebbackend.azurewebsites.net/ascepupr/competitions/form/signuptocompetition/?name=${formData.name}&email=${formData.email}&asce_member=${formData.ASCEMenber}&ascemembership_number=${formData.ASCENumber}&competition_name=${formData.Competitions}&courses=${formData.recentCourse}&experiences=${formData.Experience}&daily_availability=${formData.Weekday}&travel_availability=${formData.Travel}&travel_june=${formData.travelJune}&older_than_twentyfive=${formData.older25}&heavy_driver=${formData.heavyvehicleLicense}&official_driver=${formData.officialDriver}`)
+      axios.post(`https://ascepuprbackendtest.azurewebsites.net/ascepupr/competitions/form/signuptocompetition/?name=${formData.name}&email=${formData.email}&asce_member=${formData.ASCEMenber}&ascemembership_number=${formData.ASCENumber}&competition_name=${formData.Competitions}&courses=${formData.recentCourse}&experiences=${formData.Experience}&daily_availability=${formData.Weekday}&travel_availability=${formData.Travel}&travel_june=${formData.travelJune}&older_than_twentyfive=${formData.older25}&heavy_driver=${formData.heavyvehicleLicense}&official_driver=${formData.officialDriver}`)
       .then((response) => {
         console.log(response.data);
         if(response.data.status_code === 201){
