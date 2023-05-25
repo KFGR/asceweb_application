@@ -185,7 +185,7 @@ function Template() {
     event.preventDefault();
     if (checkInput(formData)){    
       // console.log(formData);
-      axios.post(`https://ascewebbackend.azurewebsites.net/ascewepupr/signup/form/signuptochapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`)
+      axios.post(`https://ascepuprbackendtest.azurewebsites.net/ascewepupr/signup/form/signuptochapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`)
       .then((response) => {
         if(response.data.status_code === 201){
           alert(`${response.data.body}`);
@@ -211,7 +211,7 @@ function Template() {
   // const handleSubmit = (event) => {
   //   event.preventDefault();
   //   if (checkInput(formData)) {
-  //     axios.post(`https://ascewebbackend.azurewebsites.net/ascewepupr/signup/form/signuptochapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`)
+  //     axios.post(`https://ascepuprbackendtest.azurewebsites.net/ascewepupr/signup/form/signuptochapter/?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&tshirt_size=${formData.size}&age=${formData.age}&bachelor=${formData.bachelor}&department=${formData.department}&Academic_Years=${formData.academic}`)
   //       .then((response) => {
   //         const messageContainer = document.getElementById('message-container');
   //         messageContainer.innerHTML = '';
